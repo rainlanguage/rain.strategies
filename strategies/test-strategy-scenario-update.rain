@@ -389,3 +389,175 @@ deployments:
   flare-sflr-joule:
     order: flare-sflr-joule
     scenario: flare.sflr-joule
+
+---
+
+#raindex-subparser !Subparser for the Raindex.
+
+#min-amount !Amount will decay down to this number each epoch.
+#max-amount !Amount will decay down from this number each epoch.
+#time-per-epoch !Duration of one unit of streaming amount and io ratio halflife.
+#shy-epoch !Epoch below which only the minimum amount is offered.
+#next-trade-multiplier !Start next auction at this x the last trade.
+#history-cap !The max amount of trade history kept for cost basis tracking (denominated in same token as tranche size).
+#amount-token !The token that is the amount token for the strategy. This denominates tranche sizes.
+#initial-io !The IO ratio that the strategy starts at. The quote token is the output so that the IO ratio looks like a CEX price.
+#initial-output-token !Initial output token for the initial IO ratio.
+#initial-input-token !Initial input token for the initial IO ratio.
+#cost-basis-multiplier !Multiplier for the cost basis IO ratio. Effectively a minimum spread.
+
+#is-fast-exit !Non-zero for fast exit behaviour.
+
+#last-trade-io-key "last-trade-io"
+#last-trade-time-key "last-trade-time"
+#last-trade-output-token-key "last-trade-output-token"
+#vwaio-key "cost-basis-io-ratio"
+
+#amount-is-output
+  _: equal-to(amount-token output-token());
+
+#get-cost-basis-io-ratio
+  this-total-out-key: hash(order-hash() input-token() output-token()),
+  this-vwaio-key: hash(this-total-out-key vwaio-key),
+  other-total-out-key: hash(order-hash() output-token() input-token()),
+  other-vwaio-key: hash(other-total-out-key vwaio-key),
+
+  this-total-out: get(this-total-out-key),
+  other-total-out: get(other-total-out-key),
+
+  this-vwaio: get(this-vwaio-key),
+  other-vwaio: get(other-vwaio-key);
+
+#set-cost-basis-io-ratio
+  /* first reduce outstanding inventory */
+  this-total-out-key
+  this-vwaio-key
+  other-total-out-key
+  other-vwaio-key
+  this-total-out
+  other-total-out
+  this-vwaio
+  other-vwaio: call<'get-cost-basis-io-ratio>(),
+
+  other-reduction-out: min(other-total-out input-vault-increase()),
+  reduced-other-total-out: sub(other-total-out other-reduction-out),
+
+  :set(other-total-out-key reduced-other-total-out),
+  :set(other-vwaio-key every(reduced-other-total-out other-vwaio)),
+
+  /* then increase our inventory */
+  this-total-in: mul(this-total-out this-vwaio),
+  this-remaining-in: sub(input-vault-increase() other-reduction-out),
+  this-new-in: add(this-total-in this-remaining-in),
+  this-remaining-out: div(this-remaining-in calculated-io-ratio()),
+  this-new-out: add(this-total-out this-remaining-out),
+  this-new-vwaio: every(this-new-out div(this-new-in any(this-new-out max-value()))),
+  cap-out: if(call<'amount-is-output>() history-cap div(history-cap any(this-new-vwaio calculated-io-ratio()))),
+  capped-out: min(this-new-out cap-out),
+
+  :set(this-total-out-key capped-out),
+  :set(this-vwaio-key this-new-vwaio);
+
+#halflife
+epoch:,
+/**
+ * Shrinking the multiplier like this
+ * then applying it 10 times allows for
+ * better precision when max-io-ratio
+ * is very large, e.g. ~1e10 or ~1e20+
+ *
+ * This works because `power` loses
+ * precision on base `0.5` when the
+ * exponent is large and can even go
+ * to `0` while the io-ratio is still
+ * large. Better to keep the multiplier
+ * higher precision and drop the io-ratio
+ * smoothly for as long as we can.
+ */
+multiplier:
+  power(0.5 div(epoch 10)),
+val:
+  mul(
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+  );
+
+#set-last-trade
+last-io:,
+:set(hash(order-hash() last-trade-time-key) now()),
+:set(hash(order-hash() last-trade-io-key) last-io),
+:set(hash(order-hash() last-trade-output-token-key) output-token());
+
+#handle-add-order
+using-words-from raindex-subparser
+:set(hash(order-hash() last-trade-time-key) now()),
+:set(hash(order-hash() last-trade-io-key) initial-io),
+:set(hash(order-hash() last-trade-output-token-key) initial-output-token),
+this-total-out-key: hash(order-hash() initial-input-token initial-output-token),
+:set(this-total-out-key 1e-18),
+:set(hash(this-total-out-key vwaio-key) initial-io);
+
+#get-last-trade
+stored-last-io:get(hash(order-hash() last-trade-io-key)),
+stored-last-output-token:get(hash(order-hash() last-trade-output-token-key)),
+last-time:get(hash(order-hash() last-trade-time-key)),
+_: if(equal-to(stored-last-output-token output-token()) stored-last-io inv(stored-last-io));
+
+#get-epoch
+last-time _: call<'get-last-trade>(),
+duration: sub(now() last-time),
+epochs: div(duration time-per-epoch);
+
+#amount-for-epoch
+epoch io:,
+decay: call<'halflife>(epoch),
+shy-decay: every(greater-than(epoch shy-epoch) decay),
+variable-component: sub(max-amount min-amount),
+base-amount: add(min-amount mul(variable-component shy-decay)),
+_: if(call<'amount-is-output>() base-amount mul(base-amount inv(io)));
+
+#io-for-epoch
+epoch:,
+last-io: call<'get-last-trade>(),
+this-vwaio
+other-vwaio: call<'get-cost-basis-io-ratio>(),
+cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio max-value()))) cost-basis-multiplier),
+max-next-trade: mul(max(cost-basis-io last-io) next-trade-multiplier),
+baseline: any(cost-basis-io last-io),
+variable-component: sub(max-next-trade baseline),
+decay: call<'halflife>(epoch),
+above-baseline: mul(variable-component decay),
+_: add(baseline above-baseline);
+
+#calculate-io
+using-words-from raindex-subparser
+epoch:call<'get-epoch>(),
+io: call<'io-for-epoch>(epoch),
+epoch-max-output: call<'amount-for-epoch>(epoch io),
+other-total-out
+_
+other-vwaio: call<'get-cost-basis-io-ratio>(),
+max-output: max(
+  epoch-max-output
+  every(
+    is-fast-exit
+    mul(other-total-out other-vwaio))),
+_: io,
+:call<'set-last-trade>(io);
+
+#handle-io
+min-trade-amount: mul(min-amount 0.9),
+:ensure(
+  greater-than-or-equal-to(
+    if(call<'amount-is-output>() output-vault-decrease() input-vault-increase())
+    min-trade-amount)
+  "Min trade amount."),
+:call<'set-cost-basis-io-ratio>();
