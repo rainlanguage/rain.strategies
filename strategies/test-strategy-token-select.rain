@@ -37,6 +37,13 @@ deployments:
   flare-input-output:
     order: flare-input-output
     scenario: flare
+tokens:
+  input:
+    network: flare
+    address: "0x0000000000000000000000000000000000000000"
+  output:
+    network: base
+    address: "0x0000000000000000000000000000000000000000"
 
 gui:
   name: Fixed limit
@@ -59,7 +66,7 @@ gui:
       fields:
         - binding: io-ratio
           name: Input to output ratio
-          description: How many [add handlebars] do you want to have per one [add handlebars]?
+          description: How many ${order.inputs.0.token.address} do you want to have per one ${order.outputs.0.token.address}?
         
       select-tokens:
         - input
