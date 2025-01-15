@@ -281,6 +281,7 @@ scenarios:
           initial-input-token: 0x833589fcd6edb6e08f4c7c32d4f71b54bda02913
 
   flare:
+    deployer: flare
     orderbook: flare
     runs: 1
     bindings:
@@ -337,6 +338,7 @@ scenarios:
           initial-output-token: 0x1502FA4be69d526124D453619276FacCab275d3D
           initial-input-token: 0xfbda5f676cb37624f28265a144a48b0d6e87d3b6
   polygon:
+    deployer: polygon
     orderbook: polygon
     runs: 1
     bindings:
@@ -393,6 +395,7 @@ scenarios:
           initial-output-token: 0x874e178a2f3f3f9d34db862453cd756e7eab0381
           initial-input-token: 0x2791bca1f2de4661ed88a30c99a7a9449aa84174
   bsc:
+    deployer: bsc
     orderbook: bsc
     runs: 1
     bindings:
@@ -413,6 +416,7 @@ scenarios:
           initial-output-token: 0x8f0FB159380176D324542b3a7933F0C2Fd0c2bbf
           initial-input-token: 0x8AC76a51cc950d9822D68b83fE1Ad97B32Cd580d
   ethereum:
+    deployer: ethereum
     orderbook: ethereum
     runs: 1
     bindings:
@@ -433,6 +437,7 @@ scenarios:
           initial-output-token: 0xd3E4Ba569045546D09CF021ECC5dFe42b1d7f6E4
           initial-input-token: 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2
   linea:
+    deployer: linea
     orderbook: linea
     runs: 1
     bindings:
