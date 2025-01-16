@@ -19,13 +19,13 @@ deployers:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
     network: flare
 orders:
-  flare-input-output:
+  flare-token1-token2:
     orderbook: flare
     network: flare
     inputs:
-      - token: input
+      - token: token1
     outputs:
-      - token: output
+      - token: token2
 scenarios:
   flare:
     deployer: flare
@@ -34,14 +34,14 @@ scenarios:
     bindings:
       io-ratio: 10
 deployments:
-  flare-input-output:
-    order: flare-input-output
+  flare-token1-token2:
+    order: flare-token1-token2
     scenario: flare
 tokens:
-  input:
+  token1:
     network: flare
     address: "0x12e605bc104e93B45e1aD99F9e555f659051c2BB"
-  output:
+  token2:
     network: flare
     address: "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d"
 
@@ -50,12 +50,12 @@ gui:
   description: >
     This strategy focuses on achieving a desired price level, regardless of market fluctuations, and does not adapt dynamically to changes in market conditions.
   deployments:
-    flare-input-output:
+    flare-token1-token2:
       name: Buy input with output on flare.
       description:
         Buy input with output with a fixed ratio on flare network.
       deposits:
-        - token: output
+        - token: token2
           min: 0
           presets:
             - 0
@@ -69,8 +69,8 @@ gui:
           description: How many ${order.inputs.0.token.address} do you want to have per one ${order.outputs.0.token.address}?
         
       select-tokens:
-        - input
-        - output
+        - token1
+        - token2
 ---
 #io-ratio !The io ratio for the limit order.
 #calculate-io
