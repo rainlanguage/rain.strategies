@@ -268,10 +268,12 @@ subgraphs:
 
 orderbooks:
   flare:
+    network: flare
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
 
 deployers:
   flare:
+    network: flare
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
 
 tokens:

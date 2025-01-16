@@ -37,13 +37,6 @@ deployments:
   flare-input-output:
     order: flare-input-output
     scenario: flare
-tokens:
-  input:
-    network: flare
-    address: "0x12e605bc104e93B45e1aD99F9e555f659051c2BB"
-  output:
-    network: flare
-    address: "0x1d80c49bbbcd1c0911346656b529df9e5c2f783d"
 
 gui:
   name: Fixed limit
