@@ -272,6 +272,7 @@ orderbooks:
 
 deployers:
   flare:
+    network: flare
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
 
 tokens:
