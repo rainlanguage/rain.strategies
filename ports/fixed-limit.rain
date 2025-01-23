@@ -33,13 +33,13 @@ deployers:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
 
 orders:
-  base-input-output:
+  base:
     orderbook: base
     inputs:
       - token: input
     outputs:
       - token: output
-  flare-input-output:
+  flare:
     orderbook: flare
     inputs:
       - token: input
@@ -52,43 +52,21 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-    scenarios:
-      weth-usdc:
-        runs: 1
-        bindings:
-          fixed-io-output-token: ${order.outputs.0.token.address}
+      fixed-io-output-token: ${order.outputs.0.token.address}
   flare:
     orderbook: flare
     runs: 1
     bindings:
       raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-    scenarios:
-      wflr-eusdt:
-        runs: 1
-        bindings:
-          fixed-io-output-token: ${order.outputs.0.token.address}
-      sflr-wflr:
-        runs: 1
-        bindings:
-          fixed-io-output-token: ${order.outputs.0.token.address}
-      usdce-weth:
-        runs: 1
-        bindings:
-          fixed-io-output-token: ${order.outputs.0.token.address}
+      fixed-io-output-token: ${order.outputs.0.token.address}
 
 deployments:
-  base-weth-usdc:
-    order: base-input-output
-    scenario: base.weth-usdc
-  flare-wflr-eusdt:
-    order: flare-input-output
-    scenario: flare.wflr-eusdt
-  flare-slfr-wflr:
-    order: flare-input-output
-    scenario: flare.sflr-wflr
-  flare-usdce-weth:
-    order: flare-input-output
-    scenario: flare.usdce-weth
+  base:
+    order: base
+    scenario: base
+  flare:
+    order: flare
+    scenario: flare
 
 gui:
   name: Fixed limit
