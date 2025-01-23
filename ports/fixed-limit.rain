@@ -95,7 +95,7 @@ gui:
   description: >
     Fixed limit order strategy
   deployments:
-    - deployment: base-weth-usdc
+    base-weth-usdc:
       name: Buy WETH with USDC on Base.
       description:
         Buy WETH with USDC for fixed price on Base network.
@@ -115,7 +115,7 @@ gui:
       select-tokens:
         - input
         - output
-    - deployment: flare-wflr-eusdt
+    flare-wflr-eusdt:
       name: Buy WFLR with eUSDT on Flare.
       description:
         Buy WFLR with eUSDT (Enosys USDT) for fixed price on Flare network.
@@ -135,7 +135,7 @@ gui:
       select-tokens:
         - input
         - output
-    - deployment: flare-slfr-wflr
+    flare-slfr-wflr:
       name: Buy SFLR with WFLR on Flare.
       description:
         Buy SFLR with WFLR for fixed price on Flare network.
@@ -155,7 +155,7 @@ gui:
       select-tokens:
         - input
         - output
-    - deployment: flare-usdce-weth
+    flare-usdce-weth:
       name: Buy WETH with USDC.e on Flare.
       description:
         Buy WETH with USDC.e (Bridged USDC on Stargate) for fixed price on Flare network.
