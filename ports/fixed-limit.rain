@@ -1,0 +1,201 @@
+raindex-version: 8898591f3bcaa21dc91dc3b8584330fc405eadfa
+
+networks:
+  base:
+    rpc: https://mainnet.base.org
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+  flare:
+    rpc: https://rpc.ankr.com/flare
+    chain-id: 14
+    network-id: 14
+    currency: FLR
+
+metaboards:
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
+  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+
+subgraphs:
+  base: https://example.com/subgraph
+  flare: https://example.com/subgraph
+
+orderbooks:
+  base:
+    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  flare:
+    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+
+deployers:
+  base:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  flare:
+    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+
+orders:
+  base-input-output:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  flare-input-output:
+    orderbook: flare
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+    scenarios:
+      weth-usdc:
+        runs: 1
+        bindings:
+          fixed-io-output-token: ${order.outputs.0.token.address}
+  flare:
+    orderbook: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+    scenarios:
+      wflr-eusdt:
+        runs: 1
+        bindings:
+          fixed-io-output-token: ${order.outputs.0.token.address}
+      sflr-wflr:
+        runs: 1
+        bindings:
+          fixed-io-output-token: ${order.outputs.0.token.address}
+      usdce-weth:
+        runs: 1
+        bindings:
+          fixed-io-output-token: ${order.outputs.0.token.address}
+
+deployments:
+  base-weth-usdc:
+    order: base-input-output
+    scenario: base.weth-usdc
+  flare-wflr-eusdt:
+    order: flare-input-output
+    scenario: flare.wflr-eusdt
+  flare-slfr-wflr:
+    order: flare-input-output
+    scenario: flare.sflr-wflr
+  flare-usdce-weth:
+    order: flare-input-output
+    scenario: flare.usdce-weth
+
+gui:
+  name: Fixed limit
+  description: >
+    Fixed limit order strategy
+  deployments:
+    - deployment: base-weth-usdc
+      name: Buy WETH with USDC on Base.
+      description:
+        Buy WETH with USDC for fixed price on Base network.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 10
+            - 100
+            - 1000
+            - 10000
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
+          min: 1000
+      select-tokens:
+        - input
+        - output
+    - deployment: flare-wflr-eusdt
+      name: Buy WFLR with eUSDT on Flare.
+      description:
+        Buy WFLR with eUSDT (Enosys USDT) for fixed price on Flare network.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 10
+            - 100
+            - 1000
+            - 10000
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
+          min: 0
+      select-tokens:
+        - input
+        - output
+    - deployment: flare-slfr-wflr
+      name: Buy SFLR with WFLR on Flare.
+      description:
+        Buy SFLR with WFLR for fixed price on Flare network.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 100
+            - 1000
+            - 10000
+            - 100000
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
+          min: 1
+      select-tokens:
+        - input
+        - output
+    - deployment: flare-usdce-weth
+      name: Buy WETH with USDC.e on Flare.
+      description:
+        Buy WETH with USDC.e (Bridged USDC on Stargate) for fixed price on Flare network.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 10
+            - 100
+            - 1000
+            - 10000
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
+          min: 1000
+      select-tokens:
+        - input
+        - output
+
+---
+#raindex-subparser !The subparser to use.
+
+#fixed-io !The io ratio for the limit order.
+#fixed-io-output-token !The output token that the fixed io is for. If this doesn't match the runtime output then the fixed-io will be inverted.
+
+#calculate-io
+using-words-from raindex-subparser
+max-output: max-value(),
+io: if(
+  equal-to(
+    output-token()
+    fixed-io-output-token
+  )
+  fixed-io
+  inv(fixed-io)
+);
+
+#handle-io
+:;
+
+#handle-add-order
+:;
