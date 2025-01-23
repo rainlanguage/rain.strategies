@@ -73,10 +73,10 @@ gui:
   description: >
     Fixed limit order strategy
   deployments:
-    base-weth-usdc:
-      name: Buy WETH with USDC on Base.
+    base:
+      name: Buy input token with output token on Base.
       description:
-        Buy WETH with USDC for fixed price on Base network.
+        Buy input token with output token for fixed price on Base network.
       deposits:
         - token: output
           min: 0
@@ -93,8 +93,8 @@ gui:
       select-tokens:
         - input
         - output
-    flare-wflr-eusdt:
-      name: Buy WFLR with eUSDT on Flare.
+    flare:
+      name: Buy input token with output token on Flare.
       description:
         Buy WFLR with eUSDT (Enosys USDT) for fixed price on Flare network.
       deposits:
@@ -110,46 +110,6 @@ gui:
         - binding: fixed-io
           name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
           min: 0
-      select-tokens:
-        - input
-        - output
-    flare-slfr-wflr:
-      name: Buy SFLR with WFLR on Flare.
-      description:
-        Buy SFLR with WFLR for fixed price on Flare network.
-      deposits:
-        - token: output
-          min: 0
-          presets:
-            - 0
-            - 100
-            - 1000
-            - 10000
-            - 100000
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
-          min: 1
-      select-tokens:
-        - input
-        - output
-    flare-usdce-weth:
-      name: Buy WETH with USDC.e on Flare.
-      description:
-        Buy WETH with USDC.e (Bridged USDC on Stargate) for fixed price on Flare network.
-      deposits:
-        - token: output
-          min: 0
-          presets:
-            - 0
-            - 10
-            - 100
-            - 1000
-            - 10000
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
-          min: 1000
       select-tokens:
         - input
         - output
