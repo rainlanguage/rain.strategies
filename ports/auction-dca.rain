@@ -1,0 +1,995 @@
+raindex-version: 8898591f3bcaa21dc91dc3b8584330fc405eadfa
+
+networks:
+  arbitrum:
+    rpc: https://rpc.ankr.com/arbitrum
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
+  bsc:
+    rpc: https://rpc.ankr.com/bsc
+    chain-id: 56
+    network-id: 56
+    currency: BNB
+  base:
+    rpc: https://mainnet.base.org
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+  ethereum:
+    rpc: https://rpc.ankr.com/eth
+    chain-id: 1
+    network-id: 1
+    currency: ETH
+  flare:
+    rpc: https://rpc.ankr.com/flare
+    chain-id: 14
+    network-id: 14
+    currency: FLR
+  polygon:
+    rpc: https://rpc.ankr.com/polygon
+    chain-id: 137
+    network-id: 137
+    currency: POL
+
+metaboards:
+  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base/0.1/gn
+  ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
+  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
+
+subgraphs:
+  arbitrum: https://example.com/subgraph
+  bsc: https://example.com/subgraph
+  base: https://example.com/subgraph
+  ethereum: https://example.com/subgraph
+  flare: https://example.com/subgraph
+  polygon: https://example.com/subgraph
+
+orderbooks:
+  arbitrum:
+    address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  bsc:
+    address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
+  base:
+    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  ethereum:
+    address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
+  flare:
+    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  polygon:
+    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
+
+deployers:
+  arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  bsc:
+    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  base:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  ethereum:
+    address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
+  flare:
+    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  polygon:
+    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+
+orders:
+  arbitrum:
+    orderbook: arbitrum
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  bsc:
+    orderbook: bsc
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  base:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  ethereum:
+    orderbook: ethereum
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  flare:
+    orderbook: flare
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  polygon:
+    orderbook: polygon
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  arbitrum:
+    orderbook: arbitrum
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      subparser-0: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
+  bsc:
+    orderbook: bsc
+    runs: 1
+    bindings:
+      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
+  polygon:
+    orderbook: polygon
+    runs: 1
+    bindings:
+      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      subparser-0: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
+  ethereum:
+    orderbook: ethereum
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
+      subparser-0: 0x22410e2a46261a1B1e3899a072f303022801C764
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
+  flare:
+    orderbook: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
+  flare-sflr-baseline:
+    orderbook: flare
+    deployer: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+      baseline-fn: '''sflr-baseline'
+      initial-io-fn: '''sflr-baseline'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
+  flare-sflr-baseline-inv:
+    orderbook: flare
+    deployer: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+      baseline-fn: '''sflr-baseline-inv'
+      initial-io-fn: '''sflr-baseline-inv'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
+
+deployments:
+  arbitrum:
+    order: arbitrum
+    scenario: arbitrum
+  polygon:
+    order: polygon
+    scenario: polygon
+  bsc:
+    order: bsc
+    scenario: bsc
+  base:
+    order: base
+    scenario: base
+  ethereum:
+    order: ethereum
+    scenario: ethereum
+  flare:
+    order: flare
+    scenario: flare
+
+gui:
+  name: Auction based cost averaging
+  description: >
+    Swap some token for another token regularly over time, using a preset budget.
+
+    This is called "cost averaging" because spreading out a single large swap
+    into many smaller swaps over time reduces the impact of temporary market
+    movements.
+
+    The strategy works by repeatedly auctioning off tokens with an exponential
+    decay in the price, that resets each trade.
+  deployments:
+    arbitrum:
+      name: Sell output token for input token on Arbitrum.
+      description: >
+        DCA output token for input token on Arbitrum.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 0.01
+            - 0.1
+            - 1
+            - 10
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: >
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 0.1 then 0.1 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          min: 600
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: baseline
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at (e.g. 3000).
+          min: 1000
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+        - binding: next-trade-baseline-multiplier
+          name: Auction end multiplier
+          description: >
+            The multiplier to apply to the last trade to set the baseline for the next auction.
+          min: 0
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 0.7x
+              value: 0.7
+            - name: 0.8x
+              value: 0.8
+            - name: 0.9x
+              value: 0.9
+            - name: 0.95x
+              value: 0.95
+            - name: 0.99x
+              value: 0.99
+        - binding: initial-io
+          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction (e.g. 3080).
+          min: 1000
+
+    polygon:
+      name: Sell output token for input token on Polygon.
+      description: >
+        DCA output token for input token on Polygon.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 1000
+            - 2000
+            - 10000
+            - 20000
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: >
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 1000 then 1000 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          min: 600
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: baseline
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at (e.g. 0.1).
+          min: 0.01
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+        - binding: next-trade-baseline-multiplier
+          name: Auction end multiplier
+          description: >
+            The multiplier to apply to the last trade to set the baseline for the next auction.
+          min: 0
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 0.7x
+              value: 0.7
+            - name: 0.8x
+              value: 0.8
+            - name: 0.9x
+              value: 0.9
+            - name: 0.95x
+              value: 0.95
+            - name: 0.99x
+              value: 0.99
+        - binding: initial-io
+          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction (e.g. 0.1).
+          min: 0.01
+
+    bsc:
+      name: Sell output token for input token on BSC.
+      description: >
+        Swap output token for input token on BSC.
+      deposits:
+        - token: output
+          min: 0
+          presets:
+            - 0
+            - 10
+            - 100
+            - 1000
+            - 10000
+
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: >
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 100 then 100 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: baseline
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at (e.g. 0.007 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}).
+          min: 0
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+        - binding: next-trade-baseline-multiplier
+          name: Auction end multiplier
+          description: >
+            The multiplier to apply to the last trade to set the baseline for the next auction.
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 0.7x
+              value: 0.7
+            - name: 0.8x
+              value: 0.8
+            - name: 0.9x
+              value: 0.9
+            - name: 0.95x
+              value: 0.95
+            - name: 0.99x
+              value: 0.99
+        - binding: initial-io
+          name: Kickoff BUSD per TFT
+          description: >
+            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction (e.g. 0.009 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+
+    base:
+      name: Sell output token for input token on Base.
+      description: >
+        Sell output token for input token on Base.
+      deposits:
+        - token: base
+          min: 0
+          presets:
+            - 0
+            - 100
+            - 1000
+            - 10000
+
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+          min: 1
+          presets:
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: >
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          presets:
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 4 hours (14400)
+              value: 14400
+        - binding: baseline
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at (e.g. 0.03 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+          presets:
+            - name: 0.01
+              value: 0.01
+            - name: 0.02
+              value: 0.02
+            - name: 0.05
+              value: 0.05
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+        - binding: next-trade-baseline-multiplier
+          name: Auction end multiplier
+          description: >
+            The multiplier to apply to the last trade to set the baseline for the next auction.
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 0.9x
+              value: 0.9
+            - name: 0.95x
+              value: 0.95
+        - binding: initial-io
+          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction (e.g. 0.05 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+          presets:
+            - name: 0.05
+              value: 0.05
+            - name: 0.1
+              value: 0.1
+
+    ethereum:
+      name: Sell output token for input token on Ethereum.
+      description: >
+        Swap output token for input token on Ethereum.
+      deposits:
+        - token: ethereum
+          min: 0
+          presets:
+            - 0
+            - 100
+            - 500
+            - 1000
+            - 5000
+            - 10000
+
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: >
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          presets:
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+        - binding: baseline
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at. (e.g. 0.0001 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+          presets:
+            - name: 0.0001
+              value: 0.0001
+            - name: 0.0005
+              value: 0.0005
+            - name: 0.001
+              value: 0.001
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+        - binding: next-trade-baseline-multiplier
+          name: Auction end multiplier
+          description: >
+            The multiplier to apply to the last trade to set the baseline for the next auction.
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 0.9x
+              value: 0.9
+            - name: 0.95x
+              value: 0.95
+        - binding: initial-io
+          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction. (e.g. 0.00015 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+          presets:
+            - name: 0.001
+              value: 0.001
+            - name: 0.002
+              value: 0.002
+            - name: 0.005
+              value: 0.005
+
+    flare:
+      name: Sell output token for input token on Flare.
+      description: >
+        Swap output token for input token on Flare.
+      deposits:
+        - token: flare
+          min: 0
+          presets:
+            - 0
+            - 100
+            - 200
+            - 500
+            - 1000
+            - 2000
+
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: >
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: >
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          presets:
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+        - binding: baseline
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at. (e.g. 1.3 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+        - binding: next-trade-baseline-multiplier
+          name: Auction end multiplier
+          description: >
+            The multiplier to apply to the last trade to set the baseline for the next auction.
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 0.9x
+              value: 0.9
+            - name: 0.95x
+              value: 0.95
+        - binding: initial-io
+          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: >
+            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction. (e.g. 1.4 ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol})
+          min: 0
+
+---
+#raindex-subparser !Raindex subparser.
+#subparser-0 !Subparser 0.
+
+#time-per-amount-epoch !Duration of one unit of streaming amount halflife.
+#amount-per-epoch !Amount of output token to approve for buying per epoch.
+#min-trade-amount !Each trade must be at least this many output tokens.
+#max-trade-amount !Each trade will be capped at this many tokens.
+
+#time-per-trade-epoch !Duration of one unit of io ratio halflife.
+#shy-epoch !Epoch below which only the minimum amount is offered.
+#baseline !Minimum io ratio. This component of the io ratio is ignored by the halflife calculations.
+
+#baseline-fn !Function to calculate the baseline for the next trade.
+
+#next-trade-multiplier !Start next auction at this x the last trade.
+#next-trade-baseline-multiplier !Lifts the baseline to here relative to the previous trade.
+
+#initial-io-fn !Function to calculate the initial io ratio for the first trade.
+#initial-io !Strat will be initialized with this as the starting last trade. Must be larger than baseline.
+
+#last-trade-time-key "last-trade-time"
+#last-trade-io-key "last-trade-io"
+#initial-time-key "initial-time"
+#amount-used-key "amount-used"
+
+#set-last-trade
+last-io:,
+:set(hash(order-hash() last-trade-time-key) now()),
+:set(hash(order-hash() last-trade-io-key) last-io);
+
+#set-initial-time
+:set(hash(order-hash() initial-time-key) now());
+
+#get-initial-time
+_:get(hash(order-hash() initial-time-key));
+
+#get-last-trade
+last-time:get(hash(order-hash() last-trade-time-key)),
+last-io:get(hash(order-hash() last-trade-io-key));
+
+#get-epoch
+initial-time: call<'get-initial-time>(),
+last-time _: call<'get-last-trade>(),
+duration: sub(now() any(last-time initial-time)),
+total-duration: sub(now() initial-time),
+ratio-freeze-amount-epochs: div(min-trade-amount amount-per-epoch),
+ratio-freeze-trade-epochs: mul(ratio-freeze-amount-epochs div(time-per-amount-epoch time-per-trade-epoch)),
+amount-epochs: div(total-duration time-per-amount-epoch),
+trade-epochs: saturating-sub(div(duration time-per-trade-epoch) ratio-freeze-trade-epochs);
+
+#amount-for-epoch
+amount-epochs
+trade-epochs:,
+total-available: linear-growth(0 amount-per-epoch amount-epochs),
+used: get(hash(order-hash() amount-used-key)),
+unused: sub(total-available used),
+decay: call<'halflife>(trade-epochs),
+shy-decay: every(greater-than(trade-epochs shy-epoch) decay),
+variable-component: sub(max-trade-amount min-trade-amount),
+target-amount: add(min-trade-amount mul(variable-component shy-decay)),
+capped-unused: min(unused target-amount);
+
+#halflife
+epoch:,
+/**
+ * Shrinking the multiplier like this
+ * then applying it 10 times allows for
+ * better precision when max-io-ratio
+ * is very large, e.g. ~1e10 or ~1e20+
+ *
+ * This works because `power` loses
+ * precision on base `0.5` when the
+ * exponent is large and can even go
+ * to `0` while the io-ratio is still
+ * large. Better to keep the multiplier
+ * higher precision and drop the io-ratio
+ * smoothly for as long as we can.
+ */
+multiplier:
+  power(0.5 div(epoch 10)),
+val:
+  mul(
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+    multiplier
+  );
+
+#io-for-epoch
+epoch:,
+last-io: call<'get-last-trade>(),
+max-next-trade: any(mul(last-io next-trade-multiplier) call<'initial-io-fn>()),
+baseline-next-trade: mul(last-io next-trade-baseline-multiplier),
+real-baseline: max(baseline-next-trade call<'baseline-fn>()),
+variable-component: saturating-sub(max-next-trade real-baseline),
+above-baseline: mul(variable-component call<'halflife>(epoch)),
+_: add(real-baseline above-baseline);
+
+#constant-initial-io
+_: initial-io;
+
+#constant-baseline
+_: baseline;
+
+#sflr-baseline
+_: sflr-exchange-rate();
+
+#sflr-baseline-inv
+_: inv(sflr-exchange-rate());
+
+#handle-add-order
+using-words-from raindex-subparser subparser-0
+:call<'set-initial-time>();
+
+#calculate-io
+using-words-from raindex-subparser subparser-0
+amount-epochs
+trade-epochs:call<'get-epoch>(),
+max-output: call<'amount-for-epoch>(amount-epochs trade-epochs),
+io: call<'io-for-epoch>(trade-epochs),
+:call<'set-last-trade>(io);
+
+#handle-io
+min-amount: mul(min-trade-amount 0.9),
+:ensure(greater-than-or-equal-to(output-vault-decrease() min-amount) "Min trade amount."),
+used: get(hash(order-hash() amount-used-key)),
+:set(hash(order-hash() amount-used-key) add(used output-vault-decrease()));
