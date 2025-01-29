@@ -251,6 +251,8 @@ gui:
       deposits:
         - token: output
           min: 0
+          presets:
+            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -364,6 +366,8 @@ gui:
       deposits:
         - token: output
           min: 0
+          presets:
+            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -477,6 +481,8 @@ gui:
       deposits:
         - token: output
           min: 0
+          presets:
+            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -590,6 +596,8 @@ gui:
       deposits:
         - token: output
           min: 0
+          presets:
+            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -703,6 +711,8 @@ gui:
       deposits:
         - token: output
           min: 0
+          presets:
+            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -816,6 +826,8 @@ gui:
       deposits:
         - token: output
           min: 0
+          presets:
+            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
