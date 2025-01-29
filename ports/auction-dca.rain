@@ -46,6 +46,14 @@ orderbooks:
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
 
+subgraphs:
+  arbitrum: https://example.com/subgraph
+  bsc: https://example.com/subgraph
+  base: https://example.com/subgraph
+  ethereum: https://example.com/subgraph
+  flare: https://example.com/subgraph
+  polygon: https://example.com/subgraph
+
 deployers:
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
@@ -109,14 +117,12 @@ orders:
       - token: output
   flare-sflr-wflr:
     orderbook: flare
-    network: flare
     inputs:
       - token: flare-sflr
     outputs:
       - token: flare-wflr
   flare-wflr-sflr:
     orderbook: flare
-    network: flare
     inputs:
       - token: flare-wflr
     outputs:
