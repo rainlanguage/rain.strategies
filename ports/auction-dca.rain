@@ -96,48 +96,56 @@ tokens:
 orders:
   arbitrum:
     orderbook: arbitrum
+    network: arbitrum
     inputs:
       - token: input
     outputs:
       - token: output
   bsc:
     orderbook: bsc
+    network: bsc
     inputs:
       - token: input
     outputs:
       - token: output
   base:
     orderbook: base
+    network: base
     inputs:
       - token: input
     outputs:
       - token: output
   ethereum:
     orderbook: ethereum
+    network: ethereum
     inputs:
       - token: input
     outputs:
       - token: output
   flare:
     orderbook: flare
+    network: flare
     inputs:
       - token: input
     outputs:
       - token: output
   polygon:
     orderbook: polygon
+    network: polygon
     inputs:
       - token: input
     outputs:
       - token: output
   flare-sflr-wflr:
     orderbook: flare
+    network: flare
     inputs:
       - token: flare-sflr
     outputs:
       - token: flare-wflr
   flare-wflr-sflr:
     orderbook: flare
+    network: flare
     inputs:
       - token: flare-wflr
     outputs:
