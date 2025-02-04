@@ -51,113 +51,68 @@ metaboards:
 orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
-    network: arbitrum
-    subgraph: arbitrum
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
-    network: bsc
-    subgraph: bsc
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
-    network: base
-    subgraph: base
   ethereum:
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
-    network: ethereum
-    subgraph: ethereum
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
-    network: polygon
-    subgraph: polygon
 
 deployers:
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
-    network: arbitrum
   bsc:
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-    network: bsc
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
-    network: base
   ethereum:
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
-    network: ethereum
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
-    network: polygon
-
-tokens:
-  flare-wflr:
-    network: flare
-    address: 0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d
-    decimals: 18
-  flare-sflr:
-    network: flare
-    address: 0x12e605bc104e93B45e1aD99F9e555f659051c2BB
-    decimals: 18
 
 orders:
   arbitrum:
     orderbook: arbitrum
-    network: arbitrum
     inputs:
       - token: input
     outputs:
       - token: output
   bsc:
     orderbook: bsc
-    network: bsc
     inputs:
       - token: input
     outputs:
       - token: output
   base:
     orderbook: base
-    network: base
     inputs:
       - token: input
     outputs:
       - token: output
   ethereum:
     orderbook: ethereum
-    network: ethereum
     inputs:
       - token: input
     outputs:
       - token: output
   flare:
     orderbook: flare
-    network: flare
     inputs:
       - token: input
     outputs:
       - token: output
   polygon:
     orderbook: polygon
-    network: polygon
     inputs:
       - token: input
     outputs:
       - token: output
-  flare-sflr-wflr:
-    orderbook: flare
-    network: flare
-    inputs:
-      - token: flare-sflr
-    outputs:
-      - token: flare-wflr
-  flare-wflr-sflr:
-    orderbook: flare
-    network: flare
-    inputs:
-      - token: flare-wflr
-    outputs:
-      - token: flare-sflr
 
 scenarios:
   arbitrum:
@@ -214,28 +169,6 @@ scenarios:
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
-  flare-sflr-baseline:
-    orderbook: flare
-    deployer: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
-      baseline-fn: '''sflr-baseline'
-      initial-io-fn: '''sflr-baseline'
-      next-trade-baseline-multiplier: 0
-      shy-epoch: 0.05
-  flare-sflr-baseline-inv:
-    orderbook: flare
-    deployer: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
-      baseline-fn: '''sflr-baseline-inv'
-      initial-io-fn: '''sflr-baseline-inv'
-      next-trade-baseline-multiplier: 0
-      shy-epoch: 0.05
 
 deployments:
   arbitrum:
@@ -256,12 +189,6 @@ deployments:
   flare:
     order: flare
     scenario: flare
-  flare-sflr-wflr:
-    order: flare-sflr-wflr
-    scenario: flare-sflr-baseline
-  flare-wflr-sflr:
-    order: flare-wflr-sflr
-    scenario: flare-sflr-baseline-inv
 
 gui:
   name: Auction based cost averaging
@@ -964,146 +891,6 @@ gui:
       select-tokens:
         - input
         - output
-      
-    flare-sflr-wflr:
-      name: Sell WFLR for SFLR on Flare based on underlying collateral.
-      description: >
-        Swap WFLR for SFLR on Flare based on underlying collateral.
-      deposits:
-        - token: flare-wflr
-          min: 0
-          presets:
-            - 0
-            - 100
-            - 200
-            - 500
-            - 1000
-            - 2000
-
-      fields:
-        - binding: time-per-amount-epoch
-          name: Budget period (in seconds)
-          description: >
-            The budget is spent over this time period.
-          min: 1
-          presets:
-            - name: Per minute (60)
-              value: 60
-            - name: Per hour (3600)
-              value: 3600
-            - name: Per day (86400)
-              value: 86400
-            - name: Per week (604800)
-              value: 604800
-        - binding: amount-per-epoch
-          name: Budget (WFLR per period)
-          description: >
-            The amount of WFLR to spend each budget period.
-          min: 0
-        - binding: max-trade-amount
-          name: Maximum trade size (WFLR)
-          description: >
-            The maximum amount of WFLR to sell in a single auction.
-          min: 0
-        - binding: min-trade-amount
-          name: Minimum trade size (WFLR)
-          description: >
-            The minimum amount of WFLR to sell in a single auction.
-          min: 0
-        - binding: time-per-trade-epoch
-          name: Auction period (in seconds)
-          description: >
-            The auction period is the time between each auction price halvening.
-          presets:
-            - name: Every half hour (1800)
-              value: 1800
-            - name: Every hour (3600)
-              value: 3600
-            - name: Every 2 hours (7200)
-              value: 7200
-        - binding: next-trade-multiplier
-          name: Auction start multiplier
-          description: >
-            The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
-          presets:
-            - name: 1.01x
-              value: 1.01
-            - name: 1.02x
-              value: 1.02
-            - name: 1.05x
-              value: 1.05
-
-    flare-wflr-sflr:
-      name: Sell SFLR for WFLR on Flare based on underlying collateral.
-      description: >
-        Swap SFLR for WFLR on Flare based on underlying collateral.
-      deposits:
-        - token: flare-sflr
-          min: 0
-          presets:
-            - 0
-            - 100
-            - 200
-            - 500
-            - 1000
-            - 2000
-
-      fields:
-        - binding: time-per-amount-epoch
-          name: Budget period (in seconds)
-          description: >
-            The budget is spent over this time period.
-          min: 1
-          presets:
-            - name: Per minute (60)
-              value: 60
-            - name: Per hour (3600)
-              value: 3600
-            - name: Per day (86400)
-              value: 86400
-            - name: Per week (604800)
-              value: 604800
-        - binding: amount-per-epoch
-          name: Budget (SFLR per period)
-          description: >
-            The amount of SFLR to spend each budget period.
-          min: 0
-        - binding: max-trade-amount
-          name: Maximum trade size (SFLR)
-          description: >
-            The maximum amount of SFLR to sell in a single auction.
-          min: 0
-        - binding: min-trade-amount
-          name: Minimum trade size (SFLR)
-          description: >
-            The minimum amount of SFLR to sell in a single auction.
-          min: 0
-        - binding: time-per-trade-epoch
-          name: Auction period (in seconds)
-          description: >
-            The auction period is the time between each auction price halvening.
-          presets:
-            - name: Every half hour (1800)
-              value: 1800
-            - name: Every hour (3600)
-              value: 3600
-            - name: Every 2 hours (7200)
-              value: 7200
-        - binding: next-trade-multiplier
-          name: Auction start multiplier
-          description: >
-            The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
-          presets:
-            - name: 1.01x
-              value: 1.01
-            - name: 1.02x
-              value: 1.02
-            - name: 1.05x
-              value: 1.05
-
-
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.
