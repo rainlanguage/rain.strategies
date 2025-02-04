@@ -76,6 +76,16 @@ deployers:
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
 
+tokens:
+  flare-wflr:
+    network: flare
+    address: 0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d
+    decimals: 18
+  flare-sflr:
+    network: flare
+    address: 0x12e605bc104e93B45e1aD99F9e555f659051c2BB
+    decimals: 18
+
 orders:
   arbitrum:
     orderbook: arbitrum
@@ -113,6 +123,18 @@ orders:
       - token: input
     outputs:
       - token: output
+  flare-sflr-wflr:
+    orderbook: flare
+    inputs:
+      - token: flare-sflr
+    outputs:
+      - token: flare-wflr
+  flare-wflr-sflr:
+    orderbook: flare
+    inputs:
+      - token: flare-wflr
+    outputs:
+      - token: flare-sflr
 
 scenarios:
   arbitrum:
@@ -169,6 +191,28 @@ scenarios:
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
+  flare-sflr-baseline:
+    orderbook: flare
+    deployer: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+      baseline-fn: '''sflr-baseline'
+      initial-io-fn: '''sflr-baseline'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
+  flare-sflr-baseline-inv:
+    orderbook: flare
+    deployer: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+      baseline-fn: '''sflr-baseline-inv'
+      initial-io-fn: '''sflr-baseline-inv'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
 
 deployments:
   arbitrum:
@@ -189,6 +233,12 @@ deployments:
   flare:
     order: flare
     scenario: flare
+  flare-sflr-wflr:
+    order: flare-sflr-wflr
+    scenario: flare-sflr-baseline
+  flare-wflr-sflr:
+    order: flare-wflr-sflr
+    scenario: flare-sflr-baseline-inv
 
 gui:
   name: Auction based cost averaging
@@ -891,6 +941,146 @@ gui:
       select-tokens:
         - input
         - output
+      
+    flare-sflr-wflr:
+      name: Sell WFLR for SFLR on Flare based on underlying collateral.
+      description: >
+        Swap WFLR for SFLR on Flare based on underlying collateral.
+      deposits:
+        - token: flare-wflr
+          min: 0
+          presets:
+            - 0
+            - 100
+            - 200
+            - 500
+            - 1000
+            - 2000
+
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+        - binding: amount-per-epoch
+          name: Budget (WFLR per period)
+          description: >
+            The amount of WFLR to spend each budget period.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (WFLR)
+          description: >
+            The maximum amount of WFLR to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (WFLR)
+          description: >
+            The minimum amount of WFLR to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          presets:
+            - name: Every half hour (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+
+    flare-wflr-sflr:
+      name: Sell SFLR for WFLR on Flare based on underlying collateral.
+      description: >
+        Swap SFLR for WFLR on Flare based on underlying collateral.
+      deposits:
+        - token: flare-sflr
+          min: 0
+          presets:
+            - 0
+            - 100
+            - 200
+            - 500
+            - 1000
+            - 2000
+
+      fields:
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: >
+            The budget is spent over this time period.
+          min: 1
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+        - binding: amount-per-epoch
+          name: Budget (SFLR per period)
+          description: >
+            The amount of SFLR to spend each budget period.
+          min: 0
+        - binding: max-trade-amount
+          name: Maximum trade size (SFLR)
+          description: >
+            The maximum amount of SFLR to sell in a single auction.
+          min: 0
+        - binding: min-trade-amount
+          name: Minimum trade size (SFLR)
+          description: >
+            The minimum amount of SFLR to sell in a single auction.
+          min: 0
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: >
+            The auction period is the time between each auction price halvening.
+          presets:
+            - name: Every half hour (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: >
+            The multiplier to apply to the last trade to kick off the next auction.
+          min: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+
+
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.
