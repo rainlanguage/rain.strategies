@@ -36,15 +36,15 @@ orders:
   base:
     orderbook: base
     inputs:
-      - token: input
+      - token: token1
     outputs:
-      - token: output
+      - token: token2
   flare:
     orderbook: flare
     inputs:
-      - token: input
+      - token: token1
     outputs:
-      - token: output
+      - token: token2
 
 scenarios:
   base:
@@ -70,15 +70,14 @@ deployments:
 
 gui:
   name: Fixed limit
-  description: >
-    Fixed limit order strategy
+  description: Fixed limit order strategy
   deployments:
     base:
-      name: Buy input token with output token on Base.
+      name: Buy token1 with token2 on Base.
       description:
-        Buy input token with output token for fixed price on Base network.
+        Buy token1 with token2 for fixed price on Base network.
       deposits:
-        - token: output
+        - token: token2
           min: 0
           presets:
             - 0
@@ -88,17 +87,17 @@ gui:
             - 10000
       fields:
         - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
-          min: 1000
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
       select-tokens:
-        - input
-        - output
+        - token1
+        - token2
     flare:
-      name: Buy input token with output token on Flare.
+      name: Buy token1 with token2 on Flare.
       description:
-        Buy input token with output token for fixed price on Flare network.
+        Buy token1 with token2 for fixed price on Flare network.
       deposits:
-        - token: output
+        - token: token2
           min: 0
           presets:
             - 0
@@ -108,11 +107,11 @@ gui:
             - 10000
       fields:
         - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} price in ${order.outputs.0.token.symbol} ($ per ${order.inputs.0.token.symbol})
-          min: 0
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
       select-tokens:
-        - input
-        - output
+        - token1
+        - token2
 
 ---
 #raindex-subparser !The subparser to use.
