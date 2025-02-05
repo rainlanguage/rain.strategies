@@ -96,7 +96,7 @@ gui:
     flare:
       name: Buy input token with output token on Flare.
       description:
-        Buy WFLR with eUSDT (Enosys USDT) for fixed price on Flare network.
+        Buy input token with output token for fixed price on Flare network.
       deposits:
         - token: output
           min: 0
