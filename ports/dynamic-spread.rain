@@ -538,7 +538,6 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
-          min: 600
           presets:
             - name: 1 hour (3600)
               value: 3600
