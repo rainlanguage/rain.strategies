@@ -258,9 +258,6 @@ gui:
         DCA output token for input token on Arbitrum.
       deposits:
         - token: output
-          min: 0
-          presets:
-            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -268,7 +265,6 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -288,22 +284,18 @@ gui:
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
           description: >
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: >
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
-          min: 600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -325,17 +317,14 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-          min: 0
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
-          min: 0
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -349,7 +338,6 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
-          min: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -373,9 +361,6 @@ gui:
         DCA output token for input token on Polygon.
       deposits:
         - token: output
-          min: 0
-          presets:
-            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -383,7 +368,6 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -403,22 +387,18 @@ gui:
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
           description: >
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: >
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
-          min: 600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -440,17 +420,14 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-          min: 0
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
-          min: 0
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -464,7 +441,6 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
-          min: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -488,9 +464,6 @@ gui:
         Swap output token for input token on BSC.
       deposits:
         - token: output
-          min: 0
-          presets:
-            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -498,7 +471,6 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -518,22 +490,18 @@ gui:
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
           description: >
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: >
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
-          min: 600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -555,17 +523,14 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-          min: 0
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
-          min: 0
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -579,7 +544,6 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
-          min: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -603,9 +567,6 @@ gui:
         Sell output token for input token on Base.
       deposits:
         - token: output
-          min: 0
-          presets:
-            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -613,7 +574,6 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -633,22 +593,18 @@ gui:
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
           description: >
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: >
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
-          min: 600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -670,17 +626,14 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-          min: 0
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
-          min: 0
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -694,7 +647,6 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
-          min: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -718,9 +670,6 @@ gui:
         Swap output token for input token on Ethereum.
       deposits:
         - token: output
-          min: 0
-          presets:
-            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -728,7 +677,6 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -748,22 +696,18 @@ gui:
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
           description: >
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: >
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
-          min: 600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -785,17 +729,14 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-          min: 0
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
-          min: 0
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -809,7 +750,6 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
-          min: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -833,9 +773,6 @@ gui:
         Swap output token for input token on Flare.
       deposits:
         - token: output
-          min: 0
-          presets:
-            - 0
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
@@ -843,7 +780,6 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -863,22 +799,18 @@ gui:
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
           description: >
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: >
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
-          min: 600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -900,17 +832,14 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-          min: 0
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
-          min: 0
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -924,7 +853,6 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
-          min: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -948,21 +876,11 @@ gui:
         Swap WFLR for SFLR on Flare based on underlying collateral.
       deposits:
         - token: flare-wflr
-          min: 0
-          presets:
-            - 0
-            - 100
-            - 200
-            - 500
-            - 1000
-            - 2000
-
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: >
             The budget is spent over this time period.
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -976,17 +894,14 @@ gui:
           name: Budget (WFLR per period)
           description: >
             The amount of WFLR to spend each budget period.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (WFLR)
           description: >
             The maximum amount of WFLR to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (WFLR)
           description: >
             The minimum amount of WFLR to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
@@ -1002,7 +917,6 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -1017,21 +931,11 @@ gui:
         Swap SFLR for WFLR on Flare based on underlying collateral.
       deposits:
         - token: flare-sflr
-          min: 0
-          presets:
-            - 0
-            - 100
-            - 200
-            - 500
-            - 1000
-            - 2000
-
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: >
             The budget is spent over this time period.
-          min: 1
           presets:
             - name: Per minute (60)
               value: 60
@@ -1045,17 +949,14 @@ gui:
           name: Budget (SFLR per period)
           description: >
             The amount of SFLR to spend each budget period.
-          min: 0
         - binding: max-trade-amount
           name: Maximum trade size (SFLR)
           description: >
             The maximum amount of SFLR to sell in a single auction.
-          min: 0
         - binding: min-trade-amount
           name: Minimum trade size (SFLR)
           description: >
             The minimum amount of SFLR to sell in a single auction.
-          min: 0
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
           description: >
@@ -1071,7 +972,6 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
-          min: 1.01
           presets:
             - name: 1.01x
               value: 1.01
