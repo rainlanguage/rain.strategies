@@ -78,13 +78,6 @@ gui:
         Buy token1 with token2 for fixed price on Base network.
       deposits:
         - token: token2
-          min: 0
-          presets:
-            - 0
-            - 10
-            - 100
-            - 1000
-            - 10000
       fields:
         - binding: fixed-io
           name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
@@ -98,13 +91,6 @@ gui:
         Buy token1 with token2 for fixed price on Flare network.
       deposits:
         - token: token2
-          min: 0
-          presets:
-            - 0
-            - 10
-            - 100
-            - 1000
-            - 10000
       fields:
         - binding: fixed-io
           name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
