@@ -248,9 +248,17 @@ gui:
       name: token1<>token2 on Arbitrum.
       description: Rotate token1 and token2 on Arbitrum.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -311,9 +319,17 @@ gui:
       name: token1<>token2 on Base.
       description: Rotate token1 and token2 on Base.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -374,9 +390,17 @@ gui:
       name: token1<>token2 on Flare.
       description: Rotate token1 and token2 on Flare.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -437,9 +461,17 @@ gui:
       name: token1<>token2 on Polygon.
       description: Rotate token1 and token2 on Polygon.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -500,9 +532,17 @@ gui:
       name: token1<>token2 on BSC.
       description: Rotate token1 and token2 on BSC.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -563,9 +603,17 @@ gui:
       name: token1<>token2 on Ethereum.
       description: Rotate token1 and token2 on Ethereum.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -626,9 +674,17 @@ gui:
       name: token1<>token2 on Linea.
       description: Rotate token1 and token2 on Linea.
       fields:
-        - binding: is-fast-exit
-          name: Fast exit?
-          description: If enabled, the strategy will attempt to exit any position it builds up in a single trade, as soon as it can do so profitably.
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -700,7 +756,8 @@ gui:
 #initial-input-token !Initial input token for the initial IO ratio.
 #cost-basis-multiplier !Multiplier for the cost basis IO ratio. Effectively a minimum spread.
 
-#is-fast-exit !Non-zero for fast exit behaviour.
+#amount-is-fast-exit !Non-zero for fast exit behaviour where the amount token is the fast exit token.
+#not-amount-is-fast-exit !Non-zero for fast exit behaviour where the not amount token is the fast exit token.
 
 #last-trade-io-key "last-trade-io"
 #last-trade-time-key "last-trade-time"
@@ -842,7 +899,7 @@ other-vwaio: call<'get-cost-basis-io-ratio>(),
 max-output: max(
   epoch-max-output
   every(
-    is-fast-exit
+    if(call<'amount-is-output>() amount-is-fast-exit not-amount-is-fast-exit)
     mul(other-total-out other-vwaio))),
 _: io,
 :call<'set-last-trade>(io);
