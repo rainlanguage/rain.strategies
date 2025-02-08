@@ -1,0 +1,4 @@
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/test-dynamic-spread.rain
+test-strategy https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/test-strategy-scenario-update.rain
+token-select https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/test-strategy-token-select.rain
+
