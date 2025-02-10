@@ -253,9 +253,8 @@ gui:
     decay in the price, that resets each trade.
   deployments:
     arbitrum:
-      name: Sell output token for input token on Arbitrum.
-      description: >
-        DCA output token for input token on Arbitrum.
+      name: Auction based cost averaging on Arbitrum.
+      description: DCA one token for another one on Arbitrum.
       deposits:
         - token: output
       fields:
@@ -360,9 +359,8 @@ gui:
           description: Select the token you want to sell
 
     polygon:
-      name: Sell output token for input token on Polygon.
-      description: >
-        DCA output token for input token on Polygon.
+      name: Auction based cost averaging on Polygon.
+      description: DCA one token for another one on Polygon.
       deposits:
         - token: output
       fields:
@@ -467,9 +465,8 @@ gui:
           description: Select the token you want to sell
 
     bsc:
-      name: Sell output token for input token on BSC.
-      description: >
-        Swap output token for input token on BSC.
+      name: Auction based cost averaging on BSC.
+      description: DCA one token for another one on BSC.
       deposits:
         - token: output
       fields:
@@ -574,9 +571,8 @@ gui:
           description: Select the token you want to sell
 
     base:
-      name: Sell output token for input token on Base.
-      description: >
-        Sell output token for input token on Base.
+      name: Auction based cost averaging on Base.
+      description: DCA one token for another one on Base.
       deposits:
         - token: output
       fields:
@@ -681,9 +677,8 @@ gui:
           description: Select the token you want to sell
 
     ethereum:
-      name: Sell output token for input token on Ethereum.
-      description: >
-        Swap output token for input token on Ethereum.
+      name: Auction based cost averaging on Ethereum.
+      description: DCA one token for another one on Ethereum.
       deposits:
         - token: output
       fields:
@@ -788,9 +783,8 @@ gui:
           description: Select the token you want to sell
 
     flare:
-      name: Sell output token for input token on Flare.
-      description: >
-        Swap output token for input token on Flare.
+      name: Auction based cost averaging on Flare.
+      description: DCA one token for another one on Flare.
       deposits:
         - token: output
       fields:
