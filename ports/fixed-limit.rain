@@ -83,8 +83,8 @@ gui:
           name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     flare:
       name: Buy token1 with token2 on Flare.
       description:
@@ -96,8 +96,8 @@ gui:
           name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 
 ---
 #raindex-subparser !The subparser to use.
