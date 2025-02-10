@@ -313,8 +313,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     base:
       name: token1<>token2 on Base.
       description: Rotate token1 and token2 on Base.
@@ -384,8 +384,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     flare:
       name: token1<>token2 on Flare.
       description: Rotate token1 and token2 on Flare.
@@ -455,8 +455,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     polygon:
       name: token1<>token2 on Polygon.
       description: Rotate token1 and token2 on Polygon.
@@ -526,8 +526,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     bsc:
       name: token1<>token2 on BSC.
       description: Rotate token1 and token2 on BSC.
@@ -597,8 +597,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     ethereum:
       name: token1<>token2 on Ethereum.
       description: Rotate token1 and token2 on Ethereum.
@@ -668,8 +668,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
     linea:
       name: token1<>token2 on Linea.
       description: Rotate token1 and token2 on Linea.
@@ -739,8 +739,8 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 ---
 #raindex-subparser !Subparser for the Raindex.
 
