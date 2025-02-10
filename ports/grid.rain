@@ -177,8 +177,8 @@ gui:
             - name: 24 hours (86400)
               value: 86400
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 
     ethereum:
       name: Grid sell token2 for token1 on Ethereum.
@@ -207,8 +207,8 @@ gui:
             - name: 24 hours (86400)
               value: 86400
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 
     bsc:
       name: Grid sell token2 for token1 on BSC.
@@ -237,8 +237,8 @@ gui:
             - name: 24 hours (86400)
               value: 86400
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 
     polygon:
       name: Grid sell token2 for token1 on Polygon.
@@ -267,8 +267,8 @@ gui:
             - name: 24 hours (86400)
               value: 86400
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 
     flare:
       name: Grid sell token2 for token1 on Flare.
@@ -297,8 +297,8 @@ gui:
             - name: 24 hours (86400)
               value: 86400
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+        - key: token2
 
 ---
 
