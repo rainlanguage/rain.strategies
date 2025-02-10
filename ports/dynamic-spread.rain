@@ -245,8 +245,8 @@ gui:
   description: The dynamic spread strategy for market-making uses time-based adjustments to maintain liquidity by narrowing spreads as market conditions stabilize, while recalculating averages and trade sizes to mitigate risks during trends.
   deployments:
     arbitrum:
-      name: token1<>token2 on Arbitrum.
-      description: Rotate token1 and token2 on Arbitrum.
+      name: Dynamic spread on Arbitrum.
+      description: Rotate two tokens on Arbitrum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -314,10 +314,14 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     base:
-      name: token1<>token2 on Base.
-      description: Rotate token1 and token2 on Base.
+      name: Dynamic spread on Base.
+      description: Rotate two tokens on Base.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -385,10 +389,14 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     flare:
-      name: token1<>token2 on Flare.
-      description: Rotate token1 and token2 on Flare.
+      name: Dynamic spread on Flare.
+      description: Rotate two tokens on Flare.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -456,10 +464,14 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     polygon:
-      name: token1<>token2 on Polygon.
-      description: Rotate token1 and token2 on Polygon.
+      name: Dynamic spread on Polygon.
+      description: Rotate two tokens on Polygon.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -527,10 +539,14 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     bsc:
-      name: token1<>token2 on BSC.
-      description: Rotate token1 and token2 on BSC.
+      name: Dynamic spread on BSC.
+      description: Rotate two tokens on BSC.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -598,10 +614,14 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     ethereum:
-      name: token1<>token2 on Ethereum.
-      description: Rotate token1 and token2 on Ethereum.
+      name: Dynamic spread on Ethereum.
+      description: Rotate two tokens on Ethereum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -669,10 +689,14 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     linea:
-      name: token1<>token2 on Linea.
-      description: Rotate token1 and token2 on Linea.
+      name: Dynamic spread on Linea.
+      description: Rotate two tokens on Linea.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -740,7 +764,11 @@ gui:
         - token: token2
       select-tokens:
         - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate.
         - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
 ---
 #raindex-subparser !Subparser for the Raindex.
 
