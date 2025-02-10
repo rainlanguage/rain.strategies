@@ -1,5 +1,5 @@
-grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/02a8318a30850f86dc792528e540ad35e60cc917/ports/grid.rain
-canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/a9185eee9b1882704361451733658a81f93b8434/ports/canary.rain
-auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/ae279dc8413f48cacb46530bad53efd36c924b55/ports/auction-dca.rain
-fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/688be74138d1e101216974992a2f5a2c128e06dd/ports/fixed-limit.rain
-dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/e81daaf6ab7a6ea7715ff963137b58bea771f280/ports/dynamic-spread.rain
+grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/21472a2388dfc38ca32cfa07400ebc73f086818f/ports/grid.rain
+canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/a372154abfe370a1f7c41008192baa61cecae383/ports/canary.rain
+auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/5d95c03a8a37c76606ee37d70841d879f3289680/ports/auction-dca.rain
+fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/7be56576620f9b6e9dbf570ae87f021e61d1d262/ports/fixed-limit.rain
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/8965e0d46a184cfd3e36384f195c5e1b4f16aa4a/ports/dynamic-spread.rain
