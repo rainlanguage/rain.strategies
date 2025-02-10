@@ -151,9 +151,9 @@ gui:
   description: Grid order strategy
   deployments:
     base:
-      name: Grid sell token2 for token1 on Base.
+      name: Grid sell tokens on Base.
       description:
-        Grid sell token2 for token1 on Base network.
+        Grid sell one token for another one on Base network.
       deposits:
         - token: token2
       fields:
@@ -178,12 +178,16 @@ gui:
               value: 86400
       select-tokens:
         - key: token1
+          name: Token to buy
+          description: Select the token you want to purchase.
         - key: token2
+          name: Token to sell
+          description: Select the token you want to sell.
 
     ethereum:
-      name: Grid sell token2 for token1 on Ethereum.
+      name: Grid sell tokens on Ethereum.
       description:
-        Grid sell token2 for token1 on Ethereum Mainnet.
+        Grid sell one token for another one on Ethereum network.
       deposits:
         - token: token2
       fields:
@@ -208,12 +212,15 @@ gui:
               value: 86400
       select-tokens:
         - key: token1
+          name: Token to buy
+          description: Select the token you want to purchase.
         - key: token2
-
+          name: Token to sell
+          description: Select the token you want to sell.
     bsc:
-      name: Grid sell token2 for token1 on BSC.
+      name: Grid sell tokens on BSC.
       description:
-        Grid sell token2 for token1 on BSC network.
+        Grid sell one token for another one on BSC network.
       deposits:
         - token: token2
       fields:
@@ -238,12 +245,16 @@ gui:
               value: 86400
       select-tokens:
         - key: token1
+          name: Token to buy
+          description: Select the token you want to purchase.
         - key: token2
+          name: Token to sell
+          description: Select the token you want to sell.
 
     polygon:
-      name: Grid sell token2 for token1 on Polygon.
+      name: Grid sell tokens on Polygon.
       description:
-        Grid sell token2 for token1 on Polygon network.
+        Grid sell one token for another one on Polygon network.
       deposits:
         - token: token2
       fields:
@@ -268,12 +279,16 @@ gui:
               value: 86400
       select-tokens:
         - key: token1
+          name: Token to buy
+          description: Select the token you want to purchase.
         - key: token2
+          name: Token to sell
+          description: Select the token you want to sell.
 
     flare:
-      name: Grid sell token2 for token1 on Flare.
+      name: Grid sell tokens on Flare.
       description:
-        Grid sell token2 for token1 on Flare network.
+        Grid sell one token for another one on Flare network.
       deposits:
         - token: token2
       fields:
@@ -298,7 +313,11 @@ gui:
               value: 86400
       select-tokens:
         - key: token1
+          name: Token to buy
+          description: Select the token you want to purchase.
         - key: token2
+          name: Token to sell
+          description: Select the token you want to sell.
 
 ---
 
