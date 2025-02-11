@@ -315,7 +315,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
@@ -390,7 +390,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
@@ -465,7 +465,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
@@ -540,7 +540,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
@@ -615,7 +615,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
@@ -690,7 +690,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
@@ -765,7 +765,7 @@ gui:
       select-tokens:
         - key: token1
           name: First token to rotate
-          description: Select the token you want to rotate.
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
         - key: token2
           name: Second token to rotate
           description: Select the token you want to rotate.
