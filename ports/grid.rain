@@ -148,7 +148,8 @@ deployments:
 
 gui:
   name: Grid
-  description: Grid order strategy
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/grid-markdown.md
+  short-description: Grid order strategy
   deployments:
     base:
       name: Grid sell token2 for token1 on Base.
