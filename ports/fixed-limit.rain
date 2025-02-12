@@ -74,9 +74,8 @@ gui:
   short-description: Fixed limit order strategy
   deployments:
     base:
-      name: Buy token1 with token2 on Base.
-      description:
-        Buy token1 with token2 for fixed price on Base network.
+      name: Fixed Limit Order on Base
+      description: Place a limit order to buy tokens at your specified fixed price on Base network.
       deposits:
         - token: token2
       fields:
@@ -84,12 +83,15 @@ gui:
           name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
     flare:
-      name: Buy token1 with token2 on Flare.
-      description:
-        Buy token1 with token2 for fixed price on Flare network.
+      name: Fixed Limit Order on Flare
+      description: Place a limit order to buy tokens at your specified fixed price on Flare network.
       deposits:
         - token: token2
       fields:
@@ -97,8 +99,12 @@ gui:
           name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
 
 ---
 #raindex-subparser !The subparser to use.
