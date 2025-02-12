@@ -71,7 +71,7 @@ deployments:
 gui:
   name: Fixed limit
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/demo-markdown.md
-  short_description: Short description of fixed limit order strategy
+  short_description: Fixed limit order strategy
   deployments:
     base:
       name: Buy token1 with token2 on Base.
