@@ -1,26 +1,15 @@
-# My First Markdown Document
-
-## Welcome
-This is a simple markdown document that shows some basic formatting options.
-
-## Text Formatting
-You can make text **bold** or *italic*. You can also create ~~strikethrough~~ text.
-
-## Lists
-### Unordered List
-* First item
-* Second item
-* Third item
+### Strategy Focus
+* Focuses on achieving a desired price level, regardless of market fluctuations.
+* Does not adapt dynamically to changes in market conditions.
 
 ### Ordered List
-1. First step
-2. Second step
-3. Third step
+1. Select which tokens should be used as input and output
+2. Specify how many input tokens you would like per output.
 
 ## Links and Images
-[Click here to visit Google](https://www.google.com)
+[Click here to learn more about Rain Strategies](https://docs.rainlang.xyz/learning-rainlang-in-60-minutes/raindex-in-20-minutes.svelte)
 
-![Placeholder image](https://via.placeholder.com/150)
+![Rain logo](https://docs.rainlang.xyz/img/logo.svg)
 
 ## Code
 Here's some inline code: `print("Hello World")`
@@ -29,10 +18,6 @@ Here's some inline code: `print("Hello World")`
 def greet(name):
     return f"Hello, {name}!"
 ```
-
-## Quotes
-> This is a blockquote.
-> It can span multiple lines.
 
 ## Tables
 | Header 1 | Header 2 |
