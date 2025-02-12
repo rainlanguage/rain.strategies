@@ -245,13 +245,6 @@ gui:
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/dca-markdown.md
   short-description:  >
     Swap some token for another token regularly over time, using a preset budget.
-
-    This is called "cost averaging" because spreading out a single large swap
-    into many smaller swaps over time reduces the impact of temporary market
-    movements.
-
-    The strategy works by repeatedly auctioning off tokens with an exponential
-    decay in the price, that resets each trade.
   deployments:
     arbitrum:
       name: Sell output token for input token on Arbitrum.
