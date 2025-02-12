@@ -242,7 +242,7 @@ deployments:
 
 gui:
   name: Two-sided dynamic spread strategies
-  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/dynamic-spread-markdown.md
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/dynamic-spread.md
   short-description: The dynamic spread strategy for market-making uses time-based adjustments to maintain liquidity by narrowing spreads as market conditions stabilize, while recalculating averages and trade sizes to mitigate risks during trends.
   deployments:
     arbitrum:
