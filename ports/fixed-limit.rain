@@ -69,8 +69,9 @@ deployments:
     scenario: flare
 
 gui:
-  name: Fixed Price Limit Order
-  description: Place limit orders to buy or sell tokens at your specified fixed price
+  name: Fixed limit
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/fixed-limit.md
+  short-description: Fixed limit order strategy
   deployments:
     base:
       name: Fixed Limit Order on Base

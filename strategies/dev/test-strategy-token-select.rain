@@ -40,8 +40,8 @@ deployments:
 
 gui:
   name: Fixed limit
-  description: >
-    This strategy focuses on achieving a desired price level, regardless of market fluctuations, and does not adapt dynamically to changes in market conditions.
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/fixed-limit.md
+  short-description: Fixed limit order strategy
   deployments:
     flare-input-output:
       name: Buy input with output on flare.

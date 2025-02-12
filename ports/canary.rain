@@ -153,8 +153,8 @@ deployments:
 
 gui:
   name: Canary
-  description: Does nothing except give a bounty to the solver regularly. Useful to test
-    that there are solvers active on a given network/Raindex deployment.
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/canary.md
+  short-description: Does nothing except give a bounty to the solver regularly.
   deployments:
     base:
       name: Canary on Base.

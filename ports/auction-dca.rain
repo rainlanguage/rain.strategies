@@ -242,15 +242,9 @@ deployments:
 
 gui:
   name: Auction based cost averaging
-  description: >
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/auction-dca.md
+  short-description:  >
     Swap some token for another token regularly over time, using a preset budget.
-
-    This is called "cost averaging" because spreading out a single large swap
-    into many smaller swaps over time reduces the impact of temporary market
-    movements.
-
-    The strategy works by repeatedly auctioning off tokens with an exponential
-    decay in the price, that resets each trade.
   deployments:
     arbitrum:
       name: Auction based cost averaging on Arbitrum.
