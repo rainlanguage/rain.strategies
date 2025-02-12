@@ -71,6 +71,7 @@ deployments:
 gui:
   name: Fixed limit
   description: Fixed limit order strategy
+  short_description: Short description of fixed limit order strategy
   deployments:
     base:
       name: Buy token1 with token2 on Base.
