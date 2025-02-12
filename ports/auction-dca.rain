@@ -242,7 +242,8 @@ deployments:
 
 gui:
   name: Auction based cost averaging
-  description: >
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/dca-markdown.md
+  short-description:  >
     Swap some token for another token regularly over time, using a preset budget.
 
     This is called "cost averaging" because spreading out a single large swap
