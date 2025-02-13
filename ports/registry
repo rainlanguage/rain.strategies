@@ -1,5 +1,6 @@
 fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/main/ports/fixed-limit.rain
 auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/main/ports/auction-dca.rain
+test https://raw.githubusercontent.com/rainlanguage/rain.strategies/main/ports/auction-dca.rain
 grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/main/ports/grid.rain
 dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/main/ports/dynamic-spread.rain
 canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/main/ports/canary.rain
