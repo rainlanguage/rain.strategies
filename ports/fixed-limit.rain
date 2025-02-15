@@ -210,8 +210,8 @@ gui:
   short-description: A very simple strategy that places a limit order at a fixed price.
   deployments:
     base:
-      name: Fixed Limit Order on Base
-      description: Place a limit order to buy tokens at your specified fixed price on Base network.
+      name: Base
+      description: Deploy a limit order on Base.
       deposits:
         - token: token2
       fields:
@@ -226,8 +226,8 @@ gui:
           name: Token to Sell
           description: Select the token you want to sell
     flare:
-      name: Fixed Limit Order on Flare
-      description: Place a limit order to buy tokens at your specified fixed price on Flare network.
+      name: Flare
+      description: Deploy a limit order on Flare.
       deposits:
         - token: token2
       fields:
@@ -242,8 +242,8 @@ gui:
           name: Token to Sell
           description: Select the token you want to sell
     linea:
-      name: Fixed Limit Order on Linea
-      description: Place a limit order to buy tokens at your specified fixed price on Linea network.
+      name: Linea
+      description: Deploy a limit order on Linea.
       deposits:
         - token: token2
       fields:
@@ -258,8 +258,8 @@ gui:
           name: Token to Sell
           description: Select the token you want to sell
     bsc:
-      name: Fixed Limit Order on BSC
-      description: Place a limit order to buy tokens at your specified fixed price on BSC network.
+      name: BSC
+      description: Deploy a limit order on BSC.
       deposits:
         - token: token2
       fields:
@@ -274,8 +274,8 @@ gui:
           name: Token to Sell
           description: Select the token you want to sell
     polygon:
-      name: Fixed Limit Order on Polygon
-      description: Place a limit order to buy tokens at your specified fixed price on Polygon network.
+      name: Polygon
+      description: Deploy a limit order on Polygon.
       deposits:
         - token: token2
       fields:
@@ -290,8 +290,8 @@ gui:
           name: Token to Sell
           description: Select the token you want to sell
     arbitrum:
-      name: Fixed Limit Order on Arbitrum
-      description: Place a limit order to buy tokens at your specified fixed price on Arbitrum network.
+      name: Arbitrum
+      description: Deploy a limit order on Arbitrum.
       deposits:
         - token: token2
       fields:
@@ -306,8 +306,8 @@ gui:
           name: Token to Sell
           description: Select the token you want to sell
     ethereum:
-      name: Fixed Limit Order on Ethereum
-      description: Place a limit order to buy tokens at your specified fixed price on Ethereum network.
+      name: Ethereum
+      description: Deploy a limit order on Ethereum.
       deposits:
         - token: token2
       fields:

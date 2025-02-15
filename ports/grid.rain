@@ -149,12 +149,12 @@ deployments:
 gui:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/grid.md
-  short-description: A trading strategy that places automated orders at fixed price intervals which can optionally automatically refill over time.
+  short-description: A strategy that places automated orders at fixed price intervals which can optionally automatically refill over time.
   deployments:
     base:
-      name: Grid sell tokens on Base.
+      name: Base
       description:
-        Grid sell one token for another one on Base network.
+        Deploy a grid strategy on Base.
       deposits:
         - token: token2
       fields:
@@ -186,9 +186,9 @@ gui:
           description: Select the token you want to sell.
 
     ethereum:
-      name: Grid sell tokens on Ethereum.
+      name: Ethereum
       description:
-        Grid sell one token for another one on Ethereum network.
+        Deploy a grid strategy on Ethereum.
       deposits:
         - token: token2
       fields:
@@ -219,9 +219,9 @@ gui:
           name: Token to sell
           description: Select the token you want to sell.
     bsc:
-      name: Grid sell tokens on BSC.
+      name: BSC
       description:
-        Grid sell one token for another one on BSC network.
+        Deploy a grid strategy on BSC.
       deposits:
         - token: token2
       fields:
@@ -253,9 +253,9 @@ gui:
           description: Select the token you want to sell.
 
     polygon:
-      name: Grid sell tokens on Polygon.
+      name: Polygon
       description:
-        Grid sell one token for another one on Polygon network.
+        Deploy a grid strategy on Polygon.
       deposits:
         - token: token2
       fields:
@@ -287,9 +287,9 @@ gui:
           description: Select the token you want to sell.
 
     flare:
-      name: Grid sell tokens on Flare.
+      name: Flare
       description:
-        Grid sell one token for another one on Flare network.
+        Deploy a grid strategy on Flare.
       deposits:
         - token: token2
       fields:
