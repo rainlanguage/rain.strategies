@@ -149,7 +149,7 @@ deployments:
 gui:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/grid.md
-  short-description: Grid order strategy
+  short-description: A trading strategy that places automated orders at fixed price intervals which can optionally automatically refill over time.
   deployments:
     base:
       name: Grid sell tokens on Base.

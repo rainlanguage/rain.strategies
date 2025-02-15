@@ -1,36 +1,91 @@
 raindex-version: 8898591f3bcaa21dc91dc3b8584330fc405eadfa
 
 networks:
-  base:
-    rpc: https://mainnet.base.org
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
   flare:
     rpc: https://rpc.ankr.com/flare
     chain-id: 14
     network-id: 14
     currency: FLR
+  base:
+    rpc: https://mainnet.base.org
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+  arbitrum:
+    rpc: https://rpc.ankr.com/arbitrum
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
+  polygon:
+    rpc: https://rpc.ankr.com/polygon
+    chain-id: 137
+    network-id: 137
+    currency: POL
+  bsc:
+    rpc: https://rpc.ankr.com/bsc
+    chain-id: 56
+    network-id: 56
+    currency: BNB
+  ethereum:
+    rpc: https://rpc.ankr.com/eth
+    chain-id: 1
+    network-id: 1
+    currency: ETH
+  linea:
+    rpc: https://rpc.linea.build
+    chain-id: 59144
+    network-id: 59144
+    currency: ETH
 
 metaboards:
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
+  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
+  bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
+  ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
+  linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
 
 subgraphs:
-  base: https://example.com/subgraph
   flare: https://example.com/subgraph
+  base: https://example.com/subgraph
+  arbitrum: https://example.com/subgraph
+  polygon: https://example.com/subgraph
+  bsc: https://example.com/subgraph
+  ethereum: https://example.com/subgraph
+  linea: https://example.com/subgraph
 
 orderbooks:
-  base:
-    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  base:
+    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  arbitrum:
+    address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  polygon:
+    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
+  bsc:
+    address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
+  ethereum:
+    address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
+  linea:
+    address: 0x22410e2a46261a1B1e3899a072f303022801C764
 
 deployers:
-  base:
-    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  base:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  polygon:
+    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+  ethereum:
+    address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
+  linea:
+    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  bsc:
+    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
 
 orders:
   base:
@@ -45,19 +100,85 @@ orders:
       - token: token1
     outputs:
       - token: token2
+  arbitrum:
+    orderbook: arbitrum
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
+  polygon:
+    orderbook: polygon
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
+  bsc:
+    orderbook: bsc
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
+  ethereum:
+    orderbook: ethereum
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
+  linea:
+    orderbook: linea
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
 
 scenarios:
+  arbitrum:
+    orderbook: arbitrum
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      fixed-io-output-token: ${order.outputs.0.token.address}
+  polygon:
+    orderbook: polygon
+    runs: 1
+    bindings:
+      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      fixed-io-output-token: ${order.outputs.0.token.address}
   base:
     orderbook: base
     runs: 1
     bindings:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       fixed-io-output-token: ${order.outputs.0.token.address}
+  polygon:
+    orderbook: polygon
+    runs: 1
+    bindings:
+      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      fixed-io-output-token: ${order.outputs.0.token.address}
+  ethereum:
+    orderbook: ethereum
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
+      fixed-io-output-token: ${order.outputs.0.token.address}
   flare:
     orderbook: flare
     runs: 1
     bindings:
       raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      fixed-io-output-token: ${order.outputs.0.token.address}
+  linea:
+    orderbook: linea
+    runs: 1
+    bindings:
+      raindex-subparser: 0xF77b3c3f61af5a3cE7f7CE3cfFc117491104432E
+      fixed-io-output-token: ${order.outputs.0.token.address}
+  bsc:
+    orderbook: bsc
+    runs: 1
+    bindings:
+      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       fixed-io-output-token: ${order.outputs.0.token.address}
 
 deployments:
@@ -67,11 +188,26 @@ deployments:
   flare:
     order: flare
     scenario: flare
+  arbitrum:
+    order: arbitrum
+    scenario: arbitrum
+  polygon:
+    order: polygon
+    scenario: polygon
+  ethereum:
+    order: ethereum
+    scenario: ethereum
+  linea:
+    order: linea
+    scenario: linea
+  bsc:
+    order: bsc
+    scenario: bsc
 
 gui:
   name: Fixed limit
-  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/fixed-limit.md
-  short-description: Fixed limit order strategy
+  description: A very simple strategy that places a limit order at a fixed price.
+  short-description: A very simple strategy that places a limit order at a fixed price.
   deployments:
     base:
       name: Fixed Limit Order on Base
@@ -92,6 +228,86 @@ gui:
     flare:
       name: Fixed Limit Order on Flare
       description: Place a limit order to buy tokens at your specified fixed price on Flare network.
+      deposits:
+        - token: token2
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+    linea:
+      name: Fixed Limit Order on Linea
+      description: Place a limit order to buy tokens at your specified fixed price on Linea network.
+      deposits:
+        - token: token2
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+    bsc:
+      name: Fixed Limit Order on BSC
+      description: Place a limit order to buy tokens at your specified fixed price on BSC network.
+      deposits:
+        - token: token2
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+    polygon:
+      name: Fixed Limit Order on Polygon
+      description: Place a limit order to buy tokens at your specified fixed price on Polygon network.
+      deposits:
+        - token: token2
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+    arbitrum:
+      name: Fixed Limit Order on Arbitrum
+      description: Place a limit order to buy tokens at your specified fixed price on Arbitrum network.
+      deposits:
+        - token: token2
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+    ethereum:
+      name: Fixed Limit Order on Ethereum
+      description: Place a limit order to buy tokens at your specified fixed price on Ethereum network.
       deposits:
         - token: token2
       fields:
