@@ -150,12 +150,6 @@ scenarios:
     bindings:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       fixed-io-output-token: ${order.outputs.0.token.address}
-  polygon:
-    orderbook: polygon
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-      fixed-io-output-token: ${order.outputs.0.token.address}
   ethereum:
     orderbook: ethereum
     runs: 1
