@@ -1,4 +1,4 @@
-fixed-limit ttps://raw.githubusercontent.com/rainlanguage/rain.strategies/5641b513d53bd5dbc70a8bd49d54d8b720b47112/ports/fixed-limit.rain
+fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/5641b513d53bd5dbc70a8bd49d54d8b720b47112/ports/fixed-limit.rain
 auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/5641b513d53bd5dbc70a8bd49d54d8b720b47112/ports/auction-dca.rain
 grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/5641b513d53bd5dbc70a8bd49d54d8b720b47112/ports/grid.rain
 dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/5641b513d53bd5dbc70a8bd49d54d8b720b47112/ports/dynamic-spread.rain
