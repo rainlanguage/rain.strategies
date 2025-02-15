@@ -244,11 +244,11 @@ gui:
   name: Auction based cost averaging
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/auction-dca.md
   short-description:  >
-    Swap some token for another token regularly over time, using a preset budget.
+    A strategy that aims to fill a time-based budget via looping auctions - useful for breaking up large trades into smaller amounts or smoothing out market volatility for regular investments.
   deployments:
     arbitrum:
-      name: Auction based cost averaging on Arbitrum.
-      description: DCA one token for another one on Arbitrum.
+      name: Arbitrum
+      description: Deploy an auction-based cost averaging strategy on Arbitrum.
       deposits:
         - token: output
       fields:
@@ -353,8 +353,8 @@ gui:
           description: Select the token you want to sell
 
     polygon:
-      name: Auction based cost averaging on Polygon.
-      description: DCA one token for another one on Polygon.
+      name: Polygon
+      description: Deploy an auction-based cost averaging strategy on Polygon.
       deposits:
         - token: output
       fields:
@@ -459,8 +459,8 @@ gui:
           description: Select the token you want to sell
 
     bsc:
-      name: Auction based cost averaging on BSC.
-      description: DCA one token for another one on BSC.
+      name: BSC
+      description: Deploy an auction-based cost averaging strategy on BSC.
       deposits:
         - token: output
       fields:
@@ -565,8 +565,8 @@ gui:
           description: Select the token you want to sell
 
     base:
-      name: Auction based cost averaging on Base.
-      description: DCA one token for another one on Base.
+      name: Base
+      description: Deploy an auction-based cost averaging strategy on Base.
       deposits:
         - token: output
       fields:
@@ -671,8 +671,8 @@ gui:
           description: Select the token you want to sell
 
     ethereum:
-      name: Auction based cost averaging on Ethereum.
-      description: DCA one token for another one on Ethereum.
+      name: Ethereum
+      description: Deploy an auction-based cost averaging strategy on Ethereum.
       deposits:
         - token: output
       fields:
@@ -777,8 +777,8 @@ gui:
           description: Select the token you want to sell
 
     flare:
-      name: Auction based cost averaging on Flare.
-      description: DCA one token for another one on Flare.
+      name: Flare
+      description: Deploy an auction-based cost averaging strategy on Flare.
       deposits:
         - token: output
       fields:

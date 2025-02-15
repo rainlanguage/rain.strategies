@@ -243,11 +243,11 @@ deployments:
 gui:
   name: Two-sided dynamic spread strategies
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/dynamic-spread.md
-  short-description: The dynamic spread strategy for market-making uses time-based adjustments to maintain liquidity by narrowing spreads as market conditions stabilize, while recalculating averages and trade sizes to mitigate risks during trends.
+  short-description: A market-making strategy that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.
   deployments:
     arbitrum:
-      name: Dynamic spread on Arbitrum.
-      description: Rotate two tokens on Arbitrum.
+      name: Arbitrum
+      description: Deploy a two-sided dynamic spread strategy on Arbitrum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -321,8 +321,8 @@ gui:
           name: Second token to rotate
           description: Select the token you want to rotate.
     base:
-      name: Dynamic spread on Base.
-      description: Rotate two tokens on Base.
+      name: Base
+      description: Deploy a two-sided dynamic spread strategy on Base.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -396,8 +396,8 @@ gui:
           name: Second token to rotate
           description: Select the token you want to rotate.
     flare:
-      name: Dynamic spread on Flare.
-      description: Rotate two tokens on Flare.
+      name: Flare
+      description: Deploy a two-sided dynamic spread strategy on Flare.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -471,8 +471,8 @@ gui:
           name: Second token to rotate
           description: Select the token you want to rotate.
     polygon:
-      name: Dynamic spread on Polygon.
-      description: Rotate two tokens on Polygon.
+      name: Polygon
+      description: Deploy a two-sided dynamic spread strategy on Polygon.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -546,8 +546,8 @@ gui:
           name: Second token to rotate
           description: Select the token you want to rotate.
     bsc:
-      name: Dynamic spread on BSC.
-      description: Rotate two tokens on BSC.
+      name: BSC
+      description: Deploy a two-sided dynamic spread strategy on BSC.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -621,8 +621,8 @@ gui:
           name: Second token to rotate
           description: Select the token you want to rotate.
     ethereum:
-      name: Dynamic spread on Ethereum.
-      description: Rotate two tokens on Ethereum.
+      name: Ethereum
+      description: Deploy a two-sided dynamic spread strategy on Ethereum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -696,8 +696,8 @@ gui:
           name: Second token to rotate
           description: Select the token you want to rotate.
     linea:
-      name: Dynamic spread on Linea.
-      description: Rotate two tokens on Linea.
+      name: Linea
+      description: Deploy a two-sided dynamic spread strategy on Linea.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
