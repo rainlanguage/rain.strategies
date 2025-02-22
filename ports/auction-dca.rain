@@ -143,8 +143,8 @@ scenarios:
     bindings:
       raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
       subparser-0: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
+      baseline-fn: '''start-price-relative-baseline'
+      initial-io-fn: '''start-price-relative-initial'
       shy-epoch: 0.05
   bsc:
     orderbook: bsc
@@ -152,8 +152,8 @@ scenarios:
     bindings:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
+      baseline-fn: '''start-price-relative-baseline'
+      initial-io-fn: '''start-price-relative-initial'
       shy-epoch: 0.05
   base:
     orderbook: base
@@ -161,8 +161,8 @@ scenarios:
     bindings:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
+      baseline-fn: '''start-price-relative-baseline'
+      initial-io-fn: '''start-price-relative-initial'
       shy-epoch: 0.05
   polygon:
     orderbook: polygon
@@ -170,8 +170,8 @@ scenarios:
     bindings:
       raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
       subparser-0: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
+      baseline-fn: '''start-price-relative-baseline'
+      initial-io-fn: '''start-price-relative-initial'
       shy-epoch: 0.05
   ethereum:
     orderbook: ethereum
@@ -179,8 +179,8 @@ scenarios:
     bindings:
       raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
       subparser-0: 0x22410e2a46261a1B1e3899a072f303022801C764
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
+      baseline-fn: '''start-price-relative-baseline'
+      initial-io-fn: '''start-price-relative-initial'
       shy-epoch: 0.05
   flare:
     orderbook: flare
@@ -188,8 +188,8 @@ scenarios:
     bindings:
       raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
       subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
+      baseline-fn: '''start-price-relative-baseline'
+      initial-io-fn: '''start-price-relative-initial'
       shy-epoch: 0.05
   flare-sflr-baseline:
     orderbook: flare
@@ -306,14 +306,22 @@ gui:
               value: 43200
             - name: Every 24 hours (86400)
               value: 86400
-        - binding: baseline
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: start-price-input
+          name: Start price (${order.inputs.0.token.symbol})
           description: >
-            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-        - binding: initial-io
-          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: start-price-output
+          name: Start price (${order.outputs.0.token.symbol})
           description: >
-            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+            The current $ price of ${order.outputs.0.token.symbol} to kickoff trading.
+        - binding: baseline-relative-ratio
+          name: Baseline relative ratio
+          description: >
+            The ratio of the start price to use as the baseline. For example, if this is 0.9 then the auction will never trade below 90% of the start price.
+        - binding: initial-relative-ratio
+          name: Kickoff ratio
+          description: >
+            The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -412,14 +420,22 @@ gui:
               value: 43200
             - name: Every 24 hours (86400)
               value: 86400
-        - binding: baseline
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: start-price-input
+          name: Start price (${order.inputs.0.token.symbol})
           description: >
-            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-        - binding: initial-io
-          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: start-price-output
+          name: Start price (${order.outputs.0.token.symbol})
           description: >
-            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+            The current $ price of ${order.outputs.0.token.symbol} to kickoff trading.
+        - binding: baseline-relative-ratio
+          name: Baseline relative ratio
+          description: >
+            The ratio of the start price to use as the baseline. For example, if this is 0.9 then the auction will never trade below 90% of the start price.
+        - binding: initial-relative-ratio
+          name: Kickoff relative ratio
+          description: >
+            The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -518,14 +534,22 @@ gui:
               value: 43200
             - name: Every 24 hours (86400)
               value: 86400
-        - binding: baseline
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: start-price-input
+          name: Start price (${order.inputs.0.token.symbol})
           description: >
-            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-        - binding: initial-io
-          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: start-price-output
+          name: Start price (${order.outputs.0.token.symbol})
           description: >
-            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+            The current $ price of ${order.outputs.0.token.symbol} to kickoff trading.
+        - binding: baseline-relative-ratio
+          name: Baseline relative ratio
+          description: >
+            The ratio of the start price to use as the baseline. For example, if this is 0.9 then the auction will never trade below 90% of the start price.
+        - binding: initial-relative-ratio
+          name: Kickoff relative ratio
+          description: >
+            The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -624,14 +648,22 @@ gui:
               value: 43200
             - name: Every 24 hours (86400)
               value: 86400
-        - binding: baseline
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: start-price-input
+          name: Start price (${order.inputs.0.token.symbol})
           description: >
-            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-        - binding: initial-io
-          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: start-price-output
+          name: Start price (${order.outputs.0.token.symbol})
           description: >
-            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+            The current $ price of ${order.outputs.0.token.symbol} to kickoff trading.
+        - binding: baseline-relative-ratio
+          name: Baseline relative ratio
+          description: >
+            The ratio of the start price to use as the baseline. For example, if this is 0.9 then the auction will never trade below 90% of the start price.
+        - binding: initial-relative-ratio
+          name: Kickoff relative ratio
+          description: >
+            The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -730,14 +762,22 @@ gui:
               value: 43200
             - name: Every 24 hours (86400)
               value: 86400
-        - binding: baseline
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: start-price-input
+          name: Start price (${order.inputs.0.token.symbol})
           description: >
-            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-        - binding: initial-io
-          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: start-price-output
+          name: Start price (${order.outputs.0.token.symbol})
           description: >
-            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+            The current $ price of ${order.outputs.0.token.symbol} to kickoff trading.
+        - binding: baseline-relative-ratio
+          name: Baseline relative ratio
+          description: >
+            The ratio of the start price to use as the baseline. For example, if this is 0.9 then the auction will never trade below 90% of the start price.
+        - binding: initial-relative-ratio
+          name: Kickoff relative ratio
+          description: >
+            The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -836,14 +876,22 @@ gui:
               value: 43200
             - name: Every 24 hours (86400)
               value: 86400
-        - binding: baseline
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: start-price-input
+          name: Start price (${order.inputs.0.token.symbol})
           description: >
-            The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
-        - binding: initial-io
-          name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: start-price-output
+          name: Start price (${order.outputs.0.token.symbol})
           description: >
-            The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+            The current $ price of ${order.outputs.0.token.symbol} to kickoff trading.
+        - binding: baseline-relative-ratio
+          name: Baseline relative ratio
+          description: >
+            The ratio of the start price to use as the baseline. For example, if this is 0.9 then the auction will never trade below 90% of the start price.
+        - binding: initial-relative-ratio
+          name: Kickoff relative ratio
+          description: >
+            The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -881,7 +929,7 @@ gui:
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
-      
+
     flare-sflr-wflr:
       name: Sell WFLR for SFLR on Flare based on underlying collateral.
       description: >
@@ -1004,15 +1052,17 @@ gui:
 
 #time-per-trade-epoch !Duration of one unit of io ratio halflife.
 #shy-epoch !Epoch below which only the minimum amount is offered.
-#baseline !Minimum io ratio. This component of the io ratio is ignored by the halflife calculations.
+
+#start-price-input !Price of the input token to start trading.
+#start-price-output !Price of the output token to start trading.
+#baseline-relative-ratio !Ratio of the start price to use as the baseline.
+#initial-relative-ratio !Ratio of the start price to use as the initial io ratio.
 
 #baseline-fn !Function to calculate the baseline for the next trade.
+#initial-io-fn !Function to calculate the initial io ratio for the first trade.
 
 #next-trade-multiplier !Start next auction at this x the last trade.
 #next-trade-baseline-multiplier !Lifts the baseline to here relative to the previous trade.
-
-#initial-io-fn !Function to calculate the initial io ratio for the first trade.
-#initial-io !Strat will be initialized with this as the starting last trade. Must be larger than baseline.
 
 #last-trade-time-key "last-trade-time"
 #last-trade-io-key "last-trade-io"
@@ -1098,11 +1148,22 @@ variable-component: saturating-sub(max-next-trade real-baseline),
 above-baseline: mul(variable-component call<'halflife>(epoch)),
 _: add(real-baseline above-baseline);
 
-#constant-initial-io
-_: initial-io;
+#start-price-io-ratio
+/**
+ * ( usd / output ) / ( usd / input )
+ * = ( usd / output ) * ( input / usd )
+ * = ( usd * input ) / ( output * usd )
+ * = input / output
+ */
+_: div(start-price-output start-price-input);
 
-#constant-baseline
-_: baseline;
+#start-price-relative-baseline
+start-ratio: call<'start-price-io-ratio>(),
+_: mul(baseline-relative-ratio start-ratio);
+
+#start-price-relative-initial
+start-ratio: call<'start-price-io-ratio>(),
+_: mul(initial-relative-ratio start-ratio);
 
 #sflr-baseline
 _: sflr-exchange-rate();
