@@ -242,7 +242,7 @@ deployments:
 
 gui:
   name: Two-sided dynamic spread strategies
-  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/dynamic-spread.md
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/dynamic-spread.md
   short-description: A market-making strategy that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.
   deployments:
     arbitrum:
