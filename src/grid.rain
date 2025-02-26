@@ -148,7 +148,7 @@ deployments:
 
 gui:
   name: Grid
-  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/main/strategies/dev/grid.md
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/grid.md
   short-description: A strategy that places automated orders at fixed price intervals which can optionally automatically refill over time.
   deployments:
     base:
