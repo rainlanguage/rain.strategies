@@ -165,6 +165,8 @@ gui:
       fields:
         - binding: cooldown
           name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
           presets:
             - name: Two minutes (120)
               value: 120
@@ -178,6 +180,8 @@ gui:
           name: Maximum bounty to give to the solver
         - binding: time-per-epoch
           name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
           presets:
             - name: 5 minutes
               value: 300
@@ -200,6 +204,8 @@ gui:
       fields:
         - binding: cooldown
           name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
           presets:
             - name: Two minutes (120)
               value: 120
@@ -213,6 +219,8 @@ gui:
           name: Maximum bounty to give to the solver
         - binding: time-per-epoch
           name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
           presets:
             - name: 5 minutes
               value: 300
@@ -235,6 +243,8 @@ gui:
       fields:
         - binding: cooldown
           name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
           presets:
             - name: Two minutes (120)
               value: 120
@@ -248,6 +258,8 @@ gui:
           name: Maximum bounty to give to the solver
         - binding: time-per-epoch
           name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
           presets:
             - name: 5 minutes
               value: 300
@@ -270,6 +282,8 @@ gui:
       fields:
         - binding: cooldown
           name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
           presets:
             - name: Two minutes (120)
               value: 120
@@ -283,6 +297,8 @@ gui:
           name: Maximum bounty to give to the solver
         - binding: time-per-epoch
           name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
           presets:
             - name: 5 minutes
               value: 300
@@ -305,6 +321,8 @@ gui:
       fields:
         - binding: cooldown
           name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
           presets:
             - name: Two minutes (120)
               value: 120
@@ -318,6 +336,8 @@ gui:
           name: Maximum bounty to give to the solver
         - binding: time-per-epoch
           name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
           presets:
             - name: 5 minutes
               value: 300

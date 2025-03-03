@@ -271,6 +271,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -281,6 +283,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -295,6 +299,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -346,6 +352,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -356,6 +364,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -370,6 +380,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -421,6 +433,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -431,6 +445,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -445,6 +461,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -496,6 +514,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -506,6 +526,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -520,6 +542,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -571,6 +595,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -581,6 +607,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -595,6 +623,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -646,6 +676,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -656,6 +688,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -670,6 +704,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -721,6 +757,8 @@ gui:
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -731,6 +769,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -745,6 +785,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
