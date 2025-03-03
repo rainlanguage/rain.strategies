@@ -166,6 +166,7 @@ gui:
           name: Tranche size in ${order.outputs.0.token.symbol}
         - binding: seconds-per-tranche
           name: Time to recharge one grid tranche in seconds (0 is disabled).
+          show-custom-field: true
           presets:
             - name: Disabled (0)
               value: 0

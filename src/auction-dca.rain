@@ -290,6 +290,7 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -327,6 +328,7 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
           presets:
             - name: 1.01x
               value: 1.01
@@ -340,6 +342,7 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
           presets:
             - name: Disabled (0)
               value: 0
