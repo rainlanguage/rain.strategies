@@ -258,6 +258,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
