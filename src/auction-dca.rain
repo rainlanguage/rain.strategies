@@ -258,6 +258,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -289,6 +290,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -322,10 +325,13 @@ gui:
           name: Kickoff ratio
           description: >
             The ratio of the start price to kickoff the first auction. For example, if this is 1.01 then the first auction will initialize at 1.01x the start price.
+          default: 1.05
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -339,6 +345,8 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
+          default: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -372,6 +380,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -403,6 +412,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -440,6 +451,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -453,6 +466,8 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
+          default: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -486,6 +501,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -517,6 +533,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -554,6 +572,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -567,6 +587,8 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
+          default: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -600,6 +622,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -631,6 +654,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -668,6 +693,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -681,6 +708,8 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
+          default: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -714,6 +743,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -745,6 +775,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -782,6 +814,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -795,6 +829,8 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
+          default: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -828,6 +864,7 @@ gui:
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -859,6 +896,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every 20 minutes (1200)
               value: 1200
@@ -896,6 +935,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -909,6 +950,8 @@ gui:
           name: Auction end multiplier
           description: >
             The multiplier to apply to the last trade to set the baseline for the next auction.
+          show-custom-field: true
+          default: 0
           presets:
             - name: Disabled (0)
               value: 0
@@ -941,6 +984,7 @@ gui:
           name: Budget period (in seconds)
           description: >
             The budget is spent over this time period.
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -966,6 +1010,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every half hour (1800)
               value: 1800
@@ -977,6 +1023,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -996,6 +1044,7 @@ gui:
           name: Budget period (in seconds)
           description: >
             The budget is spent over this time period.
+          show-custom-field: true
           presets:
             - name: Per minute (60)
               value: 60
@@ -1021,6 +1070,8 @@ gui:
           name: Auction period (in seconds)
           description: >
             The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: Every half hour (1800)
               value: 1800
@@ -1032,6 +1083,8 @@ gui:
           name: Auction start multiplier
           description: >
             The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
