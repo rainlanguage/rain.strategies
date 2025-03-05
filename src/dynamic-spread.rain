@@ -272,7 +272,7 @@ gui:
             The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
         - binding: amount-baseline-relative-ratio
           name: ${order.inputs.0.token.symbol} baseline relative ratio
-          description: The minimum relative baseline to the starting ${order.inputs.0.token.symbol} price. E.g. 0.9 means the price will never be 10% worse than starting.
+          description: The minimum relative baseline to the starting ${order.inputs.0.token.symbol} price. E.g. 0.9 means the price will never be 10% worse than starting when selling ${order.inputs.0.token.symbol}.
           show-custom-field: true
           default: 0
 
@@ -282,7 +282,7 @@ gui:
             The current $ price of ${order.inputs.1.token.symbol} to kickoff trading.
         - binding: not-amount-baseline-relative-ratio
           name: ${order.inputs.1.token.symbol} baseline relative ratio
-          description: The minimum relative baseline to the starting ${order.inputs.1.token.symbol} price. E.g. 0.9 means the price will never be 10% worse than starting.
+          description: The minimum relative baseline to the starting ${order.inputs.1.token.symbol} price. E.g. 0.9 means the price will never be 10% worse than starting when selling ${order.inputs.1.token.symbol}.
           show-custom-field: true
           default: 0
 
