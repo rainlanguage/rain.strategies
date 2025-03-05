@@ -981,11 +981,17 @@ _: if(call<'amount-is-output>() base-amount mul(base-amount inv(io)));
 #io-for-epoch
 epoch:,
 last-io: call<'get-last-trade>(),
+initial-io:call<'calc-initial-io>(),
+min-baseline-io:if(
+  call<'amount-is-output>()
+  mul(amount-baseline-relative-ratio initial-io)
+  mul(not-amount-baseline-relative-ratio inv(initial-io))),
+fallback-io:max(min-baseline-io last-io),
 this-vwaio
 other-vwaio: call<'get-cost-basis-io-ratio>(),
 cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio max-value()))) cost-basis-multiplier),
 max-next-trade: mul(max(cost-basis-io last-io) next-trade-multiplier),
-baseline: any(cost-basis-io last-io),
+baseline: any(cost-basis-io fallback-io),
 variable-component: sub(max-next-trade baseline),
 decay: call<'halflife>(epoch),
 above-baseline: mul(variable-component decay),
@@ -994,11 +1000,6 @@ _: add(baseline above-baseline);
 #calculate-io
 using-words-from raindex-subparser
 epoch:call<'get-epoch>(),
-initial-io:call<'calc-initial-io>(),
-baseline-io:if(
-  call<'amount-is-output>()
-  mul(amount-baseline-relative-ratio initial-io)
-  mul(not-amount-baseline-relative-ratio inv(initial-io))),
 io: call<'io-for-epoch>(epoch),
 epoch-max-output: call<'amount-for-epoch>(epoch io),
 other-total-out
@@ -1009,7 +1010,7 @@ max-output: max(
   every(
     if(call<'amount-is-output>() amount-is-fast-exit not-amount-is-fast-exit)
     mul(other-total-out other-vwaio))),
-_: max(baseline-io io),
+_: io,
 :call<'set-last-trade>(io);
 
 #handle-io
