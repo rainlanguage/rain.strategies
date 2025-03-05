@@ -265,9 +265,27 @@ gui:
               value: 1
             - name: No
               value: 0
-        - binding: initial-io
-          name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+
+        - binding: start-price-amount
+          name: Start price (${order.inputs.0.token.symbol})
+          description: >
+            The current $ price of ${order.inputs.0.token.symbol} to kickoff trading.
+        - binding: amount-baseline-relative-ratio
+          name: ${order.inputs.0.token.symbol} baseline relative ratio
+          description: The minimum relative baseline to the starting ${order.inputs.0.token.symbol} price. E.g. 0.9 means the price will never be 10% worse than starting when selling ${order.inputs.0.token.symbol}.
+          show-custom-field: true
+          default: 0
+
+        - binding: start-price-not-amount
+          name: Start price (${order.inputs.1.token.symbol})
+          description: >
+            The current $ price of ${order.inputs.1.token.symbol} to kickoff trading.
+        - binding: not-amount-baseline-relative-ratio
+          name: ${order.inputs.1.token.symbol} baseline relative ratio
+          description: The minimum relative baseline to the starting ${order.inputs.1.token.symbol} price. E.g. 0.9 means the price will never be 10% worse than starting when selling ${order.inputs.1.token.symbol}.
+          show-custom-field: true
+          default: 0
+
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -822,13 +840,17 @@ gui:
 #next-trade-multiplier !Start next auction at this x the last trade.
 #history-cap !The max amount of trade history kept for cost basis tracking (denominated in same token as tranche size).
 #amount-token !The token that is the amount token for the strategy. This denominates tranche sizes.
-#initial-io !The IO ratio that the strategy starts at. The quote token is the output so that the IO ratio looks like a CEX price.
-#initial-output-token !Initial output token for the initial IO ratio.
-#initial-input-token !Initial input token for the initial IO ratio.
+
+#start-price-amount !Price of the amount token to start trading.
+#start-price-not-amount !Price of the not amount token to start trading.
+
 #cost-basis-multiplier !Multiplier for the cost basis IO ratio. Effectively a minimum spread.
 
 #amount-is-fast-exit !Non-zero for fast exit behaviour where the amount token is the fast exit token.
+#amount-baseline-relative-ratio !The ratio of the amount token to the not amount token at the start of trading.
+
 #not-amount-is-fast-exit !Non-zero for fast exit behaviour where the not amount token is the fast exit token.
+#not-amount-baseline-relative-ratio !The ratio of the not amount token to the amount token at the start of trading.
 
 #last-trade-io-key "last-trade-io"
 #last-trade-time-key "last-trade-time"
@@ -918,12 +940,22 @@ last-io:,
 :set(hash(order-hash() last-trade-io-key) last-io),
 :set(hash(order-hash() last-trade-output-token-key) output-token());
 
+#calc-initial-io
+/**
+ * ( usd / output ) / ( usd / input )
+ * = ( usd / output ) * ( input / usd )
+ * = ( usd * input ) / ( output * usd )
+ * = input / output
+ */
+_: div(start-price-amount start-price-not-amount);
+
 #handle-add-order
-using-words-from raindex-subparser
+using-words-from raindex-subparser,
+initial-io: call<'calc-initial-io>(),
 :set(hash(order-hash() last-trade-time-key) now()),
 :set(hash(order-hash() last-trade-io-key) initial-io),
-:set(hash(order-hash() last-trade-output-token-key) initial-output-token),
-this-total-out-key: hash(order-hash() initial-input-token initial-output-token),
+:set(hash(order-hash() last-trade-output-token-key) amount-token),
+this-total-out-key: hash(order-hash() initial-not-amount-token initial-amount-token),
 :set(this-total-out-key 1e-18),
 :set(hash(this-total-out-key vwaio-key) initial-io);
 
@@ -949,11 +981,17 @@ _: if(call<'amount-is-output>() base-amount mul(base-amount inv(io)));
 #io-for-epoch
 epoch:,
 last-io: call<'get-last-trade>(),
+initial-io:call<'calc-initial-io>(),
+min-baseline-io:if(
+  call<'amount-is-output>()
+  mul(amount-baseline-relative-ratio initial-io)
+  mul(not-amount-baseline-relative-ratio inv(initial-io))),
+fallback-io:max(min-baseline-io last-io),
 this-vwaio
 other-vwaio: call<'get-cost-basis-io-ratio>(),
 cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio max-value()))) cost-basis-multiplier),
 max-next-trade: mul(max(cost-basis-io last-io) next-trade-multiplier),
-baseline: any(cost-basis-io last-io),
+baseline: any(cost-basis-io fallback-io),
 variable-component: sub(max-next-trade baseline),
 decay: call<'halflife>(epoch),
 above-baseline: mul(variable-component decay),
