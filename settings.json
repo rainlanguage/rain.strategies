@@ -25,7 +25,7 @@
 			"currency": "ETH"
 		},
 		"bsc": {
-			"rpc": "https://rpc.ankr.com/bsc",
+			"rpc": "https://bsc-dataseed.bnbchain.org",
 			"chain-id": 56,
 			"network-id": 56,
 			"currency": "BNB"
