@@ -2,7 +2,7 @@
 	"accounts": {},
 	"networks": {
 		"flare": {
-			"rpc": "https://rpc.ankr.com/flare",
+			"rpc": "https://flare.rpc.thirdweb.com",
 			"chain-id": 14,
 			"currency": "FLR"
 		},
@@ -13,19 +13,19 @@
 			"currency": "ETH"
 		},
 		"polygon": {
-			"rpc": "https://rpc.ankr.com/polygon",
+			"rpc": "https://1rpc.io/matic",
 			"chain-id": 137,
 			"network-id": 137,
 			"currency": "POL"
 		},
 		"arbitrum": {
-			"rpc": "https://rpc.ankr.com/arbitrum",
+			"rpc": "https://arbitrum.meowrpc.com",
 			"chain-id": 42161,
 			"network-id": 42161,
 			"currency": "ETH"
 		},
 		"bsc": {
-			"rpc": "https://rpc.ankr.com/bsc",
+			"rpc": "https://bsc-dataseed.bnbchain.org",
 			"chain-id": 56,
 			"network-id": 56,
 			"currency": "BNB"
@@ -37,7 +37,7 @@
 			"currency": "ETH"
 		},
 		"ethereum": {
-			"rpc": "https://rpc.ankr.com/eth",
+			"rpc": "https://1rpc.io/eth",
 			"chain-id": 1,
 			"network-id": 1,
 			"currency": "ETH"
