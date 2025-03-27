@@ -84,7 +84,7 @@ networks:
     network-id: 8453
     currency: ETH
   arbitrum:
-    rpc: https://arbitrum.meowrpc.com
+    rpc: https://1rpc.io/arb
     chain-id: 42161
     network-id: 42161
     currency: ETH

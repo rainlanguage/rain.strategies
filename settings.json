@@ -19,7 +19,7 @@
 			"currency": "POL"
 		},
 		"arbitrum": {
-			"rpc": "https://arbitrum.meowrpc.com",
+			"rpc": "https://1rpc.io/arb",
 			"chain-id": 42161,
 			"network-id": 42161,
 			"currency": "ETH"

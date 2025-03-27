@@ -2,7 +2,7 @@ raindex-version: 8898591f3bcaa21dc91dc3b8584330fc405eadfa
 
 networks:
   arbitrum:
-    rpc: https://arbitrum.meowrpc.com
+    rpc: https://1rpc.io/arb
     chain-id: 42161
     network-id: 42161
     currency: ETH
