@@ -7,22 +7,22 @@ networks:
     network-id: 8453
     currency: ETH
   ethereum:
-    rpc: https://rpc.ankr.com/eth
+    rpc: https://1rpc.io/eth
     chain-id: 1
     network-id: 1
     currency: ETH
   bsc:
-    rpc: https://rpc.ankr.com/bsc
+    rpc: https://bsc-dataseed.bnbchain.org
     chain-id: 56
     network-id: 56
     currency: BNB
   polygon:
-    rpc: https://rpc.ankr.com/polygon
+    rpc: https://1rpc.io/matic
     chain-id: 137
     network-id: 137
     currency: POL
   flare:
-    rpc: https://rpc.ankr.com/flare
+    rpc: https://flare.rpc.thirdweb.com
     chain-id: 14
     network-id: 14
     currency: FLR
