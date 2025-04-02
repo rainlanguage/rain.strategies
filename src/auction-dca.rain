@@ -313,10 +313,24 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
+
+            I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
+
+            I.e. this is calculated as the ${order.outputs.0.token.symbol} $ price divided by the ${order.inputs.0.token.symbol} $ price.
+            You can find $ prices for most tokens on dex tools, dex screener and gecko terminal.
+
+            For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+
+            This ratio is calculated in the same way as the baseline ratio.
+
+            It must be greater than the baseline ratio, regardless of what you are selling or buying.
+            This is because getting more input per output is always better for you.
+            The initial auction will start high (at the value you set here) and then drop to the baseline ratio over time.
+            Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -426,10 +440,24 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
+
+            I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
+
+            I.e. this is calculated as the ${order.outputs.0.token.symbol} $ price divided by the ${order.inputs.0.token.symbol} $ price.
+            You can find $ prices for most tokens on dex tools, dex screener and gecko terminal.
+
+            For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+
+            This ratio is calculated in the same way as the baseline ratio.
+
+            It must be greater than the baseline ratio, regardless of what you are selling or buying.
+            This is because getting more input per output is always better for you.
+            The initial auction will start high (at the value you set here) and then drop to the baseline ratio over time.
+            Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -539,10 +567,24 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
+
+            I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
+
+            I.e. this is calculated as the ${order.outputs.0.token.symbol} $ price divided by the ${order.inputs.0.token.symbol} $ price.
+            You can find $ prices for most tokens on dex tools, dex screener and gecko terminal.
+
+            For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+
+            This ratio is calculated in the same way as the baseline ratio.
+
+            It must be greater than the baseline ratio, regardless of what you are selling or buying.
+            This is because getting more input per output is always better for you.
+            The initial auction will start high (at the value you set here) and then drop to the baseline ratio over time.
+            Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -652,10 +694,24 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
+
+            I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
+
+            I.e. this is calculated as the ${order.outputs.0.token.symbol} $ price divided by the ${order.inputs.0.token.symbol} $ price.
+            You can find $ prices for most tokens on dex tools, dex screener and gecko terminal.
+
+            For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+
+            This ratio is calculated in the same way as the baseline ratio.
+
+            It must be greater than the baseline ratio, regardless of what you are selling or buying.
+            This is because getting more input per output is always better for you.
+            The initial auction will start high (at the value you set here) and then drop to the baseline ratio over time.
+            Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -765,10 +821,24 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
+
+            I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
+
+            I.e. this is calculated as the ${order.outputs.0.token.symbol} $ price divided by the ${order.inputs.0.token.symbol} $ price.
+            You can find $ prices for most tokens on dex tools, dex screener and gecko terminal.
+
+            For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+
+            This ratio is calculated in the same way as the baseline ratio.
+
+            It must be greater than the baseline ratio, regardless of what you are selling or buying.
+            This is because getting more input per output is always better for you.
+            The initial auction will start high (at the value you set here) and then drop to the baseline ratio over time.
+            Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -878,10 +948,24 @@ gui:
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
+
+            I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
+
+            I.e. this is calculated as the ${order.outputs.0.token.symbol} $ price divided by the ${order.inputs.0.token.symbol} $ price.
+            You can find $ prices for most tokens on dex tools, dex screener and gecko terminal.
+
+            For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
           description: >
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
+
+            This ratio is calculated in the same way as the baseline ratio.
+
+            It must be greater than the baseline ratio, regardless of what you are selling or buying.
+            This is because getting more input per output is always better for you.
+            The initial auction will start high (at the value you set here) and then drop to the baseline ratio over time.
+            Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
           description: >
@@ -1043,7 +1127,6 @@ gui:
               value: 1.02
             - name: 1.05x
               value: 1.05
-
 
 ---
 #raindex-subparser !Raindex subparser.
