@@ -254,7 +254,7 @@ gui:
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
@@ -274,21 +274,21 @@ gui:
               value: 31536000
         - binding: amount-per-epoch
           name: Budget (${order.outputs.0.token.symbol} per period)
-          description: >
+          description: |
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -311,7 +311,7 @@ gui:
               value: 86400
         - binding: baseline
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
 
             I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
@@ -322,7 +322,7 @@ gui:
             For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
 
             This ratio is calculated in the same way as the baseline ratio.
@@ -333,7 +333,7 @@ gui:
             Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -348,7 +348,7 @@ gui:
               value: 1.1
         - binding: next-trade-baseline-multiplier
           name: Auction end multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to set the baseline for the next auction.
           show-custom-field: true
           default: 0
@@ -381,7 +381,7 @@ gui:
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
@@ -401,21 +401,21 @@ gui:
               value: 31536000
         - binding: amount-per-epoch
           name: Budget (${order.outputs.0.token.symbol} per period)
-          description: >
+          description: |
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -438,7 +438,7 @@ gui:
               value: 86400
         - binding: baseline
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
 
             I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
@@ -449,7 +449,7 @@ gui:
             For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
 
             This ratio is calculated in the same way as the baseline ratio.
@@ -460,7 +460,7 @@ gui:
             Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -475,7 +475,7 @@ gui:
               value: 1.1
         - binding: next-trade-baseline-multiplier
           name: Auction end multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to set the baseline for the next auction.
           show-custom-field: true
           default: 0
@@ -508,7 +508,7 @@ gui:
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
@@ -528,21 +528,21 @@ gui:
               value: 31536000
         - binding: amount-per-epoch
           name: Budget (${order.outputs.0.token.symbol} per period)
-          description: >
+          description: |
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -565,7 +565,7 @@ gui:
               value: 86400
         - binding: baseline
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
 
             I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
@@ -576,7 +576,7 @@ gui:
             For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
 
             This ratio is calculated in the same way as the baseline ratio.
@@ -587,7 +587,7 @@ gui:
             Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -602,7 +602,7 @@ gui:
               value: 1.1
         - binding: next-trade-baseline-multiplier
           name: Auction end multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to set the baseline for the next auction.
           show-custom-field: true
           default: 0
@@ -635,7 +635,7 @@ gui:
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
@@ -655,21 +655,21 @@ gui:
               value: 31536000
         - binding: amount-per-epoch
           name: Budget (${order.outputs.0.token.symbol} per period)
-          description: >
+          description: |
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -692,7 +692,7 @@ gui:
               value: 86400
         - binding: baseline
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
 
             I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
@@ -703,7 +703,7 @@ gui:
             For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
 
             This ratio is calculated in the same way as the baseline ratio.
@@ -714,7 +714,7 @@ gui:
             Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -729,7 +729,7 @@ gui:
               value: 1.1
         - binding: next-trade-baseline-multiplier
           name: Auction end multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to set the baseline for the next auction.
           show-custom-field: true
           default: 0
@@ -762,7 +762,7 @@ gui:
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
@@ -782,21 +782,21 @@ gui:
               value: 31536000
         - binding: amount-per-epoch
           name: Budget (${order.outputs.0.token.symbol} per period)
-          description: >
+          description: |
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -819,7 +819,7 @@ gui:
               value: 86400
         - binding: baseline
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
 
             I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
@@ -830,7 +830,7 @@ gui:
             For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
 
             This ratio is calculated in the same way as the baseline ratio.
@@ -841,7 +841,7 @@ gui:
             Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -856,7 +856,7 @@ gui:
               value: 1.1
         - binding: next-trade-baseline-multiplier
           name: Auction end multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to set the baseline for the next auction.
           show-custom-field: true
           default: 0
@@ -889,7 +889,7 @@ gui:
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
 
             For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
@@ -909,21 +909,21 @@ gui:
               value: 31536000
         - binding: amount-per-epoch
           name: Budget (${order.outputs.0.token.symbol} per period)
-          description: >
+          description: |
             The amount of ${order.outputs.0.token.symbol} to spend each budget period.
 
             For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
         - binding: max-trade-amount
           name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: >
+          description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -946,7 +946,7 @@ gui:
               value: 86400
         - binding: baseline
           name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The absolute minimum amount of ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} that the auction will trade at.
 
             I.e. for each 1 ${order.outputs.0.token.symbol} sold you will receive at least this many ${order.inputs.0.token.symbol}.
@@ -957,7 +957,7 @@ gui:
             For more information about IO ratios and how to calculate them see [Understanding IO Ratios](https://youtu.be/NdPOi1ZDnDk).
         - binding: initial-io
           name: Kickoff ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: >
+          description: |
             The initial ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol} to kickoff the first auction.
 
             This ratio is calculated in the same way as the baseline ratio.
@@ -968,7 +968,7 @@ gui:
             Subsequent auctions will start at some % above the last auction price and drop to the baseline ratio over time.
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -983,7 +983,7 @@ gui:
               value: 1.1
         - binding: next-trade-baseline-multiplier
           name: Auction end multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to set the baseline for the next auction.
           show-custom-field: true
           default: 0
@@ -1010,14 +1010,14 @@ gui:
 
     flare-sflr-wflr:
       name: Sell WFLR for SFLR on Flare based on underlying collateral.
-      description: >
+      description: |
         Swap WFLR for SFLR on Flare based on underlying collateral.
       deposits:
         - token: flare-wflr
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
           show-custom-field: true
           presets:
@@ -1031,19 +1031,19 @@ gui:
               value: 604800
         - binding: amount-per-epoch
           name: Budget (WFLR per period)
-          description: >
+          description: |
             The amount of WFLR to spend each budget period.
         - binding: max-trade-amount
           name: Maximum trade size (WFLR)
-          description: >
+          description: |
             The maximum amount of WFLR to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (WFLR)
-          description: >
+          description: |
             The minimum amount of WFLR to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -1056,7 +1056,7 @@ gui:
               value: 7200
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
@@ -1070,14 +1070,14 @@ gui:
 
     flare-wflr-sflr:
       name: Sell SFLR for WFLR on Flare based on underlying collateral.
-      description: >
+      description: |
         Swap SFLR for WFLR on Flare based on underlying collateral.
       deposits:
         - token: flare-sflr
       fields:
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
-          description: >
+          description: |
             The budget is spent over this time period.
           show-custom-field: true
           presets:
@@ -1091,19 +1091,19 @@ gui:
               value: 604800
         - binding: amount-per-epoch
           name: Budget (SFLR per period)
-          description: >
+          description: |
             The amount of SFLR to spend each budget period.
         - binding: max-trade-amount
           name: Maximum trade size (SFLR)
-          description: >
+          description: |
             The maximum amount of SFLR to sell in a single auction.
         - binding: min-trade-amount
           name: Minimum trade size (SFLR)
-          description: >
+          description: |
             The minimum amount of SFLR to sell in a single auction.
         - binding: time-per-trade-epoch
           name: Auction period (in seconds)
-          description: >
+          description: |
             The auction period is the time between each auction price halvening.
           show-custom-field: true
           default: 3600
@@ -1116,7 +1116,7 @@ gui:
               value: 7200
         - binding: next-trade-multiplier
           name: Auction start multiplier
-          description: >
+          description: |
             The multiplier to apply to the last trade to kick off the next auction.
           show-custom-field: true
           default: 1.01
