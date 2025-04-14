@@ -229,10 +229,10 @@ gui:
             - name: 1 hour
               value: 3600
       select-tokens:
-        - key: input
-          name: Input Token
         - key: output
           name: Output Token
+        - key: input
+          name: Input Token
 
     flare:
       name: Canary on Flare.
@@ -268,10 +268,10 @@ gui:
             - name: 1 hour
               value: 3600
       select-tokens:
+        - key: output
+          name: Output Token  
         - key: input
           name: Input Token
-        - key: output
-          name: Output Token
 
     polygon:
       name: Canary on Polygon.
@@ -307,10 +307,10 @@ gui:
             - name: 1 hour
               value: 3600
       select-tokens:
-        - key: input
-          name: Input Token
         - key: output
           name: Output Token
+        - key: input
+          name: Input Token
 
     bsc:
       name: Canary on BSC.
@@ -346,10 +346,10 @@ gui:
             - name: 1 hour
               value: 3600
       select-tokens:
-        - key: input
-          name: Input Token
         - key: output
           name: Output Token
+        - key: input
+          name: Input Token
 
 ---
 #raindex-subparser !The subparser contract address for Raindex.
