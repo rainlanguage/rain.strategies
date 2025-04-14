@@ -965,13 +965,13 @@ gui:
               value: 0.95
             - name: 0.99x
               value: 0.99
-      select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
+    select-tokens:
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
 
     flare-sflr-wflr:
       name: Sell WFLR for SFLR on Flare based on underlying collateral.
