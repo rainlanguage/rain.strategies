@@ -12,7 +12,7 @@ networks:
     network-id: 56
     currency: BNB
   base:
-    rpc: https://mainnet.base.org
+    rpc: https://base-rpc.publicnode.com
     chain-id: 8453
     network-id: 8453
     currency: ETH
