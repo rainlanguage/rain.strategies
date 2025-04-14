@@ -966,7 +966,7 @@ gui:
               value: 0.95
             - name: 0.99x
               value: 0.99
-    select-tokens:
+      select-tokens:
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
