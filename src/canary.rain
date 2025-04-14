@@ -190,10 +190,10 @@ gui:
             - name: 1 hour
               value: 3600
       select-tokens:
+        - key: ouput
+          name: Output Token
         - key: input
           name: Input Token
-        - key: output
-          name: Output Token
 
     arbitrum:
       name: Canary on Arbitrum.
