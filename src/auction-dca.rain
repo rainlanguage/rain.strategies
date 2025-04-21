@@ -12,7 +12,7 @@ networks:
     network-id: 56
     currency: BNB
   base:
-    rpc: https://mainnet.base.org
+    rpc: https://base-rpc.publicnode.com
     chain-id: 8453
     network-id: 8453
     currency: ETH
@@ -366,12 +366,13 @@ gui:
             - name: 0.99x
               value: 0.99
       select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+        
 
     polygon:
       name: Polygon
@@ -493,12 +494,12 @@ gui:
             - name: 0.99x
               value: 0.99
       select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
 
     bsc:
       name: BSC
@@ -620,12 +621,12 @@ gui:
             - name: 0.99x
               value: 0.99
       select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
 
     base:
       name: Base
@@ -747,12 +748,12 @@ gui:
             - name: 0.99x
               value: 0.99
       select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
 
     ethereum:
       name: Ethereum
@@ -874,12 +875,12 @@ gui:
             - name: 0.99x
               value: 0.99
       select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
 
     flare:
       name: Flare
@@ -1001,12 +1002,12 @@ gui:
             - name: 0.99x
               value: 0.99
       select-tokens:
-        - key: input
-          name: Token to Buy
-          description: Select the token you want to purchase
         - key: output
           name: Token to Sell
           description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
 
     flare-sflr-wflr:
       name: Sell WFLR for SFLR on Flare based on underlying collateral.
