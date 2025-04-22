@@ -1,0 +1,85 @@
+raindex-version: 8898591f3bcaa21dc91dc3b8584330fc405eadfa
+
+networks:
+  arbitrum:
+    rpc: https://1rpc.io/arb
+    chainId: 42161
+    network-id: 42161
+    currency: ETH
+
+metaboards:
+  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+
+subgraphs:
+  arbitrum: https://example.com/subgraph
+
+orderbooks:
+  arbitrum:
+    address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+
+deployers:
+  arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+
+orders:
+  arbitrum:
+    orderbook: arbitrum
+    inputs:
+      - token: token1
+      - token: token2
+    outputs:
+      - token: token1
+      - token: token2
+
+scenarios:
+  arbitrum:
+    orderbook: arbitrum
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+
+deployments:
+  arbitrum:
+    order: arbitrum
+    scenario: arbitrum
+
+gui:
+  name: Folio
+  description: Maintains an equal distribution of assets in a portfolio.
+  short-description: Rebalances a portfolio to maintain equal distribution of assets.
+  deployments:
+    arbitrum:
+      name: Arbitrum
+      description: Rebalances a portfolio on the Arbitrum network.
+      deposits:
+        - token: token1
+        - token: token2
+      fields:
+        - binding: threshold
+          name: Threshold
+          description: The threshold for rebalancing the portfolio.
+          type: number
+          default: 0.05
+      select-tokens:
+        - key: token1
+          name: Token 1
+          description: The first token in the portfolio.
+        - key: token2
+          name: Token 2
+          description: The second token in the portfolio.
+
+---
+
+#raindex-subparser !The subparser to use.
+
+#threshold !The threshold for rebalancing the portfolio.
+
+#spread !The spread for the portfolio on return of threshold.
+
+#calculate-io
+using-words-from raindex-subparser
+:ensure(every(input-vault-balance() output-vault-balance()) "zero balance"),
+current-ratio: div(input-vault-balance() output-vault-balance()),
+amount: mul(output-vault-balance() threshold),
+multiplier: div(add(1 spread) sub(1 threshold)),
+io-ratio: mul(current-ratio multiplier);
