@@ -78,10 +78,10 @@ gui:
 
 #calculate-io
 using-words-from raindex-subparser
-:ensure(every(input-vault-balance() output-vault-balance()) "zero balance"),
-base-io: div(input-vault-balance() output-vault-balance()),
+:ensure(every(input-vault-before() output-vault-before()) "zero balance"),
+base-io: div(input-vault-before() output-vault-before()),
 corrected-io: div(base-io sub(1 threshold)),
-amount: mul(output-vault-balance() threshold),
+amount: mul(output-vault-before() threshold),
 io-ratio: corrected-io;
 
 #handle-io
