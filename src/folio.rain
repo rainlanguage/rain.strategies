@@ -83,3 +83,6 @@ base-io: div(input-vault-balance() output-vault-balance()),
 corrected-io: div(base-io sub(1 threshold)),
 amount: mul(output-vault-balance() threshold),
 io-ratio: corrected-io;
+
+#handle-io
+:;
