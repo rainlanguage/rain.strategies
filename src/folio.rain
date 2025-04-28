@@ -79,7 +79,7 @@ gui:
 #calculate-io
 using-words-from raindex-subparser
 :ensure(every(input-vault-balance() output-vault-balance()) "zero balance"),
-current-ratio: div(input-vault-balance() output-vault-balance()),
+base-io: div(input-vault-balance() output-vault-balance()),
+corrected-io: div(base-io sub(1 threshold)),
 amount: mul(output-vault-balance() threshold),
-multiplier: div(add(1 spread) sub(1 threshold)),
-io-ratio: mul(current-ratio multiplier);
+io-ratio: corrected-io;
