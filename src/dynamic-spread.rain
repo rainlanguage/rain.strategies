@@ -267,7 +267,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -348,7 +348,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -429,7 +429,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -510,7 +510,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -591,7 +591,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -672,7 +672,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
@@ -753,7 +753,7 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools.
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
