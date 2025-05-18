@@ -27,9 +27,15 @@ orders:
     inputs:
       - token: token1
       - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
     outputs:
       - token: token1
       - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
 
 scenarios:
   arbitrum:
@@ -57,9 +63,14 @@ gui:
       fields:
         - binding: threshold
           name: Threshold
-          description: The threshold for rebalancing the portfolio.
+          description: The threshold for rebalancing the portfolio. E.g. 0.05 = 5%
           type: number
           default: 0.05
+        - binding: fee
+          name: Fee
+          description: The fee for rebalancing the portfolio. E.g. 0.003 = 0.3%
+          type: number
+          default: 0.003
       select-tokens:
         - key: token1
           name: Token 1
@@ -67,12 +78,22 @@ gui:
         - key: token2
           name: Token 2
           description: The second token in the portfolio.
+        - key: token3
+          name: Token 3
+          description: The third token in the portfolio.
+        - key: token4
+          name: Token 4
+          description: The fourth token in the portfolio.
+        - key: token5
+          name: Token 5
+          description: The fifth token in the portfolio.
 
 ---
 
 #raindex-subparser !The subparser to use.
 
 #threshold !The threshold for rebalancing the portfolio.
+#fee !The fee for rebalancing the portfolio.
 
 #spread !The spread for the portfolio on return of threshold.
 
@@ -81,8 +102,9 @@ using-words-from raindex-subparser
 :ensure(every(input-vault-before() output-vault-before()) "zero balance"),
 base-io: div(input-vault-before() output-vault-before()),
 corrected-io: div(base-io sub(1 threshold)),
+feed-io: mul(corrected-io add(1 fee)),
 amount: mul(output-vault-before() threshold),
-io-ratio: corrected-io;
+io-ratio: feed-io;
 
 #handle-io
 :;
