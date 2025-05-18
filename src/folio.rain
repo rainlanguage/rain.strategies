@@ -60,6 +60,9 @@ gui:
       deposits:
         - token: token1
         - token: token2
+        - token: token3
+        - token: token4
+        - token: token5
       fields:
         - binding: threshold
           name: Threshold
