@@ -9,12 +9,12 @@ networks:
     network-id: 8453
     currency: ETH
   polygon:
-    rpc: https://1rpc.io/matic
+    rpc: https://polygon-rpc.com
     chain-id: 137
     network-id: 137
     currency: POL
   arbitrum:
-    rpc: https://1rpc.io/arb
+    rpc: https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
     currency: ETH
@@ -29,7 +29,7 @@ networks:
     network-id: 59144
     currency: ETH
   ethereum:
-    rpc: https://1rpc.io/eth
+    rpc: https://ethereum-rpc.publicnode.com
     chain-id: 1
     network-id: 1
     currency: ETH
