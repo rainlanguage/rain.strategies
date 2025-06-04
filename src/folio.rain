@@ -30,12 +30,16 @@ orders:
       - token: token3
       - token: token4
       - token: token5
+      - token: token6
+      - token: token7
     outputs:
       - token: token1
       - token: token2
       - token: token3
       - token: token4
       - token: token5
+      - token: token6
+      - token: token7
 
 scenarios:
   arbitrum:
@@ -63,6 +67,8 @@ gui:
         - token: token3
         - token: token4
         - token: token5
+        - token: token6
+        - token: token7
       fields:
         - binding: threshold
           name: Threshold
@@ -90,6 +96,12 @@ gui:
         - key: token5
           name: Token 5
           description: The fifth token in the portfolio.
+        - key: token6
+          name: Token 6
+          description: The sixth token in the portfolio.
+        - key: token7
+          name: Token 7
+          description: The seventh token in the portfolio.
 
 ---
 
