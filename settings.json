@@ -24,7 +24,7 @@
 			"network-id": 42161,
 			"currency": "ETH"
 		},
-		"arbitrum-2": {
+		"arbitrum2": {
 			"rpc": "https://1rpc.io/arb",
 			"chain-id": 42161,
 			"network-id": 42161,
