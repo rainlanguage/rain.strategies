@@ -213,6 +213,16 @@ scenarios:
       initial-io-fn: '''sflr-baseline-inv'
       next-trade-baseline-multiplier: 0
       shy-epoch: 0.05
+  pyth-price-baseline-arbitrum:
+    orderbook: arbitrum
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
+      baseline-fn: '''pyth-price-baseline'
+      initial-io-fn: '''pyth-price-initial-io'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
 
 deployments:
   arbitrum:
@@ -239,6 +249,9 @@ deployments:
   flare-wflr-sflr:
     order: flare-wflr-sflr
     scenario: flare-sflr-baseline-inv
+  pyth-price-arbitrum:
+    order: arbitrum
+    scenario: pyth-price-baseline-arbitrum
 
 gui:
   name: Auction based cost averaging
@@ -372,7 +385,7 @@ gui:
         - key: input
           name: Token to Buy
           description: Select the token you want to purchase
-        
+
 
     polygon:
       name: Polygon
