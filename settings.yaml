@@ -67,10 +67,6 @@ orderbooks:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
     network: arbitrum
     subgraph: arbitrum
-  matchain:
-    address: 0x40312edab8fe65091354172ad79e9459f21094e2
-    network: matchain
-    subgraph: matchain
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
     network: bsc
