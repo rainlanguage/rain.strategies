@@ -1,3 +1,4 @@
+version: 1
 networks:
   flare:
     rpc: https://flare.rpc.thirdweb.com
