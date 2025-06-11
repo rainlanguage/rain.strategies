@@ -9,12 +9,17 @@ networks:
     network-id: 8453
     currency: ETH
   polygon:
-    rpc: https://1rpc.io/matic
+    rpc: https://polygon-rpc.com
     chain-id: 137
     network-id: 137
     currency: POL
   arbitrum:
-    rpc: https://1rpc.io/arb
+    rpc: https://arbitrum-one-rpc.publicnode.com
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
+  arbitrum2:
+    rpc: https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
     currency: ETH
@@ -29,7 +34,7 @@ networks:
     network-id: 59144
     currency: ETH
   ethereum:
-    rpc: https://1rpc.io/eth
+    rpc: https://ethereum-rpc.publicnode.com
     chain-id: 1
     network-id: 1
     currency: ETH
@@ -38,6 +43,7 @@ subgraphs:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2024-12-13-9c39/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-matic/2024-12-13-d2b4/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2024-12-13-7435/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2025-06-04-f5a5/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-bsc/2024-12-13-2244/gn
   linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-linea/2024-12-13-09c7/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-mainnet/2024-12-13-7f22/gn
@@ -46,6 +52,7 @@ metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://replaceme.com
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
@@ -66,6 +73,10 @@ orderbooks:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
     network: arbitrum
     subgraph: arbitrum
+  arbitrum2:
+    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
+    network: arbitrum2
+    subgraph: arbitrum2
   matchain:
     address: 0x40312edab8fe65091354172ad79e9459f21094e2
     network: matchain
@@ -95,6 +106,9 @@ deployers:
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
     network: arbitrum
+  arbitrum2:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+    network: arbitrum2
   matchain:
     address: 0x582d9e838FE6cD9F8147C66A8f56A3FBE513a6A2
     network: polygon
