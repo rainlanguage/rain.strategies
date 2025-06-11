@@ -25,7 +25,7 @@
 			"currency": "ETH"
 		},
 		"arbitrum2": {
-			"rpc": "https://1rpc.io/arb",
+			"rpc": "https://arbitrum-one-rpc.publicnode.com",
 			"chain-id": 42161,
 			"network-id": 42161,
 			"currency": "ETH"
@@ -91,8 +91,8 @@
 		},
 		"arbitrum2": {
 			"address": "0x59401C9302E79Eb8AC6aea659B8B3ae475715e86",
-			"network": "arbitrum",
-			"subgraph": "arbitrum-2"
+			"network": "arbitrum2",
+			"subgraph": "arbitrum2"
 		},
 		"matchain": {
 			"address": "0x40312edab8fe65091354172ad79e9459f21094e2",
