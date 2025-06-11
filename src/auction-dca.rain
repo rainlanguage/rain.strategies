@@ -215,6 +215,7 @@ scenarios:
       shy-epoch: 0.05
   pyth-price-baseline-arbitrum:
     orderbook: arbitrum
+    deployer: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
@@ -225,6 +226,7 @@ scenarios:
       shy-epoch: 0.05
   pyth-price-baseline-arbitrum-inv:
     orderbook: arbitrum
+    deployer: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
