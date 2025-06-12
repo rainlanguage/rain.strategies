@@ -86,10 +86,6 @@ orderbooks:
     address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
     network: arbitrum2
     subgraph: arbitrum2
-  matchain:
-    address: 0x40312edab8fe65091354172ad79e9459f21094e2
-    network: matchain
-    subgraph: matchain
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
     network: bsc
@@ -118,9 +114,6 @@ deployers:
   arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
     network: arbitrum2
-  matchain:
-    address: 0x582d9e838FE6cD9F8147C66A8f56A3FBE513a6A2
-    network: polygon
   bsc:
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
     network: bsc
