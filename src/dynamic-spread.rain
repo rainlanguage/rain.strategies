@@ -11,6 +11,16 @@ scenarios:
       amount-token: ${order.inputs.0.token.address}
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
+  arbitrum2:
+    orderbook: arbitrum2
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      history-cap: '1e50'
+      shy-epoch: 0.05
+      amount-token: ${order.inputs.0.token.address}
+      initial-output-token: ${order.outputs.1.token.address}
+      initial-input-token: ${order.inputs.0.token.address}
   base:
     orderbook: base
     runs: 1
@@ -88,6 +98,11 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
+  arbitrum2:
+    rpc: https://arbitrum-one-rpc.publicnode.com
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
   polygon:
     rpc: https://polygon-rpc.com
     chain-id: 137
@@ -113,6 +128,7 @@ metaboards:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
@@ -122,6 +138,7 @@ subgraphs:
   flare: https://example.com/subgraph
   base: https://example.com/subgraph
   arbitrum: https://example.com/subgraph
+  arbitrum2: https://example.com/subgraph
   polygon: https://example.com/subgraph
   bsc: https://example.com/subgraph
   ethereum: https://example.com/subgraph
@@ -134,6 +151,8 @@ orderbooks:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  arbitrum2:
+    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
   bsc:
@@ -150,6 +169,8 @@ deployers:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  arbitrum2:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   ethereum:
@@ -162,6 +183,14 @@ deployers:
 orders:
   arbitrum:
     orderbook: arbitrum
+    inputs:
+      - token: token1
+      - token: token2
+    outputs:
+      - token: token1
+      - token: token2
+  arbitrum2:
+    orderbook: arbitrum2
     inputs:
       - token: token1
       - token: token2
@@ -221,6 +250,9 @@ deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
+  arbitrum2:
+    order: arbitrum2
+    scenario: arbitrum2
   base:
     order: base
     scenario: base
@@ -248,6 +280,87 @@ gui:
     arbitrum:
       name: Arbitrum
       description: Deploy a two-sided dynamic spread strategy on Arbitrum.
+      fields:
+        - binding: amount-is-fast-exit
+          name: Fast exit ${order.inputs.0.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: not-amount-is-fast-exit
+          name: Fast exit ${order.inputs.1.token.symbol}?
+          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          presets:
+            - name: Yes
+              value: 1
+            - name: No
+              value: 0
+        - binding: initial-io
+          name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
+        - binding: next-trade-multiplier
+          name: Next trade multiplier
+          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+        - binding: cost-basis-multiplier
+          name: Cost basis multiplier
+          description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
+          presets:
+            - name: 1 (auction spread only)
+              value: 1
+            - name: 1.0005x (0.1% total)
+              value: 1.0005
+            - name: 1.001x (0.2% total)
+              value: 1.001
+            - name: 1.0025x (0.5% total)
+              value: 1.0025
+            - name: 1.005x (1% total)
+              value: 1.005
+        - binding: time-per-epoch
+          name: Time per price halving (seconds)
+          description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
+          presets:
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 2 hours (7200)
+              value: 7200
+            - name: 4 hours (14400)
+              value: 14400
+            - name: 8 hours (28800)
+              value: 28800
+        - binding: max-amount
+          name: Max amount
+          description: The maximum amount of ${order.inputs.0.token.symbol} that will be offered in a single auction.
+        - binding: min-amount
+          name: Minimum amount
+          description: The minimum amount of ${order.inputs.0.token.symbol} that will be offered in a single auction.
+      deposits:
+        - token: token1
+        - token: token2
+      select-tokens:
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
+    arbitrum2:
+      name: Arbitrum with the updated orderbook
+      description: Deploy a two-sided dynamic spread strategy on Arbitrum with the updated orderbook
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?

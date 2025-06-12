@@ -16,6 +16,11 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
+  arbitrum2:
+    rpc: https://arbitrum-one-rpc.publicnode.com
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
   polygon:
     rpc: https://polygon-rpc.com
     chain-id: 137
@@ -41,6 +46,7 @@ metaboards:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
@@ -50,6 +56,7 @@ subgraphs:
   flare: https://example.com/subgraph
   base: https://example.com/subgraph
   arbitrum: https://example.com/subgraph
+  arbitrum2: https://example.com/subgraph
   polygon: https://example.com/subgraph
   bsc: https://example.com/subgraph
   ethereum: https://example.com/subgraph
@@ -62,6 +69,8 @@ orderbooks:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  arbitrum2:
+    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
   bsc:
@@ -77,6 +86,8 @@ deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
@@ -102,6 +113,12 @@ orders:
       - token: token2
   arbitrum:
     orderbook: arbitrum
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
+  arbitrum2:
+    orderbook: arbitrum2
     inputs:
       - token: token1
     outputs:
@@ -134,6 +151,12 @@ orders:
 scenarios:
   arbitrum:
     orderbook: arbitrum
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      fixed-io-output-token: ${order.outputs.0.token.address}
+  arbitrum2:
+    orderbook: arbitrum2
     runs: 1
     bindings:
       raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
@@ -185,6 +208,9 @@ deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
+  arbitrum2:
+    order: arbitrum2
+    scenario: arbitrum2
   polygon:
     order: polygon
     scenario: polygon
@@ -286,6 +312,22 @@ gui:
     arbitrum:
       name: Arbitrum
       description: Deploy a limit order on Arbitrum.
+      deposits:
+        - token: token2
+      fields:
+        - binding: fixed-io
+          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+    arbitrum2:
+      name: Arbitrum with the updated orderbook
+      description: Deploy a limit order on Arbitrum with the updated orderbook.
       deposits:
         - token: token2
       fields:
