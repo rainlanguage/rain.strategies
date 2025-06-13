@@ -56,6 +56,7 @@ subgraphs:
   linea: https://example.com/subgraph
 
 using-tokens-from: https://wispy-bird-88a7.uniswap.workers.dev/?url=http://defi.cmc.eth.link
+tokens:
 
 orderbooks:
   flare:
