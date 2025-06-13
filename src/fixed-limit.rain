@@ -55,6 +55,8 @@ subgraphs:
   ethereum: https://example.com/subgraph
   linea: https://example.com/subgraph
 
+using-tokens-from: https://wispy-bird-88a7.uniswap.workers.dev/?url=http://defi.cmc.eth.link
+
 orderbooks:
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
