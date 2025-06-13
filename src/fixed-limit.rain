@@ -55,7 +55,7 @@ subgraphs:
   ethereum: https://example.com/subgraph
   linea: https://example.com/subgraph
 
-using-tokens-from: http://defi.cmc.eth.link
+using-tokens-from: https://wispy-bird-88a7.uniswap.workers.dev/?url=http://stablecoin.cmc.eth.link
 tokens:
   flare-wflr:
     network: flare
