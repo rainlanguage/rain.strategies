@@ -57,6 +57,14 @@ subgraphs:
 
 using-tokens-from: https://wispy-bird-88a7.uniswap.workers.dev/?url=http://defi.cmc.eth.link
 tokens:
+  flare-wflr:
+    network: flare
+    address: 0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d
+    decimals: 18
+  flare-sflr:
+    network: flare
+    address: 0x12e605bc104e93B45e1aD99F9e555f659051c2BB
+    decimals: 18
 
 orderbooks:
   flare:
