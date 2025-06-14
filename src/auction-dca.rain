@@ -6,6 +6,11 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
+  arbitrum2:
+    rpc: https://arbitrum-one-rpc.publicnode.com
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
   bsc:
     rpc: https://bsc-dataseed.bnbchain.org
     chain-id: 56
@@ -34,6 +39,7 @@ networks:
 
 subgraphs:
   arbitrum: https://example.com/subgraph
+  arbitrum2: https://example.com/subgraph
   bsc: https://example.com/subgraph
   base: https://example.com/subgraph
   ethereum: https://example.com/subgraph
@@ -42,6 +48,7 @@ subgraphs:
 
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base/0.1/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
@@ -51,6 +58,8 @@ metaboards:
 orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  arbitrum2:
+    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
@@ -64,6 +73,8 @@ orderbooks:
 
 deployers:
   arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
   bsc:
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
@@ -89,6 +100,12 @@ tokens:
 orders:
   arbitrum:
     orderbook: arbitrum
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  arbitrum2:
+    orderbook: arbitrum2
     inputs:
       - token: input
     outputs:
@@ -214,22 +231,22 @@ scenarios:
       next-trade-baseline-multiplier: 0
       shy-epoch: 0.05
   pyth-price-baseline-arbitrum:
-    orderbook: arbitrum
-    deployer: arbitrum
+    orderbook: arbitrum2
+    deployer: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0x762adD85a30A83722feF2e029087C9D110B6a7b3
       subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
       next-trade-baseline-multiplier: 0
       shy-epoch: 0.05
   pyth-price-baseline-arbitrum-inv:
-    orderbook: arbitrum
-    deployer: arbitrum
+    orderbook: arbitrum2
+    deployer: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0x762adD85a30A83722feF2e029087C9D110B6a7b3
       subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
@@ -262,10 +279,10 @@ deployments:
     order: flare-wflr-sflr
     scenario: flare-sflr-baseline-inv
   arbitrum-pyth:
-    order: arbitrum
+    order: arbitrum2
     scenario: pyth-price-baseline-arbitrum
   arbitrum-pyth-inv:
-    order: arbitrum
+    order: arbitrum2
     scenario: pyth-price-baseline-arbitrum-inv
 
 gui:
