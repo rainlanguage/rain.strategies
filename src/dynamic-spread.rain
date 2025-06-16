@@ -15,7 +15,7 @@ scenarios:
     orderbook: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0x762adD85a30A83722feF2e029087C9D110B6a7b3
       history-cap: '1e50'
       shy-epoch: 0.05
       amount-token: ${order.inputs.0.token.address}
