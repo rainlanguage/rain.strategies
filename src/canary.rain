@@ -67,7 +67,7 @@ deployers:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
-  arbitrum:
+  arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
@@ -260,7 +260,6 @@ gui:
           name: Output Token
         - key: input
           name: Input Token
-    
     arbitrum2:
       name: Canary on Arbitrum with the updated orderbook.
       description:
