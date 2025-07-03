@@ -1,3 +1,3 @@
 # Folio Rebalancer
 
-Folio rebalances to equally weight every token in the folio.
+Folio rebalances a portfolio of tokens to maintain an equal weight distribution across all assets.
