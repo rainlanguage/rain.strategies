@@ -2,7 +2,8 @@ version: 1
 
 networks:
   arbitrum:
-    rpc: https://arb1.arbitrum.io/rpc
+    rpcs:
+      - https://arb1.arbitrum.io/rpc
     chain-id: 42161
     network-id: 42161
     currency: ETH
@@ -15,7 +16,7 @@ subgraphs:
 
 orderbooks:
   arbitrum:
-    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
+    address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
 
 deployers:
   arbitrum:
@@ -46,7 +47,7 @@ scenarios:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
 
 deployments:
   arbitrum:
