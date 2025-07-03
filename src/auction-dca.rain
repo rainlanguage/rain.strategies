@@ -7,6 +7,12 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
+  arbitrum2:
+    rpcs:
+      - https://arbitrum-one-rpc.publicnode.com
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
   bsc:
     rpcs:
       - https://bsc-dataseed.bnbchain.org
@@ -40,6 +46,7 @@ networks:
 
 subgraphs:
   arbitrum: https://example.com/subgraph
+  arbitrum2: https://example.com/subgraph
   bsc: https://example.com/subgraph
   base: https://example.com/subgraph
   ethereum: https://example.com/subgraph
@@ -48,6 +55,7 @@ subgraphs:
 
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base/0.1/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
@@ -57,6 +65,8 @@ metaboards:
 orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  arbitrum2:
+    address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
@@ -70,6 +80,8 @@ orderbooks:
 
 deployers:
   arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
   bsc:
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
@@ -95,6 +107,12 @@ tokens:
 orders:
   arbitrum:
     orderbook: arbitrum
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+  arbitrum2:
+    orderbook: arbitrum2
     inputs:
       - token: input
     outputs:
@@ -219,6 +237,28 @@ scenarios:
       initial-io-fn: '''sflr-baseline-inv'
       next-trade-baseline-multiplier: 0
       shy-epoch: 0.05
+  pyth-price-baseline-arbitrum:
+    orderbook: arbitrum2
+    deployer: arbitrum2
+    runs: 1
+    bindings:
+      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
+      subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
+      baseline-fn: '''pyth-price-baseline'
+      initial-io-fn: '''pyth-price-baseline'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
+  pyth-price-baseline-arbitrum-inv:
+    orderbook: arbitrum2
+    deployer: arbitrum2
+    runs: 1
+    bindings:
+      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
+      subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
+      baseline-fn: '''pyth-price-baseline-inv'
+      initial-io-fn: '''pyth-price-baseline-inv'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
 
 deployments:
   arbitrum:
@@ -245,6 +285,12 @@ deployments:
   flare-wflr-sflr:
     order: flare-wflr-sflr
     scenario: flare-sflr-baseline-inv
+  arbitrum-pyth:
+    order: arbitrum2
+    scenario: pyth-price-baseline-arbitrum
+  arbitrum-pyth-inv:
+    order: arbitrum2
+    scenario: pyth-price-baseline-arbitrum-inv
 
 gui:
   name: Auction based cost averaging
@@ -252,6 +298,220 @@ gui:
   short-description:  >
     A strategy that aims to fill a time-based budget via looping auctions - useful for breaking up large trades into smaller amounts or smoothing out market volatility for regular investments.
   deployments:
+    arbitrum-pyth:
+      name: Arbitrum pyth sell shares
+      description: Deploy an auction-based cost averaging strategy on Arbitrum using Pyth price feeds to sell shares.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-pair
+          name: Pyth price feed pair
+          description: |
+            The Pyth price feed pair to use for the auction.
+            This is used to determine the baseline and initial IO ratios for the auction.
+            For example, if you are selling WETH and buying USDC then you would use the WETH/USD price feed.
+          show-custom-field: false
+          presets:
+            - name: Equity.US.GOOG/USD
+              value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD
+              value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AAPL/USD
+              value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
+            - name: Equity.US.MSFT/USD
+              value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD
+              value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD
+              value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.META/USD
+              value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: |
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: |
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: |
+            The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: |
+            The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+    arbitrum-pyth-inv:
+      name: Arbitrum pyth buy shares
+      description: Deploy an auction-based cost averaging strategy on Arbitrum using Pyth price feeds to buy shares.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-pair
+          name: Pyth price feed pair
+          description: |
+            The Pyth price feed pair to use for the auction.
+            This is used to determine the baseline and initial IO ratios for the auction.
+            For example, if you are buying WETH and selling USDC then you would use the WETH/USD price feed.
+          show-custom-field: false
+          presets:
+            - name: Equity.US.GOOG/USD
+              value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD
+              value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AAPL/USD
+              value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
+            - name: Equity.US.MSFT/USD
+              value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD
+              value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD
+              value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.META/USD
+              value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: |
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: |
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: |
+            The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: |
+            The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
     arbitrum:
       name: Arbitrum
       description: Deploy an auction-based cost averaging strategy on Arbitrum.
@@ -378,7 +638,7 @@ gui:
         - key: input
           name: Token to Buy
           description: Select the token you want to purchase
-        
+
 
     polygon:
       name: Polygon
@@ -1161,6 +1421,8 @@ gui:
 #next-trade-multiplier !Start next auction at this x the last trade.
 #next-trade-baseline-multiplier !Lifts the baseline to here relative to the previous trade.
 
+#pyth-pair !The pyth pair to use for the price feed.
+
 #last-trade-time-key "last-trade-time"
 #last-trade-io-key "last-trade-io"
 #initial-time-key "initial-time"
@@ -1273,6 +1535,12 @@ _: sflr-exchange-rate();
 
 #sflr-baseline-inv
 _: inv(sflr-exchange-rate());
+
+#pyth-price-baseline
+_: pyth-price(pyth-pair 3600);
+
+#pyth-price-baseline-inv
+_: inv(pyth-price(pyth-pair 3600));
 
 #handle-add-order
 using-words-from raindex-subparser subparser-0
