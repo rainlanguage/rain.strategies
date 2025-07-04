@@ -1,36 +1,43 @@
 version: 1
 networks:
   flare:
-    rpc: https://flare.rpc.thirdweb.com
+    rpcs:
+      - https://flare.rpc.thirdweb.com
     chain-id: 14
     currency: FLR
   base:
-    rpc: https://base-rpc.publicnode.com
+    rpcs:
+      - https://base-rpc.publicnode.com
     chain-id: 8453
     network-id: 8453
     currency: ETH
   polygon:
-    rpc: https://polygon-rpc.com
+    rpcs:
+      - https://polygon-rpc.com
     chain-id: 137
     network-id: 137
     currency: POL
   arbitrum:
-    rpc: https://arbitrum-one-rpc.publicnode.com
+    rpcs:
+      - https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
     currency: ETH
   bsc:
-    rpc: https://bsc-dataseed.bnbchain.org
+    rpcs:
+      - https://bsc-dataseed.bnbchain.org
     chain-id: 56
     network-id: 56
     currency: BNB
   linea:
-    rpc: https://rpc.linea.build
+    rpcs:
+      - https://rpc.linea.build
     chain-id: 59144
     network-id: 59144
     currency: ETH
   ethereum:
-    rpc: https://ethereum-rpc.publicnode.com
+    rpcs:
+      - https://ethereum-rpc.publicnode.com
     chain-id: 1
     network-id: 1
     currency: ETH
