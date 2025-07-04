@@ -54,7 +54,7 @@ orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
   arbitrum2:
-    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
+    address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
   polygon:
@@ -141,7 +141,7 @@ scenarios:
     orderbook: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0x762adD85a30A83722feF2e029087C9D110B6a7b3
+      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
   flare:
     orderbook: flare
     runs: 1
