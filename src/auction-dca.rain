@@ -8,7 +8,8 @@ networks:
     network-id: 42161
     currency: ETH
   arbitrum2:
-    rpc: https://arbitrum-one-rpc.publicnode.com
+    rpcs:
+      - https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
     currency: ETH
