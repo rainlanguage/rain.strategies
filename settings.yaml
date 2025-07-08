@@ -105,9 +105,6 @@ deployers:
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
     network: arbitrum
-  arbitrum2:
-    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
-    network: arbitrum
   bsc:
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
     network: bsc
