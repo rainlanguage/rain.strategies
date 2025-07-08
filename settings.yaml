@@ -23,12 +23,6 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
-  arbitrum2:
-    rpcs:
-      - https://arbitrum-one-rpc.publicnode.com
-    chain-id: 42161
-    network-id: 42161
-    currency: ETH
   bsc:
     rpcs:
       - https://bsc-dataseed.bnbchain.org
@@ -84,7 +78,7 @@ orderbooks:
     subgraph: arbitrum
   arbitrum2:
     address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
-    network: arbitrum2
+    network: arbitrum
     subgraph: arbitrum2
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
@@ -111,9 +105,6 @@ deployers:
   arbitrum:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
     network: arbitrum
-  arbitrum2:
-    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
-    network: arbitrum2
   bsc:
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
     network: bsc
