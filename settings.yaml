@@ -78,7 +78,7 @@ orderbooks:
     subgraph: arbitrum
   arbitrum2:
     address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
-    network: arbitrum
+    network: arbitrum2
     subgraph: arbitrum2
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
