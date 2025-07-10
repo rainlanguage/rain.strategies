@@ -205,6 +205,13 @@ deployments:
     order: bsc
     scenario: bsc
 
+using-tokens-from:
+  - https://tokens.coingecko.com/ethereum/all.json
+  - https://tokens.coingecko.com/polygon-pos/all.json
+  - https://tokens.coingecko.com/arbitrum-one/all.json
+  - https://tokens.coingecko.com/base/all.json
+  - https://tokens.coingecko.com/binance-smart-chain/all.json
+
 gui:
   name: Fixed limit
   description: A very simple strategy that places a limit order at a fixed price.
