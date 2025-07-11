@@ -88,16 +88,7 @@ using-tokens-from:
   - https://tokens.coingecko.com/arbitrum-one/all.json
   - https://tokens.coingecko.com/base/all.json
   - https://tokens.coingecko.com/binance-smart-chain/all.json
-
-tokens:
-  flare-wflr:
-    network: flare
-    address: 0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d
-    decimals: 18
-  flare-sflr:
-    network: flare
-    address: 0x12e605bc104e93B45e1aD99F9e555f659051c2BB
-    decimals: 18
+  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/refs/heads/2025-07-10-remote-tokens/token-lists/flare.json
 
 orders:
   arbitrum:
