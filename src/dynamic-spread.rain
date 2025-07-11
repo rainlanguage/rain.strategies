@@ -253,7 +253,7 @@ using-tokens-from:
   - https://tokens.coingecko.com/arbitrum-one/all.json
   - https://tokens.coingecko.com/base/all.json
   - https://tokens.coingecko.com/binance-smart-chain/all.json
-  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/fe8272b984f621834fa3153564c1635b3cdf1342/token-lists/flare.json
+  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/ee28f134481d02997e129d35995aa66fd39f8ad1/token-lists/flare.json
 
 gui:
   name: Two-sided dynamic spread strategies
