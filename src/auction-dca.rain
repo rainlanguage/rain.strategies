@@ -246,7 +246,7 @@ deployments:
 
 gui:
   name: Auction based cost averaging
-  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/ee28f134481d02997e129d35995aa66fd39f8ad1/src/auction-dca.md
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/auction-dca.md
   short-description:  >
     A strategy that aims to fill a time-based budget via looping auctions - useful for breaking up large trades into smaller amounts or smoothing out market volatility for regular investments.
   deployments:
