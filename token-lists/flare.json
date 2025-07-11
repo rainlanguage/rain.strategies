@@ -1,0 +1,62 @@
+{
+  "name": "Flare Tokens",
+  "description": "Essential tokens on the Flare Network including native wrapped assets, bridged stablecoins, and staking derivatives",
+  "version": {
+    "major": 1,
+    "minor": 0,
+    "patch": 0
+  },
+  "timestamp": "2025-07-11T06:49:31Z",
+  "logoURI": "",
+  "keywords": ["tokens", "defi", "flare"],
+  "tokens": [
+    {
+      "name": "Bridged USDC (Stargate)",
+      "symbol": "USDC.e",
+      "address": "0xfbda5f676cb37624f28265a144a48b0d6e87d3b6",
+      "decimals": 6,
+      "chainId": 14,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48/logo.png"
+    },
+    {
+      "name": "Bridged USDT (Stargate)",
+      "symbol": "USDT.e",
+      "address": "0x0b38e83b86d491735feaa0a791f65c2b99535396",
+      "decimals": 6,
+      "chainId": 14,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+    },
+    {
+      "name": "Tether: USD₮0",
+      "symbol": "USD₮0",
+      "address": "0xe7cd86e13ac4309349f30b3435a9d337750fc82d",
+      "decimals": 6,
+      "chainId": 14,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
+    },
+    {
+      "name": "Staked FLR",
+      "symbol": "sFLR",
+      "address": "0x12e605bc104e93b45e1ad99f9e555f659051c2bb",
+      "decimals": 18,
+      "chainId": 14,
+      "logoURI": "https://static.wixstatic.com/media/c4e15a_c6bc1f1f171b431ea4610ddca78fe0d3~mv2.png/v1/fill/w_291,h_291,al_c,lg_1,q_85,enc_avif,quality_auto/200%20sFLR.png"
+    },
+    {
+      "name": "Wrapped FLR",
+      "symbol": "WFLR",
+      "address": "0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d",
+      "decimals": 18,
+      "chainId": 14,
+      "logoURI": "https://portal.flare.network/token-logos/FLR.svg"
+    },
+    {
+      "name": "Wrapped Ether",
+      "symbol": "WETH",
+      "address": "0x1502fa4be69d526124d453619276faccab275d3d",
+      "decimals": 18,
+      "chainId": 14,
+      "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
+    }
+  ]
+}
