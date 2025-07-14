@@ -25,6 +25,7 @@ deployers:
 orders:
   base:
     orderbook: base
+    network: base
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
@@ -46,19 +47,17 @@ deployments:
 
 gui:
   name: Claims
-  description: Order distributes rewards set by the merkle tree
-  short-description: Order distributes rewards set by the merkle tree
+  description: Verifies merkle proofs and distributes claims
   deployments:
     base:
       name: Claims on Base.
       description:
-        A simple order to distributes rewards set by the merkle tree
+        A simple strategy that verifies merkle proofs and distributes claims
       deposits:
         - token: output
       fields:
         - binding: root
-          name: Merkle Tree Root
-
+          name: Merkle tree root
       select-tokens:
         - key: output
           name: Output Token
@@ -69,27 +68,50 @@ gui:
 
 #raindex-subparser !The subparser to use.
 #merkle-words !The subparser for merkle words.
-
-
-#calculate-io
-using-words-from raindex-subparser merkle-words
-
 #root !Order Root
 #claimed-key "claimed"
 
-/* user provides expected amount, proof, and leaf */
-expected-amount: signed-context<0 0>(),
-proof: signed-context<0 1>(),
-leaf: signed-context<0 2>(),
-is-reward-claimed: get(hash(order-hash() order-counterparty() claimed-key)),
-:ensure(equal-to(is-reward-claimed 0) "claimed"),
-is-valid-proof: merkle-proof-verify(root leaf proof),
-:ensure(equal-to(is-valid-proof 1) "proof"),
-_: expected-amount,
-_: 0;
+#check-claim
+  :ensure(
+    equal-to(
+      get(hash(order-hash() order-counterparty() claimed-key))
+      0
+    )
+    "Claimed"
+  );
+
+
+#verify-proof
+  leaf: ,
+  is-valid-proof: merkle-proof-verify(
+    root
+    leaf
+    signed-context<0 1>()
+    signed-context<0 2>()
+    signed-context<0 3>()
+    signed-context<0 4>()
+    signed-context<0 5>()
+    signed-context<0 6>()
+    signed-context<0 7>()
+    signed-context<0 8>()
+    
+  ),
+  :ensure(
+    is-valid-proof
+    "Proof"
+  );
+
+#calculate-io
+  using-words-from raindex-subparser merkle-words
+  :call<'check-claim>(),
+  expected-amount: signed-context<0 0>(),
+  leaf: hash(hash(order-counterparty() expected-amount)),
+  :call<'verify-proof>(leaf),
+  _: expected-amount,
+  _: 0;
 
 #handle-io
-:set(hash(order-hash() order-counterparty() claimed-key) 1);;
+  :set(hash(order-hash() order-counterparty() claimed-key) 1);
 
 #handle-add-order
-:;
+  :;
