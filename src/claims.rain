@@ -1,0 +1,95 @@
+version: 1
+
+networks:
+  base:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+
+subgraphs:
+  base: https://example.com/subgraph
+
+metaboards:
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
+orderbooks:
+  base:
+    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+
+deployers:
+  base:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      # Input is irrelevant because we always set the IO ratio to 0.
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      merkle-words: 0x8ceC9e3Ec2F8838000b91CfB97403A6Bb0F4036A
+
+gui:
+  name: Claims
+  description: Order distributes rewards set by the merkle tree
+  short-description: Order distributes rewards set by the merkle tree
+  deployments:
+    base:
+      name: Claims on Base.
+      description:
+        A simple order to distributes rewards set by the merkle tree
+      deposits:
+        - token: output
+      fields:
+        - binding: root
+          name: Merkle Tree Root
+
+      select-tokens:
+        - key: output
+          name: Output Token
+        - key: input
+          name: Input Token
+
+
+deployments:
+  base:
+    order: base
+    scenario: base
+---
+
+#raindex-subparser !The subparser to use.
+#merkle-words !The subparser for merkle words.
+
+
+#calculate-io
+using-words-from raindex-subparser merkle-words
+
+#root !Order Root
+#claimed-key "claimed"
+
+/* user provides expected amount, proof, and leaf */
+expected-amount: signed-context<0 0>(),
+proof: signed-context<0 1>(),
+leaf: signed-context<0 2>(),
+is-reward-claimed: get(hash(order-hash() order-counterparty() claimed-key)),
+:ensure(equal-to(is-reward-claimed 0) "claimed"),
+is-valid-proof: merkle-proof-verify(root leaf proof),
+:ensure(equal-to(is-valid-proof 1) "proof"),
+_: expected-amount,
+_: 0;
+
+#handle-io
+:set(hash(order-hash() order-counterparty() claimed-key) 1);;
+
+#handle-add-order
+:;
