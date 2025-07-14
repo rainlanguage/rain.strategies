@@ -1,0 +1,100 @@
+version: 2
+
+tokens:
+  base-usdc:
+    network: base
+    address: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+    decimals: 6
+  base-weth:
+    network: base
+    address: 0x4200000000000000000000000000000000000006
+    decimals: 18
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      - token: base-weth
+    outputs:
+      - token: base-usdc
+
+scenarios:
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      merkle-words: 0x8ceC9e3Ec2F8838000b91CfB97403A6Bb0F4036A
+      root: 0xd4dee0beab2d53f2cc83e567171bd2820e49898130a22622b10ead383e90bd77
+
+charts:
+    base-initial-deployment:
+      scenario: base
+      metrics:
+        - label: Expected Amount
+          value: 0.0
+        - label: Leaf
+          value: 0.3            
+        - label: Proof
+          value: 0.4 
+        - label: Amt
+          value: 0.5
+        - label: Ratio
+          value: 0.6
+      plots:
+
+deployments:
+  base:
+    order: base
+    scenario: base
+---
+
+#raindex-subparser !The subparser to use.
+#merkle-words !The subparser for merkle words.
+#root !Order Root
+#claimed-key "claimed"
+
+#check-claim
+  :ensure(
+    equal-to(
+      get(hash(order-hash() order-counterparty() claimed-key))
+      0
+    )
+    "Claimed"
+  );
+
+
+#verify-proof
+  leaf: ,
+  is-valid-proof: merkle-proof-verify(
+    root
+    leaf
+    signed-context<0 1>()
+    signed-context<0 2>()
+    signed-context<0 3>()
+    signed-context<0 4>()
+    signed-context<0 5>()
+    signed-context<0 6>()
+    signed-context<0 7>()
+    signed-context<0 8>()
+    
+  ),
+  :ensure(
+    is-valid-proof
+    "Proof"
+  );
+
+#calculate-io
+  using-words-from raindex-subparser merkle-words
+  :call<'check-claim>(),
+  expected-amount: signed-context<0 0>(),
+  leaf: hash(hash(order-counterparty() expected-amount)),
+  :call<'verify-proof>(leaf),
+  _: expected-amount,
+  _: 0;
+
+#handle-io
+  :set(hash(order-hash() order-counterparty() claimed-key) 1);
+
+#handle-add-order
+  :;
