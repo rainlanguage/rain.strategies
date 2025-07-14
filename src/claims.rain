@@ -48,7 +48,7 @@ deployments:
 gui:
   name: Claims
   description: Verifies merkle proofs against a set merkle root and distributes claims
-  short-description: Verifies merkle proofs against a set merkle root and distributes claims
+  short-description: The order owner sets the merkle root at deploy time, the order taker then claims the output tokens by submitting the proof and the expected reward.
   deployments:
     base:
       name: Claims on Base.
@@ -95,7 +95,6 @@ gui:
     signed-context<0 6>()
     signed-context<0 7>()
     signed-context<0 8>()
-    
   ),
   :ensure(
     is-valid-proof
