@@ -53,7 +53,7 @@ gui:
     base:
       name: Claims on Base.
       description:
-        A simple strategy that distributes rewards by verifing the proofs submitted
+        A simple strategy that distributes rewards by verifying the proofs submitted
       deposits:
         - token: output
       fields:
