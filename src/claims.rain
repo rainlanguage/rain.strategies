@@ -39,6 +39,11 @@ scenarios:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       merkle-words: 0x8ceC9e3Ec2F8838000b91CfB97403A6Bb0F4036A
 
+deployments:
+  base:
+    order: base
+    scenario: base
+
 gui:
   name: Claims
   description: Order distributes rewards set by the merkle tree
@@ -60,11 +65,6 @@ gui:
         - key: input
           name: Input Token
 
-
-deployments:
-  base:
-    order: base
-    scenario: base
 ---
 
 #raindex-subparser !The subparser to use.
