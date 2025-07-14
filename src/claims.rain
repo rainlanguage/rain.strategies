@@ -48,6 +48,7 @@ deployments:
 gui:
   name: Claims
   description: Verifies merkle proofs and distributes claims
+  short-description: Verifies merkle proofs and distributes claims
   deployments:
     base:
       name: Claims on Base.
