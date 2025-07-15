@@ -72,10 +72,16 @@ gui:
 #root !Order Root
 #claimed-key "claimed"
 
+
+#get-leaf-hash
+  index key value: ,
+  _: hash(index key value);
+
 #check-claim
+  leaf-node: ,
   :ensure(
     equal-to(
-      get(hash(order-hash() order-counterparty() claimed-key))
+      get(hash(order-hash() leaf-node claimed-key))
       0
     )
     "Claimed"
@@ -83,11 +89,10 @@ gui:
 
 
 #verify-proof
-  leaf: ,
+  leaf-node: ,
   is-valid-proof: merkle-proof-verify(
     root
-    leaf
-    signed-context<0 1>()
+    leaf-node
     signed-context<0 2>()
     signed-context<0 3>()
     signed-context<0 4>()
@@ -95,6 +100,7 @@ gui:
     signed-context<0 6>()
     signed-context<0 7>()
     signed-context<0 8>()
+    signed-context<0 9>()
   ),
   :ensure(
     is-valid-proof
@@ -103,15 +109,26 @@ gui:
 
 #calculate-io
   using-words-from raindex-subparser merkle-words
-  :call<'check-claim>(),
-  expected-amount: signed-context<0 0>(),
-  leaf: hash(hash(order-counterparty() expected-amount)),
-  :call<'verify-proof>(leaf),
+  leaf-index: signed-context<0 0>(),
+  expected-amount: signed-context<0 1>(),
+  leaf-node: call<'get-leaf-hash>(leaf-index order-counterparty() expected-amount),
+  :call<'check-claim>(leaf-node),
+  :call<'verify-proof>(leaf-node),
   _: expected-amount,
   _: 0;
 
 #handle-io
-  :set(hash(order-hash() order-counterparty() claimed-key) 1);
+  leaf-index: signed-context<0 0>(),
+  expected-amount: signed-context<0 1>(),
+  leaf-node: call<'get-leaf-hash>(leaf-index order-counterparty() expected-amount),
+  :ensure(
+      equal-to(
+        output-vault-decrease()
+        expected-amount
+      )
+      "Expected claim"
+  ),
+  :set(hash(order-hash() leaf-node claimed-key) 1);
 
 #handle-add-order
   :;
