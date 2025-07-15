@@ -72,10 +72,17 @@ gui:
 #root !Order Root
 #claimed-key "claimed"
 
-
-#get-leaf-hash
-  index key value: ,
-  _: hash(index key value);
+/* Compute hash of leaf node */
+#get-leaf-node
+  /**
+  * signed-context<0 0> is the leaf index
+  * order-counterparty() is the order taker who is claiming the reward
+  * signed-context<0 1> is the expected claim amount
+  *
+  * All the leaves of the merkle tree are computed by precisily these,
+  * hence the order taker MUST provide the index and the expected amount in the signed context.
+  */
+  _: hash(signed-context<0 0>() order-counterparty() signed-context<0 1>());
 
 #check-claim
   leaf-node: ,
@@ -90,6 +97,10 @@ gui:
 
 #verify-proof
   leaf-node: ,
+  /**
+  * Verifies merkle proof using signed context parameters: 
+  * signed-context<0 2-9>: Merkle proof components for merkle tree with depth 8
+  */
   is-valid-proof: merkle-proof-verify(
     root
     leaf-node
@@ -109,18 +120,17 @@ gui:
 
 #calculate-io
   using-words-from raindex-subparser merkle-words
-  leaf-index: signed-context<0 0>(),
+
   expected-amount: signed-context<0 1>(),
-  leaf-node: call<'get-leaf-hash>(leaf-index order-counterparty() expected-amount),
+  leaf-node: call<'get-leaf-node>(),
   :call<'check-claim>(leaf-node),
   :call<'verify-proof>(leaf-node),
   _: expected-amount,
   _: 0;
 
 #handle-io
-  leaf-index: signed-context<0 0>(),
   expected-amount: signed-context<0 1>(),
-  leaf-node: call<'get-leaf-hash>(leaf-index order-counterparty() expected-amount),
+  leaf-node: call<'get-leaf-node>(),
   :ensure(
       equal-to(
         output-vault-decrease()
