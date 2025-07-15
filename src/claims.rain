@@ -79,7 +79,7 @@ gui:
   * order-counterparty() is the order taker who is claiming the reward
   * signed-context<0 1> is the expected claim amount
   *
-  * All the leaves of the merkle tree are computed by precisily these,
+  * All the leaves of the merkle tree are computed by precisely these,
   * hence the order taker MUST provide the index and the expected amount in the signed context.
   */
   _: hash(signed-context<0 0>() order-counterparty() signed-context<0 1>());
