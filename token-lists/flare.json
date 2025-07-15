@@ -57,6 +57,22 @@
       "decimals": 18,
       "chainId": 14,
       "logoURI": "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2/logo.png"
+    },
+    {
+      "name": "Cyclo cysFLR",
+      "symbol": "cysFLR",
+      "address": "0x19831cfB53A0dbeAD9866C43557C1D48DfF76567",
+      "decimals": 18,
+      "chainId": 14,
+      "logoURI": "https://static.debank.com/image/project/logo_url/flr_cyclo/1b33a0370d3cb5ba2c33d1d4e6019dc7.png"
+    },
+    {
+      "name": "Cyclo cyWETH",
+      "symbol": "cyWETH",
+      "address": "0xd8BF1d2720E9fFD01a2F9A2eFc3E101a05B852b4",
+      "decimals": 18,
+      "chainId": 14,
+      "logoURI": "https://static.debank.com/image/project/logo_url/flr_cyclo/1b33a0370d3cb5ba2c33d1d4e6019dc7.png"
     }
   ]
 }
