@@ -13,6 +13,12 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
+  arbitrum2:
+    rpcs:
+      - https://arbitrum-one-rpc.publicnode.com
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
   flare:
     rpcs:
       - https://flare.rpc.thirdweb.com
@@ -35,6 +41,7 @@ networks:
 subgraphs:
   base: https://example.com/subgraph
   arbitrum: https://example.com/subgraph
+  arbitrum2: https://example.com/subgraph
   flare: https://example.com/subgraph
   polygon: https://example.com/subgraph
   bsc: https://example.com/subgraph
@@ -42,6 +49,7 @@ subgraphs:
 metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
@@ -51,6 +59,8 @@ orderbooks:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+  arbitrum2:
+    address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
   polygon:
@@ -62,6 +72,8 @@ deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
@@ -82,6 +94,14 @@ orders:
   arbitrum:
     orderbook: arbitrum
     network: arbitrum
+    inputs:
+      # Input is irrelevant because we always set the IO ratio to 0.
+      - token: input
+    outputs:
+      - token: output
+  arbitrum2:
+    orderbook: arbitrum2
+    network: arbitrum2
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
@@ -123,6 +143,11 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+  arbitrum2:
+    orderbook: arbitrum2
+    runs: 1
+    bindings:
+      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
   flare:
     orderbook: flare
     runs: 1
@@ -146,6 +171,9 @@ deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
+  arbitrum2:
+    order: arbitrum2
+    scenario: arbitrum2
   flare:
     order: flare
     scenario: flare
@@ -210,6 +238,44 @@ gui:
 
     arbitrum:
       name: Canary on Arbitrum.
+      description:
+        A simple strategy that gives a bounty to the solver regularly.
+      deposits:
+        - token: output
+      fields:
+        - binding: cooldown
+          name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: Two minutes (120)
+              value: 120
+            - name: Five minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+        - binding: min-bounty
+          name: Minimum bounty to give to the solver
+        - binding: max-bounty
+          name: Maximum bounty to give to the solver
+        - binding: time-per-epoch
+          name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
+          presets:
+            - name: 5 minutes
+              value: 300
+            - name: 15 minutes
+              value: 900
+            - name: 1 hour
+              value: 3600
+      select-tokens:
+        - key: output
+          name: Output Token
+        - key: input
+          name: Input Token
+    arbitrum2:
+      name: Canary on Arbitrum with the updated orderbook.
       description:
         A simple strategy that gives a bounty to the solver regularly.
       deposits:
