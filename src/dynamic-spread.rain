@@ -256,17 +256,17 @@ using-tokens-from:
   - https://raw.githubusercontent.com/rainlanguage/rain.strategies/629c295b6efae611b086db8e6e8b570ba1fd5d76/token-lists/flare.json
 
 gui:
-  name: Two-sided dynamic spread strategies
+  name: Two-sided dynamic spread orders
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/dynamic-spread.md
-  short-description: A market-making strategy that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.
+  short-description: A market-making order that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.
   deployments:
     arbitrum:
       name: Arbitrum
-      description: Deploy a two-sided dynamic spread strategy on Arbitrum.
+      description: Deploy a two-sided dynamic spread order on Arbitrum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -274,7 +274,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -285,7 +285,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -343,11 +343,11 @@ gui:
           description: Select the token you want to rotate.
     base:
       name: Base
-      description: Deploy a two-sided dynamic spread strategy on Base.
+      description: Deploy a two-sided dynamic spread order on Base.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -355,7 +355,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -366,7 +366,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -424,11 +424,11 @@ gui:
           description: Select the token you want to rotate.
     flare:
       name: Flare
-      description: Deploy a two-sided dynamic spread strategy on Flare.
+      description: Deploy a two-sided dynamic spread order on Flare.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -436,7 +436,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -447,7 +447,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -505,11 +505,11 @@ gui:
           description: Select the token you want to rotate.
     polygon:
       name: Polygon
-      description: Deploy a two-sided dynamic spread strategy on Polygon.
+      description: Deploy a two-sided dynamic spread order on Polygon.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -517,7 +517,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -528,7 +528,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -586,11 +586,11 @@ gui:
           description: Select the token you want to rotate.
     bsc:
       name: BSC
-      description: Deploy a two-sided dynamic spread strategy on BSC.
+      description: Deploy a two-sided dynamic spread order on BSC.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -598,7 +598,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -609,7 +609,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -667,11 +667,11 @@ gui:
           description: Select the token you want to rotate.
     ethereum:
       name: Ethereum
-      description: Deploy a two-sided dynamic spread strategy on Ethereum.
+      description: Deploy a two-sided dynamic spread order on Ethereum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -679,7 +679,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -690,7 +690,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -748,11 +748,11 @@ gui:
           description: Select the token you want to rotate.
     linea:
       name: Linea
-      description: Deploy a two-sided dynamic spread strategy on Linea.
+      description: Deploy a two-sided dynamic spread order on Linea.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.0.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -760,7 +760,7 @@ gui:
               value: 0
         - binding: not-amount-is-fast-exit
           name: Fast exit ${order.inputs.1.token.symbol}?
-          description: If enabled, the strategy will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
+          description: If enabled, the order will attempt to exit any ${order.inputs.1.token.symbol} position it builds up in a single trade, as soon as it can do so profitably.
           presets:
             - name: Yes
               value: 1
@@ -771,7 +771,7 @@ gui:
           description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
-          description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          description: This is the most the order will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
           show-custom-field: true
           default: 1.01
           presets:
@@ -836,8 +836,8 @@ gui:
 #shy-epoch !Epoch below which only the minimum amount is offered.
 #next-trade-multiplier !Start next auction at this x the last trade.
 #history-cap !The max amount of trade history kept for cost basis tracking (denominated in same token as tranche size).
-#amount-token !The token that is the amount token for the strategy. This denominates tranche sizes.
-#initial-io !The IO ratio that the strategy starts at. The quote token is the output so that the IO ratio looks like a CEX price.
+#amount-token !The token that is the amount token for the order. This denominates tranche sizes.
+#initial-io !The IO ratio that the order starts at. The quote token is the output so that the IO ratio looks like a CEX price.
 #initial-output-token !Initial output token for the initial IO ratio.
 #initial-input-token !Initial input token for the initial IO ratio.
 #cost-basis-multiplier !Multiplier for the cost basis IO ratio. Effectively a minimum spread.

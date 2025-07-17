@@ -215,8 +215,8 @@ using-tokens-from:
 
 gui:
   name: Fixed limit
-  description: A very simple strategy that places a limit order at a fixed price.
-  short-description: A very simple strategy that places a limit order at a fixed price.
+  description: A very simple order that places a limit order at a fixed price.
+  short-description: A very simple order that places a limit order at a fixed price.
   deployments:
     base:
       name: Base
