@@ -248,11 +248,11 @@ gui:
   name: Auction based cost averaging
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/auction-dca.md
   short-description:  >
-    A strategy that aims to fill a time-based budget via looping auctions - useful for breaking up large trades into smaller amounts or smoothing out market volatility for regular investments.
+    An order that aims to fill a time-based budget via looping auctions - useful for breaking up large trades into smaller amounts or smoothing out market volatility for regular investments.
   deployments:
     arbitrum:
       name: Arbitrum
-      description: Deploy an auction-based cost averaging strategy on Arbitrum.
+      description: Deploy an auction-based cost averaging order on Arbitrum.
       deposits:
         - token: output
       fields:
@@ -380,7 +380,7 @@ gui:
 
     polygon:
       name: Polygon
-      description: Deploy an auction-based cost averaging strategy on Polygon.
+      description: Deploy an auction-based cost averaging order on Polygon.
       deposits:
         - token: output
       fields:
@@ -507,7 +507,7 @@ gui:
 
     bsc:
       name: BSC
-      description: Deploy an auction-based cost averaging strategy on BSC.
+      description: Deploy an auction-based cost averaging order on BSC.
       deposits:
         - token: output
       fields:
@@ -634,7 +634,7 @@ gui:
 
     base:
       name: Base
-      description: Deploy an auction-based cost averaging strategy on Base.
+      description: Deploy an auction-based cost averaging order on Base.
       deposits:
         - token: output
       fields:
@@ -761,7 +761,7 @@ gui:
 
     ethereum:
       name: Ethereum
-      description: Deploy an auction-based cost averaging strategy on Ethereum.
+      description: Deploy an auction-based cost averaging order on Ethereum.
       deposits:
         - token: output
       fields:
@@ -888,7 +888,7 @@ gui:
 
     flare:
       name: Flare
-      description: Deploy an auction-based cost averaging strategy on Flare.
+      description: Deploy an auction-based cost averaging order on Flare.
       deposits:
         - token: output
       fields:

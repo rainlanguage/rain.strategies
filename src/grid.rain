@@ -162,12 +162,12 @@ using-tokens-from:
 gui:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/grid.md
-  short-description: A strategy that places automated orders at fixed price intervals which can optionally automatically refill over time.
+  short-description: An order that places automated orders at fixed price intervals which can optionally automatically refill over time.
   deployments:
     base:
       name: Base
       description:
-        Deploy a grid strategy on Base.
+        Deploy a grid order on Base.
       deposits:
         - token: token2
       fields:
@@ -203,7 +203,7 @@ gui:
     ethereum:
       name: Ethereum
       description:
-        Deploy a grid strategy on Ethereum.
+        Deploy a grid order on Ethereum.
       deposits:
         - token: token2
       fields:
@@ -238,7 +238,7 @@ gui:
     bsc:
       name: BSC
       description:
-        Deploy a grid strategy on BSC.
+        Deploy a grid order on BSC.
       deposits:
         - token: token2
       fields:
@@ -274,7 +274,7 @@ gui:
     polygon:
       name: Polygon
       description:
-        Deploy a grid strategy on Polygon.
+        Deploy a grid order on Polygon.
       deposits:
         - token: token2
       fields:
@@ -310,7 +310,7 @@ gui:
     flare:
       name: Flare
       description:
-        Deploy a grid strategy on Flare.
+        Deploy a grid order on Flare.
       deposits:
         - token: token2
       fields:
@@ -347,7 +347,7 @@ gui:
 
 #raindex-subparser !The subparser for Raindex.
 
-#baseline-io-ratio !The IO ratio that the strategy starts at. The quote token is the output so that the IO ratio looks like a CEX price.
+#baseline-io-ratio !The IO ratio that the order starts at. The quote token is the output so that the IO ratio looks like a CEX price.
 #io-ratio-growth !The growth rate of the IO ratio.
 #tranche-size !The size of each tranche in amount token.
 
