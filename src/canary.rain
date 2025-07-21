@@ -50,7 +50,7 @@ orderbooks:
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   arbitrum:
-    address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+    address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
   polygon:
@@ -62,7 +62,7 @@ deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
-    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+    address: 0xD0790C27F9A8C163e55E2402c08C6ae2c53a2669
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   polygon:
@@ -122,7 +122,7 @@ scenarios:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
   flare:
     orderbook: flare
     runs: 1
