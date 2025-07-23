@@ -86,6 +86,7 @@ orderbooks:
   #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   #   network: ethereum
   #   subgraph: ethereum
+
 deployers:
   # flare:
   #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
@@ -97,7 +98,7 @@ deployers:
   #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   #   network: polygon
   arbitrum:
-    address: 0xD0790C27F9A8C163e55E2402c08C6ae2c53a2669
+    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
     network: arbitrum
   # bsc:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
