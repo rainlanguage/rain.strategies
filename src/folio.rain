@@ -1,30 +1,60 @@
 version: 1
 
 networks:
-  arbitrum:
+  arbitrum2:
     rpcs:
       - https://arb1.arbitrum.io/rpc
     chain-id: 42161
     network-id: 42161
     currency: ETH
+  base2:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
 
 metaboards:
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
 
 subgraphs:
-  arbitrum: https://example.com/subgraph
+  arbitrum2: https://example.com/subgraph
+  base2: https://example.com/subgraph
 
 orderbooks:
-  arbitrum:
+  arbitrum2:
     address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
+  base2:
+    address: 0x7692BA8446Bb8B3140A2c02df073080BeD0a7F8E
 
 deployers:
-  arbitrum:
+  arbitrum2:
     address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  base2:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
 
 orders:
-  arbitrum:
-    orderbook: arbitrum
+  arbitrum2:
+    orderbook: arbitrum2
+    inputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+    outputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+  base2:
+    orderbook: base2
     inputs:
       - token: token1
       - token: token2
@@ -43,25 +73,77 @@ orders:
       - token: token7
 
 scenarios:
-  arbitrum:
-    orderbook: arbitrum
+  arbitrum2:
+    orderbook: arbitrum2
     runs: 1
     bindings:
       raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
+  base2:
+    orderbook: base2
+    runs: 1
+    bindings:
+      raindex-subparser: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
 
 deployments:
-  arbitrum:
-    order: arbitrum
-    scenario: arbitrum
+  arbitrum2:
+    order: arbitrum2
+    scenario: arbitrum2
+  base2:
+    order: base2
+    scenario: base2
 
 gui:
   name: Folio
   description: Maintains an equal distribution of assets in a portfolio.
   short-description: Rebalances a portfolio to maintain equal distribution of assets.
   deployments:
-    arbitrum:
+    arbitrum2:
       name: Arbitrum
       description: Rebalances a portfolio on the Arbitrum network.
+      deposits:
+        - token: token1
+        - token: token2
+        - token: token3
+        - token: token4
+        - token: token5
+        - token: token6
+        - token: token7
+      fields:
+        - binding: threshold
+          name: Threshold
+          description: The threshold for rebalancing the portfolio. E.g. 0.05 = 5%
+          type: number
+          default: 0.05
+        - binding: fee
+          name: Fee
+          description: The fee for rebalancing the portfolio. E.g. 0.003 = 0.3%
+          type: number
+          default: 0.003
+      select-tokens:
+        - key: token1
+          name: Token 1
+          description: The first token in the portfolio.
+        - key: token2
+          name: Token 2
+          description: The second token in the portfolio.
+        - key: token3
+          name: Token 3
+          description: The third token in the portfolio.
+        - key: token4
+          name: Token 4
+          description: The fourth token in the portfolio.
+        - key: token5
+          name: Token 5
+          description: The fifth token in the portfolio.
+        - key: token6
+          name: Token 6
+          description: The sixth token in the portfolio.
+        - key: token7
+          name: Token 7
+          description: The seventh token in the portfolio.
+    base2:
+      name: Base
+      description: Rebalances a portfolio on the Base network.
       deposits:
         - token: token1
         - token: token2
