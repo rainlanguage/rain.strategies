@@ -373,21 +373,12 @@ gui:
 
 #calculate-io
 using-words-from raindex-subparser
-last-trade: get(order-hash()),
-open-trade-time: add(last-trade cooldown),
-:ensure(
-  greater-than(
-    now()
-    open-trade-time
-  )
-  "Cooldown"
-),
-:set(order-hash() now()),
-duration: sub(now() open-trade-time),
-epoch: div(duration time-per-epoch),
-auction-bounty: linear-growth(min-bounty sub(max-bounty min-bounty) epoch),
-bounty: min(max-bounty auction-bounty),
-ratio: 0;
+_: time-per-epoch,
+_: cooldown,
+_: min-bounty,
+_: max-bounty,
+bounty: 1,
+ratio: 0.9;
 
 #handle-io
 :;
