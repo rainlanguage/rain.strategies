@@ -174,8 +174,10 @@ gui:
       deposits:
         - token: output
       fields:
-        - binding: min-bounty
-          name: Minimum bounty to give to the solver
+        - binding: amount
+          name: amount
+        - binding: ratio
+          name: ratio
       select-tokens:
         - key: output
           name: Output Token
@@ -183,9 +185,11 @@ gui:
           name: Input Token
 
 ---
-#min-bounty !min-bounty
-amount: min-bounty,
-ratio: 1;
+#amount !amount
+#ratio !ratio
+
+#calulate-io
+_ _: amount ratio;
 
 #handle-io
 :;
