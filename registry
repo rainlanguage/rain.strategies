@@ -2,4 +2,4 @@ fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/2342b
 auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/2342bebc68992a9576950e072819c971b2e7b84c/src/auction-dca.rain
 grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/2342bebc68992a9576950e072819c971b2e7b84c/src/grid.rain
 dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/2342bebc68992a9576950e072819c971b2e7b84c/src/dynamic-spread.rain
-canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/243d63f7d4bd7656e0206331a4bfbba3366ad786/src/canary.rain
+canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/519eea1d0b92fe36327a0b2e1d43c92c994807b8/src/canary.rain
