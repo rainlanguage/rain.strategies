@@ -173,6 +173,10 @@ gui:
         A simple strategy that gives a bounty to the solver regularly.
       deposits:
         - token: output
+      fields:
+        - binding: nothing
+          description: noop
+          default: 1
       select-tokens:
         - key: output
           name: Output Token
@@ -180,7 +184,10 @@ gui:
           name: Input Token
 
 ---
+#nothing !nothing
+
 #calculate-io
+_: nothing,
 _ _: 1 0.9;
 
 #handle-io
