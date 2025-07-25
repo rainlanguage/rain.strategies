@@ -174,9 +174,9 @@ gui:
       deposits:
         - token: output
       fields:
-        - binding: amount
+        - binding: order-amount
           name: amount
-        - binding: ratio
+        - binding: order-ratio
           name: ratio
       select-tokens:
         - key: output
@@ -185,11 +185,11 @@ gui:
           name: Input Token
 
 ---
-#amount !amount
-#ratio !ratio
+#order-amount !amount
+#order-ratio !ratio
 
 #calculate-io
-_ _: amount ratio;
+_ _: order-amount order-ratio;
 
 #handle-io
 :;
