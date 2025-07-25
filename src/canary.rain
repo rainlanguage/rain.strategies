@@ -174,10 +174,21 @@ gui:
       deposits:
         - token: output
       fields:
-        - binding: order-amount
-          name: amount
-        - binding: order-ratio
-          name: ratio
+        - binding: cooldown
+          name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: Two minutes (120)
+              value: 120
+            - name: Five minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+        - binding: min-bounty
+          name: Minimum bounty to give to the solver
+        - binding: max-bounty
+          name: Maximum bounty to give to the solver
       select-tokens:
         - key: output
           name: Output Token
@@ -185,11 +196,15 @@ gui:
           name: Input Token
 
 ---
-#order-amount !amount
-#order-ratio !ratio
+#raindex-subparser !The subparser contract address for Raindex.
+#min-bounty !The minimum bounty to give to the solver.
+#max-bounty !The maximum bounty to give to the solver.
 
 #calculate-io
-_ _: order-amount order-ratio;
+using-words-from raindex-subparser
+_: cooldown,
+bounty: min-bounty,
+ratio: max-bounty;
 
 #handle-io
 :;
