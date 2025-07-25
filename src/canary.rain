@@ -175,6 +175,7 @@ gui:
         - token: output
       fields:
         - binding: nothing
+          name: nothing
           description: noop
           default: 1
       select-tokens:
