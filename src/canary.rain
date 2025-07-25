@@ -188,7 +188,7 @@ gui:
 #amount !amount
 #ratio !ratio
 
-#calulate-io
+#calculate-io
 _ _: amount ratio;
 
 #handle-io
