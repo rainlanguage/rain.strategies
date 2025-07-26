@@ -1,84 +1,76 @@
 version: 2
 
 networks:
-  base:
-    rpcs:
-      - https://base-rpc.publicnode.com
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
   arbitrum:
     rpcs:
       - https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
     currency: ETH
-  flare:
-    rpcs:
-      - https://flare.rpc.thirdweb.com
-    chain-id: 14
-    network-id: 14
-    currency: FLR
-  polygon:
-    rpcs:
-      - https://polygon-rpc.com
-    chain-id: 137
-    network-id: 137
-    currency: POL
-  bsc:
-    rpcs:
-      - https://bsc-dataseed.bnbchain.org
-    chain-id: 56
-    network-id: 56
-    currency: BNB
+  # base:
+  #   rpcs:
+  #     - https://base-rpc.publicnode.com
+  #   chain-id: 8453
+  #   network-id: 8453
+  #   currency: ETH
+  # flare:
+  #   rpcs:
+  #     - https://flare.rpc.thirdweb.com
+  #   chain-id: 14
+  #   network-id: 14
+  #   currency: FLR
+  # polygon:
+  #   rpcs:
+  #     - https://polygon-rpc.com
+  #   chain-id: 137
+  #   network-id: 137
+  #   currency: POL
+  # bsc:
+  #   rpcs:
+  #     - https://bsc-dataseed.bnbchain.org
+  #   chain-id: 56
+  #   network-id: 56
+  #   currency: BNB
 
 subgraphs:
-  base: https://example.com/subgraph
   arbitrum: https://example.com/subgraph
-  flare: https://example.com/subgraph
-  polygon: https://example.com/subgraph
-  bsc: https://example.com/subgraph
+  # base: https://example.com/subgraph
+  # flare: https://example.com/subgraph
+  # polygon: https://example.com/subgraph
+  # bsc: https://example.com/subgraph
 
 metaboards:
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
-  bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
+  # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
+  # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
 
 orderbooks:
-  base:
-    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
-  flare:
-    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-  polygon:
-    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
-  bsc:
-    address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
+  # base:
+  #   address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  # flare:
+  #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  # polygon:
+  #   address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
+  # bsc:
+  #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
 
 deployers:
-  base:
-    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
-  flare:
-    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
-  polygon:
-    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
-  bsc:
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  # base:
+  #   address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  # flare:
+  #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  # polygon:
+  #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+  # bsc:
+  #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
 
 orders:
-  base:
-    orderbook: base
-    network: base
-    inputs:
-      # Input is irrelevant because we always set the IO ratio to 0.
-      - token: input
-    outputs:
-      - token: output
   arbitrum:
     orderbook: arbitrum
     network: arbitrum
@@ -87,74 +79,82 @@ orders:
       - token: input
     outputs:
       - token: output
-  flare:
-    orderbook: flare
-    network: flare
-    inputs:
-      # Input is irrelevant because we always set the IO ratio to 0.
-      - token: input
-    outputs:
-      - token: output
-  polygon:
-    orderbook: polygon
-    network: polygon
-    inputs:
-      # Input is irrelevant because we always set the IO ratio to 0.
-      - token: input
-    outputs:
-      - token: output
-  bsc:
-    orderbook: bsc
-    network: bsc
-    inputs:
-      # Input is irrelevant because we always set the IO ratio to 0.
-      - token: input
-    outputs:
-      - token: output
+  # base:
+  #   orderbook: base
+  #   network: base
+  #   inputs:
+  #     # Input is irrelevant because we always set the IO ratio to 0.
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # flare:
+  #   orderbook: flare
+  #   network: flare
+  #   inputs:
+  #     # Input is irrelevant because we always set the IO ratio to 0.
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # polygon:
+  #   orderbook: polygon
+  #   network: polygon
+  #   inputs:
+  #     # Input is irrelevant because we always set the IO ratio to 0.
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # bsc:
+  #   orderbook: bsc
+  #   network: bsc
+  #   inputs:
+  #     # Input is irrelevant because we always set the IO ratio to 0.
+  #     - token: input
+  #   outputs:
+  #     - token: output
 
 scenarios:
-  base:
-    orderbook: base
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
   arbitrum:
     orderbook: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
-  flare:
-    orderbook: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-  polygon:
-    orderbook: polygon
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-  bsc:
-    orderbook: bsc
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  # base:
+  #   orderbook: base
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  # flare:
+  #   orderbook: flare
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  # polygon:
+  #   orderbook: polygon
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+  # bsc:
+  #   orderbook: bsc
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
 
 deployments:
-  base:
-    order: base
-    scenario: base
   arbitrum:
     order: arbitrum
     scenario: arbitrum
-  flare:
-    order: flare
-    scenario: flare
-  polygon:
-    order: polygon
-    scenario: polygon
-  bsc:
-    order: bsc
-    scenario: bsc
+  # base:
+  #   order: base
+  #   scenario: base
+  # flare:
+  #   order: flare
+  #   scenario: flare
+  # polygon:
+  #   order: polygon
+  #   scenario: polygon
+  # bsc:
+  #   order: bsc
+  #   scenario: bsc
 
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
@@ -169,45 +169,6 @@ gui:
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/canary.md
   short-description: Does nothing except give a bounty to the solver regularly.
   deployments:
-    base:
-      name: Canary on Base.
-      description:
-        A simple strategy that gives a bounty to the solver regularly.
-      deposits:
-        - token: output
-      fields:
-        - binding: cooldown
-          name: Cooldown between possible trades in seconds.
-          show-custom-field: true
-          default: 300
-          presets:
-            - name: Two minutes (120)
-              value: 120
-            - name: Five minutes (300)
-              value: 300
-            - name: 1 hour (3600)
-              value: 3600
-        - binding: min-bounty
-          name: Minimum bounty to give to the solver
-        - binding: max-bounty
-          name: Maximum bounty to give to the solver
-        - binding: time-per-epoch
-          name: Total auction duration in seconds.
-          show-custom-field: true
-          default: 900
-          presets:
-            - name: 5 minutes
-              value: 300
-            - name: 15 minutes
-              value: 900
-            - name: 1 hour
-              value: 3600
-      select-tokens:
-        - key: output
-          name: Output Token
-        - key: input
-          name: Input Token
-
     arbitrum:
       name: Canary on Arbitrum.
       description:
@@ -247,122 +208,161 @@ gui:
         - key: input
           name: Input Token
 
-    flare:
-      name: Canary on Flare.
-      description:
-        A simple strategy that gives a bounty to the solver regularly.
-      deposits:
-        - token: output
-      fields:
-        - binding: cooldown
-          name: Cooldown between possible trades in seconds.
-          show-custom-field: true
-          default: 300
-          presets:
-            - name: Two minutes (120)
-              value: 120
-            - name: Five minutes (300)
-              value: 300
-            - name: 1 hour (3600)
-              value: 3600
-        - binding: min-bounty
-          name: Minimum bounty to give to the solver
-        - binding: max-bounty
-          name: Maximum bounty to give to the solver
-        - binding: time-per-epoch
-          name: Total auction duration in seconds.
-          show-custom-field: true
-          default: 900
-          presets:
-            - name: 5 minutes
-              value: 300
-            - name: 15 minutes
-              value: 900
-            - name: 1 hour
-              value: 3600
-      select-tokens:
-        - key: output
-          name: Output Token  
-        - key: input
-          name: Input Token
+    # base:
+    #   name: Canary on Base.
+    #   description:
+    #     A simple strategy that gives a bounty to the solver regularly.
+    #   deposits:
+    #     - token: output
+    #   fields:
+    #     - binding: cooldown
+    #       name: Cooldown between possible trades in seconds.
+    #       show-custom-field: true
+    #       default: 300
+    #       presets:
+    #         - name: Two minutes (120)
+    #           value: 120
+    #         - name: Five minutes (300)
+    #           value: 300
+    #         - name: 1 hour (3600)
+    #           value: 3600
+    #     - binding: min-bounty
+    #       name: Minimum bounty to give to the solver
+    #     - binding: max-bounty
+    #       name: Maximum bounty to give to the solver
+    #     - binding: time-per-epoch
+    #       name: Total auction duration in seconds.
+    #       show-custom-field: true
+    #       default: 900
+    #       presets:
+    #         - name: 5 minutes
+    #           value: 300
+    #         - name: 15 minutes
+    #           value: 900
+    #         - name: 1 hour
+    #           value: 3600
+    #   select-tokens:
+    #     - key: output
+    #       name: Output Token
+    #     - key: input
+    #       name: Input Token
 
-    polygon:
-      name: Canary on Polygon.
-      description:
-        A simple strategy that gives a bounty to the solver regularly.
-      deposits:
-        - token: output
-      fields:
-        - binding: cooldown
-          name: Cooldown between possible trades in seconds.
-          show-custom-field: true
-          default: 300
-          presets:
-            - name: Two minutes (120)
-              value: 120
-            - name: Five minutes (300)
-              value: 300
-            - name: 1 hour (3600)
-              value: 3600
-        - binding: min-bounty
-          name: Minimum bounty to give to the solver
-        - binding: max-bounty
-          name: Maximum bounty to give to the solver
-        - binding: time-per-epoch
-          name: Total auction duration in seconds.
-          show-custom-field: true
-          default: 900
-          presets:
-            - name: 5 minutes
-              value: 300
-            - name: 15 minutes
-              value: 900
-            - name: 1 hour
-              value: 3600
-      select-tokens:
-        - key: output
-          name: Output Token
-        - key: input
-          name: Input Token
+    # flare:
+    #   name: Canary on Flare.
+    #   description:
+    #     A simple strategy that gives a bounty to the solver regularly.
+    #   deposits:
+    #     - token: output
+    #   fields:
+    #     - binding: cooldown
+    #       name: Cooldown between possible trades in seconds.
+    #       show-custom-field: true
+    #       default: 300
+    #       presets:
+    #         - name: Two minutes (120)
+    #           value: 120
+    #         - name: Five minutes (300)
+    #           value: 300
+    #         - name: 1 hour (3600)
+    #           value: 3600
+    #     - binding: min-bounty
+    #       name: Minimum bounty to give to the solver
+    #     - binding: max-bounty
+    #       name: Maximum bounty to give to the solver
+    #     - binding: time-per-epoch
+    #       name: Total auction duration in seconds.
+    #       show-custom-field: true
+    #       default: 900
+    #       presets:
+    #         - name: 5 minutes
+    #           value: 300
+    #         - name: 15 minutes
+    #           value: 900
+    #         - name: 1 hour
+    #           value: 3600
+    #   select-tokens:
+    #     - key: output
+    #       name: Output Token
+    #     - key: input
+    #       name: Input Token
 
-    bsc:
-      name: Canary on BSC.
-      description:
-        A simple strategy that gives a bounty to the solver regularly.
-      deposits:
-        - token: output
-      fields:
-        - binding: cooldown
-          name: Cooldown between possible trades in seconds.
-          show-custom-field: true
-          default: 300
-          presets:
-            - name: Two minutes (120)
-              value: 120
-            - name: Five minutes (300)
-              value: 300
-            - name: 1 hour (3600)
-              value: 3600
-        - binding: min-bounty
-          name: Minimum bounty to give to the solver
-        - binding: max-bounty
-          name: Maximum bounty to give to the solver
-        - binding: time-per-epoch
-          name: Total auction duration in seconds.
-          show-custom-field: true
-          default: 900
-          presets:
-            - name: 5 minutes
-              value: 300
-            - name: 15 minutes
-              value: 900
-            - name: 1 hour
-              value: 3600
-      select-tokens:
-        - key: output
-          name: Output Token
-        - key: input
-          name: Input Token
+    # polygon:
+    #   name: Canary on Polygon.
+    #   description:
+    #     A simple strategy that gives a bounty to the solver regularly.
+    #   deposits:
+    #     - token: output
+    #   fields:
+    #     - binding: cooldown
+    #       name: Cooldown between possible trades in seconds.
+    #       show-custom-field: true
+    #       default: 300
+    #       presets:
+    #         - name: Two minutes (120)
+    #           value: 120
+    #         - name: Five minutes (300)
+    #           value: 300
+    #         - name: 1 hour (3600)
+    #           value: 3600
+    #     - binding: min-bounty
+    #       name: Minimum bounty to give to the solver
+    #     - binding: max-bounty
+    #       name: Maximum bounty to give to the solver
+    #     - binding: time-per-epoch
+    #       name: Total auction duration in seconds.
+    #       show-custom-field: true
+    #       default: 900
+    #       presets:
+    #         - name: 5 minutes
+    #           value: 300
+    #         - name: 15 minutes
+    #           value: 900
+    #         - name: 1 hour
+    #           value: 3600
+    #   select-tokens:
+    #     - key: output
+    #       name: Output Token
+    #     - key: input
+    #       name: Input Token
+
+    # bsc:
+    #   name: Canary on BSC.
+    #   description:
+    #     A simple strategy that gives a bounty to the solver regularly.
+    #   deposits:
+    #     - token: output
+    #   fields:
+    #     - binding: cooldown
+    #       name: Cooldown between possible trades in seconds.
+    #       show-custom-field: true
+    #       default: 300
+    #       presets:
+    #         - name: Two minutes (120)
+    #           value: 120
+    #         - name: Five minutes (300)
+    #           value: 300
+    #         - name: 1 hour (3600)
+    #           value: 3600
+    #     - binding: min-bounty
+    #       name: Minimum bounty to give to the solver
+    #     - binding: max-bounty
+    #       name: Maximum bounty to give to the solver
+    #     - binding: time-per-epoch
+    #       name: Total auction duration in seconds.
+    #       show-custom-field: true
+    #       default: 900
+    #       presets:
+    #         - name: 5 minutes
+    #           value: 300
+    #         - name: 15 minutes
+    #           value: 900
+    #         - name: 1 hour
+    #           value: 3600
+    #   select-tokens:
+    #     - key: output
+    #       name: Output Token
+    #     - key: input
+    #       name: Input Token
 
 ---
 #raindex-subparser !The subparser contract address for Raindex.

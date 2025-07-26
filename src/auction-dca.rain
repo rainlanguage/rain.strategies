@@ -7,80 +7,80 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
-  bsc:
-    rpcs:
-      - https://bsc-dataseed.bnbchain.org
-    chain-id: 56
-    network-id: 56
-    currency: BNB
-  base:
-    rpcs:
-      - https://base-rpc.publicnode.com
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
-  ethereum:
-    rpcs:
-      - https://ethereum-rpc.publicnode.com
-    chain-id: 1
-    network-id: 1
-    currency: ETH
-  flare:
-    rpcs:
-      - https://flare.rpc.thirdweb.com
-    chain-id: 14
-    network-id: 14
-    currency: FLR
-  polygon:
-    rpcs:
-      - https://polygon-rpc.com
-    chain-id: 137
-    network-id: 137
-    currency: POL
+  # bsc:
+  #   rpcs:
+  #     - https://bsc-dataseed.bnbchain.org
+  #   chain-id: 56
+  #   network-id: 56
+  #   currency: BNB
+  # base:
+  #   rpcs:
+  #     - https://base-rpc.publicnode.com
+  #   chain-id: 8453
+  #   network-id: 8453
+  #   currency: ETH
+  # ethereum:
+  #   rpcs:
+  #     - https://ethereum-rpc.publicnode.com
+  #   chain-id: 1
+  #   network-id: 1
+  #   currency: ETH
+  # flare:
+  #   rpcs:
+  #     - https://flare.rpc.thirdweb.com
+  #   chain-id: 14
+  #   network-id: 14
+  #   currency: FLR
+  # polygon:
+  #   rpcs:
+  #     - https://polygon-rpc.com
+  #   chain-id: 137
+  #   network-id: 137
+  #   currency: POL
 
 subgraphs:
   arbitrum: https://example.com/subgraph
-  bsc: https://example.com/subgraph
-  base: https://example.com/subgraph
-  ethereum: https://example.com/subgraph
-  flare: https://example.com/subgraph
-  polygon: https://example.com/subgraph
+  # bsc: https://example.com/subgraph
+  # base: https://example.com/subgraph
+  # ethereum: https://example.com/subgraph
+  # flare: https://example.com/subgraph
+  # polygon: https://example.com/subgraph
 
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-  bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-  ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
-  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
+  # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
+  # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+  # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
+  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
 
 orderbooks:
   arbitrum:
-    address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
-  bsc:
-    address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
-  base:
-    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
-  ethereum:
-    address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
-  flare:
-    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-  polygon:
-    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
+    address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
+  # bsc:
+  #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
+  # base:
+  #   address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  # ethereum:
+  #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
+  # flare:
+  #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  # polygon:
+  #   address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
 
 deployers:
   arbitrum:
-    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
-  bsc:
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-  base:
-    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
-  ethereum:
-    address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
-  flare:
-    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
-  polygon:
-    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
+  # bsc:
+  #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  # base:
+  #   address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  # ethereum:
+  #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
+  # flare:
+  #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  # polygon:
+  #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
 
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
@@ -97,152 +97,152 @@ orders:
       - token: input
     outputs:
       - token: output
-  bsc:
-    orderbook: bsc
-    inputs:
-      - token: input
-    outputs:
-      - token: output
-  base:
-    orderbook: base
-    inputs:
-      - token: input
-    outputs:
-      - token: output
-  ethereum:
-    orderbook: ethereum
-    inputs:
-      - token: input
-    outputs:
-      - token: output
-  flare:
-    orderbook: flare
-    inputs:
-      - token: input
-    outputs:
-      - token: output
-  polygon:
-    orderbook: polygon
-    inputs:
-      - token: input
-    outputs:
-      - token: output
-  flare-sflr-wflr:
-    orderbook: flare
-    inputs:
-      - token: flare-sflr
-    outputs:
-      - token: flare-wflr
-  flare-wflr-sflr:
-    orderbook: flare
-    inputs:
-      - token: flare-wflr
-    outputs:
-      - token: flare-sflr
+  # bsc:
+  #   orderbook: bsc
+  #   inputs:
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # base:
+  #   orderbook: base
+  #   inputs:
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # ethereum:
+  #   orderbook: ethereum
+  #   inputs:
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # flare:
+  #   orderbook: flare
+  #   inputs:
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # polygon:
+  #   orderbook: polygon
+  #   inputs:
+  #     - token: input
+  #   outputs:
+  #     - token: output
+  # flare-sflr-wflr:
+  #   orderbook: flare
+  #   inputs:
+  #     - token: flare-sflr
+  #   outputs:
+  #     - token: flare-wflr
+  # flare-wflr-sflr:
+  #   orderbook: flare
+  #   inputs:
+  #     - token: flare-wflr
+  #   outputs:
+  #     - token: flare-sflr
 
 scenarios:
   arbitrum:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
-      subparser-0: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
+      subparser-0: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
-  bsc:
-    orderbook: bsc
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
-      shy-epoch: 0.05
-  base:
-    orderbook: base
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
-      shy-epoch: 0.05
-  polygon:
-    orderbook: polygon
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-      subparser-0: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
-      shy-epoch: 0.05
-  ethereum:
-    orderbook: ethereum
-    runs: 1
-    bindings:
-      raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
-      subparser-0: 0x22410e2a46261a1B1e3899a072f303022801C764
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
-      shy-epoch: 0.05
-  flare:
-    orderbook: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
-      baseline-fn: '''constant-baseline'
-      initial-io-fn: '''constant-initial-io'
-      shy-epoch: 0.05
-  flare-sflr-baseline:
-    orderbook: flare
-    deployer: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
-      baseline-fn: '''sflr-baseline'
-      initial-io-fn: '''sflr-baseline'
-      next-trade-baseline-multiplier: 0
-      shy-epoch: 0.05
-  flare-sflr-baseline-inv:
-    orderbook: flare
-    deployer: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
-      baseline-fn: '''sflr-baseline-inv'
-      initial-io-fn: '''sflr-baseline-inv'
-      next-trade-baseline-multiplier: 0
-      shy-epoch: 0.05
+  # bsc:
+  #   orderbook: bsc
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     baseline-fn: '''constant-baseline'
+  #     initial-io-fn: '''constant-initial-io'
+  #     shy-epoch: 0.05
+  # base:
+  #   orderbook: base
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     baseline-fn: '''constant-baseline'
+  #     initial-io-fn: '''constant-initial-io'
+  #     shy-epoch: 0.05
+  # polygon:
+  #   orderbook: polygon
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+  #     subparser-0: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+  #     baseline-fn: '''constant-baseline'
+  #     initial-io-fn: '''constant-initial-io'
+  #     shy-epoch: 0.05
+  # ethereum:
+  #   orderbook: ethereum
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
+  #     subparser-0: 0x22410e2a46261a1B1e3899a072f303022801C764
+  #     baseline-fn: '''constant-baseline'
+  #     initial-io-fn: '''constant-initial-io'
+  #     shy-epoch: 0.05
+  # flare:
+  #   orderbook: flare
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  #     subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+  #     baseline-fn: '''constant-baseline'
+  #     initial-io-fn: '''constant-initial-io'
+  #     shy-epoch: 0.05
+  # flare-sflr-baseline:
+  #   orderbook: flare
+  #   deployer: flare
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  #     subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+  #     baseline-fn: '''sflr-baseline'
+  #     initial-io-fn: '''sflr-baseline'
+  #     next-trade-baseline-multiplier: 0
+  #     shy-epoch: 0.05
+  # flare-sflr-baseline-inv:
+  #   orderbook: flare
+  #   deployer: flare
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  #     subparser-0: 0x915E36ef882941816356bC3718Df868054F868aD
+  #     baseline-fn: '''sflr-baseline-inv'
+  #     initial-io-fn: '''sflr-baseline-inv'
+  #     next-trade-baseline-multiplier: 0
+  #     shy-epoch: 0.05
 
 deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
-  polygon:
-    order: polygon
-    scenario: polygon
-  bsc:
-    order: bsc
-    scenario: bsc
-  base:
-    order: base
-    scenario: base
-  ethereum:
-    order: ethereum
-    scenario: ethereum
-  flare:
-    order: flare
-    scenario: flare
-  flare-sflr-wflr:
-    order: flare-sflr-wflr
-    scenario: flare-sflr-baseline
-  flare-wflr-sflr:
-    order: flare-wflr-sflr
-    scenario: flare-sflr-baseline-inv
+  # polygon:
+  #   order: polygon
+  #   scenario: polygon
+  # bsc:
+  #   order: bsc
+  #   scenario: bsc
+  # base:
+  #   order: base
+  #   scenario: base
+  # ethereum:
+  #   order: ethereum
+  #   scenario: ethereum
+  # flare:
+  #   order: flare
+  #   scenario: flare
+  # flare-sflr-wflr:
+  #   order: flare-sflr-wflr
+  #   scenario: flare-sflr-baseline
+  # flare-wflr-sflr:
+  #   order: flare-wflr-sflr
+  #   scenario: flare-sflr-baseline-inv
 
 gui:
   name: Auction based cost averaging
