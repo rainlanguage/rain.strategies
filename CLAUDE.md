@@ -67,3 +67,7 @@ When modifying strategies:
 ## Network Deployment
 
 Currently only Arbitrum network is actively configured. Other networks are commented out in `settings.yaml` but can be enabled by uncommenting and updating contract addresses as needed.
+
+## Important Instructions for Claude Code
+
+**NEVER commit changes automatically.** Always wait for explicit user approval before committing any changes to the repository. The user must personally review all changes before they are committed.

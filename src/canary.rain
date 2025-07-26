@@ -172,7 +172,7 @@ gui:
     arbitrum:
       name: Canary on Arbitrum.
       description:
-        A simple strategy that gives a bounty to the solver regularly.
+        A simple order that gives a bounty to the solver regularly.
       deposits:
         - token: output
       fields:
@@ -211,7 +211,7 @@ gui:
     # base:
     #   name: Canary on Base.
     #   description:
-    #     A simple strategy that gives a bounty to the solver regularly.
+    #     A simple order that gives a bounty to the solver regularly.
     #   deposits:
     #     - token: output
     #   fields:
@@ -250,7 +250,7 @@ gui:
     # flare:
     #   name: Canary on Flare.
     #   description:
-    #     A simple strategy that gives a bounty to the solver regularly.
+    #     A simple order that gives a bounty to the solver regularly.
     #   deposits:
     #     - token: output
     #   fields:
@@ -289,7 +289,7 @@ gui:
     # polygon:
     #   name: Canary on Polygon.
     #   description:
-    #     A simple strategy that gives a bounty to the solver regularly.
+    #     A simple order that gives a bounty to the solver regularly.
     #   deposits:
     #     - token: output
     #   fields:
@@ -328,7 +328,7 @@ gui:
     # bsc:
     #   name: Canary on BSC.
     #   description:
-    #     A simple strategy that gives a bounty to the solver regularly.
+    #     A simple order that gives a bounty to the solver regularly.
     #   deposits:
     #     - token: output
     #   fields:
@@ -369,7 +369,7 @@ gui:
 #cooldown !The time in seconds between possible trades.
 #min-bounty !The minimum bounty to give to the solver.
 #max-bounty !The maximum bounty to give to the solver.
-#time-per-epoch !The time in seconds for an epoch. There is only one epoch in this strategy.
+#time-per-epoch !The time in seconds for an epoch. There is only one epoch in this order.
 
 #calculate-io
 using-words-from raindex-subparser
