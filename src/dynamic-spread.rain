@@ -5,72 +5,72 @@ scenarios:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0xb06202aA3Fe7d85171fB7aA5f17011d17E63f382
+      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       history-cap: '1e50'
       shy-epoch: 0.05
       amount-token: ${order.inputs.0.token.address}
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
-  base:
-    orderbook: base
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      history-cap: '1e50'
-      shy-epoch: 0.05
-      amount-token: ${order.inputs.0.token.address}
-      initial-output-token: ${order.outputs.1.token.address}
-      initial-input-token: ${order.inputs.0.token.address}
-  flare:
-    orderbook: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      history-cap: '1e50'
-      shy-epoch: 0.05
-      amount-token: ${order.inputs.0.token.address}
-      initial-output-token: ${order.outputs.1.token.address}
-      initial-input-token: ${order.inputs.0.token.address}
-  polygon:
-    orderbook: polygon
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-      history-cap: '1e50'
-      shy-epoch: 0.05
-      amount-token: ${order.inputs.0.token.address}
-      initial-output-token: ${order.outputs.1.token.address}
-      initial-input-token: ${order.inputs.0.token.address}
-  bsc:
-    orderbook: bsc
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      history-cap: '1e50'
-      shy-epoch: 0.05
-      amount-token: ${order.inputs.0.token.address}
-      initial-output-token: ${order.outputs.1.token.address}
-      initial-input-token: ${order.inputs.0.token.address}
-  ethereum:
-    orderbook: ethereum
-    runs: 1
-    bindings:
-      raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
-      history-cap: '1e50'
-      shy-epoch: 0.05
-      amount-token: ${order.inputs.0.token.address}
-      initial-output-token: ${order.outputs.1.token.address}
-      initial-input-token: ${order.inputs.0.token.address}
-  linea:
-    orderbook: linea
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF77b3c3f61af5a3cE7f7CE3cfFc117491104432E
-      history-cap: '1e50'
-      shy-epoch: 0.05
-      amount-token: ${order.inputs.0.token.address}
-      initial-output-token: ${order.outputs.1.token.address}
-      initial-input-token: ${order.inputs.0.token.address}
+  # base:
+  #   orderbook: base
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     history-cap: '1e50'
+  #     shy-epoch: 0.05
+  #     amount-token: ${order.inputs.0.token.address}
+  #     initial-output-token: ${order.outputs.1.token.address}
+  #     initial-input-token: ${order.inputs.0.token.address}
+  # flare:
+  #   orderbook: flare
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  #     history-cap: '1e50'
+  #     shy-epoch: 0.05
+  #     amount-token: ${order.inputs.0.token.address}
+  #     initial-output-token: ${order.outputs.1.token.address}
+  #     initial-input-token: ${order.inputs.0.token.address}
+  # polygon:
+  #   orderbook: polygon
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+  #     history-cap: '1e50'
+  #     shy-epoch: 0.05
+  #     amount-token: ${order.inputs.0.token.address}
+  #     initial-output-token: ${order.outputs.1.token.address}
+  #     initial-input-token: ${order.inputs.0.token.address}
+  # bsc:
+  #   orderbook: bsc
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     history-cap: '1e50'
+  #     shy-epoch: 0.05
+  #     amount-token: ${order.inputs.0.token.address}
+  #     initial-output-token: ${order.outputs.1.token.address}
+  #     initial-input-token: ${order.inputs.0.token.address}
+  # ethereum:
+  #   orderbook: ethereum
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
+  #     history-cap: '1e50'
+  #     shy-epoch: 0.05
+  #     amount-token: ${order.inputs.0.token.address}
+  #     initial-output-token: ${order.outputs.1.token.address}
+  #     initial-input-token: ${order.inputs.0.token.address}
+  # linea:
+  #   orderbook: linea
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xF77b3c3f61af5a3cE7f7CE3cfFc117491104432E
+  #     history-cap: '1e50'
+  #     shy-epoch: 0.05
+  #     amount-token: ${order.inputs.0.token.address}
+  #     initial-output-token: ${order.outputs.1.token.address}
+  #     initial-input-token: ${order.inputs.0.token.address}
 
 networks:
   flare:
@@ -140,7 +140,7 @@ orderbooks:
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   arbitrum:
-    address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
+    address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
   bsc:
@@ -156,7 +156,7 @@ deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
-    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   ethereum:
