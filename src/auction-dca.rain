@@ -1052,7 +1052,7 @@ gui:
           description: Select the token you want to purchase
 
     base2:
-      name: Base with updated
+      name: Base with updated orderbook
       description: Deploy an auction-based cost averaging strategy on Base with update orderbook.
       deposits:
         - token: output
