@@ -7,25 +7,46 @@ networks:
     chain-id: 8453
     network-id: 8453
     currency: ETH
+  polygon:
+    rpcs:
+      - https://polygon-rpc.com
+    chain-id: 137
+    network-id: 137
+    currency: POL
 
 subgraphs:
   base: https://example.com/subgraph
+  polygon: https://example.com/subgraph
+
 
 metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-matic/2024-12-13-d2b4/gn
 
 orderbooks:
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  polygon:
+    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
 
 deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  polygon:
+    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
 
 orders:
   base:
     orderbook: base
     network: base
+    inputs:
+      # Input is irrelevant because we always set the IO ratio to 0.
+      - token: input
+    outputs:
+      - token: output
+  polygon:
+    orderbook: polygon
+    network: polygon
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
@@ -39,11 +60,20 @@ scenarios:
     bindings:
       raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
       merkle-words: 0x8ceC9e3Ec2F8838000b91CfB97403A6Bb0F4036A
+  polygon:
+    orderbook: polygon
+    runs: 1
+    bindings:
+      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      merkle-words: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
 
 deployments:
   base:
     order: base
     scenario: base
+  polygon:
+    order: polygon
+    scenario: polygon
 
 gui:
   name: Claims
@@ -52,6 +82,20 @@ gui:
   deployments:
     base:
       name: Claims on Base.
+      description:
+        A simple strategy that distributes rewards by verifying the proofs submitted
+      deposits:
+        - token: output
+      fields:
+        - binding: root
+          name: Merkle tree root
+      select-tokens:
+        - key: output
+          name: Output Token
+        - key: input
+          name: Input Token
+    polygon:
+      name: Claims on Polygon.
       description:
         A simple strategy that distributes rewards by verifying the proofs submitted
       deposits:
