@@ -26,7 +26,7 @@ orderbooks:
   arbitrum2:
     address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
   base2:
-    address: 0x7692BA8446Bb8B3140A2c02df073080BeD0a7F8E
+    address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
 
 deployers:
   arbitrum2:
@@ -82,7 +82,7 @@ scenarios:
     orderbook: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
+      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
 
 deployments:
   arbitrum2:

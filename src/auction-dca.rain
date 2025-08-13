@@ -65,7 +65,7 @@ metaboards:
   arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base/0.1/gn
-  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-07-03-f4dc/gn
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
@@ -80,7 +80,7 @@ orderbooks:
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   base2:
-    address: 0x7692ba8446bb8b3140a2c02df073080bed0a7f8e
+    address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
   ethereum:
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   flare:
@@ -210,8 +210,8 @@ scenarios:
     orderbook: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
-      subparser-0: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
+      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
+      subparser-0: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
@@ -291,7 +291,7 @@ scenarios:
     deployer: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
+      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
       subparser-0: 0xd8Bb6094fCB839bca8c12Ec53Bb2Cd7C012C8E87
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
@@ -302,7 +302,7 @@ scenarios:
     deployer: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
+      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
       subparser-0: 0xd8Bb6094fCB839bca8c12Ec53Bb2Cd7C012C8E87
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
