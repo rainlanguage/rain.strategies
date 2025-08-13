@@ -15,7 +15,7 @@ networks:
     currency: ETH
 
 metaboards:
-  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
 
 subgraphs:
@@ -24,7 +24,7 @@ subgraphs:
 
 orderbooks:
   arbitrum2:
-    address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
+    address: 0x783b82f0fBF6743882072AE2393B108F5938898B
   base2:
     address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
 
@@ -77,7 +77,7 @@ scenarios:
     orderbook: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
+      raindex-subparser: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
   base2:
     orderbook: base2
     runs: 1

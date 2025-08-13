@@ -61,8 +61,8 @@ subgraphs:
   polygon: https://example.com/subgraph
 
 metaboards:
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
-  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base/0.1/gn
   base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
@@ -74,7 +74,7 @@ orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
   arbitrum2:
-    address: 0xF6FdCB30FD027C73cBacD54E22f02987E3116eBc
+    address: 0x783b82f0fBF6743882072AE2393B108F5938898B
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
@@ -269,7 +269,7 @@ scenarios:
     deployer: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
+      raindex-subparser: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
       subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
@@ -280,7 +280,7 @@ scenarios:
     deployer: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xde38AD4b13D5258a5653E530EcDF0cA71B4E8a51
+      raindex-subparser: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
       subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
