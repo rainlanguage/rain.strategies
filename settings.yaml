@@ -11,6 +11,12 @@ networks:
     chain-id: 8453
     network-id: 8453
     currency: ETH
+  base2:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
   polygon:
     rpcs:
       - https://polygon-rpc.com
@@ -50,6 +56,7 @@ networks:
 subgraphs:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-flare/2024-12-13-9dc7/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2024-12-13-9c39/gn
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-08-13-b0e4/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-matic/2024-12-13-d2b4/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2024-12-13-7435/gn
   arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2025-06-04-f5a5/gn
@@ -58,7 +65,8 @@ subgraphs:
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-mainnet/2024-12-13-7f22/gn
 metaboards:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
@@ -74,6 +82,10 @@ orderbooks:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
     network: base
     subgraph: base
+  base2:
+    address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
+    network: base2
+    subgraph: base2
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
     network: polygon
@@ -105,6 +117,9 @@ deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
     network: base
+  base2:
+    address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
+    network: base2
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
     network: polygon
