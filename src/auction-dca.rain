@@ -74,13 +74,13 @@ orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
   arbitrum2:
-    address: 0x783b82f0fBF6743882072AE2393B108F5938898B
+    address: 0xbC176C5884CA778b91729C0092245905Df28Cd8f
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   base2:
-    address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
+    address: 0x84c6e7F5A1e5dD89594Cc25BEf4722A1b8871aE6
   ethereum:
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   flare:

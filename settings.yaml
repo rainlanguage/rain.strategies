@@ -56,10 +56,10 @@ networks:
 subgraphs:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-flare/2024-12-13-9dc7/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2024-12-13-9c39/gn
-  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-08-13-b0e4/gn
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-08-15-2222/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-matic/2024-12-13-d2b4/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2024-12-13-7435/gn
-  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2025-08-13-30c8/gn
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2025-08-15-c55a/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-bsc/2024-12-13-2244/gn
   linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-linea/2024-12-13-09c7/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-mainnet/2024-12-13-7f22/gn
@@ -83,7 +83,7 @@ orderbooks:
     network: base
     subgraph: base
   base2:
-    address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
+    address: 0x84c6e7F5A1e5dD89594Cc25BEf4722A1b8871aE6
     network: base2
     subgraph: base2
   polygon:
@@ -95,7 +95,7 @@ orderbooks:
     network: arbitrum
     subgraph: arbitrum
   arbitrum2:
-    address: 0x783b82f0fBF6743882072AE2393B108F5938898B
+    address: 0xbC176C5884CA778b91729C0092245905Df28Cd8f
     network: arbitrum2
     subgraph: arbitrum2
   bsc:

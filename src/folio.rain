@@ -24,9 +24,9 @@ subgraphs:
 
 orderbooks:
   arbitrum2:
-    address: 0x783b82f0fBF6743882072AE2393B108F5938898B
+    address: 0xbC176C5884CA778b91729C0092245905Df28Cd8f
   base2:
-    address: 0x5F0EF3256aC5d2C57ac8550d3F0d5Aa914be84Df
+    address: 0x84c6e7F5A1e5dD89594Cc25BEf4722A1b8871aE6
 
 deployers:
   arbitrum2:
