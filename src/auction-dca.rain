@@ -74,13 +74,13 @@ orderbooks:
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
   arbitrum2:
-    address: 0xbC176C5884CA778b91729C0092245905Df28Cd8f
+    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   base2:
-    address: 0x84c6e7F5A1e5dD89594Cc25BEf4722A1b8871aE6
+    address: 0x254Aa4443189A6393F77A17f299EDEE2a5b49583
   ethereum:
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   flare:
@@ -192,8 +192,8 @@ scenarios:
     orderbook: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
-      subparser-0: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
+      raindex-subparser: 0x789172f547050f3F3fb3e303FB1bc07F92734c0d
+      subparser-0: 0x789172f547050f3F3fb3e303FB1bc07F92734c0d
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
@@ -219,8 +219,8 @@ scenarios:
     orderbook: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
-      subparser-0: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
+      raindex-subparser: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+      subparser-0: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
@@ -278,7 +278,7 @@ scenarios:
     deployer: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
+      raindex-subparser: 0x789172f547050f3F3fb3e303FB1bc07F92734c0d
       subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
@@ -289,7 +289,7 @@ scenarios:
     deployer: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0xFA4989F5D49197FD9673cE4B7Fe2A045A0F2f9c8
+      raindex-subparser: 0x789172f547050f3F3fb3e303FB1bc07F92734c0d
       subparser-0: 0x3bd3a7f1a9045701c5085ad4ca5d945686f7a73b
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
@@ -300,7 +300,7 @@ scenarios:
     deployer: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
+      raindex-subparser: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
       subparser-0: 0xd8Bb6094fCB839bca8c12Ec53Bb2Cd7C012C8E87
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
@@ -311,7 +311,7 @@ scenarios:
     deployer: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x5F0D7f1995504eE43F02b9D13ce3a19cd5Bdd9B0
+      raindex-subparser: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
       subparser-0: 0xd8Bb6094fCB839bca8c12Ec53Bb2Cd7C012C8E87
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
