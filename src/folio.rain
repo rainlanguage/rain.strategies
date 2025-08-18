@@ -24,9 +24,9 @@ subgraphs:
 
 orderbooks:
   arbitrum2:
-    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+    address: 0x85e440C297f267332c34A88E0d085162a96475D2
   base2:
-    address: 0x254Aa4443189A6393F77A17f299EDEE2a5b49583
+    address: 0x881cf4c0764e733d9C387f3858eE87CcA04AFFe0
 
 deployers:
   arbitrum2:
@@ -77,12 +77,12 @@ scenarios:
     orderbook: arbitrum2
     runs: 1
     bindings:
-      raindex-subparser: 0x789172f547050f3F3fb3e303FB1bc07F92734c0d
+      raindex-subparser: 0x2C32A5558d3d502d5CC76e939F84038bE230565E
   base2:
     orderbook: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+      raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
 
 deployments:
   arbitrum2:
