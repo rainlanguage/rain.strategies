@@ -396,6 +396,8 @@ gui:
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -503,6 +505,8 @@ gui:
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -1118,6 +1122,8 @@ gui:
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -1225,6 +1231,8 @@ gui:
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
