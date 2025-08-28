@@ -301,7 +301,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
-      subparser-0: 0xd8Bb6094fCB839bca8c12Ec53Bb2Cd7C012C8E87
+      subparser-0: 0xDce7dbe7cee05167288442C5E85D4519de405DB4
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
       next-trade-baseline-multiplier: 0
@@ -312,7 +312,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
-      subparser-0: 0xd8Bb6094fCB839bca8c12Ec53Bb2Cd7C012C8E87
+      subparser-0: 0xDce7dbe7cee05167288442C5E85D4519de405DB4
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
       next-trade-baseline-multiplier: 0
@@ -396,8 +396,6 @@ gui:
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
-            - name: Equity.US.GME/USD
-              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -505,8 +503,6 @@ gui:
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
-            - name: Equity.US.GME/USD
-              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -1123,7 +1119,7 @@ gui:
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
             - name: Equity.US.GME/USD
-              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
+              value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -1232,7 +1228,7 @@ gui:
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
             - name: Equity.US.GME/USD
-              value: 0x6f9cd89ef1b7fd39f667101a91ad578b6c6ace4579d5f7f285a4b06aa4504be6
+              value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
