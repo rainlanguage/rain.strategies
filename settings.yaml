@@ -74,6 +74,7 @@ orderbooks:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     network: arbitrum
     subgraph: arbitrum
+    deployment-block: 352866209
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   #   network: bsc
