@@ -1,4 +1,4 @@
-version: 2
+version: 3
 
 networks:
   arbitrum:
@@ -49,6 +49,7 @@ metaboards:
 orderbooks:
   arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
+    deployment-block: 352866209
   # base:
   #   address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   # flare:
