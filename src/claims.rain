@@ -176,8 +176,8 @@ gui:
   expected-amount: signed-context<0 1>(),
   leaf-node: call<'get-leaf-node>(),
   output-decimals: output-token-decimals(),
-  expected-scaled-back: scale-n<output-decimal>(expected-amount),
-  expected-rescale: scale-18<output-decimal>(expected-scaled-back),
+  expected-scaled-back: scale-n<output-decimals>(expected-amount),
+  expected-rescale: scale-18<output-decimals>(expected-scaled-back),
   :ensure(
       equal-to(
         output-vault-decrease()
