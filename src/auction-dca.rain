@@ -1,5 +1,3 @@
-version: 2
-
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
   - https://tokens.coingecko.com/polygon-pos/all.json
