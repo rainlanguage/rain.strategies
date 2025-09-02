@@ -1,42 +1,6 @@
 orders:
-  base:
-    orderbook: base
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  flare:
-    orderbook: flare
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
   arbitrum:
     orderbook: arbitrum
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  polygon:
-    orderbook: polygon
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  bsc:
-    orderbook: bsc
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  ethereum:
-    orderbook: ethereum
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  linea:
-    orderbook: linea
     inputs:
       - token: token1
     outputs:
@@ -49,178 +13,23 @@ scenarios:
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       fixed-io-output-token: ${order.outputs.0.token.address}
-  polygon:
-    orderbook: polygon
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  base:
-    orderbook: base
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  ethereum:
-    orderbook: ethereum
-    runs: 1
-    bindings:
-      raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  flare:
-    orderbook: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  linea:
-    orderbook: linea
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF77b3c3f61af5a3cE7f7CE3cfFc117491104432E
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  bsc:
-    orderbook: bsc
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      fixed-io-output-token: ${order.outputs.0.token.address}
 
 deployments:
-  base:
-    order: base
-    scenario: base
-  flare:
-    order: flare
-    scenario: flare
   arbitrum:
     order: arbitrum
     scenario: arbitrum
-  polygon:
-    order: polygon
-    scenario: polygon
-  ethereum:
-    order: ethereum
-    scenario: ethereum
-  linea:
-    order: linea
-    scenario: linea
-  bsc:
-    order: bsc
-    scenario: bsc
 
 using-tokens-from:
-  - https://tokens.coingecko.com/ethereum/all.json
-  - https://tokens.coingecko.com/polygon-pos/all.json
   - https://tokens.coingecko.com/arbitrum-one/all.json
-  - https://tokens.coingecko.com/base/all.json
-  - https://tokens.coingecko.com/binance-smart-chain/all.json
-  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/629c295b6efae611b086db8e6e8b570ba1fd5d76/token-lists/flare.json
 
 gui:
   name: Fixed limit
   description: A very simple order that places a limit order at a fixed price.
   short-description: A very simple order that places a limit order at a fixed price.
   deployments:
-    base:
-      name: Base
-      description: Deploy a limit order on Base.
-      deposits:
-        - token: token2
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
-      select-tokens:
-        - key: token1
-          name: Token to Buy
-          description: Select the token you want to purchase
-        - key: token2
-          name: Token to Sell
-          description: Select the token you want to sell
-    flare:
-      name: Flare
-      description: Deploy a limit order on Flare.
-      deposits:
-        - token: token2
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
-      select-tokens:
-        - key: token1
-          name: Token to Buy
-          description: Select the token you want to purchase
-        - key: token2
-          name: Token to Sell
-          description: Select the token you want to sell
-    linea:
-      name: Linea
-      description: Deploy a limit order on Linea.
-      deposits:
-        - token: token2
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
-      select-tokens:
-        - key: token1
-          name: Token to Buy
-          description: Select the token you want to purchase
-        - key: token2
-          name: Token to Sell
-          description: Select the token you want to sell
-    bsc:
-      name: BSC
-      description: Deploy a limit order on BSC.
-      deposits:
-        - token: token2
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
-      select-tokens:
-        - key: token1
-          name: Token to Buy
-          description: Select the token you want to purchase
-        - key: token2
-          name: Token to Sell
-          description: Select the token you want to sell
-    polygon:
-      name: Polygon
-      description: Deploy a limit order on Polygon.
-      deposits:
-        - token: token2
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
-      select-tokens:
-        - key: token1
-          name: Token to Buy
-          description: Select the token you want to purchase
-        - key: token2
-          name: Token to Sell
-          description: Select the token you want to sell
     arbitrum:
       name: Arbitrum
       description: Deploy a limit order on Arbitrum.
-      deposits:
-        - token: token2
-      fields:
-        - binding: fixed-io
-          name: ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-          description: Fixed exchange rate (${order.inputs.0.token.symbol} received per 1 ${order.outputs.0.token.symbol} sold)
-      select-tokens:
-        - key: token1
-          name: Token to Buy
-          description: Select the token you want to purchase
-        - key: token2
-          name: Token to Sell
-          description: Select the token you want to sell
-    ethereum:
-      name: Ethereum
-      description: Deploy a limit order on Ethereum.
       deposits:
         - token: token2
       fields:
