@@ -1,4 +1,4 @@
-version: 3
+version: 2
 
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
