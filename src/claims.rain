@@ -178,7 +178,11 @@ gui:
   :ensure(
       equal-to(
         output-vault-decrease()
-        expected-amount
+        scale-18<output-token-decimals()>(
+          scale-n<output-token-decimals()>(
+            expected-amount
+          )
+        )
       )
       "Expected claim"
   ),
