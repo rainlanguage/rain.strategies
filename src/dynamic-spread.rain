@@ -858,7 +858,7 @@ gui:
 #vwaio-key "cost-basis-io-ratio"
 
 #amount-is-output
-  _: equal-to(amount-token output-token());
+  _: binary-equal-to(amount-token output-token());
 
 #get-cost-basis-io-ratio
   this-total-out-key: hash(order-hash() input-token() output-token()),
@@ -904,35 +904,7 @@ gui:
 
 #halflife
 epoch:,
-/**
- * Shrinking the multiplier like this
- * then applying it 10 times allows for
- * better precision when max-io-ratio
- * is very large, e.g. ~1e10 or ~1e20+
- *
- * This works because `power` loses
- * precision on base `0.5` when the
- * exponent is large and can even go
- * to `0` while the io-ratio is still
- * large. Better to keep the multiplier
- * higher precision and drop the io-ratio
- * smoothly for as long as we can.
- */
-multiplier:
-  power(0.5 div(epoch 10)),
-val:
-  mul(
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-  );
+val: power(0.5 epoch);
 
 #set-last-trade
 last-io:,
@@ -946,14 +918,14 @@ using-words-from raindex-subparser
 :set(hash(order-hash() last-trade-io-key) initial-io),
 :set(hash(order-hash() last-trade-output-token-key) initial-output-token),
 this-total-out-key: hash(order-hash() initial-input-token initial-output-token),
-:set(this-total-out-key 1e-18),
+:set(this-total-out-key min-positive-value()),
 :set(hash(this-total-out-key vwaio-key) initial-io);
 
 #get-last-trade
 stored-last-io:get(hash(order-hash() last-trade-io-key)),
 stored-last-output-token:get(hash(order-hash() last-trade-output-token-key)),
 last-time:get(hash(order-hash() last-trade-time-key)),
-_: if(equal-to(stored-last-output-token output-token()) stored-last-io inv(stored-last-io));
+_: if(binary-equal-to(stored-last-output-token output-token()) stored-last-io inv(stored-last-io));
 
 #get-epoch
 last-time _: call<'get-last-trade>(),
