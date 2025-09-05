@@ -35,7 +35,7 @@ scenarios:
     orderbook: base2
     runs: 1
     bindings:
-      raindex-subparser: 0x07701e3BcE4248EFDFc7D31392a43c8b82a7A260
+      raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
       history-cap: '1e50'
       shy-epoch: 0.05
       amount-token: ${order.inputs.0.token.address}
@@ -176,7 +176,7 @@ orderbooks:
   base:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   base2:
-    address: 0x7692BA8446Bb8B3140A2c02df073080BeD0a7F8E
+    address: 0x881cf4c0764e733d9C387f3858eE87CcA04AFFe0
   arbitrum:
     address: 0x550878091b2B1506069F61ae59e3A5484Bca9166
   arbitrum2:
