@@ -56,8 +56,8 @@ metaboards:
 
 orderbooks:
   arbitrum:
-    address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
-    deployment-block: 352866209
+    address: 0x93E7298a2c7d05C151ba4572140b8b52e06792bD
+    deployment-block: 376964692
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   # base:
@@ -71,7 +71,7 @@ orderbooks:
 
 deployers:
   arbitrum:
-    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
+    address: 0x7357ff3b3781e974FEafc8Ad32e9CA7b846334D8
   # bsc:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
   # base:
@@ -146,7 +146,7 @@ scenarios:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
+      raindex-subparser: 0x8Bbed81063E6A8d51E246f5F04552b692d00dDdd
       subparser-0: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
