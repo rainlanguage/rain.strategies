@@ -1188,7 +1188,7 @@ total-duration: sub(now() initial-time),
 ratio-freeze-amount-epochs: div(min-trade-amount amount-per-epoch),
 ratio-freeze-trade-epochs: mul(ratio-freeze-amount-epochs div(time-per-amount-epoch time-per-trade-epoch)),
 amount-epochs: div(total-duration time-per-amount-epoch),
-trade-epochs: saturating-sub(div(duration time-per-trade-epoch) ratio-freeze-trade-epochs);
+trade-epochs: max(0 sub(div(duration time-per-trade-epoch) ratio-freeze-trade-epochs));
 
 #amount-for-epoch
 amount-epochs
@@ -1204,35 +1204,7 @@ capped-unused: min(unused target-amount);
 
 #halflife
 epoch:,
-/**
- * Shrinking the multiplier like this
- * then applying it 10 times allows for
- * better precision when max-io-ratio
- * is very large, e.g. ~1e10 or ~1e20+
- *
- * This works because `power` loses
- * precision on base `0.5` when the
- * exponent is large and can even go
- * to `0` while the io-ratio is still
- * large. Better to keep the multiplier
- * higher precision and drop the io-ratio
- * smoothly for as long as we can.
- */
-multiplier:
-  power(0.5 div(epoch 10)),
-val:
-  mul(
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-  );
+val: power(0.5 epoch);
 
 #io-for-epoch
 epoch:,
@@ -1240,7 +1212,7 @@ last-io: call<'get-last-trade>(),
 max-next-trade: any(mul(last-io next-trade-multiplier) call<'initial-io-fn>()),
 baseline-next-trade: mul(last-io next-trade-baseline-multiplier),
 real-baseline: max(baseline-next-trade call<'baseline-fn>()),
-variable-component: saturating-sub(max-next-trade real-baseline),
+variable-component: max(0 sub(max-next-trade real-baseline)),
 above-baseline: mul(variable-component call<'halflife>(epoch)),
 _: add(real-baseline above-baseline);
 
