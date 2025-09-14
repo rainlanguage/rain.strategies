@@ -5,7 +5,7 @@ scenarios:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0x8Bbed81063E6A8d51E246f5F04552b692d00dDdd
+      raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
       history-cap: '1e50'
       shy-epoch: 0.05
       amount-token: ${order.inputs.0.token.address}
@@ -142,8 +142,8 @@ orderbooks:
     address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
     deployment-block: 1
   arbitrum:
-    address: 0x93E7298a2c7d05C151ba4572140b8b52e06792bD
-    deployment-block: 376964692
+    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
+    deployment-block: 379008108
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
     deployment-block: 1
@@ -163,7 +163,7 @@ deployers:
   base:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
   arbitrum:
-    address: 0x7357ff3b3781e974FEafc8Ad32e9CA7b846334D8
+    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   ethereum:
@@ -895,7 +895,7 @@ gui:
   this-new-in: add(this-total-in this-remaining-in),
   this-remaining-out: div(this-remaining-in calculated-io-ratio()),
   this-new-out: add(this-total-out this-remaining-out),
-  this-new-vwaio: every(this-new-out div(this-new-in any(this-new-out max-positive-value()))),
+  this-new-vwaio: every(this-new-out div(this-new-in any(this-new-out uint256-max-value()))),
   cap-out: if(call<'amount-is-output>() history-cap div(history-cap any(this-new-vwaio calculated-io-ratio()))),
   capped-out: min(this-new-out cap-out),
 
@@ -945,7 +945,7 @@ epoch:,
 last-io: call<'get-last-trade>(),
 this-vwaio
 other-vwaio: call<'get-cost-basis-io-ratio>(),
-cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio max-positive-value()))) cost-basis-multiplier),
+cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio uint256-max-value()))) cost-basis-multiplier),
 max-next-trade: mul(max(cost-basis-io last-io) next-trade-multiplier),
 baseline: any(cost-basis-io last-io),
 variable-component: sub(max-next-trade baseline),

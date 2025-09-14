@@ -71,10 +71,10 @@ orderbooks:
   #   network: polygon
   #   subgraph: polygon
   arbitrum:
-    address: 0x93E7298a2c7d05C151ba4572140b8b52e06792bD
+    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
     network: arbitrum
     subgraph: arbitrum
-    deployment-block: 376964692
+    deployment-block: 379008108
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   #   network: bsc
@@ -99,7 +99,7 @@ deployers:
   #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   #   network: polygon
   arbitrum:
-    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
+    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
     network: arbitrum
   # bsc:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
