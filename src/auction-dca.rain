@@ -31,12 +31,12 @@ networks:
   #   chain-id: 14
   #   network-id: 14
   #   currency: FLR
-  # polygon:
-  #   rpcs:
-  #     - https://polygon-rpc.com
-  #   chain-id: 137
-  #   network-id: 137
-  #   currency: POL
+  polygon:
+    rpcs:
+      - https://polygon-rpc.com
+    chain-id: 137
+    network-id: 137
+    currency: POL
 
 subgraphs:
   arbitrum: https://example.com/subgraph
@@ -44,7 +44,7 @@ subgraphs:
   # base: https://example.com/subgraph
   # ethereum: https://example.com/subgraph
   # flare: https://example.com/subgraph
-  # polygon: https://example.com/subgraph
+  polygon: https://example.com/subgraph
 
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
@@ -52,7 +52,7 @@ metaboards:
   # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
   # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
+  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
 
 orderbooks:
   arbitrum:
@@ -66,8 +66,9 @@ orderbooks:
   #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   # flare:
   #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-  # polygon:
-  #   address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
+  polygon:
+    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
+    deployment-block: 76772162
 
 deployers:
   arbitrum:
@@ -80,8 +81,8 @@ deployers:
   #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   # flare:
   #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
-  # polygon:
-  #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+  polygon:
+    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
 
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
@@ -122,12 +123,12 @@ orders:
   #     - token: input
   #   outputs:
   #     - token: output
-  # polygon:
-  #   orderbook: polygon
-  #   inputs:
-  #     - token: input
-  #   outputs:
-  #     - token: output
+  polygon:
+    orderbook: polygon
+    inputs:
+      - token: input
+    outputs:
+      - token: output
   # flare-sflr-wflr:
   #   orderbook: flare
   #   inputs:
@@ -169,15 +170,15 @@ scenarios:
   #     baseline-fn: '''constant-baseline'
   #     initial-io-fn: '''constant-initial-io'
   #     shy-epoch: 0.05
-  # polygon:
-  #   orderbook: polygon
-  #   runs: 1
-  #   bindings:
-  #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-  #     subparser-0: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-  #     baseline-fn: '''constant-baseline'
-  #     initial-io-fn: '''constant-initial-io'
-  #     shy-epoch: 0.05
+  polygon:
+    orderbook: polygon
+    runs: 1
+    bindings:
+      raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
+      subparser-0: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
   # ethereum:
   #   orderbook: ethereum
   #   runs: 1
@@ -223,9 +224,9 @@ deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
-  # polygon:
-  #   order: polygon
-  #   scenario: polygon
+  polygon:
+    order: polygon
+    scenario: polygon
   # bsc:
   #   order: bsc
   #   scenario: bsc
