@@ -301,7 +301,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
-      subparser-0: 0x9C3326aC17938E40554d1B956AbFAAcC5fc1B423
+      subparser-0: 0xEBe394cff4980992B826Ec70ef0a9ec8b5D4C640
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
       next-trade-baseline-multiplier: 0
@@ -312,7 +312,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
-      subparser-0: 0x9C3326aC17938E40554d1B956AbFAAcC5fc1B423
+      subparser-0: 0xEBe394cff4980992B826Ec70ef0a9ec8b5D4C640
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
       next-trade-baseline-multiplier: 0
