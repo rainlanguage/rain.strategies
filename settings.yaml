@@ -11,12 +11,6 @@ networks:
     chain-id: 8453
     network-id: 8453
     currency: ETH
-  base2:
-    rpcs:
-      - https://base-rpc.publicnode.com
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
   polygon:
     rpcs:
       - https://polygon-rpc.com
@@ -84,7 +78,7 @@ orderbooks:
     subgraph: base
   base2:
     address: 0x881cf4c0764e733d9C387f3858eE87CcA04AFFe0
-    network: base2
+    network: base
     subgraph: base2
   polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
@@ -119,7 +113,7 @@ deployers:
     network: base
   base2:
     address: 0x59401C9302E79Eb8AC6aea659B8B3ae475715e86
-    network: base2
+    network: base
   polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
     network: polygon
