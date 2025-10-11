@@ -66,6 +66,7 @@ orderbooks:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     network: base
     subgraph: base
+    deployment-block: 36667253
   polygon:
     address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
     network: polygon
