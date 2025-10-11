@@ -346,7 +346,7 @@ gui:
 
 #calculate-io
 using-words-from raindex-subparser
-max-output: max-value(),
+max-output: max-positive-value(),
 io: if(
   equal-to(
     output-token()
