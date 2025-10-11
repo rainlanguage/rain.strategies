@@ -13,12 +13,12 @@ networks:
   #   chain-id: 56
   #   network-id: 56
   #   currency: BNB
-  # base:
-  #   rpcs:
-  #     - https://base-rpc.publicnode.com
-  #   chain-id: 8453
-  #   network-id: 8453
-  #   currency: ETH
+  base:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
   # ethereum:
   #   rpcs:
   #     - https://ethereum-rpc.publicnode.com
@@ -41,7 +41,7 @@ networks:
 subgraphs:
   arbitrum: https://example.com/subgraph
   # bsc: https://example.com/subgraph
-  # base: https://example.com/subgraph
+  base: https://example.com/subgraph
   # ethereum: https://example.com/subgraph
   # flare: https://example.com/subgraph
   polygon: https://example.com/subgraph
@@ -49,7 +49,7 @@ subgraphs:
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
-  # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
   # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
@@ -60,8 +60,8 @@ orderbooks:
     deployment-block: 380203894
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
-  # base:
-  #   address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
+  base:
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
   # ethereum:
   #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   # flare:
@@ -75,8 +75,8 @@ deployers:
     address: 0xb1869a4FA6436832bb0AD5420170B8CF17CaF934
   # bsc:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-  # base:
-  #   address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+  base:
+    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
   # ethereum:
   #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   # flare:
@@ -105,12 +105,12 @@ orders:
   #     - token: input
   #   outputs:
   #     - token: output
-  # base:
-  #   orderbook: base
-  #   inputs:
-  #     - token: input
-  #   outputs:
-  #     - token: output
+  base:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
   # ethereum:
   #   orderbook: ethereum
   #   inputs:
@@ -161,15 +161,15 @@ scenarios:
   #     baseline-fn: '''constant-baseline'
   #     initial-io-fn: '''constant-initial-io'
   #     shy-epoch: 0.05
-  # base:
-  #   orderbook: base
-  #   runs: 1
-  #   bindings:
-  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  #     subparser-0: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  #     baseline-fn: '''constant-baseline'
-  #     initial-io-fn: '''constant-initial-io'
-  #     shy-epoch: 0.05
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      baseline-fn: '''constant-baseline'
+      initial-io-fn: '''constant-initial-io'
+      shy-epoch: 0.05
   polygon:
     orderbook: polygon
     runs: 1
@@ -230,9 +230,9 @@ deployments:
   # bsc:
   #   order: bsc
   #   scenario: bsc
-  # base:
-  #   order: base
-  #   scenario: base
+  base:
+    order: base
+    scenario: base
   # ethereum:
   #   order: ethereum
   #   scenario: ethereum

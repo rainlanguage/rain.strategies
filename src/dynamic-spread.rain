@@ -11,16 +11,16 @@ scenarios:
       amount-token: ${order.inputs.0.token.address}
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
-  # base:
-  #   orderbook: base
-  #   runs: 1
-  #   bindings:
-  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  #     history-cap: '1e50'
-  #     shy-epoch: 0.05
-  #     amount-token: ${order.inputs.0.token.address}
-  #     initial-output-token: ${order.outputs.1.token.address}
-  #     initial-input-token: ${order.inputs.0.token.address}
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      history-cap: '1e50'
+      shy-epoch: 0.05
+      amount-token: ${order.inputs.0.token.address}
+      initial-output-token: ${order.outputs.1.token.address}
+      initial-input-token: ${order.inputs.0.token.address}
   # flare:
   #   orderbook: flare
   #   runs: 1
@@ -139,8 +139,8 @@ orderbooks:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
     deployment-block: 1
   base:
-    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
-    deployment-block: 1
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
   arbitrum:
     address: 0x8df8075e4077dabf1e95f49059e4c1eea33094ab
     deployment-block: 380203894
@@ -161,7 +161,7 @@ deployers:
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   base:
-    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
   arbitrum:
     address: 0xb1869a4FA6436832bb0AD5420170B8CF17CaF934
   polygon:
