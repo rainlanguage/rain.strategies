@@ -62,6 +62,7 @@ orderbooks:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
   # ethereum:
   #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   # flare:
