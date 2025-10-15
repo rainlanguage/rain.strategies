@@ -8,9 +8,11 @@ orderbooks:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
   fixed-limit-arbitrum:
+    network: arbitrum
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
   fixed-limit-polygon:
+    network: polygon
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
     deployment-block: 1
   bsc:
