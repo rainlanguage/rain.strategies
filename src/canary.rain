@@ -111,14 +111,6 @@ deployments:
   #   order: bsc
   #   scenario: bsc
 
-using-tokens-from:
-  - https://tokens.coingecko.com/ethereum/all.json
-  - https://tokens.coingecko.com/polygon-pos/all.json
-  - https://tokens.coingecko.com/arbitrum-one/all.json
-  - https://tokens.coingecko.com/base/all.json
-  - https://tokens.coingecko.com/binance-smart-chain/all.json
-  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/629c295b6efae611b086db8e6e8b570ba1fd5d76/token-lists/flare.json
-
 gui:
   name: Canary
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/canary.md
