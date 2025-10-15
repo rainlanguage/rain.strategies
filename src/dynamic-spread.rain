@@ -1,3 +1,5 @@
+version: 3
+
 scenarios:
   arbitrum:
     orderbook: arbitrum
