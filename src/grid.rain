@@ -1,61 +1,7 @@
 version: 3
 
-networks:
-  arbitrum:
-    rpcs:
-      - https://arbitrum-one-rpc.publicnode.com
-    chain-id: 42161
-    network-id: 42161
-    currency: ETH
-  # base:
-  #   rpcs:
-  #     - https://base-rpc.publicnode.com
-  #   chain-id: 8453
-  #   network-id: 8453
-  #   currency: ETH
-  # ethereum:
-  #   rpcs:
-  #     - https://ethereum-rpc.publicnode.com
-  #   chain-id: 1
-  #   network-id: 1
-  #   currency: ETH
-  # bsc:
-  #   rpcs:
-  #     - https://bsc-dataseed.bnbchain.org
-  #   chain-id: 56
-  #   network-id: 56
-  #   currency: BNB
-  # polygon:
-  #   rpcs:
-  #     - https://polygon-rpc.com
-  #   chain-id: 137
-  #   network-id: 137
-  #   currency: POL
-  # flare:
-  #   rpcs:
-  #     - https://flare.rpc.thirdweb.com
-  #   chain-id: 14
-  #   network-id: 14
-  #   currency: FLR
-
-subgraphs:
-  arbitrum: https://example.com/subgraph
-  # base: https://example.com/subgraph
-  # ethereum: https://example.com/subgraph
-  # bsc: https://example.com/subgraph
-  # polygon: https://example.com/subgraph
-  # flare: https://example.com/subgraph
-
-metaboards:
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-  # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-  # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
-  # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
-  # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
-  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-
 orderbooks:
-  arbitrum:
+  grid-arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
   # base:
@@ -70,7 +16,7 @@ orderbooks:
   #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
 
 deployers:
-  arbitrum:
+  grid-arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   # base:
   #   address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
@@ -84,8 +30,8 @@ deployers:
   #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
 
 orders:
-  arbitrum:
-    orderbook: arbitrum
+  grid-arbitrum:
+    orderbook: grid-arbitrum
     inputs:
       - token: token1
     outputs:
@@ -122,8 +68,8 @@ orders:
   #     - token: token2
 
 scenarios:
-  arbitrum:
-    orderbook: arbitrum
+  grid-arbitrum:
+    orderbook: grid-arbitrum
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       tranche-space-min-headroom: 0.25
@@ -160,9 +106,9 @@ scenarios:
   #     tranche-space-recharge-delay: 300
 
 deployments:
-  arbitrum:
-    order: arbitrum
-    scenario: arbitrum
+  grid-arbitrum:
+    order: grid-arbitrum
+    scenario: grid-arbitrum
   # base:
   #   order: base
   #   scenario: base
@@ -339,6 +285,42 @@ gui:
       name: Flare
       description:
         Deploy a grid order on Flare.
+      deposits:
+        - token: token2
+      fields:
+        - binding: baseline-io-ratio
+          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
+        - binding: io-ratio-growth
+          name: IO ratio growth per tranche
+        - binding: tranche-size
+          name: Tranche size in ${order.outputs.0.token.symbol}
+        - binding: seconds-per-tranche
+          name: Time to recharge one grid tranche in seconds (0 is disabled).
+          show-custom-field: true
+          default: 0
+          presets:
+            - name: Disabled (0)
+              value: 0
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 6 hours (21600)
+              value: 21600
+            - name: 12 hours (43200)
+              value: 43200
+            - name: 24 hours (86400)
+              value: 86400
+      select-tokens:
+        - key: token1
+          name: Token to buy
+          description: Select the token you want to purchase.
+        - key: token2
+          name: Token to sell
+          description: Select the token you want to sell.
+
+    grid-arbitrum:
+      name: Arbitrum
+      description:
+        Deploy a grid order on Arbitrum.
       deposits:
         - token: token2
       fields:

@@ -1,67 +1,5 @@
 version: 3
 
-networks:
-  flare:
-    rpcs:
-      - https://flare.rpc.thirdweb.com
-    chain-id: 14
-    network-id: 14
-    currency: FLR
-  base:
-    rpcs:
-      - https://base-rpc.publicnode.com
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
-  arbitrum:
-    rpcs:
-      - https://arbitrum-one-rpc.publicnode.com
-    chain-id: 42161
-    network-id: 42161
-    currency: ETH
-  polygon:
-    rpcs:
-      - https://polygon-rpc.com
-    chain-id: 137
-    network-id: 137
-    currency: POL
-  bsc:
-    rpcs:
-      - https://bsc-dataseed.bnbchain.org
-    chain-id: 56
-    network-id: 56
-    currency: BNB
-  ethereum:
-    rpcs:
-      - https://ethereum-rpc.publicnode.com
-    chain-id: 1
-    network-id: 1
-    currency: ETH
-  linea:
-    rpcs:
-      - https://rpc.linea.build
-    chain-id: 59144
-    network-id: 59144
-    currency: ETH
-
-metaboards:
-  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
-  bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
-  ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
-  linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
-
-subgraphs:
-  flare: https://example.com/subgraph
-  base: https://example.com/subgraph
-  arbitrum: https://example.com/subgraph
-  polygon: https://example.com/subgraph
-  bsc: https://example.com/subgraph
-  ethereum: https://example.com/subgraph
-  linea: https://example.com/subgraph
-
 orderbooks:
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
@@ -69,10 +7,10 @@ orderbooks:
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
-  arbitrum:
+  fixed-limit-arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
-  polygon:
+  fixed-limit-polygon:
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
     deployment-block: 1
   bsc:
@@ -90,9 +28,9 @@ deployers:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   base:
     address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
-  arbitrum:
+  fixed-limit-arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
-  polygon:
+  fixed-limit-polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   ethereum:
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
@@ -114,14 +52,14 @@ orders:
       - token: token1
     outputs:
       - token: token2
-  arbitrum:
-    orderbook: arbitrum
+  fixed-limit-arbitrum:
+    orderbook: fixed-limit-arbitrum
     inputs:
       - token: token1
     outputs:
       - token: token2
-  polygon:
-    orderbook: polygon
+  fixed-limit-polygon:
+    orderbook: fixed-limit-polygon
     inputs:
       - token: token1
     outputs:
@@ -146,14 +84,14 @@ orders:
       - token: token2
 
 scenarios:
-  arbitrum:
-    orderbook: arbitrum
+  fixed-limit-arbitrum:
+    orderbook: fixed-limit-arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       fixed-io-output-token: ${order.outputs.0.token.address}
-  polygon:
-    orderbook: polygon
+  fixed-limit-polygon:
+    orderbook: fixed-limit-polygon
     runs: 1
     bindings:
       raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
@@ -196,12 +134,12 @@ deployments:
   flare:
     order: flare
     scenario: flare
-  arbitrum:
-    order: arbitrum
-    scenario: arbitrum
-  polygon:
-    order: polygon
-    scenario: polygon
+  fixed-limit-arbitrum:
+    order: fixed-limit-arbitrum
+    scenario: fixed-limit-arbitrum
+  fixed-limit-polygon:
+    order: fixed-limit-polygon
+    scenario: fixed-limit-polygon
   ethereum:
     order: ethereum
     scenario: ethereum
@@ -289,7 +227,7 @@ gui:
         - key: token2
           name: Token to Sell
           description: Select the token you want to sell
-    polygon:
+    fixed-limit-polygon:
       name: Polygon
       description: Deploy a limit order on Polygon.
       deposits:
@@ -305,7 +243,7 @@ gui:
         - key: token2
           name: Token to Sell
           description: Select the token you want to sell
-    arbitrum:
+    fixed-limit-arbitrum:
       name: Arbitrum
       description: Deploy a limit order on Arbitrum.
       deposits:
