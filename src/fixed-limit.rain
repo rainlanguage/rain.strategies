@@ -9,10 +9,12 @@ orderbooks:
   #   deployment-block: 36667253
   fixed-limit-arbitrum:
     network: arbitrum
+    subgraph: arbitrum
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
   fixed-limit-polygon:
     network: polygon
+    subgraph: polygon
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
     deployment-block: 1
   # bsc:
@@ -31,8 +33,10 @@ deployers:
   # base:
   #   address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
   fixed-limit-arbitrum:
+    network: arbitrum
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   fixed-limit-polygon:
+    network: polygon
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   # ethereum:
   #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
