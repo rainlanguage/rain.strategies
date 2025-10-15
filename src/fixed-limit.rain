@@ -1,12 +1,12 @@
 version: 3
 
 orderbooks:
-  flare:
-    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-    deployment-block: 1
-  base:
-    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
-    deployment-block: 36667253
+  # flare:
+  #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  #   deployment-block: 1
+  # base:
+  #   address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+  #   deployment-block: 36667253
   fixed-limit-arbitrum:
     network: arbitrum
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
@@ -15,45 +15,45 @@ orderbooks:
     network: polygon
     address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
     deployment-block: 1
-  bsc:
-    address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
-    deployment-block: 1
-  ethereum:
-    address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
-    deployment-block: 1
-  linea:
-    address: 0x22410e2a46261a1B1e3899a072f303022801C764
-    deployment-block: 1
+  # bsc:
+  #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
+  #   deployment-block: 1
+  # ethereum:
+  #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
+  #   deployment-block: 1
+  # linea:
+  #   address: 0x22410e2a46261a1B1e3899a072f303022801C764
+  #   deployment-block: 1
 
 deployers:
-  flare:
-    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
-  base:
-    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
+  # flare:
+  #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  # base:
+  #   address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
   fixed-limit-arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   fixed-limit-polygon:
     address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
-  ethereum:
-    address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
-  linea:
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-  bsc:
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  # ethereum:
+  #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
+  # linea:
+  #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  # bsc:
+  #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
 
 orders:
-  base:
-    orderbook: base
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  flare:
-    orderbook: flare
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
+  # base:
+  #   orderbook: base
+  #   inputs:
+  #     - token: token1
+  #   outputs:
+  #     - token: token2
+  # flare:
+  #   orderbook: flare
+  #   inputs:
+  #     - token: token1
+  #   outputs:
+  #     - token: token2
   fixed-limit-arbitrum:
     orderbook: fixed-limit-arbitrum
     inputs:
@@ -66,24 +66,24 @@ orders:
       - token: token1
     outputs:
       - token: token2
-  bsc:
-    orderbook: bsc
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  ethereum:
-    orderbook: ethereum
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
-  linea:
-    orderbook: linea
-    inputs:
-      - token: token1
-    outputs:
-      - token: token2
+  # bsc:
+  #   orderbook: bsc
+  #   inputs:
+  #     - token: token1
+  #   outputs:
+  #     - token: token2
+  # ethereum:
+  #   orderbook: ethereum
+  #   inputs:
+  #     - token: token1
+  #   outputs:
+  #     - token: token2
+  # linea:
+  #   orderbook: linea
+  #   inputs:
+  #     - token: token1
+  #   outputs:
+  #     - token: token2
 
 scenarios:
   fixed-limit-arbitrum:
@@ -98,59 +98,59 @@ scenarios:
     bindings:
       raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
       fixed-io-output-token: ${order.outputs.0.token.address}
-  base:
-    orderbook: base
-    runs: 1
-    bindings:
-      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  ethereum:
-    orderbook: ethereum
-    runs: 1
-    bindings:
-      raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  flare:
-    orderbook: flare
-    runs: 1
-    bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  linea:
-    orderbook: linea
-    runs: 1
-    bindings:
-      raindex-subparser: 0xF77b3c3f61af5a3cE7f7CE3cfFc117491104432E
-      fixed-io-output-token: ${order.outputs.0.token.address}
-  bsc:
-    orderbook: bsc
-    runs: 1
-    bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-      fixed-io-output-token: ${order.outputs.0.token.address}
+  # base:
+  #   orderbook: base
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+  #     fixed-io-output-token: ${order.outputs.0.token.address}
+  # ethereum:
+  #   orderbook: ethereum
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
+  #     fixed-io-output-token: ${order.outputs.0.token.address}
+  # flare:
+  #   orderbook: flare
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  #     fixed-io-output-token: ${order.outputs.0.token.address}
+  # linea:
+  #   orderbook: linea
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0xF77b3c3f61af5a3cE7f7CE3cfFc117491104432E
+  #     fixed-io-output-token: ${order.outputs.0.token.address}
+  # bsc:
+  #   orderbook: bsc
+  #   runs: 1
+  #   bindings:
+  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+  #     fixed-io-output-token: ${order.outputs.0.token.address}
 
 deployments:
-  base:
-    order: base
-    scenario: base
-  flare:
-    order: flare
-    scenario: flare
+  # base:
+  #   order: base
+  #   scenario: base
+  # flare:
+  #   order: flare
+  #   scenario: flare
   fixed-limit-arbitrum:
     order: fixed-limit-arbitrum
     scenario: fixed-limit-arbitrum
   fixed-limit-polygon:
     order: fixed-limit-polygon
     scenario: fixed-limit-polygon
-  ethereum:
-    order: ethereum
-    scenario: ethereum
-  linea:
-    order: linea
-    scenario: linea
-  bsc:
-    order: bsc
-    scenario: bsc
+  # ethereum:
+  #   order: ethereum
+  #   scenario: ethereum
+  # linea:
+  #   order: linea
+  #   scenario: linea
+  # bsc:
+  #   order: bsc
+  #   scenario: bsc
 
 gui:
   name: Fixed limit
