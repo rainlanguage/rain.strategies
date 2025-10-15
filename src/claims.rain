@@ -67,7 +67,6 @@ gui:
           name: Input Token
 
 ---
-
 #raindex-subparser !The subparser to use.
 #merkle-words !The subparser for merkle words.
 #root !Order Root
@@ -132,12 +131,10 @@ gui:
 #handle-io
   expected-amount: signed-context<0 1>(),
   leaf-node: call<'get-leaf-node>(),
-  expected-scaled-back: scale-n-dynamic(output-token-decimals() expected-amount),
-  expected-rescale: scale-18-dynamic(output-token-decimals() expected-scaled-back),
   :ensure(
       equal-to(
         output-vault-decrease()
-        expected-rescale
+        expected-amount
       )
       "Expected claim"
   ),
