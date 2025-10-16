@@ -73,8 +73,8 @@ orderbooks:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
   polygon:
-    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
-    deployment-block: 1
+    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
+    deployment-block: 76772162
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
     deployment-block: 1
@@ -93,7 +93,7 @@ deployers:
   arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   polygon:
-    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
   ethereum:
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   linea:
@@ -156,7 +156,7 @@ scenarios:
     orderbook: polygon
     runs: 1
     bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
       fixed-io-output-token: ${order.outputs.0.token.address}
   base:
     orderbook: base
