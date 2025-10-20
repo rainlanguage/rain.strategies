@@ -19,26 +19,13 @@ metaboards:
 
 
 orderbooks:
-
   base2:
-
     address: 0x881cf4c0764e733d9C387f3858eE87CcA04AFFe0
 
 
 deployers:
   base2:
     address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
-
-
-tokens:
-  flare-wflr:
-    network: flare
-    address: 0x1D80c49BbBCd1C0911346656B529DF9E5c2F783d
-    decimals: 18
-  flare-sflr:
-    network: flare
-    address: 0x12e605bc104e93B45e1aD99F9e555f659051c2BB
-    decimals: 18
 
 
 orders:
