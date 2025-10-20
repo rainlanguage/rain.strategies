@@ -219,7 +219,5 @@ io: mul(call<'baseline-fn>() baseline-multiplier);
 
 
 #handle-io
-expected-scaled-back: scale-n-dynamic(output-token-decimals() expected-amount),
-expected-rescale: scale-18-dynamic(output-token-decimals() expected-scaled-back),
-:ensure(greater-than-or-equal-to(expected-rescale min-trade-amount) "Min trade amount."),
-:ensure(less-than-or-equal-to(expected-rescale max-trade-amount) "Max trade amount.");
+:ensure(greater-than-or-equal-to(output-vault-decrease() min-trade-amount) "Min trade amount."),
+:ensure(less-than-or-equal-to(output-vault-decrease() max-trade-amount) "Max trade amount.");
