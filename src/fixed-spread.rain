@@ -206,11 +206,11 @@ gui:
 
 
 #pyth-price-baseline
-_: pyth-price(pyth-pair 3600);
+_: pyth-price(pyth-pair 0.0000000000000036);
 
 
 #pyth-price-baseline-inv
-_: inv(pyth-price(pyth-pair 3600));
+_: inv(pyth-price(pyth-pair 0.0000000000000036));
 
 
 #calculate-io
