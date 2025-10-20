@@ -214,6 +214,7 @@ _: inv(pyth-price(pyth-pair 0.0000000000000036));
 
 
 #calculate-io
+using-words-from raindex-subparser subparser-0
 offer-amount: max-trade-amount,
 io: mul(call<'baseline-fn>() baseline-multiplier);
 
