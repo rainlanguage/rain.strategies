@@ -79,7 +79,7 @@ deployments:
 
 
 gui:
-  name: Auction based cost averaging
+  name: Pyth fixed spread limit
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
   short-description:  >
     A strategy where the ratio tracks a benchmark price (e.g. pyth) with a fixed multiplier
