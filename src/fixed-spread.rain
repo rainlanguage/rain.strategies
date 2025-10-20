@@ -175,7 +175,7 @@ gui:
           name: Minimum trade size (${order.outputs.0.token.symbol})
           description: |
             The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-        - binding: multiplier
+        - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
             The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
