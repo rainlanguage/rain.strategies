@@ -219,21 +219,20 @@ gui:
 
 
 #pyth-price-baseline
-using-words-from raindex-subparser subparser-0
 _: pyth-price(pyth-pair 0.0000000000000036);
 
 
 #pyth-price-baseline-inv
-using-words-from raindex-subparser subparser-0
 _: inv(pyth-price(pyth-pair 0.0000000000000036));
 
 
 #calculate-io
-using-words-from raindex-subparser subparser-0
 offer-amount: max-trade-amount,
 io: mul(call<'baseline-fn>() baseline-multiplier);
 
 
 #handle-io
-:ensure(greater-than-or-equal-to(output-vault-decrease() min-trade-amount) "Min trade amount."),
-:ensure(less-than-or-equal-to(output-vault-decrease() max-trade-amount) "Max trade amount.");
+expected-scaled-back: scale-n-dynamic(output-token-decimals() expected-amount),
+expected-rescale: scale-18-dynamic(output-token-decimals() expected-scaled-back),
+:ensure(greater-than-or-equal-to(expected-rescale min-trade-amount) "Min trade amount."),
+:ensure(less-than-or-equal-to(expected-rescale max-trade-amount) "Max trade amount.");
