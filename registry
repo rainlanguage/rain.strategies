@@ -1,9 +1,9 @@
-fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/fixed-limit.rain
-auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/auction-dca.rain
-grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/grid.rain
-dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/dynamic-spread.rain
-canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/canary.rain
-folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/folio.rain
-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/2ec2e65e39063fb649bb996f428a50a78a86b8d7/src/fixed-spread.rain
+fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/fixed-limit.rain
+auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/auction-dca.rain
+grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/grid.rain
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/dynamic-spread.rain
+canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/canary.rain
+folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/folio.rain
+fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/67e52ee2265954617613e12d474e31101fd0986e/src/fixed-spread.rain
 
 
