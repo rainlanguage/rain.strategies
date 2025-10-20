@@ -222,3 +222,6 @@ io: mul(call<'baseline-fn>() baseline-multiplier);
 #handle-io
 :ensure(greater-than-or-equal-to(output-vault-decrease() min-trade-amount) "Min trade amount."),
 :ensure(less-than-or-equal-to(output-vault-decrease() max-trade-amount) "Max trade amount.");
+
+#handle-add-order
+:;
