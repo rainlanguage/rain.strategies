@@ -248,6 +248,18 @@ deployments:
   #   order: flare-wflr-sflr
   #   scenario: flare-sflr-baseline-inv
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
+local-db-sync:
+  raindex:
+    batch-size: 1
+    max-concurrent-batches: 1
+    retry-attempts: 1
+    retry-delay-ms: 1
+    rate-limit-delay-ms: 1
+    finality-depth: 1
+
 gui:
   name: Auction based cost averaging
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/auction-dca.md
