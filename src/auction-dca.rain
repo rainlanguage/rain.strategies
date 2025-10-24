@@ -57,6 +57,7 @@ metaboards:
 orderbooks:
   arbitrum:
     address: 0x8df8075e4077dabf1e95f49059e4c1eea33094ab
+    local-db-remote: raindex
     deployment-block: 380203894
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
@@ -68,6 +69,7 @@ orderbooks:
   #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
   polygon:
     address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
+    local-db-remote: raindex
     deployment-block: 76772162
 
 deployers:
