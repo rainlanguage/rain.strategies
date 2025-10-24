@@ -188,6 +188,18 @@ using-tokens-from:
   - https://tokens.coingecko.com/binance-smart-chain/all.json
   - https://raw.githubusercontent.com/rainlanguage/rain.strategies/629c295b6efae611b086db8e6e8b570ba1fd5d76/token-lists/flare.json
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
+local-db-sync:
+  raindex:
+    batch-size: 1
+    max-concurrent-batches: 1
+    retry-attempts: 1
+    retry-delay-ms: 1
+    rate-limit-delay-ms: 1
+    finality-depth: 1
+
 gui:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/grid.md
