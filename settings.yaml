@@ -70,11 +70,13 @@ orderbooks:
     address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
     network: polygon
     subgraph: polygon
+    local-db-remote: raindex
     deployment-block: 76772162
   arbitrum:
     address: 0x8df8075e4077dabf1e95f49059e4c1eea33094ab
     network: arbitrum
     subgraph: arbitrum
+    local-db-remote: raindex
     deployment-block: 380203894
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
@@ -111,3 +113,15 @@ deployers:
   # ethereum:
   #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   #   network: ethereum
+
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
+local-db-sync:
+  raindex:
+    batch-size: 1
+    max-concurrent-batches: 1
+    retry-attempts: 1
+    retry-delay-ms: 1
+    rate-limit-delay-ms: 1
+    finality-depth: 1
