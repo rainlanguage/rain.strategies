@@ -1,0 +1,222 @@
+version: 3
+
+networks:
+  base:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+
+subgraphs:
+  base: https://example.com/subgraph
+
+metaboards:
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
+orderbooks:
+  base:
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
+
+deployers:
+  base:
+    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  pyth-price-baseline-base:
+    orderbook: base
+    deployer: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x5286818FB2046839B016B1e059738d0Fc2F6eA10
+      baseline-fn: '''pyth-price-baseline'
+  pyth-price-baseline-base-inv:
+    orderbook: base
+    deployer: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x5286818FB2046839B016B1e059738d0Fc2F6eA10
+      baseline-fn: '''pyth-price-baseline-inv'
+
+
+deployments:
+  base-pyth:
+    order: base
+    scenario: pyth-price-baseline-base
+  base-pyth-inv:
+    order: base
+    scenario: pyth-price-baseline-base-inv
+
+
+gui:
+  name: Pyth fixed spread limit
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
+  short-description:  >
+    A strategy where the ratio tracks a benchmark price (e.g. pyth) with a fixed multiplier
+  deployments:
+    base-pyth:
+      name: Base pyth sell shares
+      description: Deploy an fixed-spread strategy on Base using Pyth price feeds to sell shares.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-pair
+          name: Pyth price feed pair
+          description: |
+            The Pyth price feed pair to use for the auction.
+            This is used to determine the baseline and initial IO ratios for the auction.
+            For example, if you are selling WETH and buying USDC then you would use the WETH/USD price feed.
+          show-custom-field: false
+          presets:
+            - name: Equity.US.GOOG/USD
+              value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD
+              value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AAPL/USD
+              value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
+            - name: Equity.US.MSFT/USD
+              value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD
+              value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD
+              value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.META/USD
+              value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
+            - name: Equity.US.MSTR/USD
+              value: 0x924571756974792e55532e4d5354522f55534400000000000000000000000000
+            - name: Equity.US.BRK-B/USD
+              value: 0x934571756974792e55532e42524b2d422f555344000000000000000000000000
+            - name: Equity.US.SPLG/USD
+              value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
+            - name: Equity.US.IAU/USD
+              value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: baseline-multiplier
+          name: Benchmark price multiplier
+          description: |
+            The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          default: 1.001
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+    base-pyth-inv:
+      name: Base pyth buy shares
+      description: Deploy an fixed-spread trategy on Base using Pyth price feeds to buy shares.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-pair
+          name: Pyth price feed pair
+          description: |
+            The Pyth price feed pair to use for the auction.
+            This is used to determine the baseline and initial IO ratios for the auction.
+            For example, if you are buying WETH and selling USDC then you would use the WETH/USD price feed.
+          show-custom-field: false
+          presets:
+            - name: Equity.US.GOOG/USD
+              value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD
+              value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AAPL/USD
+              value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
+            - name: Equity.US.MSFT/USD
+              value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD
+              value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD
+              value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.META/USD
+              value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
+            - name: Equity.US.MSTR/USD
+              value: 0x924571756974792e55532e4d5354522f55534400000000000000000000000000
+            - name: Equity.US.BRK-B/USD
+              value: 0x934571756974792e55532e42524b2d422f555344000000000000000000000000
+            - name: Equity.US.SPLG/USD
+              value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
+            - name: Equity.US.IAU/USD
+              value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: baseline-multiplier
+          name: Benchmark price multiplier
+          description: |
+            The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          default: 1.001
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+
+
+---
+#raindex-subparser !Raindex subparser.
+#subparser-0 !Subparser 0.
+
+
+#min-trade-amount !Each trade must be at least this many output tokens.
+#max-trade-amount !Each trade will be capped at this many tokens.
+
+
+#pyth-pair !The pyth pair to use for the price feed.
+
+
+#baseline-fn !Function that returns the benchmark IO (e.g. pyth baseline).
+#baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
+
+
+#pyth-price-baseline
+price _: pyth-price(pyth-pair 86400);
+
+
+#pyth-price-baseline-inv
+price _: inv(pyth-price(pyth-pair 86400));
+
+
+#calculate-io
+using-words-from raindex-subparser subparser-0
+offer-amount: max-trade-amount,
+pyth-oracle-price _: call<'baseline-fn>(), 
+io: mul(pyth-oracle-price baseline-multiplier);
+
+
+#handle-io
+:ensure(greater-than-or-equal-to(output-vault-decrease() min-trade-amount) "Min trade amount."),
+:ensure(less-than-or-equal-to(output-vault-decrease() max-trade-amount) "Max trade amount.");
+
+#handle-add-order
+:;
