@@ -171,6 +171,28 @@ scenarios:
       baseline-fn: '''constant-baseline'
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
+  pyth-price-baseline-base:
+    orderbook: base
+    deployer: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x3348438b5045f73568b3a871Bea55D7884c46d77
+      baseline-fn: '''pyth-price-baseline'
+      initial-io-fn: '''pyth-price-baseline'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
+  pyth-price-baseline-base-inv:
+    orderbook: base
+    deployer: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x3348438b5045f73568b3a871Bea55D7884c46d77
+      baseline-fn: '''pyth-price-baseline-inv'
+      initial-io-fn: '''pyth-price-baseline-inv'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
   polygon:
     orderbook: polygon
     runs: 1
@@ -234,6 +256,12 @@ deployments:
   base:
     order: base
     scenario: base
+  base-pyth:
+    order: base
+    scenario: pyth-price-baseline-base
+  base-pyth-inv:
+    order: base
+    scenario: pyth-price-baseline-base-inv
   # ethereum:
   #   order: ethereum
   #   scenario: ethereum
@@ -762,6 +790,242 @@ gui:
           name: Token to Buy
           description: Select the token you want to purchase
 
+    base-pyth:
+      name: Base pyth sell shares
+      description: Deploy an auction-based cost averaging strategy on Base using Pyth price feeds to sell shares.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-pair
+          name: Pyth price feed pair
+          description: |
+            The Pyth price feed pair to use for the auction.
+            This is used to determine the baseline and initial IO ratios for the auction.
+            For example, if you are selling WETH and buying USDC then you would use the WETH/USD price feed.
+          show-custom-field: false
+          presets:
+            - name: Equity.US.GOOG/USD
+              value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD
+              value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AAPL/USD
+              value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
+            - name: Equity.US.MSFT/USD
+              value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD
+              value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD
+              value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.META/USD
+              value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
+            - name: Equity.US.MSTR/USD
+              value: 0x924571756974792e55532e4d5354522f55534400000000000000000000000000
+            - name: Equity.US.BRK-B/USD
+              value: 0x934571756974792e55532e42524b2d422f555344000000000000000000000000
+            - name: Equity.US.SPLG/USD
+              value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
+            - name: Equity.US.IAU/USD
+              value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: |
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: |
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: |
+            The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: |
+            The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+    
+    base-pyth-inv:
+      name: Base pyth buy shares
+      description: Deploy an auction-based cost averaging strategy on Base using Pyth price feeds to buy shares.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-pair
+          name: Pyth price feed pair
+          description: |
+            The Pyth price feed pair to use for the auction.
+            This is used to determine the baseline and initial IO ratios for the auction.
+            For example, if you are buying WETH and selling USDC then you would use the WETH/USD price feed.
+          show-custom-field: false
+          presets:
+            - name: Equity.US.GOOG/USD
+              value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD
+              value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AAPL/USD
+              value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
+            - name: Equity.US.MSFT/USD
+              value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD
+              value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD
+              value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.META/USD
+              value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
+            - name: Equity.US.GME/USD
+              value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
+            - name: Equity.US.MSTR/USD
+              value: 0x924571756974792e55532e4d5354522f55534400000000000000000000000000
+            - name: Equity.US.BRK-B/USD
+              value: 0x934571756974792e55532e42524b2d422f555344000000000000000000000000
+            - name: Equity.US.SPLG/USD
+              value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
+            - name: Equity.US.IAU/USD
+              value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
+        - binding: time-per-amount-epoch
+          name: Budget period (in seconds)
+          description: |
+            The budget is spent over this time period.
+
+            For example, if the budget is daily then this is 86400 seconds (24 * 60 * 60).
+          show-custom-field: true
+          presets:
+            - name: Per minute (60)
+              value: 60
+            - name: Per hour (3600)
+              value: 3600
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+            - name: Per 30 days (2592000)
+              value: 2592000
+            - name: Per 365 days (31536000)
+              value: 31536000
+        - binding: amount-per-epoch
+          name: Budget (${order.outputs.0.token.symbol} per period)
+          description: |
+            The amount of ${order.outputs.0.token.symbol} to spend each budget period.
+
+            For example, if the budget is daily and this is 10 then 10 ${order.outputs.0.token.symbol} will be sold for ${order.inputs.0.token.symbol} each day.
+        - binding: max-trade-amount
+          name: Maximum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: min-trade-amount
+          name: Minimum trade size (${order.outputs.0.token.symbol})
+          description: |
+            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+        - binding: time-per-trade-epoch
+          name: Auction period (in seconds)
+          description: |
+            The auction period is the time between each auction price halvening.
+          show-custom-field: true
+          default: 3600
+          presets:
+            - name: Every 20 minutes (1200)
+              value: 1200
+            - name: Every 30 minutes (1800)
+              value: 1800
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+            - name: Every 3 hours (10800)
+              value: 10800
+            - name: Every 6 hours (21600)
+              value: 21600
+            - name: Every 12 hours (43200)
+              value: 43200
+            - name: Every 24 hours (86400)
+              value: 86400
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: |
+            The multiplier to apply to the last trade to kick off the next auction.
+          show-custom-field: true
+          default: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+            - name: 1.1x
+              value: 1.1
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+
     ethereum:
       name: Ethereum
       description: Deploy an auction-based cost averaging order on Ethereum.
@@ -1162,6 +1426,8 @@ gui:
 #next-trade-multiplier !Start next auction at this x the last trade.
 #next-trade-baseline-multiplier !Lifts the baseline to here relative to the previous trade.
 
+#pyth-pair !The pyth pair to use for the price feed.
+
 #last-trade-time-key "last-trade-time"
 #last-trade-io-key "last-trade-io"
 #initial-time-key "initial-time"
@@ -1246,6 +1512,15 @@ _: sflr-exchange-rate();
 
 #sflr-baseline-inv
 _: inv(sflr-exchange-rate());
+
+#pyth-price-baseline
+price _: pyth-price(pyth-pair 86400),
+_: price;
+
+#pyth-price-baseline-inv
+price _: pyth-price(pyth-pair 86400),
+_: inv(price);
+
 
 #handle-add-order
 using-words-from raindex-subparser subparser-0
