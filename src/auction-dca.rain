@@ -77,7 +77,7 @@ deployers:
   # bsc:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
   base:
-    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
   # ethereum:
   #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   # flare:

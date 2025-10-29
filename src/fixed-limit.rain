@@ -89,7 +89,7 @@ deployers:
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   base:
-    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
   arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   polygon:

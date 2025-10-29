@@ -21,7 +21,7 @@ orderbooks:
 
 deployers:
   base:
-    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
 
 orders:
   base:

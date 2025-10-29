@@ -21,7 +21,7 @@ orderbooks:
 
 deployers:
   base:
-    address: 0x6974f30Fd87Ff1AcAaa893e2725058C78ab1f8be
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
 
 orders:
   base:
@@ -200,17 +200,19 @@ gui:
 
 
 #pyth-price-baseline
-price _: pyth-price(pyth-pair 86400);
+price _: pyth-price(pyth-pair 86400),
+_: price;
 
 
 #pyth-price-baseline-inv
-price _: inv(pyth-price(pyth-pair 86400));
+price _: inv(pyth-price(pyth-pair 86400)),
+_: price;
 
 
 #calculate-io
 using-words-from raindex-subparser subparser-0
 offer-amount: max-trade-amount,
-pyth-oracle-price _: call<'baseline-fn>(), 
+pyth-oracle-price: call<'baseline-fn>(), 
 io: mul(pyth-oracle-price baseline-multiplier);
 
 
