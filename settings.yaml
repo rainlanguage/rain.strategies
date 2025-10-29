@@ -1,10 +1,10 @@
 version: 3
 networks:
-  # flare:
-  #   rpcs:
-  #     - https://flare.rpc.thirdweb.com
-  #   chain-id: 14
-  #   currency: FLR
+  flare:
+    rpcs:
+      - https://flare.rpc.thirdweb.com
+    chain-id: 14
+    currency: FLR
   base:
     rpcs:
       - https://base-rpc.publicnode.com
@@ -42,7 +42,7 @@ networks:
   #   network-id: 1
   #   currency: ETH
 subgraphs:
-  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-flare/2024-12-13-9dc7/gn
+  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-flare/2024-12-13-9dc7/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-10-11-a62b/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-matic/2025-09-23-7ac3/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2025-09-18-da5d/gn
@@ -50,7 +50,7 @@ subgraphs:
   # linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-linea/2024-12-13-09c7/gn
   # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-mainnet/2024-12-13-7f22/gn
 metaboards:
-  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
@@ -58,10 +58,11 @@ metaboards:
   # linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
   # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
 orderbooks:
-  # flare:
-  #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-  #   network: flare
-  #   subgraph: flare
+  flare:
+    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+    network: flare
+    subgraph: flare
+    deployment-block: 49782578
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     network: base
@@ -91,9 +92,9 @@ orderbooks:
   #   subgraph: ethereum
 
 deployers:
-  # flare:
-  #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
-  #   network: flare
+  flare:
+    address: 0x8EE45EA9d6b7eb4026269D8c2BbdB20bEB38428d
+    network: flare
   base:
     address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
     network: base

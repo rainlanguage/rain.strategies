@@ -64,8 +64,8 @@ subgraphs:
 
 orderbooks:
   flare:
-    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-    deployment-block: 1
+    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+    deployment-block: 49782578
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
@@ -87,7 +87,7 @@ orderbooks:
 
 deployers:
   flare:
-    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+    address: 0x8EE45EA9d6b7eb4026269D8c2BbdB20bEB38428d
   base:
     address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
   arbitrum:
