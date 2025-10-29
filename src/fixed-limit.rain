@@ -174,7 +174,7 @@ scenarios:
     orderbook: flare
     runs: 1
     bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      raindex-subparser: 0x85e440C297f267332c34A88E0d085162a96475D2
       fixed-io-output-token: ${order.outputs.0.token.address}
   linea:
     orderbook: linea
