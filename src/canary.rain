@@ -46,10 +46,14 @@ metaboards:
   # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
+    local-db-remote: raindex
   # base:
   #   address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
   # flare:

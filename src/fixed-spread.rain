@@ -14,10 +14,14 @@ subgraphs:
 metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
+    local-db-remote: raindex
 
 deployers:
   base:
@@ -212,7 +216,7 @@ _: inv(price);
 #calculate-io
 using-words-from raindex-subparser subparser-0
 offer-amount: max-trade-amount,
-pyth-oracle-price: call<'baseline-fn>(), 
+pyth-oracle-price: call<'baseline-fn>(),
 io: mul(pyth-oracle-price baseline-multiplier);
 
 

@@ -14,10 +14,14 @@ metaboards:
 subgraphs:
   base: https://example.com/subgraph
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
+    local-db-remote: raindex
 
 deployers:
   base:

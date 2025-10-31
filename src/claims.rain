@@ -14,10 +14,14 @@ subgraphs:
 metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
+    local-db-remote: raindex
 
 deployers:
   base:
@@ -40,7 +44,7 @@ scenarios:
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
       merkle-words: 0x22d83c031bC02737AD3EAf5aA3386de2bf7f7fbC
-      
+
 deployments:
   base:
     order: base
@@ -98,7 +102,7 @@ gui:
 #verify-proof
   leaf-node: ,
   /**
-  * Verifies merkle proof using signed context parameters: 
+  * Verifies merkle proof using signed context parameters:
   * signed-context<0 2-9>: Merkle proof components for merkle tree with depth 8
   */
   is-valid-proof: merkle-proof-verify(

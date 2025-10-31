@@ -54,15 +54,20 @@ metaboards:
   # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   arbitrum:
     address: 0x8df8075e4077dabf1e95f49059e4c1eea33094ab
     deployment-block: 380203894
+    local-db-remote: raindex
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     deployment-block: 36667253
+    local-db-remote: raindex
   # ethereum:
   #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
   # flare:
@@ -70,6 +75,7 @@ orderbooks:
   polygon:
     address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
     deployment-block: 76772162
+    local-db-remote: raindex
 
 deployers:
   arbitrum:
@@ -407,7 +413,7 @@ gui:
         - key: input
           name: Token to Buy
           description: Select the token you want to purchase
-        
+
 
     polygon:
       name: Polygon
@@ -907,7 +913,7 @@ gui:
         - key: input
           name: Token to Buy
           description: Select the token you want to purchase
-    
+
     base-pyth-inv:
       name: Base pyth buy shares
       description: Deploy an auction-based cost averaging strategy on Base using Pyth price feeds to buy shares.
