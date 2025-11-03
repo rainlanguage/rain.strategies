@@ -1,0 +1,134 @@
+version: 4
+
+networks:
+  base:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+
+metaboards:
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
+subgraphs:
+  base: https://example.com/subgraph
+
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
+orderbooks:
+  base:
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
+    local-db-remote: raindex
+
+deployers:
+  base:
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+    outputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+
+scenarios:
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+
+deployments:
+  base:
+    order: base
+    scenario: base
+
+gui:
+  name: Folio
+  description: Maintains an equal distribution of assets in a portfolio.
+  short-description: Rebalances a portfolio to maintain equal distribution of assets.
+  deployments:
+    base:
+      name: Base
+      description: Rebalances a portfolio on the Base network.
+      deposits:
+        - token: token1
+        - token: token2
+        - token: token3
+        - token: token4
+        - token: token5
+        - token: token6
+        - token: token7
+      fields:
+        - binding: threshold
+          name: Threshold
+          description: The threshold for rebalancing the portfolio. E.g. 0.05 = 5%
+          type: number
+          default: 0.05
+        - binding: fee
+          name: Fee
+          description: The fee for rebalancing the portfolio. E.g. 0.003 = 0.3%
+          type: number
+          default: 0.003
+      select-tokens:
+        - key: token1
+          name: Token 1
+          description: The first token in the portfolio.
+        - key: token2
+          name: Token 2
+          description: The second token in the portfolio.
+        - key: token3
+          name: Token 3
+          description: The third token in the portfolio.
+        - key: token4
+          name: Token 4
+          description: The fourth token in the portfolio.
+        - key: token5
+          name: Token 5
+          description: The fifth token in the portfolio.
+        - key: token6
+          name: Token 6
+          description: The sixth token in the portfolio.
+        - key: token7
+          name: Token 7
+          description: The seventh token in the portfolio.
+
+---
+
+#raindex-subparser !The subparser to use.
+
+#threshold !The threshold for rebalancing the portfolio.
+#fee !The fee for rebalancing the portfolio.
+
+#spread !The spread for the portfolio on return of threshold.
+
+#calculate-io
+using-words-from raindex-subparser
+:ensure(every(input-vault-before() output-vault-before()) "zero balance"),
+base-io: div(input-vault-before() output-vault-before()),
+corrected-io: div(base-io sub(1 threshold)),
+feed-io: mul(corrected-io add(1 fee)),
+amount: mul(output-vault-before() threshold),
+io-ratio: feed-io;
+
+#handle-io
+:;
+
+#handle-add-order
+:;

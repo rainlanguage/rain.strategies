@@ -1,4 +1,4 @@
-version: 3
+version: 4
 
 networks:
   flare:
@@ -62,38 +62,48 @@ subgraphs:
   ethereum: https://example.com/subgraph
   linea: https://example.com/subgraph
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   flare:
-    address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
-    deployment-block: 1
+    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+    deployment-block: 49782578
+    local-db-remote: raindex
   base:
-    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
-    deployment-block: 1
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
+    local-db-remote: raindex
   arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
+    local-db-remote: raindex
   polygon:
-    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
-    deployment-block: 1
+    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
+    deployment-block: 76772162
+    local-db-remote: raindex
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
     deployment-block: 1
+    local-db-remote: raindex
   ethereum:
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
     deployment-block: 1
+    local-db-remote: raindex
   linea:
     address: 0x22410e2a46261a1B1e3899a072f303022801C764
     deployment-block: 1
+    local-db-remote: raindex
 
 deployers:
   flare:
-    address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+    address: 0x8EE45EA9d6b7eb4026269D8c2BbdB20bEB38428d
   base:
-    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
   arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   polygon:
-    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
   ethereum:
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   linea:
@@ -156,13 +166,13 @@ scenarios:
     orderbook: polygon
     runs: 1
     bindings:
-      raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
+      raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
       fixed-io-output-token: ${order.outputs.0.token.address}
   base:
     orderbook: base
     runs: 1
     bindings:
-      raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
       fixed-io-output-token: ${order.outputs.0.token.address}
   ethereum:
     orderbook: ethereum
@@ -174,7 +184,7 @@ scenarios:
     orderbook: flare
     runs: 1
     bindings:
-      raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+      raindex-subparser: 0x85e440C297f267332c34A88E0d085162a96475D2
       fixed-io-output-token: ${order.outputs.0.token.address}
   linea:
     orderbook: linea
@@ -346,7 +356,7 @@ gui:
 
 #calculate-io
 using-words-from raindex-subparser
-max-output: max-value(),
+max-output: max-positive-value(),
 io: if(
   equal-to(
     output-token()
