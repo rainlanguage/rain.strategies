@@ -1520,11 +1520,11 @@ _: sflr-exchange-rate();
 _: inv(sflr-exchange-rate());
 
 #pyth-price-baseline
-price _: pyth-price(pyth-pair 86400),
+price _: pyth-price(pyth-pair 864000),
 _: price;
 
 #pyth-price-baseline-inv
-price _: pyth-price(pyth-pair 86400),
+price _: pyth-price(pyth-pair 864000),
 _: inv(price);
 
 
