@@ -215,9 +215,8 @@ _: inv(price);
 
 #calculate-io
 using-words-from raindex-subparser subparser-0
-offer-amount: max-trade-amount,
-pyth-oracle-price: call<'baseline-fn>(), 
-io: mul(pyth-oracle-price baseline-multiplier);
+offer-amount: max-trade-amount, 
+io: mul(call<'baseline-fn>() baseline-multiplier);
 
 
 #handle-io
