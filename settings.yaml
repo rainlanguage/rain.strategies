@@ -119,7 +119,7 @@ deployers:
   #   network: ethereum
 
 local-db-remotes:
-  raindex: https://raw.githubusercontent.com/findolor/local_db_remote/8a5bad3d5930c3153c7afaa7ed88987bec8cee7a/test-manifest.yaml
+  raindex: https://raw.githubusercontent.com/findolor/local_db_remote/c22f762d7f5ce055d1d6bbdbc1377ddcc76e399c/test-manifest.yaml
 
 local-db-sync:
   base:
