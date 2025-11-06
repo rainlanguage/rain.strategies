@@ -3,6 +3,9 @@ networks:
   flare:
     rpcs:
       - https://flare.rpc.thirdweb.com
+      - https://rpc.ankr.com/flare
+      - https://flare-api.flare.network/ext/C/rpc
+      - https://flare-mainnet.gateway.tatum.io
     chain-id: 14
     currency: FLR
   base:
