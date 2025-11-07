@@ -13,12 +13,12 @@ networks:
   #   chain-id: 8453
   #   network-id: 8453
   #   currency: ETH
-  # flare:
-  #   rpcs:
-  #     - https://flare.rpc.thirdweb.com
-  #   chain-id: 14
-  #   network-id: 14
-  #   currency: FLR
+  flare:
+    rpcs:
+      - https://flare.rpc.thirdweb.com
+    chain-id: 14
+    network-id: 14
+    currency: FLR
   # polygon:
   #   rpcs:
   #     - https://polygon-rpc.com
@@ -35,14 +35,14 @@ networks:
 subgraphs:
   arbitrum: https://example.com/subgraph
   # base: https://example.com/subgraph
-  # flare: https://example.com/subgraph
+  flare: https://example.com/subgraph
   # polygon: https://example.com/subgraph
   # bsc: https://example.com/subgraph
 
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
 
@@ -56,8 +56,10 @@ orderbooks:
     local-db-remote: raindex
   # base:
   #   address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
-  # flare:
-  #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  flare:
+    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+    deployment-block: 49782578
+    local-db-remote: raindex
   # polygon:
   #   address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
   # bsc:
@@ -68,8 +70,8 @@ deployers:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   # base:
   #   address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
-  # flare:
-  #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  flare:
+    address: 0x8EE45EA9d6b7eb4026269D8c2BbdB20bEB38428d
   # polygon:
   #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
   # bsc:
@@ -92,14 +94,14 @@ orders:
   #     - token: input
   #   outputs:
   #     - token: output
-  # flare:
-  #   orderbook: flare
-  #   network: flare
-  #   inputs:
-  #     # Input is irrelevant because we always set the IO ratio to 0.
-  #     - token: input
-  #   outputs:
-  #     - token: output
+  flare:
+    orderbook: flare
+    network: flare
+    inputs:
+      # Input is irrelevant because we always set the IO ratio to 0.
+      - token: input
+    outputs:
+      - token: output
   # polygon:
   #   orderbook: polygon
   #   network: polygon
@@ -128,11 +130,11 @@ scenarios:
   #   runs: 1
   #   bindings:
   #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  # flare:
-  #   orderbook: flare
-  #   runs: 1
-  #   bindings:
-  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
+  flare:
+    orderbook: flare
+    runs: 1
+    bindings:
+      raindex-subparser: 0x85e440C297f267332c34A88E0d085162a96475D2
   # polygon:
   #   orderbook: polygon
   #   runs: 1
@@ -151,9 +153,9 @@ deployments:
   # base:
   #   order: base
   #   scenario: base
-  # flare:
-  #   order: flare
-  #   scenario: flare
+  flare:
+    order: flare
+    scenario: flare
   # polygon:
   #   order: polygon
   #   scenario: polygon
@@ -252,44 +254,44 @@ gui:
     #     - key: input
     #       name: Input Token
 
-    # flare:
-    #   name: Canary on Flare.
-    #   description:
-    #     A simple order that gives a bounty to the solver regularly.
-    #   deposits:
-    #     - token: output
-    #   fields:
-    #     - binding: cooldown
-    #       name: Cooldown between possible trades in seconds.
-    #       show-custom-field: true
-    #       default: 300
-    #       presets:
-    #         - name: Two minutes (120)
-    #           value: 120
-    #         - name: Five minutes (300)
-    #           value: 300
-    #         - name: 1 hour (3600)
-    #           value: 3600
-    #     - binding: min-bounty
-    #       name: Minimum bounty to give to the solver
-    #     - binding: max-bounty
-    #       name: Maximum bounty to give to the solver
-    #     - binding: time-per-epoch
-    #       name: Total auction duration in seconds.
-    #       show-custom-field: true
-    #       default: 900
-    #       presets:
-    #         - name: 5 minutes
-    #           value: 300
-    #         - name: 15 minutes
-    #           value: 900
-    #         - name: 1 hour
-    #           value: 3600
-    #   select-tokens:
-    #     - key: output
-    #       name: Output Token
-    #     - key: input
-    #       name: Input Token
+    flare:
+      name: Canary on Flare.
+      description:
+        A simple order that gives a bounty to the solver regularly.
+      deposits:
+        - token: output
+      fields:
+        - binding: cooldown
+          name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: Two minutes (120)
+              value: 120
+            - name: Five minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+        - binding: min-bounty
+          name: Minimum bounty to give to the solver
+        - binding: max-bounty
+          name: Maximum bounty to give to the solver
+        - binding: time-per-epoch
+          name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
+          presets:
+            - name: 5 minutes
+              value: 300
+            - name: 15 minutes
+              value: 900
+            - name: 1 hour
+              value: 3600
+      select-tokens:
+        - key: output
+          name: Output Token
+        - key: input
+          name: Input Token
 
     # polygon:
     #   name: Canary on Polygon.

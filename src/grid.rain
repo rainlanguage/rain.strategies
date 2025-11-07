@@ -31,12 +31,12 @@ networks:
   #   chain-id: 137
   #   network-id: 137
   #   currency: POL
-  # flare:
-  #   rpcs:
-  #     - https://flare.rpc.thirdweb.com
-  #   chain-id: 14
-  #   network-id: 14
-  #   currency: FLR
+  flare:
+    rpcs:
+      - https://flare.rpc.thirdweb.com
+    chain-id: 14
+    network-id: 14
+    currency: FLR
 
 subgraphs:
   arbitrum: https://example.com/subgraph
@@ -44,7 +44,7 @@ subgraphs:
   # ethereum: https://example.com/subgraph
   # bsc: https://example.com/subgraph
   # polygon: https://example.com/subgraph
-  # flare: https://example.com/subgraph
+  flare: https://example.com/subgraph
 
 metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
@@ -52,7 +52,7 @@ metaboards:
   # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
-  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
+  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
 
 local-db-remotes:
   raindex: https://example.com/subgraphs
@@ -70,8 +70,10 @@ orderbooks:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   # polygon:
   #   address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
-  # flare:
-  #   address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
+  flare:
+    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+    deployment-block: 49782578
+    local-db-remote: raindex
 
 deployers:
   arbitrum:
@@ -84,8 +86,8 @@ deployers:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
   # polygon:
   #   address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
-  # flare:
-  #   address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
+  flare:
+    address: 0x8EE45EA9d6b7eb4026269D8c2BbdB20bEB38428d
 
 orders:
   arbitrum:
@@ -118,12 +120,12 @@ orders:
   #     - token: token1
   #   outputs:
   #     - token: token2
-  # flare:
-  #   orderbook: flare
-  #   inputs:
-  #     - token: token1
-  #   outputs:
-  #     - token: token2
+  flare:
+    orderbook: flare
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
 
 scenarios:
   arbitrum:
@@ -156,12 +158,12 @@ scenarios:
   #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
   #     tranche-space-min-headroom: 0.25
   #     tranche-space-recharge-delay: 300
-  # flare:
-  #   orderbook: flare
-  #   bindings:
-  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-  #     tranche-space-min-headroom: 0.25
-  #     tranche-space-recharge-delay: 300
+  flare:
+    orderbook: flare
+    bindings:
+      raindex-subparser: 0x85e440C297f267332c34A88E0d085162a96475D2
+      tranche-space-min-headroom: 0.25
+      tranche-space-recharge-delay: 300
 
 deployments:
   arbitrum:
@@ -179,9 +181,9 @@ deployments:
   # polygon:
   #   order: polygon
   #   scenario: polygon
-  # flare:
-  #   order: flare
-  #   scenario: flare
+  flare:
+    order: flare
+    scenario: flare
 
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
