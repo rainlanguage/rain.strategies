@@ -1,26 +1,26 @@
-version: 3
+version: 4
 
 scenarios:
   arbitrum:
     orderbook: arbitrum
     runs: 1
     bindings:
-      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
+      raindex-subparser: 0xcCf3E6e16E40B26618d216b4385d086664876782
       history-cap: '1e50'
       shy-epoch: 0.05
       amount-token: ${order.inputs.0.token.address}
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
-  # base:
-  #   orderbook: base
-  #   runs: 1
-  #   bindings:
-  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  #     history-cap: '1e50'
-  #     shy-epoch: 0.05
-  #     amount-token: ${order.inputs.0.token.address}
-  #     initial-output-token: ${order.outputs.1.token.address}
-  #     initial-input-token: ${order.inputs.0.token.address}
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      history-cap: '1e50'
+      shy-epoch: 0.05
+      amount-token: ${order.inputs.0.token.address}
+      initial-output-token: ${order.outputs.1.token.address}
+      initial-input-token: ${order.inputs.0.token.address}
   # flare:
   #   orderbook: flare
   #   runs: 1
@@ -31,16 +31,16 @@ scenarios:
   #     amount-token: ${order.inputs.0.token.address}
   #     initial-output-token: ${order.outputs.1.token.address}
   #     initial-input-token: ${order.inputs.0.token.address}
-  # polygon:
-  #   orderbook: polygon
-  #   runs: 1
-  #   bindings:
-  #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-  #     history-cap: '1e50'
-  #     shy-epoch: 0.05
-  #     amount-token: ${order.inputs.0.token.address}
-  #     initial-output-token: ${order.outputs.1.token.address}
-  #     initial-input-token: ${order.inputs.0.token.address}
+  polygon:
+    orderbook: polygon
+    runs: 1
+    bindings:
+      raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
+      history-cap: '1e50'
+      shy-epoch: 0.05
+      amount-token: ${order.inputs.0.token.address}
+      initial-output-token: ${order.outputs.1.token.address}
+      initial-input-token: ${order.inputs.0.token.address}
   # bsc:
   #   orderbook: bsc
   #   runs: 1
@@ -134,38 +134,48 @@ subgraphs:
   ethereum: https://example.com/subgraph
   linea: https://example.com/subgraph
 
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
 orderbooks:
   flare:
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
     deployment-block: 1
+    local-db-remote: raindex
   base:
-    address: 0xd2938e7c9fe3597f78832ce780feb61945c377d7
-    deployment-block: 1
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
+    local-db-remote: raindex
   arbitrum:
-    address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
-    deployment-block: 352866209
+    address: 0x8df8075e4077dabf1e95f49059e4c1eea33094ab
+    deployment-block: 380203894
+    local-db-remote: raindex
   polygon:
-    address: 0x7D2f700b1f6FD75734824EA4578960747bdF269A
-    deployment-block: 1
+    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
+    deployment-block: 76772162
+    local-db-remote: raindex
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
     deployment-block: 1
+    local-db-remote: raindex
   ethereum:
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
     deployment-block: 1
+    local-db-remote: raindex
   linea:
     address: 0x22410e2a46261a1B1e3899a072f303022801C764
     deployment-block: 1
+    local-db-remote: raindex
 
 deployers:
   flare:
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   base:
-    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
   arbitrum:
-    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
+    address: 0xb1869a4FA6436832bb0AD5420170B8CF17CaF934
   polygon:
-    address: 0xE7116BC05C8afe25e5B54b813A74F916B5D42aB1
+    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
   ethereum:
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   linea:
@@ -858,7 +868,7 @@ gui:
 #vwaio-key "cost-basis-io-ratio"
 
 #amount-is-output
-  _: equal-to(amount-token output-token());
+  _: binary-equal-to(amount-token output-token());
 
 #get-cost-basis-io-ratio
   this-total-out-key: hash(order-hash() input-token() output-token()),
@@ -895,7 +905,7 @@ gui:
   this-new-in: add(this-total-in this-remaining-in),
   this-remaining-out: div(this-remaining-in calculated-io-ratio()),
   this-new-out: add(this-total-out this-remaining-out),
-  this-new-vwaio: every(this-new-out div(this-new-in any(this-new-out max-value()))),
+  this-new-vwaio: every(this-new-out div(this-new-in any(this-new-out uint256-max-value()))),
   cap-out: if(call<'amount-is-output>() history-cap div(history-cap any(this-new-vwaio calculated-io-ratio()))),
   capped-out: min(this-new-out cap-out),
 
@@ -904,35 +914,7 @@ gui:
 
 #halflife
 epoch:,
-/**
- * Shrinking the multiplier like this
- * then applying it 10 times allows for
- * better precision when max-io-ratio
- * is very large, e.g. ~1e10 or ~1e20+
- *
- * This works because `power` loses
- * precision on base `0.5` when the
- * exponent is large and can even go
- * to `0` while the io-ratio is still
- * large. Better to keep the multiplier
- * higher precision and drop the io-ratio
- * smoothly for as long as we can.
- */
-multiplier:
-  power(0.5 div(epoch 10)),
-val:
-  mul(
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-    multiplier
-  );
+val: power(0.5 epoch);
 
 #set-last-trade
 last-io:,
@@ -946,14 +928,14 @@ using-words-from raindex-subparser
 :set(hash(order-hash() last-trade-io-key) initial-io),
 :set(hash(order-hash() last-trade-output-token-key) initial-output-token),
 this-total-out-key: hash(order-hash() initial-input-token initial-output-token),
-:set(this-total-out-key 1e-18),
+:set(this-total-out-key min-positive-value()),
 :set(hash(this-total-out-key vwaio-key) initial-io);
 
 #get-last-trade
 stored-last-io:get(hash(order-hash() last-trade-io-key)),
 stored-last-output-token:get(hash(order-hash() last-trade-output-token-key)),
 last-time:get(hash(order-hash() last-trade-time-key)),
-_: if(equal-to(stored-last-output-token output-token()) stored-last-io inv(stored-last-io));
+_: if(binary-equal-to(stored-last-output-token output-token()) stored-last-io inv(stored-last-io));
 
 #get-epoch
 last-time _: call<'get-last-trade>(),
@@ -973,7 +955,7 @@ epoch:,
 last-io: call<'get-last-trade>(),
 this-vwaio
 other-vwaio: call<'get-cost-basis-io-ratio>(),
-cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio max-value()))) cost-basis-multiplier),
+cost-basis-io: mul(any(this-vwaio inv(any(other-vwaio uint256-max-value()))) cost-basis-multiplier),
 max-next-trade: mul(max(cost-basis-io last-io) next-trade-multiplier),
 baseline: any(cost-basis-io last-io),
 variable-component: sub(max-next-trade baseline),

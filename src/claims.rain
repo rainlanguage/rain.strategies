@@ -1,0 +1,148 @@
+version: 4
+
+networks:
+  base:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+
+subgraphs:
+  base: https://example.com/subgraph
+
+metaboards:
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
+local-db-remotes:
+  raindex: https://example.com/subgraph
+
+orderbooks:
+  base:
+    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    deployment-block: 36667253
+    local-db-remote: raindex
+
+deployers:
+  base:
+    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
+
+orders:
+  base:
+    orderbook: base
+    network: base
+    inputs:
+      # Input is irrelevant because we always set the IO ratio to 0.
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      merkle-words: 0x22d83c031bC02737AD3EAf5aA3386de2bf7f7fbC
+
+deployments:
+  base:
+    order: base
+    scenario: base
+
+gui:
+  name: Claims
+  description: Verifies merkle proofs against a set merkle root and distributes claims
+  short-description: The order owner sets the merkle root at deploy time, the order taker then claims the output tokens by submitting the proof and the expected reward.
+  deployments:
+    base:
+      name: Claims on Base.
+      description:
+        A simple strategy that distributes rewards by verifying the proofs submitted
+      deposits:
+        - token: output
+      fields:
+        - binding: root
+          name: Merkle tree root
+      select-tokens:
+        - key: output
+          name: Output Token
+        - key: input
+          name: Input Token
+
+---
+#raindex-subparser !The subparser to use.
+#merkle-words !The subparser for merkle words.
+#root !Order Root
+#claimed-key "claimed"
+
+/* Compute hash of leaf node */
+#get-leaf-node
+  /**
+  * signed-context<0 0> is the leaf index
+  * order-counterparty() is the order taker who is claiming the reward
+  * signed-context<0 1> is the expected claim amount
+  *
+  * All the leaves of the merkle tree are computed by precisely these,
+  * hence the order taker MUST provide the index and the expected amount in the signed context.
+  */
+  _: hash(signed-context<0 0>() order-counterparty() signed-context<0 1>());
+
+#check-claim
+  leaf-node: ,
+  :ensure(
+    equal-to(
+      get(hash(order-hash() leaf-node claimed-key))
+      0
+    )
+    "Claimed"
+  );
+
+
+#verify-proof
+  leaf-node: ,
+  /**
+  * Verifies merkle proof using signed context parameters:
+  * signed-context<0 2-9>: Merkle proof components for merkle tree with depth 8
+  */
+  is-valid-proof: merkle-proof-verify(
+    root
+    leaf-node
+    signed-context<0 2>()
+    signed-context<0 3>()
+    signed-context<0 4>()
+    signed-context<0 5>()
+    signed-context<0 6>()
+    signed-context<0 7>()
+    signed-context<0 8>()
+    signed-context<0 9>()
+  ),
+  :ensure(
+    is-valid-proof
+    "Proof"
+  );
+
+#calculate-io
+  using-words-from raindex-subparser merkle-words
+
+  expected-amount: signed-context<0 1>(),
+  leaf-node: call<'get-leaf-node>(),
+  :call<'check-claim>(leaf-node),
+  :call<'verify-proof>(leaf-node),
+  _: expected-amount,
+  _: 0;
+
+#handle-io
+  expected-amount: signed-context<0 1>(),
+  leaf-node: call<'get-leaf-node>(),
+  :ensure(
+      equal-to(
+        output-vault-decrease()
+        expected-amount
+      )
+      "Expected claim"
+  ),
+  :set(hash(order-hash() leaf-node claimed-key) 1);
+
+#handle-add-order
+  :;
