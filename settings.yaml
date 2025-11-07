@@ -129,3 +129,4 @@ local-db-sync:
     retry-delay-ms: 1
     rate-limit-delay-ms: 1
     finality-depth: 1
+    bootstrap-block-threshold: 1
