@@ -204,12 +204,12 @@ gui:
 
 
 #pyth-price-baseline
-price _: pyth-price(pyth-pair 864000),
+price _: pyth-price(pyth-pair 300),
 _: price;
 
 
 #pyth-price-baseline-inv
-price _: pyth-price(pyth-pair 864000),
+price _: pyth-price(pyth-pair 300),
 _: inv(price);
 
 
