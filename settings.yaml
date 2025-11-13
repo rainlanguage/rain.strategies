@@ -61,12 +61,12 @@ metaboards:
   # ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
 
 orderbooks:
-  flare:
-    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
-    network: flare
-    subgraph: flare
-    deployment-block: 49782578
-    local-db-remote: raindex
+  # flare:
+  #   address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+  #   network: flare
+  #   subgraph: flare
+  #   deployment-block: 49782578
+  #   local-db-remote: raindex
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     network: base
@@ -125,14 +125,6 @@ local-db-remotes:
   raindex: https://raindex-bootstrap-db.lon1.cdn.digitaloceanspaces.com/manifest.yaml
 
 local-db-sync:
-  flare:
-    batch-size: 10000
-    max-concurrent-batches: 15
-    retry-attempts: 3
-    retry-delay-ms: 1000
-    rate-limit-delay-ms: 5000
-    finality-depth: 50
-    bootstrap-block-threshold: 2500
   base:
     batch-size: 10000
     max-concurrent-batches: 15
