@@ -132,6 +132,7 @@ local-db-sync:
     retry-delay-ms: 1000
     rate-limit-delay-ms: 5000
     finality-depth: 50
+    bootstrap-block-threshold: 2500
   base:
     batch-size: 10000
     max-concurrent-batches: 15
@@ -139,6 +140,7 @@ local-db-sync:
     retry-delay-ms: 1000
     rate-limit-delay-ms: 5000
     finality-depth: 50
+    bootstrap-block-threshold: 2500
   polygon:
     batch-size: 10000
     max-concurrent-batches: 15
@@ -146,6 +148,7 @@ local-db-sync:
     retry-delay-ms: 1000
     rate-limit-delay-ms: 5000
     finality-depth: 50
+    bootstrap-block-threshold: 2500
   arbitrum:
     batch-size: 10000
     max-concurrent-batches: 15
@@ -153,3 +156,4 @@ local-db-sync:
     retry-delay-ms: 1000
     rate-limit-delay-ms: 5000
     finality-depth: 50
+    bootstrap-block-threshold: 2500
