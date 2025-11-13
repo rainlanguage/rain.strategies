@@ -122,7 +122,7 @@ deployers:
   #   network: ethereum
 
 local-db-remotes:
-  raindex: https://raindex-bootstrap-db.lon1.cdn.digitaloceanspaces.com/manifest.yaml
+  raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/manifest.yaml
 
 local-db-sync:
   base:
