@@ -26,6 +26,7 @@ orders:
     outputs:
       - token: token2
   fixed-limit-arbitrum:
+    deployer: arbitrum
     orderbook: fixed-limit-arbitrum
     inputs:
       - token: token1

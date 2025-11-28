@@ -126,6 +126,7 @@ orders:
       - token: token1
       - token: token2
   flare:
+    deployer: flare
     orderbook: dynamic-spread-flare
     inputs:
       - token: token1

@@ -31,7 +31,7 @@ deployers:
 orders:
   canary-arbitrum:
     orderbook: canary-arbitrum
-    network: arbitrum
+    deployer: arbitrum
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
