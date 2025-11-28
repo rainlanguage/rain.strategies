@@ -84,15 +84,6 @@ deployers:
   dynamic-spread-flare:
     network: flare
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
-  ethereum:
-    network: ethereum
-    address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
-  linea:
-    network: linea
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-  bsc:
-    network: bsc
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
 
 orders:
   arbitrum:
