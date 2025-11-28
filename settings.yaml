@@ -118,6 +118,14 @@ deployers:
   #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   #   network: ethereum
 
+using-tokens-from:
+  - https://tokens.coingecko.com/ethereum/all.json
+  - https://tokens.coingecko.com/polygon-pos/all.json
+  - https://tokens.coingecko.com/arbitrum-one/all.json
+  - https://tokens.coingecko.com/base/all.json
+  - https://tokens.coingecko.com/binance-smart-chain/all.json
+  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/629c295b6efae611b086db8e6e8b570ba1fd5d76/token-lists/flare.json
+
 local-db-remotes:
   raindex: https://example.com/subgraph
 
