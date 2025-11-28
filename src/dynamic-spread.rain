@@ -72,62 +72,40 @@ scenarios:
   #     initial-output-token: ${order.outputs.1.token.address}
   #     initial-input-token: ${order.inputs.0.token.address}
 
-networks:
-  bsc:
-    rpcs:
-      - https://bsc-dataseed.bnbchain.org
-    chain-id: 56
-    network-id: 56
-    currency: BNB
-  ethereum:
-    rpcs:
-      - https://ethereum-rpc.publicnode.com
-    chain-id: 1
-    network-id: 1
-    currency: ETH
-  linea:
-    rpcs:
-      - https://rpc.linea.build
-    chain-id: 59144
-    network-id: 59144
-    currency: ETH
-
-metaboards:
-  bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
-  ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
-  linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
-
-subgraphs:
-  bsc: https://example.com/subgraph
-  ethereum: https://example.com/subgraph
-  linea: https://example.com/subgraph
-
 orderbooks:
   dynamic-spread-flare:
+    network: flare
     address: 0xCEe8Cd002F151A536394E564b84076c41bBBcD4d
     deployment-block: 1
     local-db-remote: raindex
   bsc:
+    network: bsc
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
     deployment-block: 1
     local-db-remote: raindex
   ethereum:
+    network: ethereum
     address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
     deployment-block: 1
     local-db-remote: raindex
   linea:
+    network: linea
     address: 0x22410e2a46261a1B1e3899a072f303022801C764
     deployment-block: 1
     local-db-remote: raindex
 
 deployers:
   dynamic-spread-flare:
+    network: flare
     address: 0xE3989Ea7486c0F418C764e6c511e86f6E8830FAb
   ethereum:
+    network: ethereum
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   linea:
+    network: linea
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
   bsc:
+    network: bsc
     address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
 
 orders:
