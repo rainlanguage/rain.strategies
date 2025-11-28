@@ -183,7 +183,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x3348438b5045f73568b3a871Bea55D7884c46d77
+      subparser-0: 0xd8f0FA7f189Ef8067E14239B138E4A6f11Ca4830
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
       next-trade-baseline-multiplier: 0
@@ -194,7 +194,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x3348438b5045f73568b3a871Bea55D7884c46d77
+      subparser-0: 0xd8f0FA7f189Ef8067E14239B138E4A6f11Ca4830
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
       next-trade-baseline-multiplier: 0
@@ -834,6 +834,8 @@ gui:
               value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
             - name: Equity.US.IAU/USD
               value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
+            - name: Equity.US.COIN/USD
+              value: 0x924571756974792e55532e434f494e2f55534400000000000000000000000000
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -952,6 +954,8 @@ gui:
               value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
             - name: Equity.US.IAU/USD
               value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
+            - name: Equity.US.COIN/USD
+              value: 0x924571756974792e55532e434f494e2f55534400000000000000000000000000
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
