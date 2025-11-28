@@ -1,30 +1,6 @@
 version: 4
 
 networks:
-  flare:
-    rpcs:
-      - https://flare.rpc.thirdweb.com
-    chain-id: 14
-    network-id: 14
-    currency: FLR
-  base:
-    rpcs:
-      - https://base-rpc.publicnode.com
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
-  arbitrum:
-    rpcs:
-      - https://arbitrum-one-rpc.publicnode.com
-    chain-id: 42161
-    network-id: 42161
-    currency: ETH
-  polygon:
-    rpcs:
-      - https://polygon-rpc.com
-    chain-id: 137
-    network-id: 137
-    currency: POL
   bsc:
     rpcs:
       - https://bsc-dataseed.bnbchain.org
@@ -45,42 +21,19 @@ networks:
     currency: ETH
 
 metaboards:
-  flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-  polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
   linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
 
 subgraphs:
-  flare: https://example.com/subgraph
-  base: https://example.com/subgraph
-  arbitrum: https://example.com/subgraph
-  polygon: https://example.com/subgraph
   bsc: https://example.com/subgraph
   ethereum: https://example.com/subgraph
   linea: https://example.com/subgraph
 
-local-db-remotes:
-  raindex: https://example.com/subgraph
-
 orderbooks:
-  flare:
-    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
-    deployment-block: 49782578
-    local-db-remote: raindex
-  base:
-    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
-    deployment-block: 36667253
-    local-db-remote: raindex
-  arbitrum:
+  fixed-limit-arbitrum:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
-    local-db-remote: raindex
-  polygon:
-    address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
-    deployment-block: 76772162
     local-db-remote: raindex
   bsc:
     address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
@@ -96,14 +49,8 @@ orderbooks:
     local-db-remote: raindex
 
 deployers:
-  flare:
-    address: 0x8EE45EA9d6b7eb4026269D8c2BbdB20bEB38428d
-  base:
-    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
-  arbitrum:
+  fixed-limit-arbitrum:
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
-  polygon:
-    address: 0x6B36e02409BD60cA5C17049c7188de180857902D
   ethereum:
     address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
   linea:
@@ -124,8 +71,8 @@ orders:
       - token: token1
     outputs:
       - token: token2
-  arbitrum:
-    orderbook: arbitrum
+  fixed-limit-arbitrum:
+    orderbook: fixed-limit-arbitrum
     inputs:
       - token: token1
     outputs:
@@ -156,8 +103,8 @@ orders:
       - token: token2
 
 scenarios:
-  arbitrum:
-    orderbook: arbitrum
+  fixed-limit-arbitrum:
+    orderbook: fixed-limit-arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
@@ -206,9 +153,9 @@ deployments:
   flare:
     order: flare
     scenario: flare
-  arbitrum:
-    order: arbitrum
-    scenario: arbitrum
+  fixed-limit-arbitrum:
+    order: fixed-limit-arbitrum
+    scenario: fixed-limit-arbitrum
   polygon:
     order: polygon
     scenario: polygon
@@ -315,7 +262,7 @@ gui:
         - key: token2
           name: Token to Sell
           description: Select the token you want to sell
-    arbitrum:
+    fixed-limit-arbitrum:
       name: Arbitrum
       description: Deploy a limit order on Arbitrum.
       deposits:
