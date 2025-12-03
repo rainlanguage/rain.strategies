@@ -109,14 +109,6 @@ gui:
               value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
             - name: Equity.US.COIN/USD
               value: 0x924571756974792e55532e434f494e2f55534400000000000000000000000000
-        - binding: max-trade-amount
-          name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-        - binding: min-trade-amount
-          name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -169,14 +161,6 @@ gui:
               value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
             - name: Equity.US.COIN/USD
               value: 0x924571756974792e55532e434f494e2f55534400000000000000000000000000
-        - binding: max-trade-amount
-          name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-        - binding: min-trade-amount
-          name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -194,15 +178,7 @@ gui:
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.
-
-
-#min-trade-amount !Each trade must be at least this many output tokens.
-#max-trade-amount !Each trade will be capped at this many tokens.
-
-
 #pyth-pair !The pyth pair to use for the price feed.
-
-
 #baseline-fn !Function that returns the benchmark IO (e.g. pyth baseline).
 #baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
 
@@ -219,13 +195,12 @@ _: inv(price);
 
 #calculate-io
 using-words-from raindex-subparser subparser-0
-offer-amount: max-trade-amount, 
+offer-amount: max-positive-value(), 
 io: mul(call<'baseline-fn>() baseline-multiplier);
 
 
 #handle-io
-:ensure(greater-than-or-equal-to(output-vault-decrease() min-trade-amount) "Min trade amount."),
-:ensure(less-than-or-equal-to(output-vault-decrease() max-trade-amount) "Max trade amount.");
+:;
 
 #handle-add-order
 :;
