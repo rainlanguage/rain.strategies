@@ -1,4 +1,4 @@
-raindex-version: 8898591f3bcaa21dc91dc3b8584330fc405eadfa
+version: 2
 
 scenarios:
   arbitrum:
@@ -74,37 +74,44 @@ scenarios:
 
 networks:
   flare:
-    rpc: https://rpc.ankr.com/flare
+    rpcs:
+      - https://flare.rpc.thirdweb.com
     chain-id: 14
     network-id: 14
     currency: FLR
   base:
-    rpc: https://mainnet.base.org
+    rpcs:
+      - https://base-rpc.publicnode.com
     chain-id: 8453
     network-id: 8453
     currency: ETH
   arbitrum:
-    rpc: https://rpc.ankr.com/arbitrum
+    rpcs:
+      - https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
     currency: ETH
   polygon:
-    rpc: https://rpc.ankr.com/polygon
+    rpcs:
+      - https://polygon-rpc.com
     chain-id: 137
     network-id: 137
     currency: POL
   bsc:
-    rpc: https://rpc.ankr.com/bsc
+    rpcs:
+      - https://bsc-dataseed.bnbchain.org
     chain-id: 56
     network-id: 56
     currency: BNB
   ethereum:
-    rpc: https://rpc.ankr.com/eth
+    rpcs:
+      - https://ethereum-rpc.publicnode.com
     chain-id: 1
     network-id: 1
     currency: ETH
   linea:
-    rpc: https://rpc.linea.build
+    rpcs:
+      - https://rpc.linea.build
     chain-id: 59144
     network-id: 59144
     currency: ETH
@@ -112,7 +119,7 @@ networks:
 metaboards:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-base-0x59401C93/0.1/gn
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-arbitrum/0.1/gn
+  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
@@ -242,11 +249,12 @@ deployments:
 
 gui:
   name: Two-sided dynamic spread strategies
-  description: The dynamic spread strategy for market-making uses time-based adjustments to maintain liquidity by narrowing spreads as market conditions stabilize, while recalculating averages and trade sizes to mitigate risks during trends.
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/dynamic-spread.md
+  short-description: A market-making strategy that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.
   deployments:
     arbitrum:
-      name: token1<>token2 on Arbitrum.
-      description: Rotate token1 and token2 on Arbitrum.
+      name: Arbitrum
+      description: Deploy a two-sided dynamic spread strategy on Arbitrum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -266,10 +274,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -280,6 +290,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -294,6 +306,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -313,11 +327,15 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     base:
-      name: token1<>token2 on Base.
-      description: Rotate token1 and token2 on Base.
+      name: Base
+      description: Deploy a two-sided dynamic spread strategy on Base.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -337,10 +355,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -351,6 +371,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -365,6 +387,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -384,11 +408,15 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     flare:
-      name: token1<>token2 on Flare.
-      description: Rotate token1 and token2 on Flare.
+      name: Flare
+      description: Deploy a two-sided dynamic spread strategy on Flare.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -408,10 +436,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -422,6 +452,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -436,6 +468,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -455,11 +489,15 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     polygon:
-      name: token1<>token2 on Polygon.
-      description: Rotate token1 and token2 on Polygon.
+      name: Polygon
+      description: Deploy a two-sided dynamic spread strategy on Polygon.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -479,10 +517,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -493,6 +533,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -507,6 +549,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -526,11 +570,15 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     bsc:
-      name: token1<>token2 on BSC.
-      description: Rotate token1 and token2 on BSC.
+      name: BSC
+      description: Deploy a two-sided dynamic spread strategy on BSC.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -550,10 +598,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -564,6 +614,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -578,6 +630,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -597,11 +651,15 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     ethereum:
-      name: token1<>token2 on Ethereum.
-      description: Rotate token1 and token2 on Ethereum.
+      name: Ethereum
+      description: Deploy a two-sided dynamic spread strategy on Ethereum.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -621,10 +679,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -635,6 +695,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -649,6 +711,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -668,11 +732,15 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
     linea:
-      name: token1<>token2 on Linea.
-      description: Rotate token1 and token2 on Linea.
+      name: Linea
+      description: Deploy a two-sided dynamic spread strategy on Linea.
       fields:
         - binding: amount-is-fast-exit
           name: Fast exit ${order.inputs.0.token.symbol}?
@@ -692,10 +760,12 @@ gui:
               value: 0
         - binding: initial-io
           name: Initial price (${order.inputs.0.token.symbol} per ${order.inputs.1.token.symbol})
-          description: This should be the ${order.inputs.1.token.symbol} price you see for ${order.inputs.0.token.symbol} on Dextools (e.g. 0.038).
+          description: This should be the ${order.inputs.0.token.symbol} price you see for ${order.inputs.1.token.symbol} on Dextools.
         - binding: next-trade-multiplier
           name: Next trade multiplier
           description: This is the most the strategy will move the price in a single trade. Larger numbers will capture larger price jumps but trade less often, smaller numbers will trade more often but be less defensive against large price jumps in the market.
+          show-custom-field: true
+          default: 1.01
           presets:
             - name: 1.01x
               value: 1.01
@@ -706,6 +776,8 @@ gui:
         - binding: cost-basis-multiplier
           name: Cost basis multiplier
           description: The minimum spread applied to the breakeven in addition to the auction. This is applied in both directions so 1.01x would be a 2% total spread.
+          show-custom-field: true
+          default: 1
           presets:
             - name: 1 (auction spread only)
               value: 1
@@ -720,6 +792,8 @@ gui:
         - binding: time-per-epoch
           name: Time per price halving (seconds)
           description: The amount of time (in seconds) between halvings of the price and the amount offered during each auction, relative to their baselines.
+          show-custom-field: true
+          default: 3600
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -739,8 +813,12 @@ gui:
         - token: token1
         - token: token2
       select-tokens:
-        - token1
-        - token2
+        - key: token1
+          name: First token to rotate
+          description: Select the token you want to rotate. This will be the amount token that denominates trade sizes.
+        - key: token2
+          name: Second token to rotate
+          description: Select the token you want to rotate.
 ---
 #raindex-subparser !Subparser for the Raindex.
 

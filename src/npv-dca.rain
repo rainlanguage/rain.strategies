@@ -1,0 +1,518 @@
+version: 2
+
+networks:
+  base2:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+
+subgraphs:
+  base2: https://example.com/subgraph
+
+metaboards:
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
+orderbooks:
+  base2:
+    address: 0x881cf4c0764e733d9C387f3858eE87CcA04AFFe0
+
+deployers:
+  base2:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+
+tokens:
+  base-usdc:
+    network: base2
+    address: 0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913
+    decimals: 6
+
+orders:
+  base2:
+    orderbook: base2
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  base2:
+    orderbook: base2
+    deployer: base2
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
+      pyth-subparser: 0x2fbBe5715c3b40aD455992dD75129e7e0733ec7a
+      baseline-fn: '''npv-baseline'
+      initial-io-fn: '''npv-baseline'
+      next-trade-baseline-multiplier: 0
+      shy-epoch: 0.05
+
+deployments:
+  base2:
+    order: base2
+    scenario: base2
+
+gui:
+  name: NPV-based DCA Strategy
+  description: A strategy that sells tokens at or above their calculated NPV floor price.
+  short-description: Sells tokens using NPV of future cashflows as the floor price.
+  deployments:
+    base2:
+      name: Base NPV DCA
+      description: Deploy an NPV-based DCA strategy on Base.
+      deposits:
+        - token: output
+      fields:
+        - binding: pyth-feed
+          name: Pyth price feed ID
+          description: The Pyth feed ID for the commodity price (e.g., natural gas).
+        - binding: price-adjustment
+          name: Price adjustment
+          description: Amount to subtract from Pyth price (e.g., 1.3 for transport/basis differential).
+          default: 1.3
+        - binding: disc-month
+          name: Monthly discount rate
+          description: Monthly discount rate as decimal (e.g., 0.008 for 0.8%).
+          default: 0.008
+        - binding: time-per-amount-epoch
+          name: Budget period (seconds)
+          description: The budget period for amount streaming.
+          show-custom-field: true
+          default: 86400
+          presets:
+            - name: Per day (86400)
+              value: 86400
+            - name: Per week (604800)
+              value: 604800
+        - binding: amount-per-epoch
+          name: Budget per period
+          description: Amount of tokens to sell per budget period.
+        - binding: max-trade-amount
+          name: Maximum trade size
+          description: Maximum tokens to sell in a single trade.
+        - binding: min-trade-amount
+          name: Minimum trade size
+          description: Minimum tokens to sell in a single trade.
+        - binding: time-per-trade-epoch
+          name: Auction period (seconds)
+          description: Time between auction price halvenings.
+          show-custom-field: true
+          default: 3600
+          presets:
+            - name: Every hour (3600)
+              value: 3600
+            - name: Every 2 hours (7200)
+              value: 7200
+        - binding: next-trade-multiplier
+          name: Auction start multiplier
+          description: Multiplier above last trade to start next auction.
+          show-custom-field: true
+          default: 1.01
+          presets:
+            - name: 1.01x
+              value: 1.01
+            - name: 1.02x
+              value: 1.02
+            - name: 1.05x
+              value: 1.05
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell (represents cashflow ownership)
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to receive (e.g., USDC)
+
+---
+#raindex-subparser !Raindex subparser.
+#pyth-subparser !Pyth oracle subparser.
+
+#time-per-amount-epoch !Duration of one unit of streaming amount halflife.
+#amount-per-epoch !Amount of output token to approve for selling per epoch.
+#min-trade-amount !Each trade must be at least this many output tokens.
+#max-trade-amount !Each trade will be capped at this many tokens.
+
+#time-per-trade-epoch !Duration of one unit of io ratio halflife.
+#shy-epoch !Epoch below which only the minimum amount is offered.
+
+#baseline-fn !Function to calculate the baseline (floor) price.
+#initial-io-fn !Function to calculate the initial io ratio.
+
+#next-trade-multiplier !Start next auction at this x the last trade.
+#next-trade-baseline-multiplier !Lifts baseline relative to previous trade.
+
+#pyth-feed !The Pyth feed ID for the commodity price.
+#price-adjustment !Amount to subtract from Pyth price for basis/transport.
+#disc-month !Monthly discount rate (e.g., 0.008 = 0.8%).
+#avg-month-seconds 2629746
+
+/* ============ PRODUCTION SCHEDULE (EOM timestamps and production amounts) ============ */
+/* Each row: prev_eom timestamp, this_eom timestamp, production amount */
+
+#row0-prev 1746057599
+#row0-eom 1748735999
+#row0-prod 347.76
+
+#row1-prev 1748735999
+#row1-eom 1751327999
+#row1-prod 330.885
+
+#row2-prev 1751327999
+#row2-eom 1754006399
+#row2-prod 336.24
+
+#row3-prev 1754006399
+#row3-eom 1756684799
+#row3-prod 330.615
+
+#row4-prev 1756684799
+#row4-eom 1759276799
+#row4-prod 314.64
+
+#row5-prev 1759276799
+#row5-eom 1761955199
+#row5-prod 319.725
+
+#row6-prev 1761955199
+#row6-eom 1764547199
+#row6-prod 304.245
+
+#row7-prev 1764547199
+#row7-eom 1767225599
+#row7-prod 302.85
+
+#row8-prev 1767225599
+#row8-eom 1769903999
+#row8-prod 297.72
+
+#row9-prev 1769903999
+#row9-eom 1772323199
+#row9-prod 252.675
+
+#row10-prev 1772323199
+#row10-eom 1775001599
+#row10-prod 280.08
+
+#row11-prev 1775001599
+#row11-eom 1777593599
+#row11-prod 136.26
+
+#row12-prev 1777593599
+#row12-eom 1780271999
+#row12-prod 397.125
+
+#row13-prev 1780271999
+#row13-eom 1782863999
+#row13-prod 339.75
+
+#row14-prev 1782863999
+#row14-eom 1785542399
+#row14-prod 328.095
+
+#row15-prev 1785542399
+#row15-eom 1788220799
+#row15-prod 305.1
+
+#row16-prev 1788220799
+#row16-eom 1790812799
+#row16-prod 301.32
+
+#row17-prev 1790812799
+#row17-eom 1793491199
+#row17-prod 317.025
+
+#row18-prev 1793491199
+#row18-eom 1796083199
+#row18-prod 307.665
+
+#row19-prev 1796083199
+#row19-eom 1798761599
+#row19-prod 311.355
+
+#row20-prev 1798761599
+#row20-eom 1801439999
+#row20-prod 273.96
+
+#row21-prev 1801439999
+#row21-eom 1803859199
+#row21-prod 221.58
+
+#row22-prev 1803859199
+#row22-eom 1806537599
+#row22-prod 229.14
+
+#row23-prev 1806537599
+#row23-eom 1809129599
+#row23-prod 219.375
+
+#row24-prev 1809129599
+#row24-eom 1811807999
+#row24-prod 227.655
+
+#row25-prev 1811807999
+#row25-eom 1814399999
+#row25-prod 217.08
+
+#row26-prev 1814399999
+#row26-eom 1817078399
+#row26-prod 217.755
+
+#row27-prev 1817078399
+#row27-eom 1819756799
+#row27-prod 203.85
+
+#row28-prev 1819756799
+#row28-eom 1822348799
+#row28-prod 184.455
+
+#row29-prev 1822348799
+#row29-eom 1825027199
+#row29-prod 177.885
+
+#row30-prev 1825027199
+#row30-eom 1827619199
+#row30-prod 159.84
+
+#row31-prev 1827619199
+#row31-eom 1830297599
+#row31-prod 151.02
+
+/* ============ STATE KEYS ============ */
+#last-trade-time-key "last-trade-time"
+#last-trade-io-key "last-trade-io"
+#initial-time-key "initial-time"
+#amount-used-key "amount-used"
+
+/* ============ DISCOUNT FACTOR HELPER ============ */
+/* Returns discount factor from now to payment time */
+/* df = (1 + r)^(-t) where t is time in months */
+#discount-factor
+paytime:,
+time-to-payment: saturating-sub(paytime now()),
+months-to-payment: div(time-to-payment avg-month-seconds),
+discount-base: inv(add(1 disc-month)),
+_: power(discount-base months-to-payment);
+
+/* ============ STEP FUNCTION HELPER ============ */
+/* Returns 1 if prev < t <= eom, else 0 */
+#step-eom
+t prev-eom this-eom:,
+after-prev: greater-than(t prev-eom),
+at-or-before-eom: greater-than-or-equal-to(this-eom t),
+_: mul(after-prev at-or-before-eom);
+
+/* ============ GET ADJUSTED PRICE ============ */
+#get-adjusted-price
+raw-price: pyth-price(pyth-feed 0.0000000000000036),
+_: saturating-sub(raw-price price-adjustment);
+
+/* ============ NPV CALCULATION ============ */
+#npv-baseline
+t: now(),
+adj-price: call<'get-adjusted-price>(),
+
+/* Determine which month we're in using step indicators */
+i0: call<'step-eom>(t row0-prev row0-eom),
+i1: call<'step-eom>(t row1-prev row1-eom),
+i2: call<'step-eom>(t row2-prev row2-eom),
+i3: call<'step-eom>(t row3-prev row3-eom),
+i4: call<'step-eom>(t row4-prev row4-eom),
+i5: call<'step-eom>(t row5-prev row5-eom),
+i6: call<'step-eom>(t row6-prev row6-eom),
+i7: call<'step-eom>(t row7-prev row7-eom),
+i8: call<'step-eom>(t row8-prev row8-eom),
+i9: call<'step-eom>(t row9-prev row9-eom),
+i10: call<'step-eom>(t row10-prev row10-eom),
+i11: call<'step-eom>(t row11-prev row11-eom),
+i12: call<'step-eom>(t row12-prev row12-eom),
+i13: call<'step-eom>(t row13-prev row13-eom),
+i14: call<'step-eom>(t row14-prev row14-eom),
+i15: call<'step-eom>(t row15-prev row15-eom),
+i16: call<'step-eom>(t row16-prev row16-eom),
+i17: call<'step-eom>(t row17-prev row17-eom),
+i18: call<'step-eom>(t row18-prev row18-eom),
+i19: call<'step-eom>(t row19-prev row19-eom),
+i20: call<'step-eom>(t row20-prev row20-eom),
+i21: call<'step-eom>(t row21-prev row21-eom),
+i22: call<'step-eom>(t row22-prev row22-eom),
+i23: call<'step-eom>(t row23-prev row23-eom),
+i24: call<'step-eom>(t row24-prev row24-eom),
+i25: call<'step-eom>(t row25-prev row25-eom),
+i26: call<'step-eom>(t row26-prev row26-eom),
+i27: call<'step-eom>(t row27-prev row27-eom),
+i28: call<'step-eom>(t row28-prev row28-eom),
+i29: call<'step-eom>(t row29-prev row29-eom),
+i30: call<'step-eom>(t row30-prev row30-eom),
+i31: call<'step-eom>(t row31-prev row31-eom),
+
+/* Recover the current month's boundaries and production */
+next-eom: add(
+  mul(i0 row0-eom) mul(i1 row1-eom) mul(i2 row2-eom) mul(i3 row3-eom)
+  mul(i4 row4-eom) mul(i5 row5-eom) mul(i6 row6-eom) mul(i7 row7-eom)
+  mul(i8 row8-eom) mul(i9 row9-eom) mul(i10 row10-eom) mul(i11 row11-eom)
+  mul(i12 row12-eom) mul(i13 row13-eom) mul(i14 row14-eom) mul(i15 row15-eom)
+  mul(i16 row16-eom) mul(i17 row17-eom) mul(i18 row18-eom) mul(i19 row19-eom)
+  mul(i20 row20-eom) mul(i21 row21-eom) mul(i22 row22-eom) mul(i23 row23-eom)
+  mul(i24 row24-eom) mul(i25 row25-eom) mul(i26 row26-eom) mul(i27 row27-eom)
+  mul(i28 row28-eom) mul(i29 row29-eom) mul(i30 row30-eom) mul(i31 row31-eom)
+),
+prev-eom: add(
+  mul(i0 row0-prev) mul(i1 row1-prev) mul(i2 row2-prev) mul(i3 row3-prev)
+  mul(i4 row4-prev) mul(i5 row5-prev) mul(i6 row6-prev) mul(i7 row7-prev)
+  mul(i8 row8-prev) mul(i9 row9-prev) mul(i10 row10-prev) mul(i11 row11-prev)
+  mul(i12 row12-prev) mul(i13 row13-prev) mul(i14 row14-prev) mul(i15 row15-prev)
+  mul(i16 row16-prev) mul(i17 row17-prev) mul(i18 row18-prev) mul(i19 row19-prev)
+  mul(i20 row20-prev) mul(i21 row21-prev) mul(i22 row22-prev) mul(i23 row23-prev)
+  mul(i24 row24-prev) mul(i25 row25-prev) mul(i26 row26-prev) mul(i27 row27-prev)
+  mul(i28 row28-prev) mul(i29 row29-prev) mul(i30 row30-prev) mul(i31 row31-prev)
+),
+next-prod: add(
+  mul(i0 row0-prod) mul(i1 row1-prod) mul(i2 row2-prod) mul(i3 row3-prod)
+  mul(i4 row4-prod) mul(i5 row5-prod) mul(i6 row6-prod) mul(i7 row7-prod)
+  mul(i8 row8-prod) mul(i9 row9-prod) mul(i10 row10-prod) mul(i11 row11-prod)
+  mul(i12 row12-prod) mul(i13 row13-prod) mul(i14 row14-prod) mul(i15 row15-prod)
+  mul(i16 row16-prod) mul(i17 row17-prod) mul(i18 row18-prod) mul(i19 row19-prod)
+  mul(i20 row20-prod) mul(i21 row21-prod) mul(i22 row22-prod) mul(i23 row23-prod)
+  mul(i24 row24-prod) mul(i25 row25-prod) mul(i26 row26-prod) mul(i27 row27-prod)
+  mul(i28 row28-prod) mul(i29 row29-prod) mul(i30 row30-prod) mul(i31 row31-prod)
+),
+
+/* Prorate first partial month: (next_eom - now) / (next_eom - prev_eom) * production */
+month-length: saturating-sub(next-eom prev-eom),
+remaining-in-month: saturating-sub(next-eom t),
+proration: div(remaining-in-month any(month-length 1)),
+first-prod: mul(next-prod proration),
+
+/* PV of first partial cashflow at next_eom */
+pv-first: mul(mul(first-prod adj-price) call<'discount-factor>(next-eom)),
+
+/* PV of all FULL future months (strictly after next_eom) */
+/* Each term: production * price * (eom > next_eom ? discount_factor : 0) */
+pv-rest: add(
+  mul(mul(row0-prod adj-price) mul(greater-than(row0-eom next-eom) call<'discount-factor>(row0-eom)))
+  mul(mul(row1-prod adj-price) mul(greater-than(row1-eom next-eom) call<'discount-factor>(row1-eom)))
+  mul(mul(row2-prod adj-price) mul(greater-than(row2-eom next-eom) call<'discount-factor>(row2-eom)))
+  mul(mul(row3-prod adj-price) mul(greater-than(row3-eom next-eom) call<'discount-factor>(row3-eom)))
+  mul(mul(row4-prod adj-price) mul(greater-than(row4-eom next-eom) call<'discount-factor>(row4-eom)))
+  mul(mul(row5-prod adj-price) mul(greater-than(row5-eom next-eom) call<'discount-factor>(row5-eom)))
+  mul(mul(row6-prod adj-price) mul(greater-than(row6-eom next-eom) call<'discount-factor>(row6-eom)))
+  mul(mul(row7-prod adj-price) mul(greater-than(row7-eom next-eom) call<'discount-factor>(row7-eom)))
+  mul(mul(row8-prod adj-price) mul(greater-than(row8-eom next-eom) call<'discount-factor>(row8-eom)))
+  mul(mul(row9-prod adj-price) mul(greater-than(row9-eom next-eom) call<'discount-factor>(row9-eom)))
+  mul(mul(row10-prod adj-price) mul(greater-than(row10-eom next-eom) call<'discount-factor>(row10-eom)))
+  mul(mul(row11-prod adj-price) mul(greater-than(row11-eom next-eom) call<'discount-factor>(row11-eom)))
+  mul(mul(row12-prod adj-price) mul(greater-than(row12-eom next-eom) call<'discount-factor>(row12-eom)))
+  mul(mul(row13-prod adj-price) mul(greater-than(row13-eom next-eom) call<'discount-factor>(row13-eom)))
+  mul(mul(row14-prod adj-price) mul(greater-than(row14-eom next-eom) call<'discount-factor>(row14-eom)))
+  mul(mul(row15-prod adj-price) mul(greater-than(row15-eom next-eom) call<'discount-factor>(row15-eom)))
+  mul(mul(row16-prod adj-price) mul(greater-than(row16-eom next-eom) call<'discount-factor>(row16-eom)))
+  mul(mul(row17-prod adj-price) mul(greater-than(row17-eom next-eom) call<'discount-factor>(row17-eom)))
+  mul(mul(row18-prod adj-price) mul(greater-than(row18-eom next-eom) call<'discount-factor>(row18-eom)))
+  mul(mul(row19-prod adj-price) mul(greater-than(row19-eom next-eom) call<'discount-factor>(row19-eom)))
+  mul(mul(row20-prod adj-price) mul(greater-than(row20-eom next-eom) call<'discount-factor>(row20-eom)))
+  mul(mul(row21-prod adj-price) mul(greater-than(row21-eom next-eom) call<'discount-factor>(row21-eom)))
+  mul(mul(row22-prod adj-price) mul(greater-than(row22-eom next-eom) call<'discount-factor>(row22-eom)))
+  mul(mul(row23-prod adj-price) mul(greater-than(row23-eom next-eom) call<'discount-factor>(row23-eom)))
+  mul(mul(row24-prod adj-price) mul(greater-than(row24-eom next-eom) call<'discount-factor>(row24-eom)))
+  mul(mul(row25-prod adj-price) mul(greater-than(row25-eom next-eom) call<'discount-factor>(row25-eom)))
+  mul(mul(row26-prod adj-price) mul(greater-than(row26-eom next-eom) call<'discount-factor>(row26-eom)))
+  mul(mul(row27-prod adj-price) mul(greater-than(row27-eom next-eom) call<'discount-factor>(row27-eom)))
+  mul(mul(row28-prod adj-price) mul(greater-than(row28-eom next-eom) call<'discount-factor>(row28-eom)))
+  mul(mul(row29-prod adj-price) mul(greater-than(row29-eom next-eom) call<'discount-factor>(row29-eom)))
+  mul(mul(row30-prod adj-price) mul(greater-than(row30-eom next-eom) call<'discount-factor>(row30-eom)))
+  mul(mul(row31-prod adj-price) mul(greater-than(row31-eom next-eom) call<'discount-factor>(row31-eom)))
+),
+
+/* Total NPV = PV(first partial) + PV(all future full months) */
+total-npv: add(pv-first pv-rest),
+
+/* Divide by total supply to get per-token NPV */
+total-supply: erc20-total-supply(output-token()),
+_: div(total-npv total-supply);
+
+/* ============ AUCTION DCA MECHANICS (from auction-dca.rain) ============ */
+
+#set-last-trade
+last-io:,
+:set(hash(order-hash() last-trade-time-key) now()),
+:set(hash(order-hash() last-trade-io-key) last-io);
+
+#set-initial-time
+:set(hash(order-hash() initial-time-key) now());
+
+#get-initial-time
+_: get(hash(order-hash() initial-time-key));
+
+#get-last-trade
+last-time: get(hash(order-hash() last-trade-time-key)),
+last-io: get(hash(order-hash() last-trade-io-key));
+
+#get-epoch
+initial-time: call<'get-initial-time>(),
+last-time _: call<'get-last-trade>(),
+duration: sub(now() any(last-time initial-time)),
+total-duration: sub(now() initial-time),
+ratio-freeze-amount-epochs: div(min-trade-amount amount-per-epoch),
+ratio-freeze-trade-epochs: mul(ratio-freeze-amount-epochs div(time-per-amount-epoch time-per-trade-epoch)),
+amount-epochs: div(total-duration time-per-amount-epoch),
+trade-epochs: saturating-sub(div(duration time-per-trade-epoch) ratio-freeze-trade-epochs);
+
+#amount-for-epoch
+amount-epochs
+trade-epochs:,
+total-available: linear-growth(0 amount-per-epoch amount-epochs),
+used: get(hash(order-hash() amount-used-key)),
+unused: sub(total-available used),
+decay: call<'halflife>(trade-epochs),
+shy-decay: every(greater-than(trade-epochs shy-epoch) decay),
+variable-component: sub(max-trade-amount min-trade-amount),
+target-amount: add(min-trade-amount mul(variable-component shy-decay)),
+capped-unused: min(unused target-amount);
+
+#halflife
+epoch:,
+multiplier: power(0.5 div(epoch 10)),
+val: mul(
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+  multiplier
+);
+
+#io-for-epoch
+epoch:,
+last-io: call<'get-last-trade>(),
+max-next-trade: any(mul(last-io next-trade-multiplier) call<'initial-io-fn>()),
+baseline-next-trade: mul(last-io next-trade-baseline-multiplier),
+real-baseline: max(baseline-next-trade call<'baseline-fn>()),
+variable-component: saturating-sub(max-next-trade real-baseline),
+above-baseline: mul(variable-component call<'halflife>(epoch)),
+_: add(real-baseline above-baseline);
+
+/* ============ ENTRY POINTS ============ */
+
+#handle-add-order
+using-words-from raindex-subparser pyth-subparser
+:call<'set-initial-time>();
+
+#calculate-io
+using-words-from raindex-subparser pyth-subparser
+amount-epochs
+trade-epochs: call<'get-epoch>(),
+max-output: call<'amount-for-epoch>(amount-epochs trade-epochs),
+io: call<'io-for-epoch>(trade-epochs),
+:call<'set-last-trade>(io);
+
+#handle-io
+min-amount: mul(min-trade-amount 0.9),
+:ensure(greater-than-or-equal-to(output-vault-decrease() min-amount) "Min trade amount."),
+used: get(hash(order-hash() amount-used-key)),
+:set(hash(order-hash() amount-used-key) add(used output-vault-decrease()));

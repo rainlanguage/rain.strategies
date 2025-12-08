@@ -1,0 +1,211 @@
+version: 2
+
+networks:
+  arbitrum2:
+    rpcs:
+      - https://arb1.arbitrum.io/rpc
+    chain-id: 42161
+    network-id: 42161
+    currency: ETH
+  base2:
+    rpcs:
+      - https://base-rpc.publicnode.com
+    chain-id: 8453
+    network-id: 8453
+    currency: ETH
+
+metaboards:
+  arbitrum2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
+  base2: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
+subgraphs:
+  arbitrum2: https://example.com/subgraph
+  base2: https://example.com/subgraph
+
+orderbooks:
+  arbitrum2:
+    address: 0x85e440C297f267332c34A88E0d085162a96475D2
+  base2:
+    address: 0x881cf4c0764e733d9C387f3858eE87CcA04AFFe0
+
+deployers:
+  arbitrum2:
+    address: 0x9B0D254bd858208074De3d2DaF5af11b3D2F377F
+  base2:
+    address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
+
+orders:
+  arbitrum2:
+    orderbook: arbitrum2
+    inputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+    outputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+  base2:
+    orderbook: base2
+    inputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+    outputs:
+      - token: token1
+      - token: token2
+      - token: token3
+      - token: token4
+      - token: token5
+      - token: token6
+      - token: token7
+
+scenarios:
+  arbitrum2:
+    orderbook: arbitrum2
+    runs: 1
+    bindings:
+      raindex-subparser: 0x2C32A5558d3d502d5CC76e939F84038bE230565E
+  base2:
+    orderbook: base2
+    runs: 1
+    bindings:
+      raindex-subparser: 0xb05BC61963B6bEBAe9C2FEd827de600E99FB83fD
+
+deployments:
+  arbitrum2:
+    order: arbitrum2
+    scenario: arbitrum2
+  base2:
+    order: base2
+    scenario: base2
+
+gui:
+  name: Folio
+  description: Maintains an equal distribution of assets in a portfolio.
+  short-description: Rebalances a portfolio to maintain equal distribution of assets.
+  deployments:
+    arbitrum2:
+      name: Arbitrum
+      description: Rebalances a portfolio on the Arbitrum network.
+      deposits:
+        - token: token1
+        - token: token2
+        - token: token3
+        - token: token4
+        - token: token5
+        - token: token6
+        - token: token7
+      fields:
+        - binding: threshold
+          name: Threshold
+          description: The threshold for rebalancing the portfolio. E.g. 0.05 = 5%
+          type: number
+          default: 0.05
+        - binding: fee
+          name: Fee
+          description: The fee for rebalancing the portfolio. E.g. 0.003 = 0.3%
+          type: number
+          default: 0.003
+      select-tokens:
+        - key: token1
+          name: Token 1
+          description: The first token in the portfolio.
+        - key: token2
+          name: Token 2
+          description: The second token in the portfolio.
+        - key: token3
+          name: Token 3
+          description: The third token in the portfolio.
+        - key: token4
+          name: Token 4
+          description: The fourth token in the portfolio.
+        - key: token5
+          name: Token 5
+          description: The fifth token in the portfolio.
+        - key: token6
+          name: Token 6
+          description: The sixth token in the portfolio.
+        - key: token7
+          name: Token 7
+          description: The seventh token in the portfolio.
+    base2:
+      name: Base
+      description: Rebalances a portfolio on the Base network.
+      deposits:
+        - token: token1
+        - token: token2
+        - token: token3
+        - token: token4
+        - token: token5
+        - token: token6
+        - token: token7
+      fields:
+        - binding: threshold
+          name: Threshold
+          description: The threshold for rebalancing the portfolio. E.g. 0.05 = 5%
+          type: number
+          default: 0.05
+        - binding: fee
+          name: Fee
+          description: The fee for rebalancing the portfolio. E.g. 0.003 = 0.3%
+          type: number
+          default: 0.003
+      select-tokens:
+        - key: token1
+          name: Token 1
+          description: The first token in the portfolio.
+        - key: token2
+          name: Token 2
+          description: The second token in the portfolio.
+        - key: token3
+          name: Token 3
+          description: The third token in the portfolio.
+        - key: token4
+          name: Token 4
+          description: The fourth token in the portfolio.
+        - key: token5
+          name: Token 5
+          description: The fifth token in the portfolio.
+        - key: token6
+          name: Token 6
+          description: The sixth token in the portfolio.
+        - key: token7
+          name: Token 7
+          description: The seventh token in the portfolio.
+
+---
+
+#raindex-subparser !The subparser to use.
+
+#threshold !The threshold for rebalancing the portfolio.
+#fee !The fee for rebalancing the portfolio.
+
+#spread !The spread for the portfolio on return of threshold.
+
+#calculate-io
+using-words-from raindex-subparser
+:ensure(every(input-vault-before() output-vault-before()) "zero balance"),
+base-io: div(input-vault-before() output-vault-before()),
+corrected-io: div(base-io sub(1 threshold)),
+feed-io: mul(corrected-io add(1 fee)),
+amount: mul(output-vault-before() threshold),
+io-ratio: feed-io;
+
+#handle-io
+:;
+
+#handle-add-order
+:;
