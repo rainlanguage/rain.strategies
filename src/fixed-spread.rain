@@ -169,7 +169,28 @@ gui:
           name: Benchmark price multiplier
           description: |
             The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
           default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: oracle-price-timeout
+          name: Oracle Price Timeout
+          description: |
+            How fresh (recent) the price is.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: 5 minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 3 days (259200)
+              value: 259200
       select-tokens:
         - key: output
           name: Token to Sell
@@ -185,15 +206,16 @@ gui:
 #pyth-pair !The pyth pair to use for the price feed.
 #baseline-fn !Function that returns the benchmark IO (e.g. pyth baseline).
 #baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
+#oracle-price-timeout !Fetch price no older than for pyth oracle in seconds.
 
 
 #pyth-price-baseline
-price _: pyth-price(pyth-pair 300),
+price _: pyth-price(pyth-pair oracle-price-timeout),
 _: price;
 
 
 #pyth-price-baseline-inv
-price _: pyth-price(pyth-pair 300),
+price _: pyth-price(pyth-pair oracle-price-timeout),
 _: inv(price);
 
 
