@@ -135,7 +135,30 @@ gui:
           name: Benchmark price multiplier
           description: |
             The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
           default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: oracle-price-timeout
+          name: Oracle Price Timeout
+          description: |
+            How fresh (recent) the price is.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: 5 minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 8 hour (28800)
+              value: 28800
+            - name: 3 days (259200)
+              value: 259200
       select-tokens:
         - key: output
           name: Token to Sell
