@@ -42,7 +42,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0xc525D13E71253CC50B1AF71AF0E728a9dA13fD22
+      subparser-0: 0x7142DC6085E4FfdF0088Af688Dd38A8768c50df3
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
     orderbook: base
@@ -50,7 +50,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0xc525D13E71253CC50B1AF71AF0E728a9dA13fD22
+      subparser-0: 0x7142DC6085E4FfdF0088Af688Dd38A8768c50df3
       baseline-fn: '''pyth-price-baseline-inv'
 
 
@@ -131,6 +131,8 @@ gui:
               value: 0x974571756974792e55532e434f494e2f5553442e504f53540000000000000000
             - name: Equity.US.SIVR/USD
               value: 0x924571756974792e55532e534956522f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD
+              value: 0x924571756974792e55532e4352434c2f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -228,6 +230,8 @@ gui:
               value: 0x974571756974792e55532e434f494e2f5553442e504f53540000000000000000
             - name: Equity.US.SIVR/USD
               value: 0x924571756974792e55532e534956522f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD
+              value: 0x924571756974792e55532e4352434c2f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
