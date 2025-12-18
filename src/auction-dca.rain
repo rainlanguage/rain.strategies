@@ -183,7 +183,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x86Be68d1e1a47C14441B936f656F8D468AD8D9Ff
+      subparser-0: 0x545d46D6f1076721649639198dBAC19943f0BE33
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
       next-trade-baseline-multiplier: 0
@@ -194,7 +194,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x86Be68d1e1a47C14441B936f656F8D468AD8D9Ff
+      subparser-0: 0x545d46D6f1076721649639198dBAC19943f0BE33
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
       next-trade-baseline-multiplier: 0
@@ -860,6 +860,10 @@ gui:
               value: 0x924571756974792e55532e534956522f55534400000000000000000000000000
             - name: Equity.US.CRCL/USD
               value: 0x924571756974792e55532e4352434c2f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD.PRE
+              value: 0x964571756974792e55532e4352434c2f5553442e505245000000000000000000
+            - name: Equity.US.CRCL/USD.POST
+              value: 0x974571756974792e55532e4352434c2f5553442e504f53540000000000000000
             - name: Equity.US.PPLT/USD
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
         - binding: time-per-amount-epoch
@@ -1006,6 +1010,10 @@ gui:
               value: 0x924571756974792e55532e534956522f55534400000000000000000000000000
             - name: Equity.US.CRCL/USD
               value: 0x924571756974792e55532e4352434c2f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD.PRE
+              value: 0x964571756974792e55532e4352434c2f5553442e505245000000000000000000
+            - name: Equity.US.CRCL/USD.POST
+              value: 0x974571756974792e55532e4352434c2f5553442e504f53540000000000000000
             - name: Equity.US.PPLT/USD
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
         - binding: time-per-amount-epoch
