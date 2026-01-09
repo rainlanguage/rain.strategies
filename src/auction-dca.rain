@@ -183,7 +183,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0xD8D7EA2b68F45db78CDAbB0e4C323705C9459d5E
+      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline'
       initial-io-fn: '''pyth-price-baseline'
       next-trade-baseline-multiplier: 0
@@ -194,7 +194,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0xD8D7EA2b68F45db78CDAbB0e4C323705C9459d5E
+      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline-inv'
       initial-io-fn: '''pyth-price-baseline-inv'
       next-trade-baseline-multiplier: 0
@@ -872,6 +872,8 @@ gui:
               value: 0x974571756974792e55532e424d4e522f5553442e504f53540000000000000000
             - name: Equity.US.PPLT/USD
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
+            - name: Equity.US.RKLB/USD
+              value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
@@ -1028,6 +1030,8 @@ gui:
               value: 0x974571756974792e55532e424d4e522f5553442e504f53540000000000000000
             - name: Equity.US.PPLT/USD
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
+            - name: Equity.US.RKLB/USD
+              value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
         - binding: time-per-amount-epoch
           name: Budget period (in seconds)
           description: |
