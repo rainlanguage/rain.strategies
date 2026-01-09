@@ -1,9 +1,9 @@
-fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/fixed-limit.rain
-auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/auction-dca.rain
-grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/grid.rain
-dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/dynamic-spread.rain
-canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/canary.rain
-claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/claims.rain
-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/fixed-spread.rain
-folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/ccfa3cd02a46a615aaa1647eb4cb7fc75c87302e/src/folio.rain
+fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/fixed-limit.rain
+auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/auction-dca.rain
+grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/grid.rain
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/dynamic-spread.rain
+canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/canary.rain
+claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/claims.rain
+fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/fixed-spread.rain
+folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/8b4f36119453d92c04acd6d6282fd6aab865152b/src/folio.rain
 
