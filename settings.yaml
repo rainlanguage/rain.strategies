@@ -65,7 +65,7 @@ orderbooks:
   #   deployment-block: 49782578
   #   local-db-remote: raindex
   base:
-    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    address: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
     network: base
     subgraph: base
     deployment-block: 36667253
