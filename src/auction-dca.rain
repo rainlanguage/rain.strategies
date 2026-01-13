@@ -65,7 +65,7 @@ orderbooks:
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   base:
-    address: 0x7D018e8e7a234CA07cAb212B325A8d0A9A362CA6
+    address: 0x77Ca4947dce161e122Eb690D475448f092a7d7EB
     deployment-block: 36667253
     local-db-remote: raindex
   # ethereum:
