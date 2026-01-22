@@ -19,8 +19,8 @@ local-db-remotes:
 
 orderbooks:
   base:
-    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
-    deployment-block: 36667253
+    address: 0x498Ff70C5f67e63e53b74551DE31387cf2813986
+    deployment-block: 41134692
     local-db-remote: raindex
 
 deployers:
