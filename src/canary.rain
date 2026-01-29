@@ -1,56 +1,9 @@
 version: 4
 
-networks:
-  arbitrum:
-    rpcs:
-      - https://arbitrum-one-rpc.publicnode.com
-    chain-id: 42161
-    network-id: 42161
-    currency: ETH
-  # base:
-  #   rpcs:
-  #     - https://base-rpc.publicnode.com
-  #   chain-id: 8453
-  #   network-id: 8453
-  #   currency: ETH
-  # flare:
-  #   rpcs:
-  #     - https://flare.rpc.thirdweb.com
-  #   chain-id: 14
-  #   network-id: 14
-  #   currency: FLR
-  # polygon:
-  #   rpcs:
-  #     - https://polygon-rpc.com
-  #   chain-id: 137
-  #   network-id: 137
-  #   currency: POL
-  # bsc:
-  #   rpcs:
-  #     - https://bsc-dataseed.bnbchain.org
-  #   chain-id: 56
-  #   network-id: 56
-  #   currency: BNB
-
-subgraphs:
-  arbitrum: https://example.com/subgraph
-  # base: https://example.com/subgraph
-  # flare: https://example.com/subgraph
-  # polygon: https://example.com/subgraph
-  # bsc: https://example.com/subgraph
-
-metaboards:
-  arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-  # base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-  # flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-flare-0x893BBFB7/0.1/gn
-  # polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
-  # bsc: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-bsc/0.1/gn
-
-local-db-remotes:
-  raindex: https://example.com/subgraph
-
 orderbooks:
-  arbitrum:
+  canary-arbitrum:
+    network: arbitrum
+    subgraph: arbitrum
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
     local-db-remote: raindex
@@ -64,7 +17,8 @@ orderbooks:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
 
 deployers:
-  arbitrum:
+  canary-arbitrum:
+    network: arbitrum
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
   # base:
   #   address: 0xC1A14cE2fd58A3A2f99deCb8eDd866204eE07f8D
@@ -76,9 +30,8 @@ deployers:
   #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
 
 orders:
-  arbitrum:
-    orderbook: arbitrum
-    network: arbitrum
+  canary-arbitrum:
+    orderbook: canary-arbitrum
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
@@ -118,8 +71,8 @@ orders:
   #     - token: output
 
 scenarios:
-  arbitrum:
-    orderbook: arbitrum
+  canary-arbitrum:
+    orderbook: canary-arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
@@ -145,9 +98,9 @@ scenarios:
   #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
 
 deployments:
-  arbitrum:
-    order: arbitrum
-    scenario: arbitrum
+  canary-arbitrum:
+    order: canary-arbitrum
+    scenario: canary-arbitrum
   # base:
   #   order: base
   #   scenario: base
@@ -161,20 +114,12 @@ deployments:
   #   order: bsc
   #   scenario: bsc
 
-using-tokens-from:
-  - https://tokens.coingecko.com/ethereum/all.json
-  - https://tokens.coingecko.com/polygon-pos/all.json
-  - https://tokens.coingecko.com/arbitrum-one/all.json
-  - https://tokens.coingecko.com/base/all.json
-  - https://tokens.coingecko.com/binance-smart-chain/all.json
-  - https://raw.githubusercontent.com/rainlanguage/rain.strategies/629c295b6efae611b086db8e6e8b570ba1fd5d76/token-lists/flare.json
-
 gui:
   name: Canary
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/canary.md
   short-description: Does nothing except give a bounty to the solver regularly.
   deployments:
-    arbitrum:
+    canary-arbitrum:
       name: Canary on Arbitrum.
       description:
         A simple order that gives a bounty to the solver regularly.

@@ -1,36 +1,8 @@
 version: 4
 
-networks:
-  base:
-    rpcs:
-      - https://base-rpc.publicnode.com
-    chain-id: 8453
-    network-id: 8453
-    currency: ETH
-
-subgraphs:
-  base: https://example.com/subgraph
-
-metaboards:
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
-
-local-db-remotes:
-  raindex: https://example.com/subgraph
-
-orderbooks:
-  base:
-    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
-    deployment-block: 36667253
-    local-db-remote: raindex
-
-deployers:
-  base:
-    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
-
 orders:
   base:
     orderbook: base
-    network: base
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
