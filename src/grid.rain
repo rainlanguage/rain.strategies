@@ -7,37 +7,6 @@ orders:
       - token: token1
     outputs:
       - token: token2
-  # base:
-  #   orderbook: base
-  #   inputs:
-  #     - token: token1
-  #   outputs:
-  #     - token: token2
-  # ethereum:
-  #   orderbook: ethereum
-  #   inputs:
-  #     - token: token1
-  #   outputs:
-  #     - token: token2
-  # polygon:
-  #   orderbook: polygon
-  #   inputs:
-  #     - token: token1
-  #   outputs:
-  #     - token: token2
-  # bsc:
-  #   orderbook: bsc
-  #   inputs:
-  #     - token: token1
-  #   outputs:
-  #     - token: token2
-  # flare:
-  #   orderbook: flare
-  #   inputs:
-  #     - token: token1
-  #   outputs:
-  #     - token: token2
-
 scenarios:
   arbitrum:
     orderbook: arbitrum
@@ -45,57 +14,10 @@ scenarios:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
       tranche-space-min-headroom: 0.25
       tranche-space-recharge-delay: 300
-  # base:
-  #   orderbook: base
-  #   bindings:
-  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  #     tranche-space-min-headroom: 0.25
-  #     tranche-space-recharge-delay: 300
-  # ethereum:
-  #   orderbook: ethereum
-  #   bindings:
-  #     raindex-subparser: 0x22410e2a46261a1B1e3899a072f303022801C764
-  #     tranche-space-min-headroom: 0.25
-  #     tranche-space-recharge-delay: 300
-  # bsc:
-  #   orderbook: bsc
-  #   bindings:
-  #     raindex-subparser: 0x662dFd6d5B6DF94E07A60954901D3001c24F856a
-  #     tranche-space-min-headroom: 0.25
-  #     tranche-space-recharge-delay: 300
-  # polygon:
-  #   orderbook: polygon
-  #   bindings:
-  #     raindex-subparser: 0xF9323B7d23c655122Fb0272D989b83E105cBcf9d
-  #     tranche-space-min-headroom: 0.25
-  #     tranche-space-recharge-delay: 300
-  # flare:
-  #   orderbook: flare
-  #   bindings:
-  #     raindex-subparser: 0xFe2411CDa193D9E4e83A5c234C7Fd320101883aC
-  #     tranche-space-min-headroom: 0.25
-  #     tranche-space-recharge-delay: 300
-
 deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
-  # base:
-  #   order: base
-  #   scenario: base
-  # ethereum:
-  #   order: ethereum
-  #   scenario: ethereum
-  # bsc:
-  #   order: bsc
-  #   scenario: bsc
-  # polygon:
-  #   order: polygon
-  #   scenario: polygon
-  # flare:
-  #   order: flare
-  #   scenario: flare
-
 gui:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/grid.md
@@ -137,117 +59,10 @@ gui:
           name: Token to sell
           description: Select the token you want to sell.
 
-    ethereum:
-      name: Ethereum
-      description:
-        Deploy a grid order on Ethereum.
-      deposits:
-        - token: token2
-      fields:
-        - binding: baseline-io-ratio
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-        - binding: io-ratio-growth
-          name: IO ratio growth per tranche
-        - binding: tranche-size
-          name: Tranche size in ${order.outputs.0.token.symbol}
-        - binding: seconds-per-tranche
-          name: Time to recharge one grid tranche in seconds (0 is disabled).
-          show-custom-field: true
-          default: 0
-          presets:
-            - name: Disabled (0)
-              value: 0
-            - name: 1 hour (3600)
-              value: 3600
-            - name: 6 hours (21600)
-              value: 21600
-            - name: 12 hours (43200)
-              value: 43200
-            - name: 24 hours (86400)
-              value: 86400
-      select-tokens:
-        - key: token1
-          name: Token to buy
-          description: Select the token you want to purchase.
-        - key: token2
-          name: Token to sell
-          description: Select the token you want to sell.
-    bsc:
-      name: BSC
-      description:
-        Deploy a grid order on BSC.
-      deposits:
-        - token: token2
-      fields:
-        - binding: baseline-io-ratio
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-        - binding: io-ratio-growth
-          name: IO ratio growth per tranche
-        - binding: tranche-size
-          name: Tranche size in ${order.outputs.0.token.symbol}
-        - binding: seconds-per-tranche
-          name: Time to recharge one grid tranche in seconds (0 is disabled).
-          show-custom-field: true
-          default: 0
-          presets:
-            - name: Disabled (0)
-              value: 0
-            - name: 1 hour (3600)
-              value: 3600
-            - name: 6 hours (21600)
-              value: 21600
-            - name: 12 hours (43200)
-              value: 43200
-            - name: 24 hours (86400)
-              value: 86400
-      select-tokens:
-        - key: token1
-          name: Token to buy
-          description: Select the token you want to purchase.
-        - key: token2
-          name: Token to sell
-          description: Select the token you want to sell.
-
     polygon:
       name: Polygon
       description:
         Deploy a grid order on Polygon.
-      deposits:
-        - token: token2
-      fields:
-        - binding: baseline-io-ratio
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-        - binding: io-ratio-growth
-          name: IO ratio growth per tranche
-        - binding: tranche-size
-          name: Tranche size in ${order.outputs.0.token.symbol}
-        - binding: seconds-per-tranche
-          name: Time to recharge one grid tranche in seconds (0 is disabled).
-          show-custom-field: true
-          default: 0
-          presets:
-            - name: Disabled (0)
-              value: 0
-            - name: 1 hour (3600)
-              value: 3600
-            - name: 6 hours (21600)
-              value: 21600
-            - name: 12 hours (43200)
-              value: 43200
-            - name: 24 hours (86400)
-              value: 86400
-      select-tokens:
-        - key: token1
-          name: Token to buy
-          description: Select the token you want to purchase.
-        - key: token2
-          name: Token to sell
-          description: Select the token you want to sell.
-
-    flare:
-      name: Flare
-      description:
-        Deploy a grid order on Flare.
       deposits:
         - token: token2
       fields:
