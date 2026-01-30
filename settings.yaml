@@ -23,24 +23,24 @@ networks:
     chain-id: 42161
     network-id: 42161
     currency: ETH
-  bsc:
-    rpcs:
-      - https://bsc-dataseed.bnbchain.org
-    chain-id: 56
-    network-id: 56
-    currency: BNB
-  linea:
-    rpcs:
-      - https://rpc.linea.build
-    chain-id: 59144
-    network-id: 59144
-    currency: ETH
-  ethereum:
-    rpcs:
-      - https://ethereum-rpc.publicnode.com
-    chain-id: 1
-    network-id: 1
-    currency: ETH
+  # bsc:
+  #   rpcs:
+  #     - https://bsc-dataseed.bnbchain.org
+  #   chain-id: 56
+  #   network-id: 56
+  #   currency: BNB
+  # linea:
+  #   rpcs:
+  #     - https://rpc.linea.build
+  #   chain-id: 59144
+  #   network-id: 59144
+  #   currency: ETH
+  # ethereum:
+  #   rpcs:
+  #     - https://ethereum-rpc.publicnode.com
+  #   chain-id: 1
+  #   network-id: 1
+  #   currency: ETH
 subgraphs:
   flare: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-flare/2024-12-13-9dc7/gn
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-10-11-a62b/gn
@@ -58,12 +58,12 @@ metaboards:
   linea: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-linea-0xed7d6156/1.0.0/gn
   ethereum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-mainnet/2024-10-25-2857/gn
 orderbooks:
-  # flare:
-  #   address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
-  #   network: flare
-  #   subgraph: flare
-  #   deployment-block: 49782578
-  #   local-db-remote: raindex
+  flare:
+    address: 0x8Dbc50485e7C6994923B9A2c603a2B6b2d8Eef64
+    network: flare
+    subgraph: flare
+    deployment-block: 49782578
+    local-db-remote: raindex
   base:
     address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
     network: base
@@ -82,24 +82,18 @@ orderbooks:
     subgraph: arbitrum
     deployment-block: 380203894
     local-db-remote: raindex
-  bsc:
-    address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
-    network: bsc
-    subgraph: bsc
-    deployment-block: 42510318
-    local-db-remote: raindex
-  linea:
-    address: 0x22410e2a46261a1B1e3899a072f303022801C764
-    network: linea
-    subgraph: linea
-    deployment-block: 10147523
-    local-db-remote: raindex
-  ethereum:
-    address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
-    network: ethereum
-    subgraph: ethereum
-    deployment-block: 21041924
-    local-db-remote: raindex
+  # bsc:
+  #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
+  #   network: bsc
+  #   subgraph: bsc
+  # linea:
+  #   address: 0x22410e2a46261a1B1e3899a072f303022801C764
+  #   network: linea
+  #   subgraph: linea
+  # ethereum:
+  #   address: 0x0eA6d458488d1cf51695e1D6e4744e6FB715d37C
+  #   network: ethereum
+  #   subgraph: ethereum
 
 deployers:
   flare:
@@ -114,15 +108,15 @@ deployers:
   arbitrum:
     address: 0xb1869a4FA6436832bb0AD5420170B8CF17CaF934
     network: arbitrum
-  bsc:
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-    network: bsc
-  linea:
-    address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
-    network: linea
-  ethereum:
-    address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
-    network: ethereum
+  # bsc:
+  #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  #   network: bsc
+  # linea:
+  #   address: 0xA2f56F8F74B7d04d61f281BE6576b6155581dcBA
+  #   network: linea
+  # ethereum:
+  #   address: 0xd19581a021f4704ad4eBfF68258e7A0a9DB1CD77
+  #   network: ethereum
 
 using-tokens-from:
   - https://tokens.coingecko.com/ethereum/all.json
