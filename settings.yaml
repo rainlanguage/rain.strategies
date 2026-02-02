@@ -19,7 +19,7 @@ networks:
     network-id: 42161
     currency: ETH
 subgraphs:
-  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2025-10-11-a62b/gn
+  base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2026-01-22-c13a/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-matic/2025-09-23-7ac3/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-arbitrum-one/2025-09-18-da5d/gn
 metaboards:
@@ -28,10 +28,10 @@ metaboards:
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
 orderbooks:
   base:
-    address: 0x52CEB8eBEf648744fFDDE89F7Bc9C3aC35944775
+    address: 0x498Ff70C5f67e63e53b74551DE31387cf2813986
     network: base
     subgraph: base
-    deployment-block: 36667253
+    deployment-block: 41134692
     local-db-remote: raindex
   polygon:
     address: 0x8a3C8E610d827093F7437E0C45EFa648563c0dDA
@@ -47,7 +47,7 @@ orderbooks:
     local-db-remote: raindex
 deployers:
   base:
-    address: 0x6557778Db274f04B9E9f39F8Ff2D621c2036e978
+    address: 0xd905B56949284Bb1d28eeFC05be78Af69cCf3668
     network: base
   polygon:
     address: 0x6B36e02409BD60cA5C17049c7188de180857902D
