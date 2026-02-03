@@ -7,8 +7,17 @@ orderbooks:
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
     local-db-remote: raindex
+  base:
+    network: base
+    subgraph: base
+    address: 0x498Ff70C5f67e63e53b74551DE31387cf2813986
+    deployment-block: 41134692
+    local-db-remote: raindex
 
 deployers:
+  base
+    network: base
+    address: 0xd905B56949284Bb1d28eeFC05be78Af69cCf3668
   fixed-limit-arbitrum:
     network: arbitrum
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
