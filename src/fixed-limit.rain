@@ -1,7 +1,7 @@
 version: 4
 
 orderbooks:
-  fixed-limit-arbitrum:
+  arbitrum:
     network: arbitrum
     subgraph: arbitrum
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
@@ -18,7 +18,7 @@ deployers:
   base
     network: base
     address: 0xd905B56949284Bb1d28eeFC05be78Af69cCf3668
-  fixed-limit-arbitrum:
+  arbitrum:
     network: arbitrum
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
 
@@ -29,8 +29,8 @@ orders:
       - token: token1
     outputs:
       - token: token2
-  fixed-limit-arbitrum:
-    orderbook: fixed-limit-arbitrum
+  arbitrum:
+    orderbook: arbitrum
     inputs:
       - token: token1
     outputs:
@@ -42,8 +42,8 @@ orders:
     outputs:
       - token: token2
 scenarios:
-  fixed-limit-arbitrum:
-    orderbook: fixed-limit-arbitrum
+  arbitrum:
+    orderbook: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
@@ -64,9 +64,9 @@ deployments:
   base:
     order: base
     scenario: base
-  fixed-limit-arbitrum:
-    order: fixed-limit-arbitrum
-    scenario: fixed-limit-arbitrum
+  arbitrum:
+    order: arbitrum
+    scenario: arbitrum
   polygon:
     order: polygon
     scenario: polygon
@@ -107,7 +107,7 @@ gui:
         - key: token2
           name: Token to Sell
           description: Select the token you want to sell
-    fixed-limit-arbitrum:
+    arbitrum:
       name: Arbitrum
       description: Deploy a limit order on Arbitrum.
       deposits:
