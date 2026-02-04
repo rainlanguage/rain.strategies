@@ -85,6 +85,12 @@ orderbooks:
     subgraph: arbitrum
     deployment-block: 380203894
     local-db-remote: raindex
+  base-v6:
+    address: 0x498Ff70C5f67e63e53b74551DE31387cf2813986
+    network: base
+    subgraph: base
+    deployment-block: 41134692
+    local-db-remote: raindex
   # bsc:
   #   address: 0xd2938E7c9fe3597F78832CE780Feb61945c377d7
   #   network: bsc
