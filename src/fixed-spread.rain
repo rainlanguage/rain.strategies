@@ -15,7 +15,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x3348438b5045f73568b3a871Bea55D7884c46d77
+      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
     orderbook: base
@@ -23,7 +23,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x3348438b5045f73568b3a871Bea55D7884c46d77
+      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline-inv'
 
 
@@ -60,39 +60,94 @@ gui:
               value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
             - name: Equity.US.AMZN/USD
               value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD.PRE
+              value: 0x964571756974792e55532e414d5a4e2f5553442e505245000000000000000000
+            - name: Equity.US.AMZN/USD.POST
+              value: 0x974571756974792e55532e414d5a4e2f5553442e504f53540000000000000000
             - name: Equity.US.AAPL/USD
               value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
             - name: Equity.US.MSFT/USD
               value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
             - name: Equity.US.TSLA/USD
               value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD.PRE
+              value: 0x964571756974792e55532e54534c412f5553442e505245000000000000000000
+            - name: Equity.US.TSLA/USD.POST
+              value: 0x974571756974792e55532e54534c412f5553442e504f53540000000000000000
             - name: Equity.US.NVDA/USD
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD.PRE
+              value: 0x964571756974792e55532e4e5644412f5553442e505245000000000000000000
+            - name: Equity.US.NVDA/USD.POST
+              value: 0x974571756974792e55532e4e5644412f5553442e504f53540000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
             - name: Equity.US.GME/USD
               value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
             - name: Equity.US.MSTR/USD
               value: 0x924571756974792e55532e4d5354522f55534400000000000000000000000000
+            - name: Equity.US.MSTR/USD.PRE
+              value: 0x964571756974792e55532e4d5354522f5553442e505245000000000000000000
+            - name: Equity.US.MSTR/USD.POST
+              value: 0x974571756974792e55532e4d5354522f5553442e504f53540000000000000000
             - name: Equity.US.BRK-B/USD
               value: 0x934571756974792e55532e42524b2d422f555344000000000000000000000000
             - name: Equity.US.SPLG/USD
               value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
             - name: Equity.US.IAU/USD
               value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
-        - binding: max-trade-amount
-          name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-        - binding: min-trade-amount
-          name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+            - name: Equity.US.COIN/USD
+              value: 0x924571756974792e55532e434f494e2f55534400000000000000000000000000
+            - name: Equity.US.COIN/USD.PRE
+              value: 0x964571756974792e55532e434f494e2f5553442e505245000000000000000000
+            - name: Equity.US.COIN/USD.POST
+              value: 0x974571756974792e55532e434f494e2f5553442e504f53540000000000000000
+            - name: Equity.US.SIVR/USD
+              value: 0x924571756974792e55532e534956522f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD
+              value: 0x924571756974792e55532e4352434c2f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD.PRE
+              value: 0x964571756974792e55532e4352434c2f5553442e505245000000000000000000
+            - name: Equity.US.CRCL/USD.POST
+              value: 0x974571756974792e55532e4352434c2f5553442e504f53540000000000000000
+            - name: Equity.US.BMNR/USD
+              value: 0x924571756974792e55532e424d4e522f55534400000000000000000000000000
+            - name: Equity.US.BMNR/USD.PRE
+              value: 0x964571756974792e55532e424d4e522f5553442e505245000000000000000000
+            - name: Equity.US.BMNR/USD.POST
+              value: 0x974571756974792e55532e424d4e522f5553442e504f53540000000000000000
+            - name: Equity.US.PPLT/USD
+              value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
+            - name: Equity.US.RKLB/USD
+              value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
             The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
           default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: oracle-price-timeout
+          name: Oracle Price Timeout
+          description: |
+            How fresh (recent) the price is.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: 5 minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 8 hour (28800)
+              value: 28800
+            - name: 3 days (259200)
+              value: 259200
       select-tokens:
         - key: output
           name: Token to Sell
@@ -118,39 +173,94 @@ gui:
               value: 0x924571756974792e55532e474f4f472f55534400000000000000000000000000
             - name: Equity.US.AMZN/USD
               value: 0x924571756974792e55532e414d5a4e2f55534400000000000000000000000000
+            - name: Equity.US.AMZN/USD.PRE
+              value: 0x964571756974792e55532e414d5a4e2f5553442e505245000000000000000000
+            - name: Equity.US.AMZN/USD.POST
+              value: 0x974571756974792e55532e414d5a4e2f5553442e504f53540000000000000000
             - name: Equity.US.AAPL/USD
               value: 0x924571756974792e55532e4141504c2f55534400000000000000000000000000
             - name: Equity.US.MSFT/USD
               value: 0x924571756974792e55532e4d5346542f55534400000000000000000000000000
             - name: Equity.US.TSLA/USD
               value: 0x924571756974792e55532e54534c412f55534400000000000000000000000000
+            - name: Equity.US.TSLA/USD.PRE
+              value: 0x964571756974792e55532e54534c412f5553442e505245000000000000000000
+            - name: Equity.US.TSLA/USD.POST
+              value: 0x974571756974792e55532e54534c412f5553442e504f53540000000000000000
             - name: Equity.US.NVDA/USD
               value: 0x924571756974792e55532e4e5644412f55534400000000000000000000000000
+            - name: Equity.US.NVDA/USD.PRE
+              value: 0x964571756974792e55532e4e5644412f5553442e505245000000000000000000
+            - name: Equity.US.NVDA/USD.POST
+              value: 0x974571756974792e55532e4e5644412f5553442e504f53540000000000000000
             - name: Equity.US.META/USD
               value: 0x924571756974792e55532e4d4554412f55534400000000000000000000000000
             - name: Equity.US.GME/USD
               value: 0x914571756974792e55532e474d452f5553440000000000000000000000000000
             - name: Equity.US.MSTR/USD
               value: 0x924571756974792e55532e4d5354522f55534400000000000000000000000000
+            - name: Equity.US.MSTR/USD.PRE
+              value: 0x964571756974792e55532e4d5354522f5553442e505245000000000000000000
+            - name: Equity.US.MSTR/USD.POST
+              value: 0x974571756974792e55532e4d5354522f5553442e504f53540000000000000000
             - name: Equity.US.BRK-B/USD
               value: 0x934571756974792e55532e42524b2d422f555344000000000000000000000000
             - name: Equity.US.SPLG/USD
               value: 0x924571756974792e55532e53504c472f55534400000000000000000000000000
             - name: Equity.US.IAU/USD
               value: 0x914571756974792e55532e4941552f5553440000000000000000000000000000
-        - binding: max-trade-amount
-          name: Maximum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The maximum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
-        - binding: min-trade-amount
-          name: Minimum trade size (${order.outputs.0.token.symbol})
-          description: |
-            The minimum amount of ${order.outputs.0.token.symbol} to sell in a single auction.
+            - name: Equity.US.COIN/USD
+              value: 0x924571756974792e55532e434f494e2f55534400000000000000000000000000
+            - name: Equity.US.COIN/USD.PRE
+              value: 0x964571756974792e55532e434f494e2f5553442e505245000000000000000000
+            - name: Equity.US.COIN/USD.POST
+              value: 0x974571756974792e55532e434f494e2f5553442e504f53540000000000000000
+            - name: Equity.US.SIVR/USD
+              value: 0x924571756974792e55532e534956522f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD
+              value: 0x924571756974792e55532e4352434c2f55534400000000000000000000000000
+            - name: Equity.US.CRCL/USD.PRE
+              value: 0x964571756974792e55532e4352434c2f5553442e505245000000000000000000
+            - name: Equity.US.CRCL/USD.POST
+              value: 0x974571756974792e55532e4352434c2f5553442e504f53540000000000000000
+            - name: Equity.US.BMNR/USD
+              value: 0x924571756974792e55532e424d4e522f55534400000000000000000000000000
+            - name: Equity.US.BMNR/USD.PRE
+              value: 0x964571756974792e55532e424d4e522f5553442e505245000000000000000000
+            - name: Equity.US.BMNR/USD.POST
+              value: 0x974571756974792e55532e424d4e522f5553442e504f53540000000000000000
+            - name: Equity.US.PPLT/USD
+              value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
+            - name: Equity.US.RKLB/USD
+              value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
             The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
           default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: oracle-price-timeout
+          name: Oracle Price Timeout
+          description: |
+            How fresh (recent) the price is.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: 5 minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 8 hour (28800)
+              value: 28800
+            - name: 3 days (259200)
+              value: 259200
       select-tokens:
         - key: output
           name: Token to Sell
@@ -163,39 +273,30 @@ gui:
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.
-
-
-#min-trade-amount !Each trade must be at least this many output tokens.
-#max-trade-amount !Each trade will be capped at this many tokens.
-
-
 #pyth-pair !The pyth pair to use for the price feed.
-
-
 #baseline-fn !Function that returns the benchmark IO (e.g. pyth baseline).
 #baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
+#oracle-price-timeout !Fetch price no older than for pyth oracle in seconds.
 
 
 #pyth-price-baseline
-price _: pyth-price(pyth-pair 86400),
+price _: pyth-price(pyth-pair oracle-price-timeout),
 _: price;
 
 
 #pyth-price-baseline-inv
-price _: pyth-price(pyth-pair 86400),
+price _: pyth-price(pyth-pair oracle-price-timeout),
 _: inv(price);
 
 
 #calculate-io
 using-words-from raindex-subparser subparser-0
-offer-amount: max-trade-amount,
-pyth-oracle-price: call<'baseline-fn>(),
-io: mul(pyth-oracle-price baseline-multiplier);
+offer-amount: max-positive-value(), 
+io: mul(call<'baseline-fn>() baseline-multiplier);
 
 
 #handle-io
-:ensure(greater-than-or-equal-to(output-vault-decrease() min-trade-amount) "Min trade amount."),
-:ensure(less-than-or-equal-to(output-vault-decrease() max-trade-amount) "Max trade amount.");
+:;
 
 #handle-add-order
 :;
