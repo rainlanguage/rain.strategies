@@ -71,8 +71,8 @@ oracle-expiry: signed-context<0 1>(),
   "Oracle data expired"
 ),
 
-max-output: max-positive-value()
-io: oracle-price;
+max-output: max-positive-value(),
+ratio: oracle-price;
 
 #handle-io
 :;
