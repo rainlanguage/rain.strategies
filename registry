@@ -7,4 +7,4 @@ canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/7eba2d7fe2
 claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/7eba2d7fe25c57a29654bf91185854dc27c475c5/src/claims.rain
 fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/7eba2d7fe25c57a29654bf91185854dc27c475c5/src/fixed-spread.rain
 folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/7eba2d7fe25c57a29654bf91185854dc27c475c5/src/folio.rain
-oracle-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/efef4c3/src/oracle-limit.rain
+oracle-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/ab192f7/src/oracle-limit.rain
