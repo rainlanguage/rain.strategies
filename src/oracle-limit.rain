@@ -15,7 +15,6 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      oracle-output-token: ${order.outputs.0.token.address}
 
 deployments:
   base:
@@ -25,12 +24,11 @@ deployments:
 gui:
   name: Oracle limit
   description: >
-    A limit order that uses a signed context oracle for pricing.
+    A simple limit order that uses a signed context oracle for pricing.
     The oracle provides a live price feed (e.g. from Pyth) signed by a
-    trusted signer. The order sells at the oracle price, ensuring the
-    order always tracks the market. The caller (taker or clearer) fetches
-    the signed context from the oracle server and provides it when
-    taking or clearing the order.
+    trusted signer. The order uses the oracle price directly as the IO
+    ratio. The caller fetches the signed context from the oracle server
+    and provides it when taking or clearing the order.
   short-description: A limit order that tracks a live oracle price feed via signed context.
   deployments:
     base:
@@ -38,13 +36,6 @@ gui:
       description: Deploy an oracle-priced limit order on Base.
       deposits:
         - token: token2
-      fields:
-        - binding: oracle-spread
-          name: Spread (%)
-          description: >
-            Percentage above oracle price to sell at. 0 = sell at exact oracle price.
-            e.g. 0.01 = 1% above oracle price.
-          min: 0
       select-tokens:
         - key: token1
           name: Token to Buy
@@ -55,9 +46,6 @@ gui:
 
 ---
 #raindex-subparser !The subparser to use.
-
-#oracle-output-token !The output token for the oracle price. If this doesn't match the runtime output then the price will be inverted.
-#oracle-spread !Spread above oracle price as a decimal fraction (e.g. 0.01 = 1%).
 
 #calculate-io
 using-words-from raindex-subparser
@@ -74,21 +62,8 @@ oracle-expiry: signed-context<0 1>(),
   "Oracle data expired"
 ),
 
-/* Apply spread: effective-price = oracle-price * (1 + spread) */
-spread-multiplier: add(1e18 oracle-spread),
-effective-price: decimal18-mul(oracle-price spread-multiplier),
-
-/* Invert price if output token doesn't match oracle denomination */
-io: if(
-  equal-to(
-    output-token()
-    oracle-output-token
-  )
-  effective-price
-  inv(effective-price)
-),
-
-max-output: max-positive-value();
+max-output: max-positive-value()
+io: oracle-price;
 
 #handle-io
 :;
