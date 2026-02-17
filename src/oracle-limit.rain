@@ -36,6 +36,14 @@ gui:
       description: Deploy an oracle-priced limit order on Base.
       deposits:
         - token: token2
+      fields:
+        - binding: dummy-field
+          name: Placeholder
+          description: Not used (required by GUI).
+          min: 0
+          presets:
+            - value: 0
+              name: Default
       select-tokens:
         - key: token1
           name: Token to Buy
@@ -46,6 +54,7 @@ gui:
 
 ---
 #raindex-subparser !The subparser to use.
+#dummy-field !Placeholder field (unused).
 
 #calculate-io
 using-words-from raindex-subparser
