@@ -1,0 +1,82 @@
+version: 4
+
+orders:
+  base:
+    orderbook: base
+    oracle-url: https://rain-oracle-server.fly.dev/context
+    inputs:
+      - token: token1
+    outputs:
+      - token: token2
+
+scenarios:
+  base:
+    orderbook: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      dummy-field: 0
+
+deployments:
+  base:
+    order: base
+    scenario: base
+
+gui:
+  name: Oracle limit
+  description: >
+    A simple limit order that uses a signed context oracle for pricing.
+    The oracle provides a live price feed (e.g. from Pyth) signed by a
+    trusted signer. The order uses the oracle price directly as the IO
+    ratio. The caller fetches the signed context from the oracle server
+    and provides it when taking or clearing the order.
+  short-description: A limit order that tracks a live oracle price feed via signed context.
+  deployments:
+    base:
+      name: Base
+      description: Deploy an oracle-priced limit order on Base.
+      deposits:
+        - token: token2
+      fields:
+        - binding: dummy-field
+          name: Placeholder
+          description: Not used (required by GUI).
+          min: 0
+          presets:
+            - value: 0
+              name: Default
+      select-tokens:
+        - key: token1
+          name: Token to Buy
+          description: Select the token you want to purchase
+        - key: token2
+          name: Token to Sell
+          description: Select the token you want to sell
+
+---
+#raindex-subparser !The subparser to use.
+#dummy-field !Placeholder field (unused).
+
+#calculate-io
+using-words-from raindex-subparser
+
+/* Read oracle price from signed context column 0, row 0 */
+oracle-price: signed-context<0 0>(),
+
+/* Read expiry timestamp from signed context column 0, row 1 */
+oracle-expiry: signed-context<0 1>(),
+
+/* Ensure the oracle data hasn't expired */
+:ensure(
+  greater-than(oracle-expiry now())
+  "Oracle data expired"
+),
+
+max-output: max-positive-value(),
+ratio: oracle-price;
+
+#handle-io
+:;
+
+#handle-add-order
+:;
