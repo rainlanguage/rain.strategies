@@ -8,7 +8,7 @@ networks:
     currency: ETH
   polygon:
     rpcs:
-      - https://polygon-rpc.com
+      - https://polygon.drpc.org
     chain-id: 137
     network-id: 137
     currency: POL
