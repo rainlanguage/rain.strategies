@@ -15,7 +15,6 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      dummy-field: 0
 
 deployments:
   base:
@@ -38,13 +37,12 @@ gui:
       deposits:
         - token: token2
       fields:
-        - binding: dummy-field
-          name: Placeholder
-          description: Not used (required by GUI).
-          min: 0
-          presets:
-            - value: 0
-              name: Default
+        - binding: oracle-signer
+          name: Oracle Signer Address
+          description: >
+            The trusted signer address for the oracle. Only signed contexts
+            from this address will be accepted. Must match the signer configured
+            on the oracle server.
       select-tokens:
         - key: token1
           name: Token to Buy
@@ -55,10 +53,17 @@ gui:
 
 ---
 #raindex-subparser !The subparser to use.
-#dummy-field !Placeholder field (unused).
+
+#oracle-signer !The trusted signer address for the oracle. Only signed contexts from this address are accepted.
 
 #calculate-io
 using-words-from raindex-subparser
+
+/* Verify the signed context comes from the trusted signer */
+:ensure(
+  equal-to(signer<0>() oracle-signer)
+  "Untrusted oracle signer"
+),
 
 /* Read oracle price from signed context column 0, row 0 */
 oracle-price: signed-context<0 0>(),
