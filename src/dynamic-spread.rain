@@ -66,7 +66,7 @@ deployments:
   polygon:
     order: polygon
     scenario: polygon
-gui:
+builder:
   name: Two-sided dynamic spread orders
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/dynamic-spread.md
   short-description: A market-making order that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.

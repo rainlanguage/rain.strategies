@@ -85,7 +85,7 @@ deployments:
   base-pyth-inv:
     order: base
     scenario: pyth-price-baseline-base-inv
-gui:
+builder:
   name: Auction based cost averaging
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/auction-dca.md
   short-description:  >

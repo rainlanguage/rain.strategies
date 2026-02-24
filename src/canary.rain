@@ -29,7 +29,7 @@ deployments:
   canary-arbitrum:
     order: canary-arbitrum
     scenario: canary-arbitrum
-gui:
+builder:
   name: Canary
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/canary.md
   short-description: Does nothing except give a bounty to the solver regularly.
