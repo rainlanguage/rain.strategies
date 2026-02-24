@@ -61,7 +61,7 @@ deployments:
   polygon:
     order: polygon
     scenario: polygon
-gui:
+builder:
   name: Fixed limit
   description: A very simple order that places a limit order at a fixed price.
   short-description: A very simple order that places a limit order at a fixed price.
