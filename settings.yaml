@@ -16,9 +16,21 @@ orderbooks:
     network: base
     subgraph: base
     deployment-block: 41747644
+    local-db-remote: raindex
 deployers:
   base:
     address: 0xd905B56949284Bb1d28eeFC05be78Af69cCf3668
     network: base
+local-db-remotes:
+  raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/manifest.yaml
+local-db-sync:
+  base:
+    batch-size: 50
+    max-concurrent-batches: 1
+    retry-attempts: 3
+    retry-delay-ms: 1000
+    rate-limit-delay-ms: 5000
+    finality-depth: 4
+    bootstrap-block-threshold: 300
 using-tokens-from:
   - https://raw.githubusercontent.com/S01-Issuer/st0x-tokens/ad1a637a79d5a220ad089aecdc5b7239d3473f6e/src/st0xTokens.json
