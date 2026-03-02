@@ -72,6 +72,7 @@ local-db-sync:
     rate-limit-delay-ms: 5000
     finality-depth: 4
     bootstrap-block-threshold: 300
+    sync-interval-ms: 5000
   polygon:
     batch-size: 10
     max-concurrent-batches: 1
@@ -80,6 +81,7 @@ local-db-sync:
     rate-limit-delay-ms: 5000
     finality-depth: 10
     bootstrap-block-threshold: 300
+    sync-interval-ms: 5000
   arbitrum:
     batch-size: 50
     max-concurrent-batches: 1
@@ -88,3 +90,4 @@ local-db-sync:
     rate-limit-delay-ms: 5000
     finality-depth: 30
     bootstrap-block-threshold: 2500
+    sync-interval-ms: 5000
