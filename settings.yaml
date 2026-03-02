@@ -32,5 +32,6 @@ local-db-sync:
     rate-limit-delay-ms: 5000
     finality-depth: 4
     bootstrap-block-threshold: 300
+    sync-interval-ms: 5000
 using-tokens-from:
   - https://raw.githubusercontent.com/S01-Issuer/st0x-tokens/ad1a637a79d5a220ad089aecdc5b7239d3473f6e/src/st0xTokens.json
