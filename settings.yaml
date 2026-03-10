@@ -9,6 +9,9 @@ networks:
   polygon:
     rpcs:
       - https://1rpc.io/matic
+      - https://polygon.drpc.org
+      - https://polygon.meowrpc.com
+      - https://polygon-bor-rpc.publicnode.com
     chain-id: 137
     network-id: 137
     currency: POL
