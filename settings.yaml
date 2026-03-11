@@ -1,4 +1,4 @@
-version: 4
+version: 5
 networks:
   base:
     rpcs:
@@ -48,7 +48,7 @@ orderbooks:
     subgraph: arbitrum
     deployment-block: 380203894
     local-db-remote: raindex
-deployers:
+rainlangs:
   base:
     address: 0xd905B56949284Bb1d28eeFC05be78Af69cCf3668
     network: base

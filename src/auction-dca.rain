@@ -1,4 +1,4 @@
-version: 4
+version: 5
 
 orders:
   arbitrum:
@@ -40,7 +40,7 @@ scenarios:
       shy-epoch: 0.05
   pyth-price-baseline-base:
     orderbook: base
-    deployer: base
+    rainlang: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
@@ -51,7 +51,7 @@ scenarios:
       shy-epoch: 0.05
   pyth-price-baseline-base-inv:
     orderbook: base
-    deployer: base
+    rainlang: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB

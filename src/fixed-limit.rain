@@ -1,4 +1,4 @@
-version: 4
+version: 5
 
 orderbooks:
   fixed-limit-arbitrum:
@@ -8,7 +8,7 @@ orderbooks:
     deployment-block: 352866209
     local-db-remote: raindex
 
-deployers:
+rainlangs:
   fixed-limit-arbitrum:
     network: arbitrum
     address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
