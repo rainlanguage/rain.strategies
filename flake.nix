@@ -8,7 +8,9 @@
     flake-utils.lib.eachDefaultSystem (system:
       let
         pkgs = rainix.pkgs.${system};
-      in {
+      in rec {
+        packages = rainix.packages.${system};
+
         devShells.default = pkgs.mkShell {
           shellHook = rainix.devShells.${system}.default.shellHook;
           buildInputs = rainix.devShells.${system}.default.buildInputs;

@@ -1,0 +1,19 @@
+name: Rainix CI
+on: [push]
+
+jobs:
+  rainix:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        task: [rainix-rs-test, rainix-rs-static]
+      fail-fast: false
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: DeterminateSystems/nix-installer-action@v4
+      - uses: DeterminateSystems/magic-nix-cache-action@v2
+
+      - name: Run ${{ matrix.task }}
+        run: nix develop -c ${{ matrix.task }}
