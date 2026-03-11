@@ -18,6 +18,7 @@ orders:
 scenarios:
   canary-arbitrum:
     orderbook: canary-arbitrum
+    rainlang: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
