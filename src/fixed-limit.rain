@@ -8,11 +8,6 @@ orderbooks:
     deployment-block: 352866209
     local-db-remote: raindex
 
-rainlangs:
-  fixed-limit-arbitrum:
-    network: arbitrum
-    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
-
 orders:
   base:
     orderbook: base
