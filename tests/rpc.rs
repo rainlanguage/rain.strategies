@@ -90,5 +90,9 @@ async fn all_rpcs_support_eth_call() {
         }
     }
 
-    assert!(failures.is_empty(), "RPC failures:\n{}", failures.join("\n"));
+    assert!(
+        failures.is_empty(),
+        "RPC failures:\n{}",
+        failures.join("\n")
+    );
 }
