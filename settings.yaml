@@ -2,6 +2,9 @@ version: 5
 networks:
   base:
     rpcs:
+      - https://1rpc.io/base
+      - https://base.drpc.org
+      - https://base.meowrpc.com
       - https://base-rpc.publicnode.com
     chain-id: 8453
     network-id: 8453
