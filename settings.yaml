@@ -2,10 +2,10 @@ version: 5
 networks:
   base:
     rpcs:
-      - https://1rpc.io/base
+      - https://mainnet.base.org
       - https://base.drpc.org
-      - https://base.meowrpc.com
       - https://base-rpc.publicnode.com
+      - https://developer-access-mainnet.base.org
     chain-id: 8453
     network-id: 8453
     currency: ETH
