@@ -11,15 +11,16 @@ networks:
     currency: ETH
   polygon:
     rpcs:
-      - https://1rpc.io/matic
       - https://polygon.drpc.org
-      - https://polygon.meowrpc.com
+      - https://polygon.rpc.subquery.network/public
       - https://polygon-bor-rpc.publicnode.com
     chain-id: 137
     network-id: 137
     currency: POL
   arbitrum:
     rpcs:
+      - https://arb1.arbitrum.io/rpc
+      - https://arbitrum.drpc.org
       - https://arbitrum-one-rpc.publicnode.com
     chain-id: 42161
     network-id: 42161
