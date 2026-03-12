@@ -6,7 +6,7 @@ publish = false
 
 [dev-dependencies]
 glob = "0.3"
-rain_orderbook_app_settings = { git = "https://github.com/rainlanguage/rain.orderbook" }
+rain_orderbook_app_settings = { git = "https://github.com/rainlanguage/rain.orderbook", rev = "9fdc15c6" }
 reqwest = { version = "0.12", features = ["json"] }
 serde_json = "1"
 tokio = { version = "1", features = ["full"] }

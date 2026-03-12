@@ -11,10 +11,6 @@
       in rec {
         packages = rainix.packages.${system};
 
-        devShells.default = pkgs.mkShell {
-          shellHook = rainix.devShells.${system}.default.shellHook;
-          buildInputs = rainix.devShells.${system}.default.buildInputs;
-          nativeBuildInputs = rainix.devShells.${system}.default.nativeBuildInputs;
-        };
+        devShells = rainix.devShells.${system};
       });
 }

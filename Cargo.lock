@@ -2848,7 +2848,7 @@ dependencies = [
 [[package]]
 name = "rain_orderbook_app_settings"
 version = "0.0.0-alpha.0"
-source = "git+https://github.com/rainlanguage/rain.orderbook#9fdc15c6aa095cccf576dd88f5c38d84363c93bb"
+source = "git+https://github.com/rainlanguage/rain.orderbook?rev=9fdc15c6#9fdc15c6aa095cccf576dd88f5c38d84363c93bb"
 dependencies = [
  "alloy",
  "derive_builder",

@@ -3,7 +3,8 @@ use reqwest::Client;
 use serde_json::{json, Value};
 
 fn load_settings() -> OrderbookYaml {
-    let yaml = std::fs::read_to_string("settings.yaml").expect("failed to read settings.yaml");
+    let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("settings.yaml");
+    let yaml = std::fs::read_to_string(path).expect("failed to read settings.yaml");
     OrderbookYaml::new(vec![yaml], Default::default()).expect("failed to parse settings.yaml")
 }
 
@@ -84,7 +85,20 @@ async fn all_rpcs_support_eth_call() {
         );
 
         for rpc_url in &network.rpcs {
-            if let Err(e) = test_rpc(&client, rpc_url.as_str(), network.chain_id).await {
+            let mut last_err = None;
+            for attempt in 0..3 {
+                if attempt > 0 {
+                    tokio::time::sleep(std::time::Duration::from_secs(1 << attempt)).await;
+                }
+                match test_rpc(&client, rpc_url.as_str(), network.chain_id).await {
+                    Ok(()) => {
+                        last_err = None;
+                        break;
+                    }
+                    Err(e) => last_err = Some(e),
+                }
+            }
+            if let Some(e) = last_err {
                 failures.push(format!("{name} {rpc_url}: {e}"));
             }
         }
