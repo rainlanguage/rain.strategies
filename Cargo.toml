@@ -10,3 +10,13 @@ rain_orderbook_app_settings = { git = "https://github.com/rainlanguage/rain.orde
 reqwest = { version = "0.12", features = ["json"] }
 serde_json = "1"
 tokio = { version = "1", features = ["full"] }
+# rain.wasm is pinned to a rev that implements TryFromJsValue for
+# wasm-bindgen 0.2.100. Newer versions add a required method
+# (try_from_js_value_ref) that rain.wasm doesn't implement yet.
+wasm-bindgen = "=0.2.100"
+
+# rain_orderbook_app_settings depends on rain_orderbook_bindings, which needs
+# Solidity build artifacts that only exist after rainix-sol-prelude. The
+# settings crate never actually imports the bindings crate, so we stub it out.
+[patch."https://github.com/rainlanguage/rain.orderbook"]
+rain_orderbook_bindings = { path = "crates/rain_orderbook_bindings" }

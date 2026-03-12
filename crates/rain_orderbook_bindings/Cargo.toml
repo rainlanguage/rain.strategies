@@ -1,0 +1,8 @@
+# Stub crate that replaces rain_orderbook_bindings via [patch].
+# The real crate requires Solidity build artifacts (rainix-sol-prelude),
+# but rain_orderbook_app_settings never actually imports it.
+[package]
+name = "rain_orderbook_bindings"
+version = "0.0.0-alpha.0"
+edition = "2021"
+publish = false
