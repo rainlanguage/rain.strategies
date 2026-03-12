@@ -11,7 +11,6 @@ networks:
     currency: ETH
   polygon:
     rpcs:
-      - https://1rpc.io/matic
       - https://polygon.drpc.org
       - https://polygon.rpc.subquery.network/public
       - https://polygon-bor-rpc.publicnode.com
