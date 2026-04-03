@@ -1,11 +1,11 @@
-use rain_orderbook_app_settings::yaml::{orderbook::OrderbookYaml, YamlParsable};
+use raindex_app_settings::yaml::{raindex::RaindexYaml, YamlParsable};
 use reqwest::Client;
 use serde_json::{json, Value};
 
-fn load_settings() -> OrderbookYaml {
+fn load_settings() -> RaindexYaml {
     let path = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("settings.yaml");
     let yaml = std::fs::read_to_string(path).expect("failed to read settings.yaml");
-    OrderbookYaml::new(vec![yaml], Default::default()).expect("failed to parse settings.yaml")
+    RaindexYaml::new(vec![yaml], Default::default()).expect("failed to parse settings.yaml")
 }
 
 async fn test_rpc(client: &Client, url: &str, expected_chain_id: u32) -> Result<(), String> {
