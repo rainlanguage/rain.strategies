@@ -1,4 +1,4 @@
-version: 5
+version: 6
 networks:
   base:
     rpcs:
@@ -33,7 +33,7 @@ metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
   polygon: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/mb-polygon/0.1/gn
   arbitrum: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-arbitrum-one/2025-07-06-135f/gn
-orderbooks:
+raindexes:
   base:
     address: 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D
     network: base

@@ -1,6 +1,6 @@
-version: 5
+version: 6
 
-orderbooks:
+raindexes:
   canary-arbitrum:
     network: arbitrum
     subgraph: arbitrum
@@ -9,7 +9,7 @@ orderbooks:
     local-db-remote: raindex
 orders:
   canary-arbitrum:
-    orderbook: canary-arbitrum
+    raindex: canary-arbitrum
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
@@ -17,7 +17,7 @@ orders:
       - token: output
 scenarios:
   canary-arbitrum:
-    orderbook: canary-arbitrum
+    raindex: canary-arbitrum
     rainlang: arbitrum
     runs: 1
     bindings:

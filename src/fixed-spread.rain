@@ -1,8 +1,8 @@
-version: 5
+version: 6
 
 orders:
   base:
-    orderbook: base
+    raindex: base
     inputs:
       - token: input
     outputs:
@@ -10,7 +10,7 @@ orders:
 
 scenarios:
   pyth-price-baseline-base:
-    orderbook: base
+    raindex: base
     rainlang: base
     runs: 1
     bindings:
@@ -18,7 +18,7 @@ scenarios:
       subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
-    orderbook: base
+    raindex: base
     rainlang: base
     runs: 1
     bindings:
