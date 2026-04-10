@@ -76,7 +76,7 @@ gui:
           description: |
             How fresh (recent) the price is.
           show-custom-field: true
-          default: 86400
+          default: 100000000
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -84,6 +84,8 @@ gui:
               value: 86400
             - name: 3 days (259200)
               value: 259200
+            - name: ~3 years (100000000) - for demo oracle
+              value: 100000000
       select-tokens:
         - key: output
           name: Token to Sell
@@ -124,7 +126,7 @@ gui:
           description: |
             How fresh (recent) the price is.
           show-custom-field: true
-          default: 86400
+          default: 100000000
           presets:
             - name: 1 hour (3600)
               value: 3600
@@ -132,6 +134,8 @@ gui:
               value: 86400
             - name: 3 days (259200)
               value: 259200
+            - name: ~3 years (100000000) - for demo oracle
+              value: 100000000
       select-tokens:
         - key: output
           name: Token to Sell
