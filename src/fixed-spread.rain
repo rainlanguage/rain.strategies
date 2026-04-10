@@ -40,10 +40,10 @@ gui:
   name: Dia fixed spread limit
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
   short-description:  >
-    A strategy where the ratio tracks a benchmark price (e.g. pyth) with a fixed multiplier
+    A strategy where the ratio tracks a benchmark price (e.g. dia) with a fixed multiplier
   deployments:
     base-dia:
-      name: Base pyth sell shares
+      name: Base dia sell shares
       description: Deploy an fixed-spread strategy on Base using Dia price feeds to sell shares.
       deposits:
         - token: output
@@ -94,7 +94,7 @@ gui:
           name: Token to Buy
           description: Select the token you want to purchase
     base-dia-inv:
-      name: Base pyth buy shares
+      name: Base dia buy shares
       description: Deploy an fixed-spread trategy on Base using Dia price feeds to buy shares.
       deposits:
         - token: output
@@ -149,10 +149,10 @@ gui:
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.
-#dia-id !The pyth pair to use for the price feed.
-#baseline-fn !Function that returns the benchmark IO (e.g. pyth baseline).
+#dia-id !The dia id to use for the price feed.
+#baseline-fn !Function that returns the benchmark IO (e.g. dia baseline).
 #baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
-#oracle-price-timeout !Fetch price no older than for pyth oracle in seconds.
+#oracle-price-timeout !Fetch price no older than for dia oracle in seconds.
 
 
 #dia-price-baseline
