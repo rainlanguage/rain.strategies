@@ -7,3 +7,4 @@ canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/888c3bda11
 claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/888c3bda115b5bca325afc013629623c95620cc5/src/claims.rain
 fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/888c3bda115b5bca325afc013629623c95620cc5/src/fixed-spread.rain
 folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/888c3bda115b5bca325afc013629623c95620cc5/src/folio.rain
+dia-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/39ddef899df5c23d1374bd1a96b52caf7f201d05/src/dia-fixed-spread.rain
