@@ -57,7 +57,7 @@ gui:
           show-custom-field: false
           presets:
             - name: BTC/USD
-              value: '''\"BTC/USD\"'
+              value: '"BTC/USD"'
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -108,7 +108,7 @@ gui:
           show-custom-field: false
           presets:
             - name: BTC/USD
-              value: '''\"BTC/USD\"'
+              value: '"BTC/USD"'
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
