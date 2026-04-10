@@ -51,15 +51,6 @@ gui:
       deposits:
         - token: output
       fields:
-        - binding: dia-pair
-          name: DIA price feed pair
-          description: |
-            The DIA price feed key to use.
-            This is the asset pair string passed directly to the DIA oracle (e.g. "BTC/USD").
-          show-custom-field: true
-          presets:
-            - name: BTC/USD
-              value: 0x874254432f555344000000000000000000000000000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -84,8 +75,6 @@ gui:
               value: 3600
             - name: 1 day (86400)
               value: 86400
-            - name: 3 days (259200)
-              value: 259200
             - name: ~3 years (100000000) - for demo oracle
               value: 100000000
       select-tokens:
@@ -101,15 +90,6 @@ gui:
       deposits:
         - token: output
       fields:
-        - binding: dia-pair
-          name: DIA price feed pair
-          description: |
-            The DIA price feed key to use.
-            This is the asset pair string passed directly to the DIA oracle (e.g. "BTC/USD").
-          show-custom-field: true
-          presets:
-            - name: BTC/USD
-              value: 0x874254432f555344000000000000000000000000000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -134,8 +114,6 @@ gui:
               value: 3600
             - name: 1 day (86400)
               value: 86400
-            - name: 3 days (259200)
-              value: 259200
             - name: ~3 years (100000000) - for demo oracle
               value: 100000000
       select-tokens:
@@ -150,19 +128,18 @@ gui:
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !DIA words subparser.
-#dia-pair !The DIA price pair key (e.g. "BTC/USD").
 #baseline-fn !Function that returns the benchmark IO (e.g. dia baseline).
 #baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
 #oracle-price-timeout !Fetch price no older than for DIA oracle in seconds.
 
 
 #dia-price-baseline
-price _: dia-price(dia-pair oracle-price-timeout),
+price _: dia-price("BTC/USD" oracle-price-timeout),
 _: price;
 
 
 #dia-price-baseline-inv
-price _: dia-price(dia-pair oracle-price-timeout),
+price _: dia-price("BTC/USD" oracle-price-timeout),
 _: inv(price);
 
 
