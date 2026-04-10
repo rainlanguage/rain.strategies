@@ -1,0 +1,173 @@
+version: 4
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  dia-price-baseline-base:
+    orderbook: base
+    deployer: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x8542c952c8D3441b9B861Fe582E2BC620058348E
+      baseline-fn: '''dia-price-baseline'
+  dia-price-baseline-base-inv:
+    orderbook: base
+    deployer: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      subparser-0: 0x8542c952c8D3441b9B861Fe582E2BC620058348E
+      baseline-fn: '''dia-price-baseline-inv'
+
+
+deployments:
+  base-dia:
+    order: base
+    scenario: dia-price-baseline-base
+  base-dia-inv:
+    order: base
+    scenario: dia-price-baseline-base-inv
+
+
+gui:
+  name: DIA fixed spread limit
+  description: >
+    A strategy where the ratio tracks a DIA oracle benchmark price with a fixed multiplier.
+  short-description: >
+    A strategy where the ratio tracks a benchmark price (e.g. DIA) with a fixed multiplier
+  deployments:
+    base-dia:
+      name: Base DIA sell
+      description: Deploy a fixed-spread strategy on Base using DIA price feeds to sell tokens.
+      deposits:
+        - token: output
+      fields:
+        - binding: dia-pair
+          name: DIA price feed pair
+          description: |
+            The DIA price feed key to use.
+            This is the asset pair string passed directly to the DIA oracle (e.g. "BTC/USD").
+          show-custom-field: true
+          presets:
+            - name: BTC/USD
+              value: 0x874254432f555344000000000000000000000000000000000000000000000000
+        - binding: baseline-multiplier
+          name: Benchmark price multiplier
+          description: |
+            The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
+          default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: oracle-price-timeout
+          name: Oracle Price Timeout
+          description: |
+            How fresh (recent) the price is.
+          show-custom-field: true
+          default: 86400
+          presets:
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 1 day (86400)
+              value: 86400
+            - name: 3 days (259200)
+              value: 259200
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+    base-dia-inv:
+      name: Base DIA buy
+      description: Deploy a fixed-spread strategy on Base using DIA price feeds to buy tokens.
+      deposits:
+        - token: output
+      fields:
+        - binding: dia-pair
+          name: DIA price feed pair
+          description: |
+            The DIA price feed key to use.
+            This is the asset pair string passed directly to the DIA oracle (e.g. "BTC/USD").
+          show-custom-field: true
+          presets:
+            - name: BTC/USD
+              value: 0x874254432f555344000000000000000000000000000000000000000000000000
+        - binding: baseline-multiplier
+          name: Benchmark price multiplier
+          description: |
+            The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
+          default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: oracle-price-timeout
+          name: Oracle Price Timeout
+          description: |
+            How fresh (recent) the price is.
+          show-custom-field: true
+          default: 86400
+          presets:
+            - name: 1 hour (3600)
+              value: 3600
+            - name: 1 day (86400)
+              value: 86400
+            - name: 3 days (259200)
+              value: 259200
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+
+
+---
+#raindex-subparser !Raindex subparser.
+#subparser-0 !DIA words subparser.
+#dia-pair !The DIA price pair key (e.g. "BTC/USD").
+#baseline-fn !Function that returns the benchmark IO (e.g. dia baseline).
+#baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
+#oracle-price-timeout !Fetch price no older than for DIA oracle in seconds.
+
+
+#dia-price-baseline
+price _: dia-price(dia-pair oracle-price-timeout),
+_: price;
+
+
+#dia-price-baseline-inv
+price _: dia-price(dia-pair oracle-price-timeout),
+_: inv(price);
+
+
+#calculate-io
+using-words-from raindex-subparser subparser-0
+offer-amount: max-positive-value(),
+io: mul(call<'baseline-fn>() baseline-multiplier);
+
+
+#handle-io
+:;
+
+#handle-add-order
+:;
