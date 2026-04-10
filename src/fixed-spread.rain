@@ -15,7 +15,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
+      subparser-0: 0x8542c952c8D3441b9B861Fe582E2BC620058348E
       baseline-fn: '''dia-price-baseline'
   dia-price-baseline-base-inv:
     orderbook: base
@@ -23,7 +23,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
+      subparser-0: 0x8542c952c8D3441b9B861Fe582E2BC620058348E
       baseline-fn: '''dia-price-baseline-inv'
 
 
