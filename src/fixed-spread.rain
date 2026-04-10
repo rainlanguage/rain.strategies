@@ -156,12 +156,12 @@ gui:
 
 
 #dia-price-baseline
-price _: dia-price(\"BTC/USD\" oracle-price-timeout),
+price _: dia-price(dia-id oracle-price-timeout),
 _: price;
 
 
 #dia-price-baseline-inv
-price _: dia-price(\"BTC/USD\" oracle-price-timeout),
+price _: dia-price(dia-id oracle-price-timeout),
 _: inv(price);
 
 
