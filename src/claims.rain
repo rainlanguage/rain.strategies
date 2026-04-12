@@ -22,7 +22,7 @@ deployments:
     order: base
     scenario: base
 
-gui:
+builder:
   name: Claims
   description: Verifies merkle proofs against a set merkle root and distributes claims
   short-description: The order owner sets the merkle root at deploy time, the order taker then claims the output tokens by submitting the proof and the expected reward.
