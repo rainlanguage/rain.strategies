@@ -1,8 +1,8 @@
-version: 6
+version: 4
 
 scenarios:
   arbitrum:
-    raindex: arbitrum
+    orderbook: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xcCf3E6e16E40B26618d216b4385d086664876782
@@ -12,7 +12,7 @@ scenarios:
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
   base:
-    raindex: base
+    orderbook: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
@@ -22,7 +22,7 @@ scenarios:
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
   polygon:
-    raindex: polygon
+    orderbook: polygon
     runs: 1
     bindings:
       raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
@@ -33,7 +33,7 @@ scenarios:
       initial-input-token: ${order.inputs.0.token.address}
 orders:
   arbitrum:
-    raindex: arbitrum
+    orderbook: arbitrum
     inputs:
       - token: token1
       - token: token2
@@ -41,7 +41,7 @@ orders:
       - token: token1
       - token: token2
   base:
-    raindex: base
+    orderbook: base
     inputs:
       - token: token1
       - token: token2
@@ -49,7 +49,7 @@ orders:
       - token: token1
       - token: token2
   polygon:
-    raindex: polygon
+    orderbook: polygon
     inputs:
       - token: token1
       - token: token2
@@ -66,7 +66,7 @@ deployments:
   polygon:
     order: polygon
     scenario: polygon
-gui:
+builder:
   name: Two-sided dynamic spread orders
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/dynamic-spread.md
   short-description: A market-making order that offers two-sided auction-based spreads that narrow over time, with a defensive feature that quickly exits positions by counter-trading when market trends emerge.
