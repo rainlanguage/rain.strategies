@@ -15,7 +15,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
+      subparser-0: 0xbb6De28efb44fEDADcf688b6FE7ca9361464D075
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
     raindex: base
@@ -23,7 +23,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
+      subparser-0: 0xbb6De28efb44fEDADcf688b6FE7ca9361464D075
       baseline-fn: '''pyth-price-baseline-inv'
 
 
@@ -120,6 +120,8 @@ gui:
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
             - name: Equity.US.RKLB/USD
               value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
+            - name: Equity.US.SGOV/USD
+              value: 0x924571756974792e55532e53474f562f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -233,6 +235,8 @@ gui:
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
             - name: Equity.US.RKLB/USD
               value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
+            - name: Equity.US.SGOV/USD
+              value: 0x924571756974792e55532e53474f562f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
