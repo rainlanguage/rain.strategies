@@ -1,4 +1,5 @@
 version: 6
+
 networks:
   base:
     rpcs:
@@ -9,10 +10,13 @@ networks:
     chain-id: 8453
     network-id: 8453
     currency: ETH
+
 subgraphs:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/ob4-base/2026-02-05-c4ef/gn
+
 metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
+
 raindexes:
   base:
     address: 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D
@@ -20,10 +24,12 @@ raindexes:
     subgraph: base
     deployment-block: 41747644
     local-db-remote: raindex
+
 rainlangs:
   base:
     address: 0x22508460712C350e914b49155982d3A92D923b10
     network: base
+
 using-tokens-from:
   - https://tokens.coingecko.com/base/all.json
 
