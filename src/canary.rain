@@ -1,38 +1,31 @@
 version: 6
 
-raindexes:
-  canary-arbitrum:
-    network: arbitrum
-    subgraph: arbitrum
-    address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
-    deployment-block: 352866209
-    local-db-remote: raindex
 orders:
-  canary-arbitrum:
-    raindex: canary-arbitrum
+  base:
+    raindex: base
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
     outputs:
       - token: output
 scenarios:
-  canary-arbitrum:
-    raindex: canary-arbitrum
-    rainlang: arbitrum
+  base:
+    raindex: base
+    rainlang: base
     runs: 1
     bindings:
-      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
 deployments:
-  canary-arbitrum:
-    order: canary-arbitrum
-    scenario: canary-arbitrum
+  base:
+    order: base
+    scenario: base
 builder:
   name: Canary
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/canary.md
   short-description: Does nothing except give a bounty to the solver regularly.
   deployments:
-    canary-arbitrum:
-      name: Canary on Arbitrum.
+    base:
+      name: Canary on Base.
       description:
         A simple order that gives a bounty to the solver regularly.
       deposits:
@@ -69,7 +62,6 @@ builder:
           name: Output Token
         - key: input
           name: Input Token
-
 ---
 #raindex-subparser !The subparser contract address for Raindex.
 #cooldown !The time in seconds between possible trades.
