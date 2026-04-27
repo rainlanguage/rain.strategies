@@ -11,6 +11,7 @@ scenarios:
       amount-token: ${order.inputs.0.token.address}
       initial-output-token: ${order.outputs.1.token.address}
       initial-input-token: ${order.inputs.0.token.address}
+
 orders:
   base:
     raindex: base
@@ -20,6 +21,7 @@ orders:
     outputs:
       - token: token1
       - token: token2
+
 deployments:
   base:
     order: base

@@ -7,6 +7,7 @@ orders:
       - token: token1
     outputs:
       - token: token2
+
 scenarios:
   base:
     raindex: base
@@ -14,6 +15,7 @@ scenarios:
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
       fixed-io-output-token: ${order.outputs.0.token.address}
+
 deployments:
   base:
     order: base

@@ -8,6 +8,7 @@ orders:
       - token: input
     outputs:
       - token: output
+
 scenarios:
   base:
     raindex: base
@@ -15,6 +16,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+
 deployments:
   base:
     order: base

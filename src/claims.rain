@@ -41,7 +41,6 @@ builder:
           name: Output Token
         - key: input
           name: Input Token
-
 ---
 #raindex-subparser !The subparser to use.
 #merkle-words !The subparser for merkle words.

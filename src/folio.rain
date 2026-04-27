@@ -81,9 +81,7 @@ builder:
         - key: token7
           name: Token 7
           description: The seventh token in the portfolio.
-
 ---
-
 #raindex-subparser !The subparser to use.
 
 #threshold !The threshold for rebalancing the portfolio.
