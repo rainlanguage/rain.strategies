@@ -1,19 +1,15 @@
-version: 4
+version: 6
 
-orderbooks:
+raindexes:
   canary-arbitrum:
     network: arbitrum
     subgraph: arbitrum
     address: 0x2f209e5b67A33B8fE96E28f24628dF6Da301c8eB
     deployment-block: 352866209
     local-db-remote: raindex
-deployers:
-  canary-arbitrum:
-    network: arbitrum
-    address: 0x5e9e22154d71f9fd4b5fd1ee36852a4c9fcdcc9e
 orders:
   canary-arbitrum:
-    orderbook: canary-arbitrum
+    raindex: canary-arbitrum
     inputs:
       # Input is irrelevant because we always set the IO ratio to 0.
       - token: input
@@ -21,7 +17,8 @@ orders:
       - token: output
 scenarios:
   canary-arbitrum:
-    orderbook: canary-arbitrum
+    raindex: canary-arbitrum
+    rainlang: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666

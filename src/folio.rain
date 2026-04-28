@@ -1,8 +1,8 @@
-version: 4
+version: 6
 
 orders:
   base:
-    orderbook: base
+    raindex: base
     inputs:
       - token: token1
       - token: token2
@@ -22,7 +22,7 @@ orders:
 
 scenarios:
   base:
-    orderbook: base
+    raindex: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB

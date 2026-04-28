@@ -1,27 +1,27 @@
-version: 4
+version: 6
 
 orders:
   arbitrum:
-    orderbook: arbitrum
+    raindex: arbitrum
     inputs:
       - token: input
     outputs:
       - token: output
   base:
-    orderbook: base
+    raindex: base
     inputs:
       - token: input
     outputs:
       - token: output
   polygon:
-    orderbook: polygon
+    raindex: polygon
     inputs:
       - token: input
     outputs:
       - token: output
 scenarios:
   arbitrum:
-    orderbook: arbitrum
+    raindex: arbitrum
     runs: 1
     bindings:
       raindex-subparser: 0xcCf3E6e16E40B26618d216b4385d086664876782
@@ -30,7 +30,7 @@ scenarios:
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
   base:
-    orderbook: base
+    raindex: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
@@ -39,8 +39,8 @@ scenarios:
       initial-io-fn: '''constant-initial-io'
       shy-epoch: 0.05
   pyth-price-baseline-base:
-    orderbook: base
-    deployer: base
+    raindex: base
+    rainlang: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
@@ -50,8 +50,8 @@ scenarios:
       next-trade-baseline-multiplier: 0
       shy-epoch: 0.05
   pyth-price-baseline-base-inv:
-    orderbook: base
-    deployer: base
+    raindex: base
+    rainlang: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
@@ -61,7 +61,7 @@ scenarios:
       next-trade-baseline-multiplier: 0
       shy-epoch: 0.05
   polygon:
-    orderbook: polygon
+    raindex: polygon
     runs: 1
     bindings:
       raindex-subparser: 0xAD4DeD9BBda1B409536906Fa48fe2b261bBaBde1
