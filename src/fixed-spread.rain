@@ -1,8 +1,8 @@
-version: 6
+version: 5
 
 orders:
   base:
-    raindex: base
+    orderbook: base
     inputs:
       - token: input
     outputs:
@@ -10,7 +10,7 @@ orders:
 
 scenarios:
   pyth-price-baseline-base:
-    raindex: base
+    orderbook: base
     rainlang: base
     runs: 1
     bindings:
@@ -18,7 +18,7 @@ scenarios:
       subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
-    raindex: base
+    orderbook: base
     rainlang: base
     runs: 1
     bindings:
@@ -36,7 +36,7 @@ deployments:
     scenario: pyth-price-baseline-base-inv
 
 
-gui:
+builder:
   name: Pyth fixed spread limit
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
   short-description:  >

@@ -25,7 +25,7 @@ Each `.rain` file has two sections separated by `---`:
    - `orders:` — Order definitions referencing raindexes and token pairs
    - `scenarios:` — Simulation/test scenarios with bindings
    - `deployments:` — Maps orders to scenarios for deployment
-   - `gui:` — UI configuration with fields, presets, and token selectors
+   - `builder:` — UI configuration with fields, presets, and token selectors
    - Optional: `raindexes:`, `rainlangs:` — Strategy-specific overrides of settings.yaml
 
 2. **Rain Language section**: Source code with `#`-prefixed named expressions (e.g., `#calculate-io`, `#handle-io`, `#handle-add-order`).
