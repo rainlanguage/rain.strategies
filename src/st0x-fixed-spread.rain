@@ -1,0 +1,189 @@
+version: 5
+
+orders:
+  base:
+    orderbook: base
+    oracle-url: https://st0x-oracle-server.fly.dev/context/v1
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  st0x-oracle-baseline-base:
+    orderbook: base
+    rainlang: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      oracle-signer: 0x8Ff1CA8ED2e98f693A3eA16b3EBE44FE90500A43
+      oracle-schema-version: 1
+
+
+deployments:
+  base-st0x:
+    order: base
+    scenario: st0x-oracle-baseline-base
+
+
+gui:
+  name: St0x fixed spread limit
+  description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
+  short-description:  >
+    A strategy where the ratio tracks a benchmark price with a fixed multiplier
+  deployments:
+    base-st0x:
+      name: Base st0x fixed spread
+      description: Deploy an fixed-spread strategy on Base using St0x price feeds.
+      deposits:
+        - token: output
+      fields:
+        - binding: baseline-multiplier
+          name: Benchmark price multiplier
+          description: |
+            The multiplier to be applied to the benchmark when calculating the price the strategy will offer at
+          show-custom-field: true
+          default: 1.001
+          presets:
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+            - name: 1.0025x
+              value: 1.0025
+        - binding: min-price
+          name: Minimum Price
+          description: >
+            Floor price as a safety guard. If the oracle returns a price
+            below this, the order reverts. Protects against catastrophic
+            mispricings or broken oracle data. Set based on the asset -
+            e.g. 0.01 for penny stocks, 10 for blue chips.
+          default: 0.01
+          min: 0.000001
+        - binding: max-price
+          name: Maximum Price
+          description: >
+            Ceiling price as a safety guard. If the oracle returns a
+            price above this, the order reverts. Protects against
+            overflow or encoding errors. Set generously above the
+            asset's expected range.
+          default: 100000
+          min: 1
+        - binding: max-staleness
+          name: Max Staleness (seconds)
+          description: >
+            Maximum allowed age (in seconds) of the oracle's Alpaca
+            publish_time relative to block.timestamp. If the cached
+            oracle quote is older than this, the order reverts. 30
+            seconds is a reasonable default given the server polls
+            Alpaca every 10 seconds.
+          default: 30
+          min: 1
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase
+---
+#raindex-subparser !Raindex subparser.
+
+#oracle-signer !The trusted signer address for the st0x oracle server.
+#baseline-multiplier !WAD multiplier to apply to the baseline (e.g. 1.001).
+#oracle-schema-version !Expected oracle context schema version.
+#min-price !Minimum acceptable oracle price. Orders revert below this. Catches catastrophic mispricings.
+#max-price !Maximum acceptable oracle price. Orders revert above this. Catches overflow or encoding errors.
+#max-staleness !Maximum age in seconds between Alpaca publish_time and block.timestamp. Orders revert past this.
+
+
+#st0x-oracle-baseline
+  /* Verify the signed context comes from the trusted st0x oracle signer */
+  :ensure(
+    equal-to(signer<0>() oracle-signer)
+    "Untrusted oracle signer"
+  ),
+
+  /* Schema version guard
+  * If the server ever changes the context layout, live orders must
+  * revert instead of interpreting the new layout as the old one. */
+  oracle-version: signed-context<0 0>(),
+  :ensure(
+    equal-to(oracle-version oracle-schema-version)
+    "Oracle schema version mismatch"
+  ),
+
+  /* Read oracle price from signed context column 0, row 1 */
+  oracle-price: signed-context<0 1>(),
+
+  /* Read Alpaca-reported publish time (seconds since epoch) from
+   * signed context column 0, row 2. This is the time Alpaca says the
+   * price was valid at -- NOT our fetch time or sign time. */
+  oracle-publish-time: signed-context<0 2>(),
+
+  /* Future-timestamp guard: publish_time must not be ahead of
+   * block.timestamp. Without this, a future publish_time would make
+   * `sub(now() oracle-publish-time)` negative, and a negative number
+   * is always less than max-staleness, so the staleness check below
+   * would silently pass. Catches clock skew on the signer side and
+   * outright bad data. */
+   :ensure(
+     less-than-or-equal-to(oracle-publish-time now())
+     "Publish time in future"
+    ),
+
+  /* Staleness guard: reject if the quote is older than max-staleness
+   * seconds relative to block.timestamp. */
+   :ensure(
+    less-than-or-equal-to(
+        sub(now() oracle-publish-time)
+        max-staleness
+     )
+     "Oracle data stale"
+   ),
+
+  /*
+   * SAFETY GUARDS
+   * These protect against bugs, malformed oracle data, or server mishaps.
+   * They are NOT market risk controls - staleness already handles that.
+   */
+
+  /* Guard: zero ratio
+   * A zero price means something is fundamentally broken - bad encoding,
+   * uninitialised data, or a server bug. Allowing it would give away
+   * tokens for free. */
+   :ensure(
+    greater-than(oracle-price 0)
+    "Oracle price is zero"
+   ),
+
+   /* Guard: minimum price bound
+    * Configurable floor to catch catastrophic mispricings. If the oracle
+    * returns a price below this, something is broken upstream. Set per
+    * asset - e.g. $0.01 for penny stocks, $10 for blue chips. */
+    :ensure(
+     greater-than(oracle-price min-price)
+     "Price below minimum bound"
+    ),
+
+    /* Guard: maximum price bound
+    * Configurable ceiling to catch overflow or encoding errors. No single
+    * equity share should price above this. Set per asset - e.g. $1,000
+    * for a mid-cap, $100,000 as a generous catch-all. */
+    :ensure(
+     less-than(oracle-price max-price)
+     "Price above maximum bound"
+    ),
+    _: oracle-price;
+
+#calculate-io
+using-words-from raindex-subparser
+offer-amount: max-positive-value(), 
+io: mul(call<'st0x-oracle-baseline>() baseline-multiplier);
+
+
+#handle-io
+:;
+
+#handle-add-order
+:;
