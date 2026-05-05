@@ -15,7 +15,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0xbb6De28efb44fEDADcf688b6FE7ca9361464D075
+      subparser-0: 0xBA96247C2B154CCe29758b889e40a56B924f7E8F
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
     orderbook: base
@@ -23,7 +23,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0xbb6De28efb44fEDADcf688b6FE7ca9361464D075
+      subparser-0: 0xBA96247C2B154CCe29758b889e40a56B924f7E8F
       baseline-fn: '''pyth-price-baseline-inv'
 
 
@@ -122,6 +122,12 @@ gui:
               value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
             - name: Equity.US.SGOV/USD
               value: 0x924571756974792e55532e53474f562f55534400000000000000000000000000
+            - name: Equity.US.QQQM/USD
+              value: 0x924571756974792e55532e5151514d2f55534400000000000000000000000000
+            - name: Equity.US.VWO/USD
+              value: 0x914571756974792e55532e56574f2f5553440000000000000000000000000000
+            - name: Equity.US.ARKK/USD
+              value: 0x924571756974792e55532e41524b4b2f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -237,6 +243,12 @@ gui:
               value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
             - name: Equity.US.SGOV/USD
               value: 0x924571756974792e55532e53474f562f55534400000000000000000000000000
+            - name: Equity.US.QQQM/USD
+              value: 0x924571756974792e55532e5151514d2f55534400000000000000000000000000
+            - name: Equity.US.VWO/USD
+              value: 0x914571756974792e55532e56574f2f5553440000000000000000000000000000
+            - name: Equity.US.ARKK/USD
+              value: 0x924571756974792e55532e41524b4b2f55534400000000000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
