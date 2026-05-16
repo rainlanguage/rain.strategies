@@ -15,7 +15,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x7C2d92001D9EBFb5004537270b64e1ff025eCa25
+      subparser-0: 0x2eb60224c2FEF6D33227b9F070fa4e5178c58885
       baseline-fn: '''dia-price-baseline'
   dia-price-baseline-base-inv:
     orderbook: base
@@ -23,7 +23,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x7C2d92001D9EBFb5004537270b64e1ff025eCa25
+      subparser-0: 0x2eb60224c2FEF6D33227b9F070fa4e5178c58885
       baseline-fn: '''dia-price-baseline-inv'
 
 
@@ -56,8 +56,16 @@ gui:
             For example, if you are selling WETH and buying USDC then you would use the WETH/USD price feed.
           show-custom-field: false
           presets:
-            - name: BTC/USD
-              value: '"BTC/USD"'
+            - name: AMZN
+              value: '"AMZN"'
+            - name: TSLA
+              value: '"TSLA"'
+            - name: NVDA
+              value: '"NVDA"'
+            - name: COIN
+              value: '"COIN"'
+            - name: MSTR
+              value: '"MSTR"'
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -107,8 +115,16 @@ gui:
             For example, if you are buying WETH and selling USDC then you would use the WETH/USD price feed.
           show-custom-field: false
           presets:
-            - name: BTC/USD
-              value: '"BTC/USD"'
+            - name: AMZN
+              value: '"AMZN"'
+            - name: TSLA
+              value: '"TSLA"'
+            - name: NVDA
+              value: '"NVDA"'
+            - name: COIN
+              value: '"COIN"'
+            - name: MSTR
+              value: '"MSTR"'
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
