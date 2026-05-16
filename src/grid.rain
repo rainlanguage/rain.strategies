@@ -18,7 +18,7 @@ deployments:
   arbitrum:
     order: arbitrum
     scenario: arbitrum
-gui:
+builder:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/grid.md
   short-description: Places automated orders at fixed price intervals with optional automatic refilling over time.
