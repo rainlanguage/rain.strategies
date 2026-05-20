@@ -36,7 +36,7 @@ deployments:
     scenario: pyth-price-baseline-base-inv
 
 
-gui:
+builder:
   name: Pyth fixed spread limit
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
   short-description:  >

@@ -32,7 +32,7 @@ deployments:
     order: base
     scenario: base
 
-gui:
+builder:
   name: Folio
   description: Maintains an equal distribution of assets in a portfolio.
   short-description: Rebalances a portfolio to maintain equal distribution of assets.
