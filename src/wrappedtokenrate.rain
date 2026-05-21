@@ -32,6 +32,7 @@ gui:
       description: Deploy a wrapped token rate limit order on Base.
       deposits:
         - token: output
+      fields: []
       select-tokens:
         - key: output
           name: Token to Sell
