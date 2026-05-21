@@ -1,0 +1,59 @@
+version: 5
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  wrapped-token-rate-base:
+    orderbook: base
+    rainlang: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+
+deployments:
+  base:
+    order: base
+    scenario: wrapped-token-rate-base
+
+gui:
+  name: Wrapped token rate
+  description: A limit order where the IO ratio is derived from the ratio of ERC20 total supplies of the output and input tokens.
+  short-description: >
+    Tracks the wrapped-to-underlying token rate using on-chain total supply ratios.
+  deployments:
+    base:
+      name: Base wrapped token rate
+      description: Deploy a wrapped token rate limit order on Base.
+      deposits:
+        - token: output
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell (e.g. the wrapped token)
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase (e.g. the underlying token)
+
+---
+#raindex-subparser !The subparser to use.
+#pyth-words !The subparser for merkle words.
+
+#calculate-io
+using-words-from raindex-subparser pyth-words
+
+    t-token-total-supply: erc20-total-supply(output-token()),
+    wt-token-total-supply: erc20-total-supply(input-token()),
+    wt-price: div(t-token-total-supply wt-token-total-supply),
+    _ _: max-positive-value() wt-price;
+
+#handle-io
+:;
+
+#handle-add-order
+:;
