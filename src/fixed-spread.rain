@@ -52,10 +52,10 @@ deployments:
   base-pyth-inv:
     order: base
     scenario: pyth-price-baseline-base-inv
-  base-pyth-dividends
+  base-pyth-dividends:
     order: base
     scenario: pyth-dividends-baseline-base
-  base-pyth-dividends-inv
+  base-pyth-dividends-inv:
     order: base
     scenario: pyth-dividends-baseline-base-inv
 
