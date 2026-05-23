@@ -325,7 +325,7 @@ gui:
           name: Token to Buy
           description: Select the token you want to purchase
     base-pyth-dividends:
-      name: Base pyth sell shares
+      name: Base pyth sell shares for dividends
       description: Deploy an fixed-spread strategy on Base using Pyth price feeds to sell shares.
       deposits:
         - token: output
@@ -454,7 +454,7 @@ gui:
           name: Token to Buy
           description: Select the token you want to purchase
     base-pyth-dividends-inv:
-      name: Base pyth buy shares
+      name: Base pyth buy shares for dividends
       description: Deploy an fixed-spread trategy on Base using Pyth price feeds to buy shares.
       deposits:
         - token: output
