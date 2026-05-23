@@ -611,7 +611,7 @@ price _: pyth-price(pyth-pair oracle-price-timeout),
 _: inv(mul(price erc4626-convert-to-assets(input-token() 1)));
 
 #calculate-io
-using-words-from raindex-subparser subparser-0
+using-words-from raindex-subparser subparser-0 st0x-words
 offer-amount: max-positive-value(), 
 io: mul(call<'baseline-fn>() baseline-multiplier);
 
