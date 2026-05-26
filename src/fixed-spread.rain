@@ -26,7 +26,6 @@ scenarios:
       subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
       baseline-fn: '''pyth-price-baseline-inv'
 
-
 deployments:
   base-pyth:
     order: base
@@ -34,8 +33,6 @@ deployments:
   base-pyth-inv:
     order: base
     scenario: pyth-price-baseline-base-inv
-
-
 builder:
   name: Pyth fixed spread limit
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/fixed-spread.md
@@ -268,8 +265,6 @@ builder:
         - key: input
           name: Token to Buy
           description: Select the token you want to purchase
-
-
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.

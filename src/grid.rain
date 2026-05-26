@@ -1,23 +1,25 @@
 version: 6
 
 orders:
-  arbitrum:
-    raindex: arbitrum
+  base:
+    raindex: base
     inputs:
       - token: token1
     outputs:
       - token: token2
+
 scenarios:
-  arbitrum:
-    raindex: arbitrum
+  base:
+    raindex: base
     bindings:
-      raindex-subparser: 0xe80e7438ce6b1055c8e9CDE1b6336a4F9D53C666
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
       tranche-space-min-headroom: 0.25
       tranche-space-recharge-delay: 300
+
 deployments:
-  arbitrum:
-    order: arbitrum
-    scenario: arbitrum
+  base:
+    order: base
+    scenario: base
 builder:
   name: Grid
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/grid.md
@@ -58,45 +60,7 @@ builder:
         - key: token2
           name: Token to sell
           description: Select the token you want to sell.
-
-    polygon:
-      name: Polygon
-      description:
-        Deploy a grid order on Polygon.
-      deposits:
-        - token: token2
-      fields:
-        - binding: baseline-io-ratio
-          name: Baseline ${order.inputs.0.token.symbol} per ${order.outputs.0.token.symbol}
-        - binding: io-ratio-growth
-          name: IO ratio growth per tranche
-        - binding: tranche-size
-          name: Tranche size in ${order.outputs.0.token.symbol}
-        - binding: seconds-per-tranche
-          name: Time to recharge one grid tranche in seconds (0 is disabled).
-          show-custom-field: true
-          default: 0
-          presets:
-            - name: Disabled (0)
-              value: 0
-            - name: 1 hour (3600)
-              value: 3600
-            - name: 6 hours (21600)
-              value: 21600
-            - name: 12 hours (43200)
-              value: 43200
-            - name: 24 hours (86400)
-              value: 86400
-      select-tokens:
-        - key: token1
-          name: Token to buy
-          description: Select the token you want to purchase.
-        - key: token2
-          name: Token to sell
-          description: Select the token you want to sell.
-
 ---
-
 #raindex-subparser !The subparser for Raindex.
 
 #baseline-io-ratio !The IO ratio that the order starts at. The quote token is the output so that the IO ratio looks like a CEX price.
