@@ -34,7 +34,7 @@ using-tokens-from:
   - https://tokens.coingecko.com/base/all.json
 
 local-db-remotes:
-  raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1776335970169/manifest.yaml
+  raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1779707978613/manifest.yaml
 
 local-db-sync:
   base:
