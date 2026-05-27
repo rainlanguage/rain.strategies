@@ -1,9 +1,9 @@
-https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/settings.yaml
-fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/fixed-limit.rain
-auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/auction-dca.rain
-grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/grid.rain
-dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/dynamic-spread.rain
-canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/canary.rain
-claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/claims.rain
-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/fixed-spread.rain
-folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/a416ecb9c926357afd547765bfe326ea121c8cf2/src/folio.rain
+https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/settings.yaml
+fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/fixed-limit.rain
+auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/auction-dca.rain
+grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/grid.rain
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/dynamic-spread.rain
+canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/canary.rain
+claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/claims.rain
+fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/fixed-spread.rain
+folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/folio.rain
