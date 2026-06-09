@@ -602,13 +602,10 @@ price _: pyth-price(pyth-pair oracle-price-timeout),
 _: inv(price);
 
 #pyth-dividends
-price _: pyth-price(pyth-pair oracle-price-timeout),
-_: mul(price erc4626-convert-to-assets(output-token() 1));
+_: erc4626-convert-to-assets(output-token() 1);
 
 #pyth-dividends-inv
-price _: pyth-price(pyth-pair oracle-price-timeout),
-ioratio: inv(price),
-_: mul(ioratio erc4626-convert-to-shares(input-token() 1));
+_: erc4626-convert-to-shares(input-token() 1);
 
 #calculate-io
 using-words-from raindex-subparser subparser-0 st0x-words
