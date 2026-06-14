@@ -2,7 +2,7 @@ https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b04941627
 fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/fixed-limit.rain
 auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/auction-dca.rain
 grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/grid.rain
-dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/dynamic-spread.rain
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/29a781d772099255465a17f043be8b11ea671f5f/src/dynamic-spread.rain
 canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/canary.rain
 claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/claims.rain
 fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/95f6c246b049416275762d8f4008ca8ed445b034/src/fixed-spread.rain
