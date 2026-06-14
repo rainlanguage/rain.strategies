@@ -182,7 +182,12 @@ builder:
 
 #halflife
 epoch:,
-val: power(0.5 epoch);
+/* The exponent is clamped to 192 because power(0.5 x) reverts with
+PRBMath_UD60x18_Exp2_InputTooBig once x exceeds 192. At an exponent of
+192 the decay multiplier 0.5^192 is already ~1.6e-58, i.e. effectively
+zero, so clamping leaves the decay fully saturated rather than reverting
+for any longer-running auction. */
+val: power(0.5 min(epoch 192));
 
 #set-last-trade
 last-io:,
