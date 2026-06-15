@@ -1,1 +1,4 @@
-This strategy has the ratio track a benchmark price (e.g. pyth) with a fixed multiplier. As long as that multiplier is >1, the strategy will always offer to trade at a premium to the benchmark, thereby increasing the likelihood that the deployer can "buy low sell high".
+This strategy has the ratio track a benchmark price (e.g. pyth) with a fixed
+multiplier. As long as that multiplier is >1, the strategy will always offer to
+trade at a premium to the benchmark, thereby increasing the likelihood that the
+deployer can "buy low sell high".
