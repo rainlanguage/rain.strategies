@@ -1,8 +1,8 @@
-version: 5
+version: 6
 
 orders:
   base:
-    orderbook: base
+    raindex: base
     inputs:
       - token: input
     outputs:
@@ -10,7 +10,7 @@ orders:
 
 scenarios:
   dia-price-baseline-base:
-    orderbook: base
+    raindex: base
     rainlang: base
     runs: 1
     bindings:
@@ -18,14 +18,13 @@ scenarios:
       subparser-0: 0xb4bf51998aB1f1b733C9df4a06e131182dBDf447
       baseline-fn: '''dia-price-baseline'
   dia-price-baseline-base-inv:
-    orderbook: base
+    raindex: base
     rainlang: base
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
       subparser-0: 0xb4bf51998aB1f1b733C9df4a06e131182dBDf447
       baseline-fn: '''dia-price-baseline-inv'
-
 
 deployments:
   base-dia:
@@ -34,7 +33,6 @@ deployments:
   base-dia-inv:
     order: base
     scenario: dia-price-baseline-base-inv
-
 
 builder:
   name: Dia fixed spread limit
@@ -160,8 +158,6 @@ builder:
         - key: input
           name: Token to Buy
           description: Select the token you want to purchase
-
-
 ---
 #raindex-subparser !Raindex subparser.
 #subparser-0 !Subparser 0.
