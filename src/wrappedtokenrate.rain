@@ -1,0 +1,75 @@
+version: 5
+
+orders:
+  base:
+    orderbook: base
+    inputs:
+      - token: input
+    outputs:
+      - token: output
+
+scenarios:
+  wrapped-token-rate-base:
+    orderbook: base
+    rainlang: base
+    runs: 1
+    bindings:
+      raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+      pyth-words: 0x8542c952c8D3441b9B861Fe582E2BC620058348E
+
+deployments:
+  base:
+    order: base
+    scenario: wrapped-token-rate-base
+
+gui:
+  name: Wrapped token rate
+  description: A limit order where the IO ratio is derived from the ratio of ERC20 total supplies of the output and input tokens.
+  short-description: >
+    Tracks the wrapped-to-underlying token rate using on-chain total supply ratios.
+  deployments:
+    base:
+      name: Base wrapped token rate
+      description: Deploy a wrapped token rate limit order on Base.
+      deposits:
+        - token: output
+      fields:
+        - binding: baseline-multiplier
+          name: Rate multiplier
+          description: |
+            Multiplier applied to the on-chain supply ratio. Use 1 to trade at the raw wrapped token rate.
+          show-custom-field: true
+          default: 1
+          presets:
+            - name: 1x
+              value: 1
+            - name: 1.001x
+              value: 1.001
+            - name: 1.005x
+              value: 1.005
+      select-tokens:
+        - key: output
+          name: Token to Sell
+          description: Select the token you want to sell (e.g. the wrapped token)
+        - key: input
+          name: Token to Buy
+          description: Select the token you want to purchase (e.g. the underlying token)
+
+---
+#raindex-subparser !The subparser to use.
+#pyth-words !The subparser for merkle words.
+#baseline-multiplier !Multiplier applied to the supply ratio (default 1).
+
+#calculate-io
+using-words-from raindex-subparser pyth-words
+
+    t-token-total-supply: erc20-total-supply(output-token()),
+    wt-token-total-supply: erc20-total-supply(input-token()),
+    wt-price: div(t-token-total-supply wt-token-total-supply),
+    _ _: max-positive-value() mul(wt-price baseline-multiplier);
+
+#handle-io
+:;
+
+#handle-add-order
+:;

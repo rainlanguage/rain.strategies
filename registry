@@ -1,10 +1,11 @@
-https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/settings.yaml
-fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/fixed-limit.rain
-auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/auction-dca.rain
-grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/grid.rain
-dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/dynamic-spread.rain
-canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/canary.rain
-claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/claims.rain
-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/fixed-spread.rain
-folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/folio.rain
-st0x-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/4e796a05b4754538b130a84e48b9a2b75f3ecb90/src/st0x-fixed-spread.rain
+https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/settings.yaml
+fixed-limit https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/fixed-limit.rain
+auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/auction-dca.rain
+grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/grid.rain
+dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/dynamic-spread.rain
+canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/canary.rain
+claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/claims.rain
+fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/fixed-spread.rain
+folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/folio.rain
+st0x-fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/st0x-fixed-spread.rain
+wrappedtokenrate.rain https://raw.githubusercontent.com/rainlanguage/rain.strategies/ac29edcda6f305156dac3c2f39ae25848ad2dbd9/src/wrappedtokenrate.rain
