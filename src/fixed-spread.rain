@@ -15,7 +15,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
+      subparser-0: 0x00E4E180ECD9CE94F3C3b050f9C395937E90B00c
       baseline-fn: '''pyth-price-baseline'
   pyth-price-baseline-base-inv:
     orderbook: base
@@ -23,7 +23,7 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
-      subparser-0: 0x21026b98bA3909E34e9a42295A812614bb0C7F21
+      subparser-0: 0x00E4E180ECD9CE94F3C3b050f9C395937E90B00c
       baseline-fn: '''pyth-price-baseline-inv'
 
 
@@ -120,6 +120,22 @@ gui:
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
             - name: Equity.US.RKLB/USD
               value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
+            - name: Equity.US.SGOV/USD
+              value: 0x924571756974792e55532e53474f562f55534400000000000000000000000000
+            - name: Equity.US.QQQM/USD
+              value: 0x924571756974792e55532e5151514d2f55534400000000000000000000000000
+            - name: Equity.US.VWO/USD
+              value: 0x914571756974792e55532e56574f2f5553440000000000000000000000000000
+            - name: Equity.US.ARKK/USD
+              value: 0x924571756974792e55532e41524b4b2f55534400000000000000000000000000
+            - name: Equity.US.CEG/USD
+              value: 0x914571756974792e55532e4345472f5553440000000000000000000000000000
+            - name: Equity.US.TSM/USD
+              value: 0x914571756974792e55532e54534d2f5553440000000000000000000000000000
+            - name: Equity.US.TSM/USD.PRE
+              value: 0x954571756974792e55532e54534d2f5553442e50524500000000000000000000
+            - name: Equity.US.TSM/USD.POST
+              value: 0x964571756974792e55532e54534d2f5553442e504f5354000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
@@ -233,6 +249,22 @@ gui:
               value: 0x924571756974792e55532e50504c542f55534400000000000000000000000000
             - name: Equity.US.RKLB/USD
               value: 0x924571756974792e55532e524b4c422f55534400000000000000000000000000
+            - name: Equity.US.SGOV/USD
+              value: 0x924571756974792e55532e53474f562f55534400000000000000000000000000
+            - name: Equity.US.QQQM/USD
+              value: 0x924571756974792e55532e5151514d2f55534400000000000000000000000000
+            - name: Equity.US.VWO/USD
+              value: 0x914571756974792e55532e56574f2f5553440000000000000000000000000000
+            - name: Equity.US.ARKK/USD
+              value: 0x924571756974792e55532e41524b4b2f55534400000000000000000000000000
+            - name: Equity.US.CEG/USD
+              value: 0x914571756974792e55532e4345472f5553440000000000000000000000000000
+            - name: Equity.US.TSM/USD
+              value: 0x914571756974792e55532e54534d2f5553440000000000000000000000000000
+            - name: Equity.US.TSM/USD.PRE
+              value: 0x954571756974792e55532e54534d2f5553442e50524500000000000000000000
+            - name: Equity.US.TSM/USD.POST
+              value: 0x964571756974792e55532e54534d2f5553442e504f5354000000000000000000
         - binding: baseline-multiplier
           name: Benchmark price multiplier
           description: |
