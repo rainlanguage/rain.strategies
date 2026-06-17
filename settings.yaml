@@ -30,11 +30,11 @@ local-db-remotes:
   raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1779881382550/manifest.yaml
 local-db-sync:
   base:
-    batch-size: 50
-    max-concurrent-batches: 1
+    batch-size: 200
+    max-concurrent-batches: 2
     retry-attempts: 3
     retry-delay-ms: 1000
-    rate-limit-delay-ms: 5000
+    rate-limit-delay-ms: 1000
     finality-depth: 4
-    bootstrap-block-threshold: 300
+    bootstrap-block-threshold: 3000
     sync-interval-ms: 5000
