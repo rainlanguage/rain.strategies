@@ -1,0 +1,7 @@
+name: rainix-rs
+on: [push]
+jobs:
+  static:
+    uses: rainlanguage/rainix/.github/workflows/rainix-rs-static.yaml@main
+  test:
+    uses: rainlanguage/rainix/.github/workflows/rainix-rs-test.yaml@main
