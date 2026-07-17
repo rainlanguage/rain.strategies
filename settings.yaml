@@ -15,10 +15,10 @@ metaboards:
   base: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/metadata-base/2025-07-06-594f/gn
 raindexes:
   base:
-    address: 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D
+    address: 0x5FE36e6b6c320f8FD0B6109B2315253387DbdeF2
     network: base
     subgraph: base
-    deployment-block: 41747644
+    deployment-block: 48715479
     local-db-remote: raindex
 rainlangs:
   base:
