@@ -26,6 +26,7 @@ rainlangs:
     network: base
 using-tokens-from:
   - https://tokens.coingecko.com/base/all.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/8c1aee5c4d8865aae92962379042dd4f829b0a08/token-lists/base.json
 local-db-remotes:
   raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1779881382550/manifest.yaml
 local-db-sync:
