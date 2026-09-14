@@ -38,10 +38,6 @@ raindexes:
     deployment-block: 41747644
     local-db-remote: raindex
   robinhood:
-    # Canonical RaindexV6 on Robinhood Chain. local-db-remote reuses the shared
-    # raindex manifest URL; lookup is by chain-id + address, so Base's dump is
-    # not applied. Replace with a Robinhood-specific remote once
-    # rain.local-db.remote publishes one.
     address: 0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20
     network: robinhood
     deployment-block: 59557818
@@ -72,13 +68,4 @@ local-db-sync:
     rate-limit-delay-ms: 1000
     finality-depth: 4
     bootstrap-block-threshold: 3000
-    sync-interval-ms: 5000
-  robinhood:
-    batch-size: 50
-    max-concurrent-batches: 1
-    retry-attempts: 3
-    retry-delay-ms: 1000
-    rate-limit-delay-ms: 5000
-    finality-depth: 4
-    bootstrap-block-threshold: 300
     sync-interval-ms: 5000
