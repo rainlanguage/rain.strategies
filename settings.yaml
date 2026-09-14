@@ -9,8 +9,25 @@ networks:
     chain-id: 8453
     network-id: 8453
     currency: ETH
+  ethereum:
+    rpcs:
+      - https://ethereum-rpc.publicnode.com
+      - https://eth.drpc.org
+      - https://ethereum.publicnode.com
+    chain-id: 1
+    network-id: 1
+    currency: ETH
+  robinhood:
+    rpcs:
+      - https://rpc.mainnet.chain.robinhood.com
+      - https://robinhood-rpc.publicnode.com
+      - https://robinhood.drpc.org
+    chain-id: 4663
+    network-id: 4663
+    currency: ETH
 subgraphs:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-base/prod/gn
+  robinhood: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/raindex-robinhood-mainnet/0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20-b398652/gn
 metaboards:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-base/prod/gn
 raindexes:
@@ -20,13 +37,26 @@ raindexes:
     subgraph: base
     deployment-block: 41747644
     local-db-remote: raindex
+  robinhood:
+    address: 0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20
+    network: robinhood
+    deployment-block: 59557818
+    subgraph: robinhood
+    local-db-remote: raindex
 rainlangs:
   base:
     address: 0x22508460712C350e914b49155982d3A92D923b10
     network: base
+  robinhood:
+    address: 0x2DdEa6131E0e46536c6b658D5ACFf922E6133be5
+    network: robinhood
 using-tokens-from:
   - https://tokens.coingecko.com/base/all.json
   - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/8c1aee5c4d8865aae92962379042dd4f829b0a08/token-lists/base.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/d2acd5fababdf8e63bc3d9f1d6b19b5431279b4b/token-lists/ethereum.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/d2acd5fababdf8e63bc3d9f1d6b19b5431279b4b/token-lists/ethereum-quotes.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/b38a90a0007df94ce9a716564b7cafb413c5e6af/token-lists/robinhood.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/b38a90a0007df94ce9a716564b7cafb413c5e6af/token-lists/robinhood-quotes.json
 local-db-remotes:
   raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1779881382550/manifest.yaml
 local-db-sync:
