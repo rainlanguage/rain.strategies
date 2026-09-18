@@ -69,3 +69,12 @@ local-db-sync:
     finality-depth: 4
     bootstrap-block-threshold: 3000
     sync-interval-ms: 5000
+  robinhood:
+    batch-size: 5000
+    max-concurrent-batches: 2
+    retry-attempts: 3
+    retry-delay-ms: 1000
+    rate-limit-delay-ms: 5000
+    finality-depth: 100
+    bootstrap-block-threshold: 60000
+    sync-interval-ms: 5000
