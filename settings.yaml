@@ -27,7 +27,7 @@ networks:
     currency: ETH
 subgraphs:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-base/prod/gn
-  robinhood: https://api.goldsky.com/api/public/project_clv14x04y9kzi01saerx7bxpg/subgraphs/raindex-robinhood-mainnet/0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20-b398652/gn
+  robinhood: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-robinhood-mainnet/prod/gn
 metaboards:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-base/prod/gn
 raindexes:
