@@ -5,7 +5,6 @@ networks:
       - https://mainnet.base.org
       - https://base.drpc.org
       - https://base-rpc.publicnode.com
-      - https://developer-access-mainnet.base.org
     chain-id: 8453
     network-id: 8453
     currency: ETH
@@ -27,7 +26,7 @@ networks:
     currency: ETH
 subgraphs:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-base/prod/gn
-  robinhood: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-robinhood/0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20-b398652/gn
+  robinhood: https://api.subgraph.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-robinhood/prod/gn
 metaboards:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-base/prod/gn
   robinhood: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-robinhood/prod/gn
