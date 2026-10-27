@@ -25,18 +25,17 @@ networks:
     network-id: 4663
     currency: ETH
 subgraphs:
-  base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-base/prod/gn
+  base: https://api.subgraph.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-base/legacy/gn
   robinhood: https://api.subgraph.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-robinhood/prod/gn
 metaboards:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-base/prod/gn
   robinhood: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-robinhood/prod/gn
 raindexes:
   base:
-    address: 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D
+    address: 0xb05D73E6BCc26AEB5b67Ff68C6E9C6151073e3cE
     network: base
     subgraph: base
-    deployment-block: 41747644
-    local-db-remote: raindex
+    deployment-block: 46821107
   robinhood:
     address: 0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20
     network: robinhood
@@ -60,15 +59,6 @@ using-tokens-from:
 local-db-remotes:
   raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1779881382550/manifest.yaml
 local-db-sync:
-  base:
-    batch-size: 200
-    max-concurrent-batches: 2
-    retry-attempts: 3
-    retry-delay-ms: 1000
-    rate-limit-delay-ms: 1000
-    finality-depth: 4
-    bootstrap-block-threshold: 3000
-    sync-interval-ms: 5000
   robinhood:
     batch-size: 5000
     max-concurrent-batches: 2
