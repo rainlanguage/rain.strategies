@@ -30,7 +30,8 @@ builder:
     base:
       name: Claims on Base.
       description:
-        A simple strategy that distributes rewards by verifying the proofs submitted
+        A simple strategy that distributes rewards by verifying the proofs submitted.
+        A claim is a take by the leaf recipient.
       deposits:
         - token: output
       fields:
@@ -50,14 +51,24 @@ builder:
 /* Compute hash of leaf node */
 #get-leaf-node
   /**
+  * A claim is a take. On take and on quote, sender() and order-counterparty()
+  * are both the caller. On clear, sender() is the clearer and
+  * order-counterparty() is the other order's owner.
+  *
   * signed-context<0 0> is the leaf index
-  * order-counterparty() is the order taker who is claiming the reward
+  * sender() is the claimant, the address that called take
   * signed-context<0 1> is the expected claim amount
   *
-  * All the leaves of the merkle tree are computed by precisely these,
-  * hence the order taker MUST provide the index and the expected amount in the signed context.
+  * Leaves are hash(index, claimant, amount). On take, sender() is that
+  * claimant, so an existing tree still verifies. The ensure rejects a clear
+  * of someone else's leaf. order-clearer() is not read here: that row is
+  * absent on take, and reading it reverts the claim.
   */
-  _: hash(signed-context<0 0>() order-counterparty() signed-context<0 1>());
+  :ensure(
+    equal-to(sender() order-counterparty())
+    "Take only"
+  ),
+  _: hash(signed-context<0 0>() sender() signed-context<0 1>());
 
 #check-claim
   leaf-node: ,
