@@ -31,7 +31,7 @@ builder:
       name: Claims on Base.
       description:
         A simple strategy that distributes rewards by verifying the proofs submitted.
-        A claim is a take by the leaf recipient.
+        V7. The leaf recipient must make the call.
       deposits:
         - token: output
       fields:
@@ -51,22 +51,25 @@ builder:
 /* Compute hash of leaf node */
 #get-leaf-node
   /**
-  * A claim is a take. On take and on quote, sender() and order-counterparty()
-  * are both the caller. On clear, sender() is the clearer and
-  * order-counterparty() is the other order's owner.
+  * V7. The leaf recipient must make the call.
+  *
+  * On take and on quote, sender() and order-counterparty() are both the
+  * caller. On clear, sender() is the clearer and order-counterparty() is
+  * the other order's owner. sender() is the V7 word for that caller.
+  * order-clearer() is not read here: on V7 that row is absent on take,
+  * and reading it reverts the claim.
   *
   * signed-context<0 0> is the leaf index
-  * sender() is the claimant, the address that called take
+  * sender() is the claimant
   * signed-context<0 1> is the expected claim amount
   *
-  * Leaves are hash(index, claimant, amount). On take, sender() is that
-  * claimant, so an existing tree still verifies. The ensure rejects a clear
-  * of someone else's leaf. order-clearer() is not read here: that row is
-  * absent on take, and reading it reverts the claim.
+  * Leaves are hash(index, claimant, amount). The ensure requires the
+  * caller to be the counterparty. A recipient can still clear against
+  * their own order, because then those two addresses are the same.
   */
   :ensure(
     equal-to(sender() order-counterparty())
-    "Take only"
+    "Caller not counterparty"
   ),
   _: hash(signed-context<0 0>() sender() signed-context<0 1>());
 
