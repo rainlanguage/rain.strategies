@@ -4,6 +4,6 @@ auction-dca https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b790
 grid https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b79037c5ba167fb47e435a3f3d6bfbfa414c26e/src/grid.rain
 dynamic-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b79037c5ba167fb47e435a3f3d6bfbfa414c26e/src/dynamic-spread.rain
 canary https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b79037c5ba167fb47e435a3f3d6bfbfa414c26e/src/canary.rain
-claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b79037c5ba167fb47e435a3f3d6bfbfa414c26e/src/claims.rain
+claims https://raw.githubusercontent.com/rainlanguage/rain.strategies/f7609492e195e0839b380807d18376897943c1f8/src/claims.rain
 fixed-spread https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b79037c5ba167fb47e435a3f3d6bfbfa414c26e/src/fixed-spread.rain
 folio https://raw.githubusercontent.com/rainlanguage/rain.strategies/9b79037c5ba167fb47e435a3f3d6bfbfa414c26e/src/folio.rain
