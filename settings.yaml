@@ -40,6 +40,7 @@ subgraphs:
 metaboards:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-base/prod/gn
   robinhood: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-robinhood/prod/gn
+  zerog: https://api.goldsky.com/api/public/project_cmjr2df7svg6t01tl2ic706ao/subgraphs/metaboard-0g/0x8fD50fF9Db9835ba1B61394752A26F53D721D2a1-8495788/gn
 raindexes:
   base:
     address: 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D
