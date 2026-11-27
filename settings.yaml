@@ -24,12 +24,23 @@ networks:
     chain-id: 4663
     network-id: 4663
     currency: ETH
+  zerog:
+    rpcs:
+      - https://evmrpc.0g.ai
+      - https://0g.drpc.org
+      - https://0g-rpc.publicnode.com
+    chain-id: 16661
+    network-id: 16661
+    currency: 0G
+    label: 0G
 subgraphs:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-base/prod/gn
   robinhood: https://api.subgraph.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/raindex-robinhood/prod/gn
+  zerog: https://api.goldsky.com/api/public/project_cmjr2df7svg6t01tl2ic706ao/subgraphs/raindex-v6-0g/0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20-a7cd1a0d5ced9f70/gn
 metaboards:
   base: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-base/prod/gn
   robinhood: https://subgraph.api.ormilabs.com/api/public/9f4fc2fa-4a15-44f7-a7c1-66fdaa518a71/subgraphs/metadata-robinhood/prod/gn
+  zerog: https://api.goldsky.com/api/public/project_cmjr2df7svg6t01tl2ic706ao/subgraphs/metaboard-0g/0x8fD50fF9Db9835ba1B61394752A26F53D721D2a1-8495788/gn
 raindexes:
   base:
     address: 0xe522cB4a5fCb2eb31a52Ff41a4653d85A4fd7C9D
@@ -43,6 +54,11 @@ raindexes:
     deployment-block: 59557818
     subgraph: robinhood
     local-db-remote: raindex
+  zerog:
+    address: 0x37FC0EFec37D19f8A221aa4F8F7600C9ba2AcD20
+    network: zerog
+    deployment-block: 50763646
+    subgraph: zerog
 rainlangs:
   base:
     address: 0x22508460712C350e914b49155982d3A92D923b10
@@ -50,6 +66,9 @@ rainlangs:
   robinhood:
     address: 0x2DdEa6131E0e46536c6b658D5ACFf922E6133be5
     network: robinhood
+  zerog:
+    address: 0x820FB8ae43350f6F4F60117955751b0a6777aC54
+    network: zerog
 using-tokens-from:
   - https://tokens.coingecko.com/base/all.json
   - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/8c1aee5c4d8865aae92962379042dd4f829b0a08/token-lists/base.json
@@ -57,6 +76,8 @@ using-tokens-from:
   - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/d2acd5fababdf8e63bc3d9f1d6b19b5431279b4b/token-lists/ethereum-quotes.json
   - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/b38a90a0007df94ce9a716564b7cafb413c5e6af/token-lists/robinhood.json
   - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/b38a90a0007df94ce9a716564b7cafb413c5e6af/token-lists/robinhood-quotes.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/4e3a686fd967711117a32b81a0f9dffb0411ec22/token-lists/zerog.json
+  - https://raw.githubusercontent.com/ST0x-Technology/st0x.registry/4e3a686fd967711117a32b81a0f9dffb0411ec22/token-lists/zerog-quotes.json
 local-db-remotes:
   raindex: https://raindex-bootstrap-db.lon1.digitaloceanspaces.com/local-db-manifests/1779881382550/manifest.yaml
 local-db-sync:

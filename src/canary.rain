@@ -8,6 +8,13 @@ orders:
       - token: input
     outputs:
       - token: output
+  zerog:
+    raindex: zerog
+    inputs:
+      # Input is irrelevant because we always set the IO ratio to 0.
+      - token: input
+    outputs:
+      - token: output
 
 scenarios:
   base:
@@ -16,11 +23,20 @@ scenarios:
     runs: 1
     bindings:
       raindex-subparser: 0x22839F16281E67E5Fd395fAFd1571e820CbD46cB
+  zerog:
+    raindex: zerog
+    rainlang: zerog
+    runs: 1
+    bindings:
+      raindex-subparser: 0x09Bc7AF266012F44fb41D8Bd682da931666605e1
 
 deployments:
   base:
     order: base
     scenario: base
+  zerog:
+    order: zerog
+    scenario: zerog
 builder:
   name: Canary
   description: https://raw.githubusercontent.com/rainlanguage/rain.strategies/e25bc4876b5ffb8bb28097b0ca66de291c75ff56/src/canary.md
@@ -28,6 +44,44 @@ builder:
   deployments:
     base:
       name: Canary on Base.
+      description:
+        A simple order that gives a bounty to the solver regularly.
+      deposits:
+        - token: output
+      fields:
+        - binding: cooldown
+          name: Cooldown between possible trades in seconds.
+          show-custom-field: true
+          default: 300
+          presets:
+            - name: Two minutes (120)
+              value: 120
+            - name: Five minutes (300)
+              value: 300
+            - name: 1 hour (3600)
+              value: 3600
+        - binding: min-bounty
+          name: Minimum bounty to give to the solver
+        - binding: max-bounty
+          name: Maximum bounty to give to the solver
+        - binding: time-per-epoch
+          name: Total auction duration in seconds.
+          show-custom-field: true
+          default: 900
+          presets:
+            - name: 5 minutes
+              value: 300
+            - name: 15 minutes
+              value: 900
+            - name: 1 hour
+              value: 3600
+      select-tokens:
+        - key: output
+          name: Output Token
+        - key: input
+          name: Input Token
+    zerog:
+      name: Canary on 0G.
       description:
         A simple order that gives a bounty to the solver regularly.
       deposits:
